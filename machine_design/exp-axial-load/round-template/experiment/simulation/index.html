@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="UTF-8">
+
+<title>SOLVE - Machine Design - Axial Loads</title>
+
+<!-- DND-Required css and js files -->
+<link rel="stylesheet" href="css/MOMstyle.css" />
+
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js'></script>
+
+<script type="text/javascript" src= "js/dmestyle.js"></script> 
+
+
+</head>
+
+<body onload="editcss(); startsim(); varinit();">
+
+<!-- DND-Verifying JavaScript is enabled in browser -->
+<noscript>
+The simulation requires JavaScript to be enabled.
+</noscript>
+
+
+<!-- Author : Sai Aditya Raman 
+send an email to adityaraman09@gmail.com for any communication -->
+
+
+
+<!-- Defining Container for Simulation -->
+<div id="container">
+
+<!-- Replace TITLE with simulation title to be displayed next to logo-->
+<div id="simtitle">Axial Load</div>
+
+<!-- Region for simulation display -->
+<canvas id="simscreen" height="400px" width="550px"></canvas>
+
+<div id="titleincanvas"></div>
+
+<form id='exp' style="visibility: hidden;">
+  <label for="s1"> Stress (MPa)</label>
+  <input type="number" step="any" id="s1" ></input><br>
+  
+  <label for="s2"> Strain </label>
+  <input type="number" step="any" id="s2"></input><br>
+  
+  
+  <label for="s3">Deflection(mm)</label>
+  <input type="number" step="any" id="s3"></input>
+  <br>
+  <button id='checkbttn'type="button" style="padding: 0;" onclick="check()">Check</button>
+  <p style="font-size: 20px; position: absolute; top: 50px; left: 65px; visibility: hidden; color:red;" id="cross" >&#10008;</p>
+  <p style="font-size: 20px; position: absolute; top: 50px; left: 65px; visibility:hidden; color:green;" id="tick" >&#10004;</p>
+  </form>
+
+<!-- Region for comment / question prompts -->
+<div id="commentboxleft"></div>
+<div id="commentboxright"></div>
+
+<!-- DND-Title of region for variables display --> 
+<div id="vartitle">VARIABLES</div>
+
+<!-- Region for Input parameters of simulation -->
+<div id="variables">
+
+  <div class="variable">
+    <div id="tos" class="varname"><p title="Type of stress" >Load :</p>
+        <select id="stress" >
+        <option value="1">Compressive load</option>
+        <option value="2">Tensile load</option>
+        </select>
+    </div>
+  </div>
+  
+<!-- System variable input from user through slider and spinner jQuery widgets 
+repeat block with new variable name and new id for widgets-->
+<div class="variable">
+  <div class="varname"><p title="Length">length(mm)</p>
+  <input id="l1spinner"></input></div>
+  <div id="l1slider"></div>
+</div>
+  
+  <div class="variable">
+  <div class="varname"><p title="radius">Radius(mm)</p>
+  <input id="r1spinner"></input></div>
+  <div id="r1slider"></div>
+  </div>
+
+  <div class="variable">
+    <div id ='mt' class="varname"><p title="Material" >Material :</p>
+        <select id='material'>
+        <option value="1">Steel</option>
+        <option value="2">Grey cast iron</option>
+        <option value="3">Aluminium</option>
+  
+       </select>
+    </div>
+    </div>
+
+</div>
+
+
+<!-- DND-Title of region for controls display -->
+<div id="ctrltitle">CONTROLS</div>
+
+<!-- Region for User controls of simulation -->
+<div id="controls">
+<img id="playpausebutton" onclick="simstate()" src="images/bluepausedull.png" />
+<button id="calc" style="position: relative; top: 80px; left: 50px; " onclick="calculation(); Random();">Calculation</button><br>
+<button id="rst" style="position: relative; top: 90px; left: 65px;"  style="visibility: hidden;" onclick="Random(); resetcheck();"  >Reset</button>
+
+
+
+<!-- <img id="rotationbutton" onclick="rotstate()" src="sins/bluecwdull.png" /> -->
+
+<!--
+<div class="usercheck">
+<!-- Point tracing
+<input type="checkbox" id="trace" ></input> <p>Trace Mid Point</p>
+<!-- Reset Parameters
+<input type="button" id="resetparams" value="Reset" onclick="varinit();"></input> -->
+</div>
+
+
+<!-- DND-Copyright display-->
+<div id="copyright" title="Developer : SOLVEr"> Copyright &copy; SOLVE The Virtual Lab @ NITK Surathkal </div>
+
+</div><!-- Container div close -->
+
+<!-- For trials during development
+write in trythis() function the outputs that you want to check.
+<input type='button' onclick='trythis()' value="try me"></input> 
+-->
+
+
+
+</body>
+</html>

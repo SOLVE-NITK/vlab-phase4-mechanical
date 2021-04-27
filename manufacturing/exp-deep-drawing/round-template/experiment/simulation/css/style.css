@@ -1,0 +1,246 @@
+html
+{
+    -moz-user-select     : none;
+    -khtml-user-select   : none;
+    -webkit-user-select  : none;
+    -o-user-select       : none;
+    user-select          : none;
+}
+#simscreen
+{
+    position: relative;
+    left:0px;
+    top:0px;
+    height: 600px;
+    width:800px;
+    background-image: url("../images/background.png");
+}
+
+#copyright{
+position: absolute;
+left:50px;
+top: 585px;
+font-family: verdana;
+font-size:12px
+}
+
+#title{
+position:relative;
+left:50px;
+top:25px;
+height:40px;
+font-size: 24px;
+text-align:center;
+/* background-color: black; */
+font-family: 'Times New Roman', Times, serif;
+/* color: White; */
+text-transform: uppercase;
+}
+
+#title h3{
+padding-top:2px;
+margin:0px;
+}
+
+#objective{
+    /* t r b l */
+    padding: 5px 0 2px 0;
+    margin: 35px 0 0 0;
+}
+
+#apparatus{
+    /* t r b l */
+    padding: 5px 0 2px 0;
+    margin: 5px 0 0 0;
+}
+#question-div{
+	position: absolute;
+	left:300px;
+	top:350px;
+	width:300px;
+	height:120px;
+	border:solid 1px gray;
+	background-color: gray;
+	filter: alpha(opacity=55);
+	color:white;
+	visibility:hidden;
+}
+
+.simsubscreen
+{
+position:absolute;
+left: 50px;
+top: 50px;
+height:530px;
+width:745px;
+
+
+}
+
+.incanvas
+{
+margin:5px 0 0 5px;
+}
+#nextButton{
+    position: absolute;
+    left: 740px;
+    top: 520px;
+    cursor:pointer;
+}
+#nextButton1{
+    position: absolute;
+    left: 750px;
+    top: 530px;
+cursor:pointer;
+}
+
+
+#prevButton{
+    position: absolute;
+    left: 30px;
+    top: 520px;
+    cursor:pointer;
+
+}
+#reButton{
+    position: absolute;
+    left: 740px;
+    top: 520px;
+    visibility: hidden;
+    cursor:pointer;
+}
+
+.steptext{
+    display:inline;
+    position: absolute;
+    top: 40px;
+}
+
+.steptext-6{
+display:inline;}
+
+.steptext-2{display:inline;}
+
+.circlebg
+{
+border-radius:100%;
+font-size:25px;
+color:#fff;
+text-align:center;
+background:#000
+}
+
+/*-----------------------------------------blink----------------------- */
+
+
+
+@keyframes movepress{
+    0% {left:315px;top:170px;}
+	100% {left:315px;top:260px;}
+}
+@-webkit-keyframes movepress{
+  0% {left:315px;top:170px;}
+100% {left:315px;top:260px;}
+}
+
+
+@keyframes movepress2{
+  0% {left:315px;top:260px;}
+100% {left:315px;top:170px;}
+}
+@-webkit-keyframes movepress2{
+  0% {left:315px;top:260px;}
+100% {left:315px;top:170px;}
+}
+
+
+
+@keyframes movecup {
+   0% {left:470px;top:290px;}
+   30%{left:470px;top:270px;transform: scale(1);}
+   100%{left:50px;top:250px;transform: scale(2.5);}
+
+ }
+@-webkit-keyframes movecup{
+   0% {left:470px;top:290px;}
+   30%{left:470px;top:270px;transform: scale(1);}
+   100%{left:50px;top:250px;transform: scale(2.5);}
+ }
+
+
+
+@keyframes movew{
+    0% {left:200px;top:120px;}
+	100% {left:200px;top:220px;}
+}
+@-webkit-keyframes movew{
+    0% {left:200px;top:120px;}
+	100% {left:200px;top:220px;}
+}
+
+
+
+@keyframes moverbg{
+    0% {left:200px;top:120px;}
+	100% {left:170px;top:120px;}
+}
+@-webkit-keyframes moverbg{
+    0% {left:200px;top:120px;}
+	100% {left:170px;top:120px;}
+}
+
+
+
+@keyframes movelbg{
+    0% {left:200px;top:120px;}
+	100% {left:230px;top:120px;}
+}
+@-webkit-keyframes movelbg{
+    0% {left:200px;top:120px;}
+	100% {left:230px;top:120px;}
+}
+
+
+
+@keyframes movePattern {
+    0% {left:50px;top:350px;}
+    20%{left:50px;top:310px;}
+    70%{left:420px;top:310px;}
+	100% {left:460px;top:347px;}
+}
+@-webkit-keyframes movePattern{
+  0% {left:50px;top:350px;}
+  20%{left:50px;top:310px;}
+  70%{left:420px;top:310px;}
+100% {left:460px;top:347px;}
+}
+
+
+
+@keyframes movePattern2 {
+  0% {left:110px;top:340px;}
+  20%{left:110px;top:295px;}
+  70%{left:410px;top:295px;}
+100% {left:442px;top:329px;}
+}
+@-webkit-keyframes movePattern2{
+  0% {left:110px;top:340px;}
+  20%{left:110px;top:295px;}
+  70%{left:410px;top:295px;}
+100% {left:442px;top:329px;}
+}
+
+
+
+@keyframes movePattern3 {
+  0% {left:442px;top:329px;}
+  20%{left:410px;top:295px;}
+  70%{left:110px;top:295px;}
+100% {left:110px;top:340px;}
+}
+@-webkit-keyframes movePattern3{
+  0% {left:442px;top:329px;}
+  20%{left:410px;top:295px;}
+  70%{left:110px;top:295px;}
+100% {left:110px;top:340px;}
+}

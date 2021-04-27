@@ -1,0 +1,1 @@
+The aim of the experiment is to see for different velocities the cart completes the circular track or not and if not till how much height does it reaches? And to check if variation in mass results in change of velocity.

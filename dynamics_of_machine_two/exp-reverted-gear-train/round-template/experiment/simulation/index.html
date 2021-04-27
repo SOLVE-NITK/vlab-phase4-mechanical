@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="UTF-8">
+
+
+
+<!-- DND-Required css and js files -->
+<link rel="stylesheet" href="sins/MOMstyle1.css" />
+
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js'></script>
+
+<!-- <script type="text/javascript" src= "sins/MOMscript.js"></script> -->
+<script type="text/javascript" >
+//Script specific to simulation
+
+//program variables
+//controls section
+var simstatus=0;
+var rotstatus=1;
+//comments section
+var commenttext="Some Text";
+var commentloc=0;
+
+//computing section
+
+
+
+var refX;
+var x,y;
+
+//length of link
+var len = 50;
+var d1;var s2,s3,s4;
+var d2;
+var d3;
+var d4;var r23,r14;
+var r1,r2,r3,r4;
+//graphics section
+var canvas;
+var context;
+var W;
+var H;
+var teeth1;var teeth3;
+var teeth2;var teeth4;
+var vr;
+var gear;
+var gear2;
+var gear3;
+var gear4;
+var Gear;
+var ellapsed;
+var phiDegrees;
+var phi;
+var i;
+var alpha;
+var x;
+var y;
+var r,t4;
+var newRadius;
+var newDiam;
+var newTeeth;
+var actualDiameter;
+var actualRadius;
+var actualDist;
+var actualX;
+var actualY;
+var referenceX;
+var newGear;
+var gearRatio;
+var module;
+var e;
+var cr;
+var cd;
+var cr1;
+var cd2;var comp, comp1;
+var w1,w2,w4,w3;
+var firstX,secondX,thirdX,fourthX;
+var firstY,secondY,thirdY,fourthY;
+//timing section
+var simTimeId = setInterval("",'1000');
+var pauseTime = setInterval("",'1000');
+var time=0;
+var gearRat;
+//point tracing section
+var ptx = [];
+var pty = [];
+
+//click status of legend and quick reference
+var legendCS = false;
+var quickrefCS = false;
+//temporary or dummy variables
+var temp=0;
+var n1,n2,n3,n4;
+var angSpeed;
+
+/*
+// for trials during development
+function trythis()
+{ alert();}
+*/
+
+//change simulation specific css content. e.g. padding on top of variable to adjust appearance in variables window
+function editcss()
+{
+$('.variable').css('padding-top','20px');
+$('#datatable1').css('position','absolute');
+$('#datatable2').css('position','absolute');
+$('#datatable1').css('left','120px');
+$('#datatable1').css('top','340px');
+$('#datatable2').css('left','395px');
+$('#datatable2').css('top','340px');
+
+//$('#legend').css("width",document.getElementById('legendimg').width+"px");
+//$('#quickref').css("height",document.getElementById('quickrefimg').height+"px");
+
+}
+
+//start of simulation here; starts the timer with increments of 0.1 seconds
+function startsim()
+{
+simTimeId=setInterval("time=time+0.1; varupdate(); ",'1000');
+}
+
+// switches state of simulation between 0:Playing & 1:Paused
+function simstate()
+{
+	  
+	  reset();
+   var imgfilename=document.getElementById('playpausebutton').src; 
+   imgfilename = imgfilename.substring(imgfilename.lastIndexOf('/') + 1, imgfilename.lastIndexOf('.')); 
+   if(imgfilename == "bluepausedull")
+   {
+   document.getElementById('playpausebutton').src="sins/blueplaydull.png";
+   setButton();
+   }
+    if (imgfilename=="blueplaydull") 
+   { 
+		time=0; 
+		clearInterval(pauseTime); 
+     document.getElementById('playpausebutton').src="sins/bluepausedull.png";
+     simtimeid=setInterval("time=time+0.1; varupdate(); ",'100'); 
+    simstatus=0; 
+   } 
+
+}
+
+// switches state of rotation between 1:CounterClockWise & -1:Clockwise
+function rotstate()
+{
+  var imgfilename=document.getElementById('rotationbutton').src;
+  imgfilename = imgfilename.substring(imgfilename.lastIndexOf('/') + 1, imgfilename.lastIndexOf('.'));
+  if (imgfilename=="bluecwdull")
+  {
+    document.getElementById('rotationbutton').src="sins/blueccwdull.png";
+   <!-- d1 = 1; -->
+   <!-- d2 = 1; -->
+   <!-- d3 = 1; -->
+	<!-- d4 = 1; -->
+	rotstatus = 1;
+	reset();
+
+  }
+    if (imgfilename=="blueccwdull")
+  {
+    document.getElementById('rotationbutton').src="sins/bluecwdull.png";
+	<!-- d1 = -1; -->
+   <!-- d2 = 1; -->
+   <!-- d3 = 1; -->
+	<!-- d4 = 1; -->
+	rotstatus = -1;
+	reset();
+  }
+}
+
+//Initialise system parameters here
+function varinit()
+{
+varchange();
+//Variable r1 slider and number input types
+$('#l1slider').slider("value", 10);
+$('#l1spinner').spinner("value", 10);
+
+
+$('#l2slider').slider("value", 10);
+$('#l2spinner').spinner("value", 10);
+
+$('#l3slider').slider("value", 30);
+$('#l3spinner').spinner("value", 30);
+
+$('#l4slider').slider("value", 10);
+$('#l4spinner').spinner("value", 10);
+
+$('#l5slider').slider("value", 20);
+$('#l5spinner').spinner("value", 20);
+
+}
+
+
+
+// Initialise and Monitor variable containing user inputs of system parameters.
+//change #id and repeat block for new variable. Make sure new <div> with appropriate #id is included in the markup
+function varchange()
+{
+//Variable r2 slider and number input types
+$('#l1slider').slider({ max : 60, min : 5, step : 1 });	// slider initialisation : jQuery widget
+$('#l1spinner').spinner({ max : 60, min : 5, step : 1 });	// number initialisation : jQuery widget
+$( "#l1slider" ).on( "slide", function( e, ui ) { $('#l1spinner').spinner("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l1spinner" ).on( "spin", function( e, ui ) { $('#l1slider').slider("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l1spinner" ).on( "change", function() {  varchange() } );
+
+//Variable r2 slider and number input types
+$('#l2slider').slider({ max : 20, min : 10, step : 1 });	// slider initialisation : jQuery widget
+$('#l2spinner').spinner({ max : 20, min : 10, step : 1 });	// number initialisation : jQuery widget
+$( "#l2slider" ).on( "slide", function( e, ui ) { $('#l2spinner').spinner("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l2spinner" ).on( "spin", function( e, ui ) { $('#l2slider').slider("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l2spinner" ).on( "change", function() {  varchange() } );
+
+//Variable r3 slider and number input types
+$('#l3slider').slider({ max : 45, min : 30, step : 1 });	// slider initialisation : jQuery widget
+$('#l3spinner').spinner({ max : 45, min : 30, step : 1 });	// number initialisation : jQuery widget
+$( "#l3slider" ).on( "slide", function( e, ui ) { $('#l3spinner').spinner("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l3spinner" ).on( "spin", function( e, ui ) { $('#l3slider').slider("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l3spinner" ).on( "change", function() {  varchange() } );
+
+//Variable r4 slider and number input types
+$('#l4slider').slider({ max : 18, min : 10, step : 1 });	// slider initialisation : jQuery widget
+$('#l4spinner').spinner({ max : 18, min : 10, step : 1 });	// number initialisation : jQuery widget
+$( "#l4slider" ).on( "slide", function( e, ui ) { $('#l4spinner').spinner("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l4spinner" ).on( "spin", function( e, ui ) { $('#l4slider').slider("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l4spinner" ).on( "change", function() {  varchange() } );
+
+//Variable r5 slider and number input types
+$('#l5slider').slider({ max : 40, min : 20, step : 1});	// slider initialisation : jQuery widget
+$('#l5spinner').spinner({ max : 40, min : 20, step : 1 });	// number initialisation : jQuery widget
+$( "#l5slider" ).on( "slide", function( e, ui ) { $('#l5spinner').spinner("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l5spinner" ).on( "spin", function( e, ui ) { $('#l5slider').slider("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l5spinner" ).on( "change", function() {  varchange() } );
+
+varupdate();
+
+}
+
+
+
+//Computing of various system parameters
+function varupdate()
+{
+
+$(document).ready(function(){
+    $("select.module").change(function(){
+        module= $(this).children("option:selected").val();
+	
+});
+	});
+$('#l1slider').slider("value", $('#l1spinner').spinner('value'));  //updating slider location with change in spinner(debug)
+n1=$('#l1spinner').spinner("value");
+
+$('#l2slider').slider("value", $('#l2spinner').spinner('value'));  //updating slider location with change in spinner(debug)
+cr=$('#l2spinner').spinner("value");
+
+$('#l3slider').slider("value", $('#l3spinner').spinner('value'));  //updating slider location with change in spinner(debug)
+cd=$('#l3spinner').spinner("value");
+
+$('#l4slider').slider("value", $('#l4spinner').spinner('value'));  //updating slider location with change in spinner(debug)
+cr1=$('#l4spinner').spinner("value");
+
+$('#l5slider').slider("value", $('#l5spinner').spinner('value'));  //updating slider location with change in spinner(debug)
+cd2=$('#l5spinner').spinner("value");
+
+
+
+
+ //If simulation is running 
+ if(!simstatus) 
+{ 
+vr = ((teeth2 * teeth4)/(teeth1 * teeth3)).toFixed(2);
+gearRat = (1/vr).toFixed(2);
+n2 = (((2 * cr) * n1)/(2 * (cd - cr))).toFixed(2);
+n3 = n2;
+n4 = ((n3 * (2 * cr1))/(2 * (cd - cr1))).toFixed(2);
+
+ printcomment("Standarad module values are taken from S.C.PILLI data hand book(IS2535)<br>Velocity Ratio=(T2*T4)/(T1*T3)<br>Velocity ratio is : "+vr
+ +"<br>Gear Ratio is :"+gearRat+"<br>Speed of second Gear :"+n2+"rpm<br>Speed of third Gear :"+n3
+ +"rpm<br>Speed of fourth Gear :"+n4+"rpm<br>Gear1 teeth : "+teeth1+"<br>Gear2 teeth : "+teeth2
+ +"<br>Gear3 teeth : "+teeth3+"<br>Gear4 teeth : "+t4,1);
+// printcomment("Velocity ratio is : "+vr,2);
+ 
+ //doTimeout();
+ } 
+
+}
+
+//Simulation graphics
+function setButton()
+{
+	document.getElementById('playpausebutton').src="sins/blueplaydull.png";
+	n1=0;
+	w1=0;w2=0;w3 =0;w4=0;reset();
+	}
+
+function deg2rad(d) {
+		return (2 * Math.PI * d) / 360;
+	}
+
+	function rad2deg(r) {
+		return (360 * r) / (2 * Math.PI);
+	}
+
+	Gear = function(x, y, connectionRadius, teeth, fillStyle, strokeStyle) {
+		this.x = x;
+		this.y = y;
+		this.connectionRadius = connectionRadius;
+		this.teeth = teeth;
+
+		this.fillStyle = fillStyle;
+		this.strokeStyle = strokeStyle;
+
+		this.diameter = teeth * 4 * connectionRadius;
+		this.radius = this.diameter / (2 * Math.PI);
+
+		this.phi0 = 0; 
+		this.angularSpeed = 0;
+		this.createdAt = new Date();
+	}
+
+	Gear.prototype.render = function (context,fillStyle) {
+		ellapsed = new Date() - this.createdAt;
+		phiDegrees = this.angularSpeed * (ellapsed / 1000);
+		phi = this.phi0 + deg2rad(phiDegrees);
+
+		context.fillStyle = this.fillStyle;
+		context.strokeStyle = this.strokeStyle;
+		context.lineCap = 'round';
+		context.lineWidth = 2;
+
+		context.beginPath();
+		for (i = 0; i < this.teeth * 2; i++) {
+			alpha = 2 * Math.PI * (i / (this.teeth * 2)) + phi;
+			x = this.x + Math.cos(alpha) * this.radius;
+			y = this.y + Math.sin(alpha) * this.radius;
+			
+			context.arc(x, y, this.connectionRadius, -Math.PI / 2 + alpha, Math.PI / 2 + alpha, i % 2 == 0);
+		
+		}
+		context.arc(x, y,2.5, 0, 2 * Math.PI, true);
+		
+		context.fillStyle=fillStyle;
+		
+		
+		if(fillStyle == "red")
+		{
+		
+		context.rect(200,440,20,50);
+		context.rect(this.x - this.radius - this.connectionRadius, 450,(this.diameter/2)-this.connectionRadius,30);
+		
+		context.moveTo(x - this.connectionRadius, 450);
+		context.lineTo(x - this.connectionRadius,480);
+		
+		context.moveTo(x + this.connectionRadius, 450);
+		context.lineTo(x + this.connectionRadius,480);
+		context.stroke();
+				
+		}
+		
+		
+		if(fillStyle == "lime")
+		{
+		
+		context.rect(this.x-this.connectionRadius,440,20,130);
+		context.rect(this.x - this.radius - this.connectionRadius, 450,(this.radius * 2)+(2*this.connectionRadius),30);
+		
+		context.moveTo(x - this.connectionRadius, 450);
+		context.lineTo(x - this.connectionRadius, 480);
+		
+		context.moveTo(x + this.connectionRadius, 450);
+		context.lineTo(x + this.connectionRadius, 480);
+		
+		context.stroke();
+		
+		}
+		
+		if(fillStyle == "pink")
+		{
+		context.rect(200,520,20,50);
+		context.rect(this.x - this.radius - this.connectionRadius, 530,(this.diameter/2)-(3 * this.connectionRadius),30);
+		
+		context.moveTo(x - this.connectionRadius, 530);
+		context.lineTo(x - this.connectionRadius,560);
+		
+		context.moveTo(x + this.connectionRadius, 530);
+		context.lineTo(x + this.connectionRadius,560);
+		context.stroke();
+				
+		<!-- context.rect(this.x-this.connectionRadius,520,20,50); -->
+		<!-- context.rect(this.x - this.radius - this.connectionRadius, 530,(this.radius * 2)+(2*this.connectionRadius),30);	 -->
+		}
+		if(fillStyle == "powderblue")
+		{
+		context.rect(this.x - this.radius - this.connectionRadius, 530,(this.radius * 2)+(2*this.connectionRadius),30);
+		
+		context.moveTo(x - this.connectionRadius, 530);
+		context.lineTo(x - this.connectionRadius,560);
+		
+		context.moveTo(x + this.connectionRadius, 530);
+		context.lineTo(x + this.connectionRadius,560);
+		
+		context.stroke();
+		}
+		
+		
+		context.fill();
+		context.stroke();
+		
+		context.beginPath();
+		context.arc(this.x, this.y,10, 0, 2 * Math.PI, true);
+		context.fillStyle = "white";
+		context.fill();
+		context.stroke();
+	}
+	
+	//second gear
+	Gear.prototype.connect = function (x, y) {
+		r = this.radius;
+		newRadius = Math.max(cd-cr, 10);
+		console.log(newRadius);
+		r2 = newRadius;
+		newDiam = newRadius * 2 * Math.PI;
+		newTeeth = Math.round((2*newRadius)/module);
+		teeth2 = newTeeth;
+		actualDiameter = newTeeth * 4 * this.connectionRadius;
+		actualRadius = actualDiameter / (2 * Math.PI);
+		actualDist = r + actualRadius; // Actual distance from center of this gear
+		alpha = Math.atan2(y - this.y, x - this.x); // Angle between center of this gear and (x,y)
+		actualX = this.x + Math.cos(alpha) * actualDist; 
+		actualY = this.y + Math.sin(alpha) * actualDist;
+		referenceX = actualX;
+		secondX = actualX;
+		secondY = actualY;console.log(this.connectionRadius);
+		newGear = new Gear(actualX, actualY, this.connectionRadius, teeth2, this.fillStyle, this.strokeStyle);
+		gearRatio = this.teeth / newTeeth;
+		newGear.angularSpeed = -w1 *(teeth1/newTeeth);
+		w2=newGear.angularSpeed;
+		console.log(w2);
+		
+		this.phi0 = alpha + (this.phi0 - alpha);
+		newGear.phi0 = alpha + Math.PI + (Math.PI / newTeeth) + (this.phi0 - alpha) * (newGear.angularSpeed / this.angularSpeed);
+		newGear.createdAt = this.createdAt; 
+		return newGear;
+	}
+	
+		//Third gear
+		Gear.prototype.connect3 = function (x, y) {
+		r = this.radius;
+		newRadius = Math.max(cr1, 10);
+		r3 = newRadius;
+		newDiam = newRadius * 2 * Math.PI;
+		newTeeth = Math.round((2*newRadius)/module);
+		
+		teeth3 = newTeeth;
+		actualDiameter = newTeeth * 4 * r3;
+		actualRadius = actualDiameter / (2 * Math.PI);
+		actualDist = r + actualRadius; // Actual distance from center of this gear
+		alpha = Math.atan2(y - this.y, x - this.x); // Angle between center of this gear and (x,y)
+		actualX = this.x + Math.cos(alpha) * actualDist; 
+		actualY = this.y + Math.sin(alpha) * actualDist;
+		thirdX = actualX;
+		thirdY = actualY;
+		newGear = new Gear(referenceX, actualY, this.connectionRadius, newTeeth, this.fillStyle, this.strokeStyle);
+		gearRatio = this.teeth / newTeeth;
+		
+		newGear.angularSpeed = w2 ;
+		
+		w3=newGear.angularSpeed;
+				
+		this.phi0 = alpha + (this.phi0 - alpha);
+		newGear.phi0 = alpha + Math.PI + (Math.PI / newTeeth) + (this.phi0 - alpha) * (newGear.angularSpeed / this.angularSpeed);
+		newGear.createdAt = this.createdAt; 
+		return newGear;
+	}
+	
+		//Fourth Gear
+		Gear.prototype.connect4 = function (x, y) {
+		r = this.radius;
+		newRadius = Math.max(cd - cr1, 10);
+		r4 = newRadius;
+		newDiam = newRadius * 2 * Math.PI;
+		newTeeth = Math.round((2*newRadius)/module);
+		t4 = newTeeth;
+		if(newTeeth % 2 == 0)
+		{
+		newTeeth = newTeeth + 1;
+		}
+		teeth4 = newTeeth;
+		actualDiameter = newTeeth * 4 * r4;
+		actualRadius = actualDiameter / (2 * Math.PI);
+		actualDist = r + actualRadius; // Actual distance from center of this gear
+		alpha = Math.atan2(y - this.y, x - this.x); // Angle between center of this gear and (x,y)
+		
+		actualY = this.y + Math.sin(alpha) * actualDist;
+		//fourthX = actualX;
+		fourthY = actualY;
+		console.log(this.connectionRadius);
+		console.log(newTeeth);
+		newGear = new Gear(firstX, actualY, this.connectionRadius, newTeeth, this.fillStyle, this.strokeStyle);
+		gearRatio = this.teeth / newTeeth;
+		newGear.angularSpeed = -w3 *(teeth3/newTeeth);
+		w4=newGear.angularSpeed;
+				
+		this.phi0 = alpha + (this.phi0 );
+		newGear.phi0 = alpha + Math.PI + (Math.PI / newTeeth) + (this.phi0 - alpha) * (newGear.angularSpeed / this.angularSpeed);
+		newGear.createdAt = this.createdAt; 
+		return newGear;
+	}
+	
+	//function calls
+	function reset(){
+	    
+		canvas = document.getElementById('simscreen');
+		context = canvas.getContext('2d');
+		
+		
+		W = canvas.width;
+		H = canvas.height;
+		teeth1 = Math.round((2*cr)/module);
+	
+		gear = new Gear(200 , H/3 , cr, teeth1, "white", "black");
+		angSpeed = (n1 * 60 * Math.PI * (2 * cr))/1000;
+		gear.angularSpeed = rotstatus * angSpeed;
+		w1 = gear.angularSpeed;
+		firstX = 200;
+		firstY = H/3;
+	
+		gear2 = gear.connect(3 * (W / 4), H / 3);
+	
+		gear3 = gear.connect3(3 * (W / 4), H / 3);
+		
+		gear4 = gear.connect4(firstX,H/3);
+		
+		setInterval(function () {
+			canvas.width = canvas.width;		
+			gear.render(context,"red");
+			gear2.render(context,"lime");
+			//gear3.render(context,"powderblue");dimension2();
+			gear4.render(context,"pink");dimension1();
+			gear3.render(context,"powderblue");dimension2();
+			legend();
+		}, 1);
+		
+	}
+	
+	//default values
+	function reset1(){
+		canvas = document.getElementById('simscreen');
+		context = canvas.getContext('2d');
+		
+		W = canvas.width;
+		H = canvas.height;module = 5;
+		cr = 10;
+		cr1 = 10;
+		n1 = 10;
+		cd = 30;
+		teeth1 = Math.round((2*cr)/module);
+	
+		gear = new Gear(200 , H/3, cr, teeth1, "white", "black");
+		angSpeed = (n1 * 60 * Math.PI * (2 * cr))/1000;
+		gear.angularSpeed = rotstatus * angSpeed;
+		w1 = gear.angularSpeed;
+		firstX = 200;
+		firstY = H/3;
+	
+		gear2 = gear.connect(3 * (W / 4), H / 3);
+
+		gear3 = gear.connect3(3 * (W / 4), H / 3);
+		
+		gear4 = gear.connect4(firstX,H/3);
+	
+		setInterval(function () {
+			canvas.width = canvas.width;		
+			gear.render(context,"red");
+			gear2.render(context,"lime");
+			//gear3.render(context,"powderblue");dimension2();
+			gear4.render(context,"pink");dimension1();
+			gear3.render(context,"powderblue");dimension2();
+			legend();
+		}, 1);
+		  
+		
+	}
+	
+	function legend()
+	{
+	canvas = document.getElementById('simscreen');
+		context = canvas.getContext('2d');
+		context.beginPath();
+		context.arc(700, 10,10, 0, 2 * Math.PI, true);
+		context.fillStyle = "red";
+		context.fill();
+		context.stroke();
+		arrow({x: 715, y: 10},{x: 741, y:10},10);
+		context.font ="20px Arial";
+		context.fillStyle = "black";
+		context.fillText("Gear1",745, 17);
+		
+		context.beginPath();
+		context.arc(700, 35,10, 0, 2 * Math.PI, true);
+		context.fillStyle = "lime";
+		context.fill();
+		context.stroke();
+		arrow({x: 715, y: 35},{x: 741, y:35},10);
+		context.font ="20px Arial";
+		context.fillStyle = "black";
+		context.fillText("Gear2",745, 42);
+		
+		context.beginPath();
+		context.arc(700, 60,10, 0, 2 * Math.PI, true);
+		context.fillStyle = "powderblue";
+		context.fill();
+		context.stroke();
+		arrow({x: 715, y: 60},{x: 741, y:60},10);
+		context.font ="20px Arial";
+		context.fillStyle = "black";
+		context.fillText("Gear3",745, 67);
+		
+		context.beginPath();
+		context.arc(700, 85,10, 0, 2 * Math.PI, true);
+		context.fillStyle = "pink";
+		context.fill();
+		context.stroke();
+		arrow({x: 715, y: 85},{x: 741, y:85},10);
+		context.font ="20px Arial";
+		context.fillStyle = "black";
+		context.fillText("Gear4",745, 92);
+		}
+
+function dimension2(){
+canvas = document.getElementById('simscreen');
+		context = canvas.getContext('2d');
+		context.beginPath();
+		context.strokeStyle = "black";
+		context.strokeWidth = 1;
+		context.moveTo(secondX,200);
+		context.lineTo(secondX,50);
+		context.stroke();
+		
+}
+function dimension1(){
+canvas = document.getElementById('simscreen');
+		context = canvas.getContext('2d');
+	
+		context.beginPath();
+		context.strokeStyle = "black";
+		context.strokeWidth = 1;
+		context.moveTo(200,200);
+		context.lineTo(200,50);
+		context.stroke();
+		
+		arrow({x: 200, y: 50},{x: secondX, y:50},10);
+		arrow({x: secondX, y: 50},{x: 200, y:50},10);
+		e= ((200 + secondX)/2)-13;
+	
+		context.font ="20px Arial";
+		context.fillStyle = "black";
+		context.fillText("CD",e, 48);
+}
+
+//to draw arrow
+function arrow(p1, p2, size){
+var angle = Math.atan2((p2.y-p1.y),(p2.x-p1.x));
+var hyp = Math.sqrt((p2.x-p1.x)*(p2.x-p1.x)+(p2.y-p1.y)*(p2.y-p1.y));
+
+context.save();
+context.translate(p1.x,p1.y);
+context.rotate(angle);
+
+//line
+context.beginPath();
+context.moveTo(0,0);
+context.lineTo(hyp-size,0);
+context.stroke();
+
+//triangle
+context.fillStyle="black";
+context.beginPath();
+context.lineTo(hyp-size,size);
+context.lineTo(hyp,0);
+context.lineTo(hyp-size,-size);
+context.fill();
+context.restore();
+}
+
+// prints comments passed as 'commenttext' in location specified by 'commentloc' in the comments box;
+// 0 : Single comment box, 1 : Left comment box, 2 : Right comment box
+function printcomment(commenttext,commentloc)
+{
+  if(commentloc==1)
+  {
+  document.getElementById('commentboxright').style.visibility='visible';
+  document.getElementById('commentboxleft').style.width='500px';
+  document.getElementById('commentboxleft').innerHTML = commenttext;
+  }
+  else if(commentloc==2)
+  {
+  document.getElementById('commentboxright').style.visibility='visible';
+  document.getElementById('commentboxleft').style.width='285px';
+  document.getElementById('commentboxright').innerHTML = commenttext;
+  }
+  else
+  {
+  document.getElementById('commentboxright').style.visibility='hidden';
+  document.getElementById('commentboxleft').style.width='570px';
+  document.getElementById('commentboxleft').innerHTML = "<center>velghjisobjf";
+  // ignore use of deprecated tag <center> . Code is executed only if printcomment function receives inappropriate commentloc value
+  }
+}
+//function to convert radians to degrees
+function deg(vrad)
+{
+return vrad*180/Math.PI;
+}
+
+//function to convert degrees to radians
+function rad(vdeg)
+{
+return vdeg*Math.PI/180;
+}
+
+
+</script>
+
+</head>
+
+<body onload="editcss(); startsim(); varinit();reset1()">
+
+<!-- DND-Verifying JavaScript is enabled in browser -->
+<noscript>
+The simulation requires JavaScript to be enabled.
+</noscript>
+
+<!--
+Author : Sai Aditya Raman
+send an email to adityaraman09@gmail.com for any communication
+-->
+
+<!-- Defining Container for Simulation -->
+<div id="container">
+
+<!-- Replace TITLE with simulation title to be displayed next to logo-->
+<div id="simtitle"><b>REVERTED GEAR TRAIN(Cycloidal)</div>
+
+<!-- Region for simulation display -->
+<canvas id="simscreen" height="600" width="800"></canvas>
+
+<div id="titleincanvas"></div>
+<!-- Region for comment / question prompts -->
+<div id="commentboxleft"></div>
+<div id="commentboxright"></div>
+
+<!-- DND-Title of region for variables display -->
+<div id="vartitle">VARIABLES</div>
+
+<!-- Region for Input parameters of simulation -->
+<div id="variables" onclick = "setButton()">
+
+<!-- System variable input from user through slider and spinner jQuery widgets
+repeat block with new variable name and new id for widgets-->
+
+
+<center>
+<form>
+<br><label>Module(mm):</label>
+	<select class="module">
+	
+  <option value="5">5</option>
+  <option value="2">2</option>
+  <option value="2.5">2.5</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+ 
+  <option value="6">6</option>
+  <option value="8">8</option>
+  <option value="10">10</option>
+  <option value="12">12</option>
+  
+</select>
+</form></center>
+
+<div class="variable">
+<div class="varname"><p title="Radius of first gear">Radius1(mm)</p>
+<input id="l2spinner"></input></div>
+<div id="l2slider"></div>
+</div>
+
+<div class="variable">
+<div class="varname"><p title="Center distance betn 1st & 2nd gear">CD(mm)</p>
+<input id="l3spinner"></input></div>
+<div id="l3slider"></div>
+</div>
+
+<div class="variable">
+<div class="varname"><p title="Radius of third gear">Radius3(mm)</p>
+<input id="l4spinner"></input></div>
+<div id="l4slider"></div>
+</div>
+
+<div class="variable">
+<div class="varname"><p title="Speed of first Gear in rad/sec">N1(rpm)</p>
+<input id="l1spinner"></input></div>
+<div id="l1slider"></div>
+</div>
+
+</div>
+
+<!-- DND-Title of region for controls display -->
+<div id="ctrltitle">CONTROLS</div>
+
+<!-- Region for User controls of simulation -->
+<div id="controls">
+<img id="playpausebutton" onclick="simstate()" src="sins/bluepausedull.png" />
+<img id="rotationbutton" onclick="rotstate()" src="sins/bluecwdull.png" />
+
+</div>
+
+
+<!-- DND-Copyright display-->
+<div id="copyright" title="Developer : SOLVEr"> Copyright &copy; SOLVE The Virtual Lab @ NITK Surathkal </div>
+
+</div><!-- Container div close -->
+
+<!-- For trials during development
+write in trythis() function the outputs that you want to check.
+<input type='button' onclick='trythis()' value="try me"></input>
+-->
+
+
+
+</body>
+</html>

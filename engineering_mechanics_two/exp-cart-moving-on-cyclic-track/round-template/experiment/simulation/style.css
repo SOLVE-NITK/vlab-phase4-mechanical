@@ -1,0 +1,144 @@
+body{
+  position : relative;
+  font-family:"Comic Sans MS" , "Comic Sans" ,  cursive;
+}
+
+#myCanvas{
+  position: absolute;
+  width : 800px;
+  height: 600px;
+}
+
+#all_above_canvas{
+  position : absolute;
+  width : 25px !important;
+  display : block;
+  z-index:9999;
+}
+
+.btn{
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+
+}
+
+.btn-img{
+  width : 40px;
+  height : 40px;
+  border-radius: 12px;
+}
+#back_img{
+	position: absolute;
+}
+#stop{
+	position: absolute;
+	left : 710px;
+	top : 475px;
+}
+#start{
+	position: absolute;
+	left :630px;
+	top : 475px;
+}
+
+#velocity_slider{
+	position : absolute;
+	left : 630px;
+	top : 175px;
+}
+
+h1{
+  position : absolute;
+	left : 175px;
+	top : -5px;
+  z-index: 99999;
+  width: 800px;
+}
+
+h4{
+  position : absolute;
+  z-index: 99999;
+  width: 200px;
+}
+
+#var{
+  left : 650px;
+  top : 69px;
+}
+
+#con{
+  left : 650px;
+  top : 380px;
+}
+
+#velocity_number{
+	width : 120px;
+	position : absolute;
+	left : 630px;
+	top : 200px;
+}
+#velocity_div{
+	position : absolute;
+	left : 630px;
+	top : 150px;
+}
+
+#mass_slider{
+	position : absolute;
+	left : 630px;
+	top : 300px;
+}
+
+#mass_number{
+	width : 120px;
+	position : absolute;
+	left : 630px;
+	top : 325px;
+}
+#mass_div{
+	position : absolute;
+	left : 630px;
+	top : 275px;
+}
+
+#div_Results{
+  position : absolute;
+  left : 40px;
+  top : 400px;
+  z-index: 99999;
+  width: 800px;
+}
+#textarea{
+  position : absolute;
+  left : 40px;
+  top : 425px;
+}
+#stable{
+  position : absolute;
+  left : 40px;
+  top : 380px;
+  z-index: 99999;
+  width: 800px;
+}
+#interaction{
+  font-size: 1.5em;
+  font-weight: bold;
+  position : absolute;
+  left : 70px;
+  top : 100px;
+  z-index: 99999;
+  width: 800px;
+}
+#showing_height{
+  position : absolute;
+  font-weight: bold;
+  width: 800px;
+  left: 450px;
+  top: 250px;
+  color: #003366;
+  display: none;
+}

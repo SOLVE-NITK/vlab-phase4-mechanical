@@ -1,0 +1,1 @@
+The purpose of the experiment is to see the variation in the change in teeth, radius, speed of the gears for compound gear train setup and centre distance along with it the direction of rotation of the gears.

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="UTF-8">
+
+<title>SOLVE - Mechanics of Machines Lab - Four Bar Mechanism</title>
+
+<!-- DND-Required css and js files -->
+<link rel="stylesheet" href="css/MOMstyle.css" />
+
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js'></script>
+
+<!-- <script type="text/javascript" src= "sins/MOMscript.js"></script> -->
+<script src="js/ME.js"></script>
+
+</head>
+
+<body onload="editcss(); startsim(); varinit();">
+
+<!-- DND-Verifying JavaScript is enabled in browser -->
+<noscript>
+The simulation requires JavaScript to be enabled.
+</noscript>
+
+<!-- 
+Author : Sai Aditya Raman 
+send an email to adityaraman09@gmail.com for any communication
+-->
+
+<!-- Defining Container for Simulation -->
+<div id="container">
+
+<!-- Replace TITLE with simulation title to be displayed next to logo-->
+<div id="simtitle">Design of Shaft(Gear Driven)</div>
+
+<!-- Region for simulation display -->
+<canvas id="simscreen" height="400px" width="550px"></canvas>
+
+<div id="titleincanvas"></div>
+
+
+<!-- Region for comment / question prompts -->
+<div id="commentboxleft"></div>
+<div id="commentboxright"></div>
+
+<!-- DND-Title of region for variables display --> 
+<div id="vartitle">VARIABLES</div>
+
+<!-- Region for Input parameters of simulation -->
+<div id="variables">
+
+<!-- System variable input from user through slider and spinner jQuery widgets 
+repeat block with new variable name and new id for widgets-->
+<div class="variable">
+  <div class="varname">
+  <div>
+  <p title="Length 1">Length 1(mm)</p>
+  <input id="l1spinner"></input></div>
+  <div id="l1slider"></div></div>
+  </div>
+  
+  
+<div class="variable">
+  <div class="varname">
+  <div>
+  <p title="Length 2">Length 2(mm)</p>
+  <input id="l2spinner"></input></div>
+  <div id="l2slider"></div></div>
+  </div>
+
+<div class="variable">
+  <div class="varname">
+  <div>
+  <p title="Pitch circle diameter of gear 1">Diameter 1(mm)</p>
+  <input id="D1spinner"></input></div>
+  <div id="D1slider"></div></div>
+  </div>
+
+<div class="variable">
+  <div class="varname">
+  <div>
+  <p title="Pitch circle diameter of gear 2">Diameter 2(mm)</p>
+  <input id="D2spinner"></input></div>
+  <div id="D2slider"></div></div>
+  </div>
+
+  <div class="variable" >
+    <div class="varname2">
+      <p title="Pressure Angle" >Pressure Angle</p>
+        <select id='Angle'>
+        <option value="14.5">14.5°</option>
+        <option value="20">20°</option>
+        <option value="25">25°</option>
+  
+       </select>
+      </div>
+    </div>
+    <div class="variable" >
+      <div class="varname2">
+      <div>
+      <p title="Power(kW">Power(kW)</p>
+      <input id="p1spinner" ></input></div>
+      <div id="p1slider"></div></div>
+      </div>
+
+  <div class="variable" >
+    <div class="varname2">
+    <div>
+    <p title="Speed of Shaft">Speed of shaft in RPM </p>
+    <input id="n1spinner" ></input></div>
+    <div id="n1slider"></div></div>
+    </div>
+  
+    <div class="variable" >
+      <div class="varname2">
+      <div>
+      <p title="Allowable shear stress">Allowable shear stress(N/mm²)</p>
+      <input id="A1spinner" ></input></div>
+      <div id="A1slider"></div></div>
+      </div>
+
+
+    
+
+</div>
+
+<img id="screenfw" onclick="screenfwd()" src="images/bluefwddulls.png" style="position: absolute; top: 450px; left: 500px;">
+<img id="screenbw" onclick="screenbwd()" src="images/bluebkdullsbw.png" style="position: absolute; top: 450px; left: 450px;">
+
+
+<!-- DND-Title of region for controls display -->
+<div id="ctrltitle">CONTROLS</div>
+
+<!-- Region for User controls of simulation -->
+<div id="controls">
+<img id="playpausebutton" onclick="simstate()" src="images/bluepausedull.png" />
+<!-- <img id="rotationbutton" onclick="rotstate()" src="sins/bluecwdull.png" /> -->
+<img id="vsbw"  onclick="variablescreenbw()"src="images/bluebkdullsbw.png" />
+<img id="vsfw" onclick="variablescreenfw()" src="images/bluefwddulls.png" />
+
+
+<!--
+<div class="usercheck">
+<!-- Point tracing
+<input type="checkbox" id="trace" ></input> <p>Trace Mid Point</p>
+<!-- Reset Parameters
+<input type="button" id="resetparams" value="Reset" onclick="varinit();"></input> -->
+</div>
+
+
+<!-- DND-Copyright display-->
+<div id="copyright" title="Developer : SOLVEr"> Copyright 2021 &copy; SOLVE The Virtual Lab @ NITK Surathkal </div>
+
+</div><!-- Container div close -->
+
+<!-- For trials during development
+write in trythis() function the outputs that you want to check.
+<input type='button' onclick='trythis()' value="try me"></input> 
+-->
+
+
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exp 1</title>
+    <link rel="stylesheet" href="./css/exp1.css">
+    <script src="./js/exp1.js"></script>
+</head>
+
+<body id = "test"> 
+    
+<div id="simscreen">
+    <!--Title of Simulation 		-->
+    <div id="title"><h3>Basics Of Engineering Drawing</h3></div>
+    <div id="variables">
+        <form id="radios" action="">
+            <p><b>Select the Experiment:</b></p></br>
+        <input type="radio" id="1" name="navigation" value="1" onclick="if(this.checked){fun1()}">
+            <label for="1" class="radio">To bisect a line</label></br></br>
+        <input type="radio" id="2" name="navigation" value="2" onclick="if(this.checked){fun2()}">
+            <label for="2" class="radio">To bisect an angle</label></br></br>
+        <input type="radio" id="3" name="navigation" value="3" onclick="if(this.checked){fun3()}">
+            <label for="3" class="radio">Geometric Construction</label>       
+        </form>
+    </div>
+
+    <div class="simsubscreen" id="canvas0">
+    <h4 id="objective" style="font-family:verdana; ">Objective:</h4>
+    <p class="incanvas" style="font-family:verdana; font-size:15px;">To Learn how to bisect a line</p></br>
+    <h4 id="apparatus" style="font-family:verdana; ">Apparatus used:</h4>
+    <p class="incanvas" style="font-family:verdana; font-size:14px;">Drawing Compasses, Pencil ,Ruler ,Drafter</p>
+    <img id="compass"class="as" style="width: 90px;height: 130px;"  src="././images/compass - Copy.jpeg">
+    <img id="drafter" class="as" style="width: 300px;height: 130px;" src="././images/Drafter.jpeg">
+    <img id="ruler" class="as"  style="width: 100px;height: 90px;background-color: white;" src="././images/ruler2.png">
+      </div>
+      <div class="simsubscreen" id="canvas1" style="visibility:hidden">
+      <p class="incanvas" style="font-family:verdana; font-size:15px;"><b>To Learn how to bisect a line</b></p></br>
+      <img class="box" onclick=rotateimage() style="visibility: hidden;" id="image" src="./images/Design1.png">
+        <img class="box" onclick=rotateimage1() style="visibility: hidden;" id="image1" src="./images/Design.png">
+        <button onclick=visibleia() id="A" class="unstyled-button"><strong>A</strong></button>
+        <button onclick=visiblia() id="B" class="unstyled-button"><strong>B</strong></button>
+        <img class="arrow" style="z-index: 2;"id="blick" src="./images/blinkingarrow.png">      
+      <canvas style="z-index: 1;" id = "mycanvas" width="400px" height="500px">
+      </canvas>
+      </div>
+
+      <div class="simsubscreen" id="canvas2" style="visibility:hidden">
+         <p class="incanvas" style="font-family:Arial, Helvetica, sans-serif; font-size:15px;"><b>To Learn how to bisect an angle</b></p></br>
+         <img class="box" onclick=rotateimagea()  id="image3" src="./images/Design1.png">
+         <canvas id = "mycanvas1" width="600px" height="400px"> </canvas>
+         <img class="arrow" style="z-index: 2" id="blick2" src="./images/blinkingarrow.png">
+         <img class="arrow" style="z-index: 2;visibility: hidden;"id="blick6" src="./images/blinkingarrow.png">      
+         <button onclick=visibleia1() id="A1" class="unstyled-button"><strong>C</strong></button>
+         <button onclick=visibli1()  id="B1" class="unstyled-button"><strong>B</strong></button>
+         </div>
+         <div class="simsubscreen" id="canvas3" style="visibility:hidden">
+            <p class="incanvas" id="title1" style="font-family:verdana; font-size:15px;"><b>To Learn how to create a polygon</b></p></br>
+            <canvas id = "mycanvas2" width="600px" height="400px"> </canvas>
+            <strong id="titlestep" class="incanvas">STEP</strong>
+        <span class="circlebg" id="stepnumber">&nbsp;1&nbsp;</span> 
+        <p id="text" class="steptext incanvas" style="font-family:verdana;top: 0px;left: 10px; position: relative;">Draw a line equal to diameter of polygon</p></p>
+            <img onclick=roti() id="image4" src="./images/Next.png">
+            <img onclick=re() id="image5" src="./images/bluecwdull.png">
+            </div>
+   <div id="copyright"> &copy; 2020 SOLVE - The Virtual Lab @ NITK Surathkal, Department of Water Resources & Ocean Engineering</div>
+</div>   
+</body>
+</html>

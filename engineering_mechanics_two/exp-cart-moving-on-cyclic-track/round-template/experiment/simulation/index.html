@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="UTF-8">
+
+<title>SOLVE - Mechanics of Machines Lab - Body in a Circular Motion</title>
+
+<!-- DND-Required css and js files -->
+<link rel="stylesheet" href="MOMstyle.css" />
+
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js'></script>
+
+</head>
+
+<body onload="varinit();">
+
+<!-- DND-Verifying JavaScript is enabled in browser -->
+<noscript>
+The simulation requires JavaScript to be enabled.
+</noscript>
+
+<!--
+Author : Sai Aditya Raman
+send an email to adityaraman09@gmail.com for any communication
+-->
+
+<!-- Defining Container for Simulation -->
+<div id="container">
+
+<!-- Replace TITLE with simulation title to be displayed next to logo-->
+<div id="simtitle">Cart moving on a Circular Track</div>
+
+<!-- Region for simulation display -->
+<canvas id="simscreen" height="600px" width="800px"></canvas>
+
+<div id="titleincanvas"></div>
+
+
+-->
+<!-- Region for comment / question prompts -->
+<!-- <div id="commentboxleft"></div> -->
+<!-- <div id="commentboxright"></div> -->
+<div id="interaction">First, try to change the velocity!!</div>
+
+<div style="position: absolute ; left: 40px ; top : 350px; color : brown ; font-weight : bold; width: 400px;	font-family: Comic Sans MS">Radius of Circular Track (r) : 90m</div>
+<div id="display_or_not">
+	<div style="position: absolute ; left: 40px ; top : 370px; color : brown ; font-weight : bold; width: 400px;	font-family: Comic Sans MS">Velocity (m/s): </div>
+	<div id = "display_velocity" style="position: absolute ; left: 165px ; top : 370px; color : brown ; font-weight : bold; width: 400px;	font-family: Comic Sans MS">velocity</div>
+
+	<div style="position: absolute ; left: 40px ; top : 390px; color : brown ; font-weight : bold; width: 400px;	font-family: Comic Sans MS">Mass (kg):</div>
+	<div id = "display_mass" style="position: absolute ; left: 130px ; top : 390px; color : brown ; font-weight : bold; width: 400px;	font-family: Comic Sans MS">mass</div>
+</div ><!-- DND-Title of region for variables display -->
+<div id="vartitle">VARIABLES</div>
+
+<!-- Region for Input parameters of simulation -->
+<div id="variables">
+
+<!-- System variable input from user through slider and spinner jQuery widgets
+repeat block with new variable name and new id for widgets-->
+<div class="variable">
+<div class="varname"><p title="Initial Velocity of Cart">Velocity(m/s):</p>
+<input id="velocity_number" readonly></input></div>
+<div id="velocity_slider" oninput="changing_slider_value(this.id , 1)"></div>
+</div>
+
+<div class="variable">
+<div class="varname"><p title="Mass of Cart">Mass(kg): </p>
+<input id="mass_number" readonly></input></div>
+<div id="mass_slider" oninput="changing_slider_value(this.id , 2)"></div>
+</div>
+
+
+</div>
+
+<!-- DND-Title of region for controls display -->
+<div id="ctrltitle">CONTROLS</div>
+
+<!-- Region for User controls of simulation -->
+<div id="controls">
+	<img id="start" onclick="start()" src="blueplaydull.png" title="Start Moving Cart" />
+	<img id="stop" onclick="stopAll()" src="bluestopdull.png" title="Stop Moving Cart"  />
+	<img id="reset" onclick="resetAll()" src="bluecwdull.png" title="Reset all Progress"  />
+	<div id = "RESETALL"></div>
+<!--
+<div class="usercheck">
+<!-- Point tracing
+<input type="checkbox" id="trace" ></input> <p>Trace Mid Point</p>
+<!-- Reset Parameters
+<input type="button" id="resetparams" value="Reset" onclick="varinit();"></input> -->
+</div>
+
+<!-- <div id="showing_height" ></div> -->
+<textarea id="textarea" style = "width:550px;height:120px" readonly>Results will be shown here.</textarea>
+
+
+<!-- DND-Copyright display-->
+<div id="copyright" title="Developer : SOLVEr"> Copyright &copy; SOLVE The Virtual Lab @ NITK Surathkal </div>
+
+</div><!-- Container div close -->
+
+<!-- For trials during development
+write in trythis() function the outputs that you want to check.
+<input type='button' onclick='trythis()' value="try me"></input>
+-->
+<script type="text/javascript">
+//Initialise system parameters here
+function varinit()
+{
+	document.getElementById("display_or_not").style.display = "none";
+	document.getElementById("start").style.display = "block";
+
+	varchange();
+	//Variable r1 slider and number input types
+	$('#velocity_number').spinner("value", 80);
+	$('#velocity_slider').slider("value", 80);
+
+	$('#mass_number').spinner("value", 80);
+	$('#mass_slider').slider("value", 80);
+
+
+}
+
+
+
+// Initialise and Monitor variable containing user inputs of system parameters.
+//change #id and repeat block for new variable. Make sure new <div> with appropriate #id is included in the markup
+function varchange()
+{
+//Variable r1 slider and number input types
+$('#velocity_slider').slider({ max : 100, min : 20, step : 1 });		// slider initialisation : jQuery widget
+$('#velocity_number').spinner({ max : 100, min : 20, step : 1 });		// number initialisation : jQuery widget
+// monitoring change in value and connecting slider and number
+// setting trace point coordinate arrays to empty on change of link length
+$( "#velocity_slider" ).on( "slide", function( e, ui ) { $('#velocity_number').spinner("value",ui.value); ptx=[]; pty=[]; } );
+$( "#velocity_number" ).on( "spin", function( e, ui ) { $('#velocity_slider').slider("value",ui.value); ptx=[]; pty=[]; } );
+$( "#velocity_number" ).on( "change", function() {  varchange() } );
+
+//Variable r1 slider and number input types
+$('#mass_slider').slider({ max : 100, min : 20, step : 1 });		// slider initialisation : jQuery widget
+$('#mass_number').spinner({ max : 100, min : 20, step : 1 });		// number initialisation : jQuery widget
+// monitoring change in value and connecting slider and number
+// setting trace point coordinate arrays to empty on change of link length
+$( "#mass_slider" ).on( "slide", function( e, ui ) { $('#mass_number').spinner("value",ui.value); ptx=[]; pty=[]; } );
+$( "#mass_number" ).on( "spin", function( e, ui ) { $('#mass_slider').slider("value",ui.value); ptx=[]; pty=[]; } );
+$( "#mass_number" ).on( "change", function() {  varchange() } );
+
+
+makeBack();
+makeInitialBall();
+
+}
+</script>
+	<script type= "text/javascript" src = "jsTemplate.js" ></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+#title{
+    position:relative;
+    left:50px;
+    top:19px;
+    height:40px;
+    font-size: 24px;
+    text-align:center;
+    /* background-color: black; */
+    font-family: 'Times New Roman', Times, serif;
+    /* color: White; */
+    text-transform: uppercase; 
+    }
+
+#simscreen
+{
+    position: relative;
+    left:0px;
+    top:0px;
+    height: 600px; 
+    width:800px;
+    background-image: url("../images/frame_copper_ver02.png");
+}
+
+.radio{
+    text-align: right;
+    font-size: 14px;
+}
+#radios{
+	font-size: 16px;
+}
+
+#variables
+{ z-index: 5;
+	position:absolute;
+	left:610px;
+	top:160px;
+	height: 285px;
+    width: 180px;
+    font-family:"Arial";
+    font-size: 14px;
+    font-style: Bold;
+
+}
+
+#copyright{
+    position: absolute;
+    left:50px;
+    top: 577px;
+    font-family: verdana; 
+    font-size:12px
+    }
+    #objective{
+        /* t r b l */
+        padding: 5px 0 2px 0;
+        margin: 35px 0 0 0;
+    }
+    
+    #apparatus{
+        /* t r b l */
+        padding: 5px 0 2px 0;
+        margin: 5px 0 0 0;
+    }
+    #image{
+        
+          transform-origin: bottom left;
+          transform:rotate(-30deg);
+          position: absolute; left:52px; top:88px; width:110px;
+          opacity:0.5 ;
+      }
+      #image3{
+        z-index: 3;
+        visibility: hidden;
+        display: inline-block;
+        transform-origin: bottom left;
+        -webkit-transform: rotate(-20deg);
+   -moz-transform: rotate(-20deg);
+   -o-transform: rotate(-20deg); 
+   transform: rotate(-20deg);
+        position: absolute; left:193px; top:218px; width:97px;
+        opacity:0.6 ;
+    }
+      #image1{
+          transform-origin: bottom right;
+          transform:rotate(30deg);
+          position: absolute; left:210px; top:88px; width:110px;
+          opacity:0.5 ;
+         }
+         #blick{
+            position:absolute; left:11px; top:280px; width:50px;
+            transform: rotate(90deg);
+            animation: blinker 0.6s linear infinite;
+        } 
+        #blick6{
+            position:absolute; left:315px; top:75px; width:50px;
+            transform: rotate(180deg);
+            animation: blinker 0.6s linear infinite;
+        } 
+        @keyframes blinker{
+            50% { opacity: 0; }
+        }
+        #blick2{
+            position:absolute; left:395px; top:405px; width:50px;
+            transform: rotate(90deg);
+            animation: blinker 0.6s linear infinite;
+        } 
+        #blick3{
+            position:absolute; left:25px; top:100px; width:50px;
+            transform: rotate(90deg);
+            animation: blinker 0.6s linear infinite;
+            visibility: hidden;
+        } 
+   
+    .simsubscreen
+    {
+    position: absolute;
+    left: 50px;
+    top: 80px;
+    height:530px;
+    width:745px;
+    }
+    #saveForm{
+        position: relative;
+       
+    cursor:pointer;
+    width:50px; 
+    height:50px;
+    justify-content: center;
+    border: none;
+    }
+    #A{
+        position: absolute;
+        left: 23px;
+        border: none;
+        z-index: 5;
+        background: none;
+        top: 245px;
+    }
+    #B1{
+        position: absolute;
+        left: 410px;
+            border: none;
+        background: none;
+        z-index: 5;
+
+        top: 375px;
+    }
+    #A1{
+        position: absolute;
+        left: 385px;
+            border: none;
+        background: none;
+        z-index: 5;
+        top: 90px;
+    }
+    #B{
+        position: absolute;
+        left: 325px;
+        border: none;
+        background: none;
+        top: 245px;
+        z-index: 5;
+
+    }
+    #image4{
+        position: absolute; left: 640px;
+        top: 430px;
+    }
+    #image5{
+        position: absolute; left: 590px;
+        top: 438px;
+    }
+    #mycanvas2{
+position: absolute;
+top: 0px;
+    }
+    .steptext{
+        display:inline;
+        position: absolute;
+        top: 40px;
+    }
+    
+    .steptext-6{
+    display:inline;}
+    
+    .steptext-2{display:inline;}
+    
+    .circlebg
+    {
+    border-radius:100%;
+    font-size:25px;
+    color:#fff;
+    text-align:center;
+    background:#000
+    }
+   
+    

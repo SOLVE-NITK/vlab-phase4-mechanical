@@ -1,0 +1,335 @@
+html
+{
+    -moz-user-select     : none;
+    -khtml-user-select   : none;
+    -webkit-user-select  : none;
+    -o-user-select       : none;
+    user-select          : none;
+}
+#simscreen
+{
+    position: relative;
+    left:0px;
+    top:0px;
+    height: 600px;
+    width:800px;
+    background-image: url("../images/background.png");
+}
+
+#copyright{
+position: absolute;
+left:120px;
+top: 585px;
+font-family: verdana;
+font-size:12px
+}
+
+#title{
+position:relative;
+left:20px;
+top:25px;
+height:40px;
+font-size: 24px;
+text-align:center;
+/* background-color: black; */
+font-family: 'Times New Roman', Times, serif;
+/* color: White; */
+text-transform: uppercase;
+}
+
+#title h3{
+padding-top:2px;
+margin:0px;
+}
+
+#objective{
+    /* t r b l */
+    padding: 5px 0 2px 0;
+    margin: 35px 0 0 0;
+}
+
+#apparatus{
+    /* t r b l */
+    padding: 5px 0 2px 0;
+    margin: 5px 0 0 0;
+}
+#question-div{
+	position: absolute;
+	left:300px;
+	top:350px;
+	width:300px;
+	height:120px;
+	border:solid 1px gray;
+	background-color: gray;
+	filter: alpha(opacity=55);
+	color:white;
+	visibility:hidden;
+}
+
+.simsubscreen
+{
+position:absolute;
+left: 50px;
+top: 50px;
+height:530px;
+width:745px;
+
+
+}
+
+.incanvas
+{
+margin:5px 0 0 5px;
+}
+#nextButton{
+    position: absolute;
+    left: 740px;
+    top: 520px;
+    cursor:pointer;
+}
+#nextButton1{
+    position: absolute;
+    left: 750px;
+    top: 530px;
+cursor:pointer;
+}
+
+#prevButton{
+    position: absolute;
+    left: 30px;
+    top: 520px;
+    cursor:pointer;
+
+}
+
+#reButton{
+    position: absolute;
+    left: 740px;
+    top: 520px;
+    visibility: hidden;
+    cursor:pointer;
+}
+
+.steptext{
+    display:inline;
+    position: absolute;
+    left:10px;
+    top: 40px;
+}
+
+.steptext-6{
+display:inline;}
+
+.steptext-2{display:inline;}
+
+.circlebg
+{
+border-radius:100%;
+font-size:25px;
+color:#fff;
+text-align:center;
+background:#000
+}
+
+
+/* Chrome, Safari, Opera */
+/* Standard syntax */
+
+@keyframes movebucket {
+  0% {
+      left:80px;top:340px;
+      transform: rotate(0deg);
+  }
+  35%{
+      left:80px;top:110px;
+      transform: rotate(0deg);
+  }
+  60%{
+      left:250px;top:110px;
+      transform: rotate(0deg);
+  }
+  100%{
+      left:275px;top:95px;
+      transform: rotate(80deg);
+  }
+}
+
+@-webkit-keyframes movebucket{
+  0% {
+      left:80px;top:340px;
+      transform: rotate(0deg);
+  }
+  35%{
+      left:80px;top:110px;
+      transform: rotate(0deg);
+  }
+  60%{
+      left:250px;top:110px;
+      transform: rotate(0deg);
+  }
+  100%{
+      left:275px;top:95px;
+      transform: rotate(80deg);
+  }
+}
+
+
+@keyframes movefill{
+    0% {left:270px;top:180px;}
+    100%{ left:267px;top:115px; }
+}
+@-webkit-keyframes  movefill{
+  0% {left:270px;top:180px;}
+  100%{ left:267px;top:115px; }
+}
+
+
+@keyframes movepress2{
+    0% {left:70px;top:355px;}
+    15% {left:70px;top:325px;}
+    70%{ left:420px;top:325px;width:50px;}
+    100%{ left:463px;top:335px;width:65px;}
+}
+@-webkit-keyframes  movepress2{
+  0% {left:70px;top:355px;}
+  15% {left:70px;top:325px;}
+  70%{ left:420px;top:325px; width:50px;}
+  100%{ left:463px;top:335px;width:65px;}
+}
+
+
+
+@keyframes movepress12 {
+  0% {left:125px;top:368px;}
+  15% {left:125px;top:338px;}
+  70%{ left:555px;top:350px; width:50px;}
+  100%{ left:505px;top:345px;width:65px;}
+}
+@-webkit-keyframes movepress12{
+  0% {left:125px;top:368px;}
+  15% {left:125px;top:338px;}
+  70%{ left:555px;top:350px;width:50px; }
+  100%{ left:505px;top:345px;width:65px;}
+}
+
+
+
+
+@keyframes movefill3 {
+    0% {left:136px; top:27px;}
+    20% {left:138px;top:115px;}
+    100% {left:138px;top:115px;}
+}
+@-webkit-keyframes movefill3{
+  0% {left:136px; top:27px;}
+  20% {left:138px;top:115px;}
+  100% {left:138px;top:115px;}
+}
+
+@keyframes movescrew3 {
+    0% {left:10px; top:84px;}
+    100%{left:140px;top:101px;}
+}
+@-webkit-keyframes movescrew3{
+  0% {left:10px; top:84px;}
+  100%{left:140px;top:101px;}
+}
+
+@keyframes movemelt3 {
+    0% {left:-70px; top:74px;}
+    20% {left:-70px; top:74px; }
+    60% {left:140px;top:100px;}
+    100% {left:140px;top:100px;}
+}
+@-webkit-keyframes movemelt3{
+  0% {left:-70px; top:74px;}
+  20% {left:-70px; top:74px; }
+  60% {left:140px;top:100px;}
+  100% {left:140px;top:100px;}
+}
+
+@keyframes movemelt13 {
+    0% {left:140px; top:40px;}
+    60%{left:140px;top:40px;}
+    80%{left:140px;top:100px;}
+    100%{left:140px;top:100px;}
+}
+@-webkit-keyframes movemelt13{
+  0% {left:140px; top:40px;}
+  60%{left:140px;top:40px;}
+  80%{left:140px;top:100px;}
+  100%{left:140px;top:100px;}
+}
+
+@keyframes movemelt23 {
+    0% {left:139px;top:-20px;}
+    80%{left:139px;top:-20px;}
+    100%{left:140px;top:100px;}
+}
+@-webkit-keyframes movemelt23{
+  0% {left:139px;top:-20px;}
+  80%{left:139px;top:-20px;}
+  100%{left:140px;top:100px;}
+}
+
+@keyframes movef4{
+    0% {}
+    100%{ left:487px;top:360px; width:40px;}
+}
+@-webkit-keyframes  movef4{
+  0% {}
+  100%{ left:487px;top:360px; width:40px;}
+}
+
+
+
+
+@keyframes movehand4
+{
+  0%{ }
+  100% {transform: rotate(-40deg);}
+
+}
+@-webkit-keyframes movehand4
+{
+  0%{ }
+  100% {transform: rotate(-40deg);}
+
+}
+
+
+
+@keyframes movepress5{
+    0% {left:463px;top:335px;width:65px;}
+    100% {left:420px;top:325px; width:55px;}
+
+}
+@-webkit-keyframes  movepress5{
+  0% {left:463px;top:335px;width:65px;}
+  100% {left:420px;top:325px; width:55px;}
+}
+
+
+
+@keyframes movepress15 {
+  0% {left:505px;top:345px;width:65px;}
+  100% {left:555px;top:350px;width:55px; }
+
+}
+@-webkit-keyframes movepress15{
+  0% {left:505px;top:345px;width:65px;}
+  100% {left:555px;top:350px;width:55px; }
+
+}
+
+
+@keyframes movefinal6{
+    0% {left:487px;top:360px; }
+    20%{ left:487px;top:390px; width:40px; }
+    100%{ left:110px;top:320px; width:50px; }
+}
+@-webkit-keyframes  movefinal6{
+  0% {left:487px;top:360px; }
+  20%{ left:487px;top:390px; width:40px; }
+  100%{ left:110px;top:320px; width:50px; }
+}

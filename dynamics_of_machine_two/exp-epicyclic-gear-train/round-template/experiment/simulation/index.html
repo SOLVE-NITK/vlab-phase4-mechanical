@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Planetary Gears (Epicyclic Gears) Library Project Demonstration and Documentation Page">
+
+
+
+<!-- DND-Required css and js files -->
+<link rel="stylesheet" href="sins/MOMstyle2.css" />
+<canvas id="simscreen" height="500" width="600"></canvas>
+<canvas id="mycanvas" height="300" width="300"></canvas>
+
+<body onload="editcss();startsim();varinit();">
+
+<!-- DND-Verifying JavaScript is enabled in browser -->
+<noscript>
+The simulation requires JavaScript to be enabled.
+</noscript>
+
+<!--
+Author : Sai Aditya Raman
+send an email to adityaraman09@gmail.com for any communication
+-->
+
+<!-- Defining Container for Simulation -->
+<div id="container">
+
+<!-- Replace TITLE with simulation title to be displayed next to logo-->
+<div id="simtitle">EPICYCLIC GEAR TRAIN</div>
+
+<!-- Region for simulation display -->
+<!-- <canvas id="simscreen" height="400px" width="550px"></canvas> -->
+
+<div id="titleincanvas"></div>
+
+
+
+<!-- Region for comment / question prompts -->
+<div id="commentboxleft"></div>
+<div id="commentboxright"></div>
+
+<!-- DND-Title of region for variables display -->
+<div id="vartitle">VARIABLES</div>
+
+<!-- Region for Input parameters of simulation -->
+
+<div id="variables" onclick = "setButton()">
+
+<!-- System variable input from user through slider and spinner jQuery widgets
+repeat block with new variable name and new id for widgets-->
+<div class="variable">
+<div class="varname"><p title="Number of planets">Planets</p>
+<input id="l1spinner"></input></div>
+<div id="l1slider"></div>
+</div>
+
+<div class="variable">
+<div class="varname"><p title="Sun Teeth">Sun Teeth</p>
+<input id="l2spinner"></input></div>
+<div id="l2slider"></div>
+</div>
+
+
+<div class="variable">
+<div class="varname"><p title="Planet Teeth">Planet Teeth</p>
+<input id="l3spinner"></input></div>
+<div id="l3slider"></div>
+</div>
+
+
+<div class="variable">
+<div class="varname"><p title="Ring Teeth">Ring Teeth</p>
+<input id="l4spinner"></input></div>
+<div id="l4slider"></div>
+</div>
+
+
+<div class="variable">
+<div class="varname"><p title="Sun speed in rpm">Sun Speed</p>
+<input id="l5spinner"></input></div>
+<div id="l5slider"></div>
+</div>
+
+
+<div class="variable">
+<div class="varname"><p title="Ring speed in rpm">Ring Speed</p>
+<input id="l6spinner"></input></div>
+<div id="l6slider"></div>
+</div>
+</div>
+  
+
+
+<!-- DND-Title of region for controls display -->
+<div id="ctrltitle">CONTROLS</div>
+
+<!-- Region for User controls of simulation -->
+<div id="controls">
+<img id="playpausebutton" onclick="simstate()" src="sins/bluepausedull.png" />
+<img id="rotationbutton" onclick="rotstate()" src="sins/bluecwdull.png" />
+
+
+</div>
+
+
+<!-- DND-Copyright display-->
+<div id="copyright" title="Developer : SOLVEr"> Copyright &copy; SOLVE The Virtual Lab @ NITK Surathkal </div>
+
+</div><!-- Container div close -->
+
+<!-- For trials during development
+write in trythis() function the outputs that you want to check.
+<input type='button' onclick='trythis()' value="try me"></input>
+-->
+
+
+
+
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js'></script>
+
+ <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+<!-- <script type="text/javascript" src= "sins/MOMscript.js"></script> -->
+<script type="text/javascript" >
+//Script specific to simulation
+var canvas = document.getElementById("simscreen");
+var ctx = canvas.getContext("2d");
+//program variables
+//controls section
+var simstatus=0;
+var rotstatus=1;
+//comments section
+var commenttext="Some Text";
+var commentloc=0;
+
+//computing section
+
+var theta = 55; // all angles to be defined either in degrees only or radians only throughout the program and convert as and when required
+//origin points circle
+var oxcoord =250;
+var oycoord = 250;
+
+//line to points
+var axcoord = 0;
+var aycoord = 0;
+
+var theta = 0;
+
+var vr;
+var dr;
+var ds;
+var gr;
+
+//length of link
+var len = 50;
+var np;
+var s;
+var p;
+var r;
+var ss;
+var rs;
+var ps;
+var cs;
+const PI = Math.PI;
+
+//graphics section
+ var sun_size, planet_size, ring_size, sun_speed, carrier_speed, ring_speed, planet_speed;
+ var n;
+ var planet_carrier_angle;
+ var sun_tooth_count;
+ var sun_tooth_count_part;
+ var factor;
+ var planet;
+ var planetary_gear;
+ var draw_size;
+ var world_size;
+ var draw_scaling_factor;
+ var debounce;
+ var start_time;
+ var time_stamp;
+ 
+ var theta;
+ var theta_step;
+ var position;
+ var rad_n;
+ var rad_i;
+ var rad_o;
+ var p1x, p1y, p2x, p2y, p3x, p3y, p4x, p4y, p5x, p5y, p6x, p6y;
+ var n_step;
+ var cx;
+ var cy;
+ var x;
+ var y;
+ var xx;
+ var yy;
+ var i;
+ var time_elapsed
+ var viewport_width;
+ var viewport_height;
+ var canvas_size;
+var gear_size_min;
+ var gear_size_max;
+ var planets_min;
+ var planets_max;
+ var gear_speed_max;
+ var gear_speed_min;
+ var sun_size;
+ var planet_size;
+ var number_of_planets;
+ var ring_size;
+ var planets_max_allowable;
+ var speed_A;
+ var speed_B;
+ var random_variable;
+ 
+
+//timing section
+var simTimeId = setInterval("",'1000');
+var pauseTime = setInterval("",'1000');
+var time=0;
+
+//point tracing section
+var ptx = [];
+var pty = [];
+
+//click status of legend and quick reference
+var legendCS = false;
+var quickrefCS = false;
+//temporary or dummy variables
+var temp=0;
+
+/*
+// for trials during development
+function trythis()
+{ alert();}
+*/
+
+//change simulation specific css content. e.g. padding on top of variable to adjust appearance in variables window
+function editcss()
+{
+$('.variable').css('padding-top','20px');
+$('#datatable1').css('position','absolute');
+$('#datatable2').css('position','absolute');
+$('#datatable1').css('left','120px');
+$('#datatable1').css('top','340px');
+$('#datatable2').css('left','395px');
+$('#datatable2').css('top','340px');
+
+//$('#legend').css("width",document.getElementById('legendimg').width+"px");
+//$('#quickref').css("height",document.getElementById('quickrefimg').height+"px");
+
+}
+
+<!-- //start of simulation here; starts the timer with increments of 0.1 seconds -->
+function startsim()
+{
+simTimeId=setInterval("time=time+0.1; varupdate(); ",'100');
+}
+
+// switches state of simulation between 0:Playing & 1:Paused
+function simstate()
+{	
+	randomise();
+
+  var imgfilename=document.getElementById('playpausebutton').src;
+  imgfilename = imgfilename.substring(imgfilename.lastIndexOf('/') + 1, imgfilename.lastIndexOf('.'));
+  if (imgfilename=="bluepausedull")
+  {
+    document.getElementById('playpausebutton').src="sins/blueplaydull.png";
+<!-- clearInterval(simTimeId); -->
+    <!-- simstatus=1; -->
+	setButton();
+  }
+    if (imgfilename=="blueplaydull")
+  {
+  time=0;
+  clearInterval(pauseTime);
+    document.getElementById('playpausebutton').src="sins/bluepausedull.png";
+    simTimeId=setInterval("time=time+0.1; varupdate(); ",'100');
+    simstatus=0;
+  }
+}
+
+// switches state of rotation between 1:CounterClockWise & -1:Clockwise
+function rotstate()
+{
+  var imgfilename=document.getElementById('rotationbutton').src;
+  imgfilename = imgfilename.substring(imgfilename.lastIndexOf('/') + 1, imgfilename.lastIndexOf('.'));
+  if (imgfilename=="bluecwdull")
+  {
+    document.getElementById('rotationbutton').src="sins/blueccwdull.png";
+    rotstatus=-1;
+	randomise();
+  }
+    if (imgfilename=="blueccwdull")
+  {
+    document.getElementById('rotationbutton').src="sins/bluecwdull.png";
+    rotstatus=1;
+	randomise();
+  }
+}
+
+
+
+<!-- //Initialise system parameters here -->
+function varinit()
+{
+varchange();
+//Variable r1 slider and number input types
+$('#l1slider').slider("value", 3);
+$('#l1spinner').spinner("value", 3);
+
+$('#l2slider').slider("value", 21);
+$('#l2spinner').spinner("value", 21);
+
+$('#l3slider').slider("value", 15);
+$('#l3spinner').spinner("value", 15);
+
+
+$('#l4slider').slider("value", 51);
+$('#l4spinner').spinner("value", 51);
+
+$('#l5slider').slider("value", 10);
+$('#l5spinner').spinner("value", 10);
+
+
+$('#l6slider').slider("value", 0);
+$('#l6spinner').spinner("value", 0);
+
+
+}
+
+
+
+// Initialise and Monitor variable containing user inputs of system parameters.
+//change #id and repeat block for new variable. Make sure new <div> with appropriate #id is included in the markup
+function varchange()
+{
+//Variable r1 slider and number input types
+$('#l1slider').slider({ max : 3, min : 1, step : 1 });	// slider initialisation : jQuery widget
+$('#l1spinner').spinner({ max : 3, min : 1, step : 1 });	// number initialisation : jQuery widget
+// monitoring change in value and connecting slider and number
+// setting trace point coordinate arrays to empty on change of link length
+$( "#l1slider" ).on( "slide", function( e, ui ) { $('#l1spinner').spinner("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l1spinner" ).on( "spin", function( e, ui ) { $('#l1slider').slider("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l1spinner" ).on( "change", function() {  varchange() } );
+
+//Variable r1 slider and number input types
+$('#l2slider').slider({ max : 30, min : 15, step : 3 });	// slider initialisation : jQuery widget
+$('#l2spinner').spinner({ max : 30, min : 15, step : 3 });	// number initialisation : jQuery widget
+// monitoring change in value and connecting slider and number
+// setting trace point coordinate arrays to empty on change of link length
+$( "#l2slider" ).on( "slide", function( e, ui ) { $('#l2spinner').spinner("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l2spinner" ).on( "spin", function( e, ui ) { $('#l2slider').slider("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l2spinner" ).on( "change", function() {  varchange() } );
+
+$('#l3slider').slider({ max : 30, min : 15, step : 3 });	// slider initialisation : jQuery widget
+$('#l3spinner').spinner({ max : 30, min : 15, step : 3 });	// number initialisation : jQuery widget
+// monitoring change in value and connecting slider and number
+// setting trace point coordinate arrays to empty on change of link length
+$( "#l3slider" ).on( "slide", function( e, ui ) { $('#l3spinner').spinner("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l3spinner" ).on( "spin", function( e, ui ) { $('#l3slider').slider("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l3spinner" ).on( "change", function() {  varchange() } );
+
+$('#l4slider').slider({ max : 100, min : 45, step : 1 });	// slider initialisation : jQuery widget
+$('#l4spinner').spinner({ max : 100, min : 45, step : 1 });	// number initialisation : jQuery widget
+// monitoring change in value and connecting slider and number
+// setting trace point coordinate arrays to empty on change of link length
+$( "#l4slider" ).on( "slide", function( e, ui ) { $('#l4spinner').spinner("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l4spinner" ).on( "spin", function( e, ui ) { $('#l4slider').slider("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l4spinner" ).on( "change", function() {  varchange() } );
+
+
+$('#l5slider').slider({ max : 30, min : 0, step : 5 });	// slider initialisation : jQuery widget
+$('#l5spinner').spinner({ max : 30, min : 0, step :5 });	// number initialisation : jQuery widget
+// monitoring change in value and connecting slider and number
+// setting trace point coordinate arrays to empty on change of link length
+$( "#l5slider" ).on( "slide", function( e, ui ) { $('#l5spinner').spinner("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l5spinner" ).on( "spin", function( e, ui ) { $('#l5slider').slider("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l5spinner" ).on( "change", function() {  varchange() } );
+
+
+$('#l6slider').slider({ max : 30, min : 0, step : 5 });	// slider initialisation : jQuery widget
+$('#l6spinner').spinner({ max : 30, min : 0, step :5 });	// number initialisation : jQuery widget
+// monitoring change in value and connecting slider and number
+// setting trace point coordinate arrays to empty on change of link length
+$( "#l6slider" ).on( "slide", function( e, ui ) { $('#l6spinner').spinner("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l6spinner" ).on( "spin", function( e, ui ) { $('#l6slider').slider("value",ui.value); ptx=[]; pty=[]; } );
+$( "#l6spinner" ).on( "change", function() {  varchange() } );
+
+varupdate();
+
+}
+
+
+
+<!-- //Computing of various system parameters -->
+function varupdate()
+{
+
+$('#l1slider').slider("value", $('#l1spinner').spinner('value'));  //updating slider location with change in spinner(debug)
+np=$('#l1spinner').spinner("value");
+
+
+$('#l2slider').slider("value", $('#l2spinner').spinner('value'));  //updating slider location with change in spinner(debug)
+s=$('#l2spinner').spinner("value");
+
+
+$('#l3slider').slider("value", $('#l3spinner').spinner('value'));  //updating slider location with change in spinner(debug)
+p=$('#l3spinner').spinner("value");
+
+
+$('#l4slider').slider("value", $('#l4spinner').spinner('value'));  //updating slider location with change in spinner(debug)
+$('#l4spinner').spinner("value",r) ;
+
+$('#l5slider').slider("value", $('#l5spinner').spinner('value'));  //updating slider location with change in spinner(debug)
+ss = $('#l5spinner').spinner("value") ;
+
+$('#l6slider').slider("value", $('#l6spinner').spinner('value'));  //updating slider location with change in spinner(debug)
+rs = $('#l6spinner').spinner("value") ;
+
+//If simulation is running
+if(!simstatus)
+{
+	cs = ((s * ss +r * rs)/(s + r)).toFixed(2);
+	ps = (((s+p) * cs - s * ss)/p).toFixed(2);
+	
+printcomment("Planet Speed = "+ps,1);
+printcomment("Carrier Speed = "+cs,2);
+
+if(ss == 0)
+{
+	vr = (1+(s/r)).toFixed(2);
+	gr = (1/vr).toFixed(2);
+	
+	cs = ((s * ss +r * rs)/(s + r)).toFixed(2);
+	ps = (((s+p) * cs - s * ss)/p).toFixed(2);
+	printcomment("Velocity Ratio=1+(Sunteeth/Ringteeth)= "+vr+"<br>Gear Ratio=1/Velocity Ratio="+gr,1);
+	printcomment("Planet Speed = "+ps+"rpm<br>Carrier Speed = "+cs+"rpm",2);
+	
+	
+	
+}
+else if(rs == 0)
+{
+	vr = (1+(r/s)).toFixed(2);
+	gr = (1/vr).toFixed(2)
+	
+	cs = ((s * ss +r * rs)/(s + r)).toFixed(2);
+	ps = (((s+p) * cs - s * ss)/p).toFixed(2);
+	printcomment("Velocity Ratio=1+(Ringteeth/Sunteeth)= "+vr+"<br>Gear Ratio=1/Velocity Ratio="+gr,1);
+	printcomment("Planet Speed = "+ps+"rpm<br>Carrier Speed = "+cs+"rpm",2);
+	
+}
+
+}
+
+}
+
+
+//If simulation is stopped
+if(simstatus)
+{
+
+oxcoord=250;
+oycoord=250;
+
+axcoord=oxcoord+len*Math.cos(rad(theta));
+aycoord=oycoord+len*Math.sin(rad(theta));
+
+bxcoord=oxcoord+len*Math.cos(rad(theta));
+bycoord=oycoord-200;
+
+
+
+}
+		
+//Simulation graphics
+function is_num_integer(num) {
+  if (num === parseInt(num, 10)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
+class AbstractGear {
+
+  constructor(tooth_pitch, gear_size, gear_speed) {
+    // Gear tooth pitch (m)
+    this.tooth_pitch = tooth_pitch;
+    // Number of gear teeth (must be an integer)
+    this.gear_size = gear_size;
+    // Gear angular velocity (rad/s)
+    this.gear_speed = gear_speed;
+    // The Pitch Circle Diameter for the gear (m)
+    this.PCD = gear_size * tooth_pitch / PI;
+    // Angular position of the gear (rad)
+    this.position = 0;
+    // Position correction so planets mesh with sun and ring meshes with planets
+    this.mesh_correcction = 0;
+  }
+
+}
+
+
+class InnerGear extends AbstractGear {
+
+  constructor(tooth_pitch, gear_size, gear_speed) {
+    super(tooth_pitch, gear_size, gear_speed);
+	
+    // The hub diameter of the gear (m). Nominal value that looks nice.
+    this.hub_diameter = this.PCD / 2 * 0.3;
+  }
+
+}
+
+
+class OuterGear extends AbstractGear {
+
+  constructor(tooth_pitch, gear_size, gear_speed) {
+    super(tooth_pitch, gear_size, gear_speed);
+    // The outer diameter of the ring gear (m). Nominal value that looks nice.
+    this.outer_diameter = this.PCD + 3 * tooth_pitch;
+  }
+
+}
+
+class PlanetaryGear {
+
+  constructor(size_input_mode, size_A, size_B, speed_input_mode, speed_A, speed_B, tooth_pitch, number_of_planets) {
+    // Set to true to print debug messages to the console
+    this.show_debug_messages = false;
+    sun_size, planet_size, ring_size, sun_speed, carrier_speed, ring_speed, planet_speed = 0;
+    if (size_input_mode == 1) {
+      // Input sun and planet sizes, calculate ring size
+      sun_size = size_A;
+      planet_size = size_B;
+      ring_size = sun_size + 2 * planet_size;
+    } else if (size_input_mode == 2) {
+      // Input sun and ring sizes, calculate planet size
+      sun_size = size_A;
+      ring_size = size_B;
+      planet_size = (ring_size - sun_size) / 2;
+    } else if (size_input_mode == 3) {
+      // Input planet and ring sizes, calculate sun size
+      planet_size = size_A;
+      ring_size = size_B;
+      sun_size = ring_size - 2 * planet_size;
+    } else {
+      if (this.show_debug_messages) {
+        console.log("Error: The size_input_mode parameter is ivalid, only the integer values 1, 2, or 3 are valid.");
+      }
+    }
+    if (speed_input_mode == 1) {
+      // Input sun and carrier speeds, calculate ring and planet speeds
+      sun_speed = speed_A;
+      carrier_speed = speed_B;
+      // NsWs + NpWp - (Ns+Np)Wc = 0
+      // => Wp = ((Ns+Np)Wc-NsWs)/Np
+      planet_speed = ((sun_size + planet_size) * carrier_speed - sun_size * sun_speed) / planet_size;
+      // NrWr - NpWp-(Nr-Np)Wc = 0
+      // => Wr = ((Nr-Np)Wc+NpWp)/Nr
+      ring_speed = ((ring_size - planet_size) * carrier_speed + planet_size * planet_speed) / ring_size;
+    } else if (speed_input_mode == 2) {
+      // Input sun and ring speeds, calculate carrier and planet speeds
+      sun_speed = speed_A;
+      ring_speed = speed_B;
+      // NsWs + NpWp - (Ns+Np)Wc = 0
+      // NrWr - NpWp-(Nr-Np)Wc = 0
+      // => NsWs + NrWr = (Ns+Nr)Wc
+      // => Wc = (NsWs + NrWr) / (Ns+Nr)
+      carrier_speed = (sun_size * sun_speed + ring_size * ring_speed) / (sun_size + ring_size);
+      // NsWs + NpWp - (Ns+Np)Wc = 0
+      // => Wp = ((Ns+Np)Wc-NsWs)/Np
+      planet_speed = ((sun_size + planet_size) * carrier_speed - sun_size * sun_speed) / planet_size;
+    } else if (speed_input_mode == 3) {
+      // Input carrier and ring speeds, calculate sun and planet speeds
+      carrier_speed = speed_A;
+      ring_speed = speed_B;
+      // NsWs + NpWp - (Ns+Np)Wc = 0
+      // NrWr - NpWp-(Nr-Np)Wc = 0
+      // => NsWs + NrWr = (Ns+Nr)Wc
+      // => Ws = ((Ns+Nr)Wc-NrWr)/Ns
+      sun_speed = ((sun_size + ring_size) * carrier_speed - ring_size * ring_speed) / sun_size;
+      // NsWs + NpWp - (Ns+Np)Wc = 0
+      // => Wp = ((Ns+Np)Wc-NsWs)/Np
+      planet_speed = ((sun_size + planet_size) * carrier_speed - sun_size * sun_speed) / planet_size;
+    } else {
+      if (this.show_debug_messages) {
+        console.log("Error: The speed_input_mode parameter is ivalid, only the integer values 1, 2, or 3 are valid.");
+      }
+    }
+    if (!is_num_integer((sun_size + ring_size) / number_of_planets)) {
+      if (this.show_debug_messages) {
+        console.log("Warning: The expression [(sun size + ring size) / number of planets] must evaluate to an integer in order for the ring gear to be able to mesh with the planet gears.");
+      }
+    }
+    // Create the sun gear
+    this.sun = new InnerGear(tooth_pitch, sun_size, sun_speed);
+    // Create the ring gear
+    this.ring = new OuterGear(tooth_pitch, ring_size, ring_speed);
+    // Define the carrier properties
+    this.carrier_speed = carrier_speed;
+    this.carrier_position = 0;
+    // Create the planets
+    this.planets = [];
+    for ( n = 0; n < number_of_planets; n++) {
+      // Create a new planet
+      this.planets[n] = new InnerGear(tooth_pitch, planet_size, planet_speed);
+      // Set the mesh_correction value for the planet gear in order to enable meshing with the sun gear
+       planet_carrier_angle = this.carrier_position + n * 2 * PI / number_of_planets;
+       sun_tooth_count = this.sun.gear_size / (2 * PI) * planet_carrier_angle;
+       sun_tooth_count_part = sun_tooth_count - Math.floor(sun_tooth_count);
+      this.planets[n].mesh_correcction = PI + planet_carrier_angle + (0.5 + sun_tooth_count_part) * (2 * PI / this.planets[n].gear_size);
+      this.planets[n].position = this.planets[n].mesh_correcction;
+    }
+    this.carrier_pitch = this.sun.PCD + this.planets[0].PCD;
+    // Set the mesh_correction value for the ring gear in order enable meshing with the planet gears
+    if ((this.ring.gear_size % 2) == 0) {
+      if ((this.planets[0].gear_size % 2) == 0) {
+        this.ring.mesh_correcction = -0.5 * (2 * PI / this.ring.gear_size);
+      }
+    } else {
+      if ((this.planets[0].gear_size % 2) == 0) {
+        this.ring.mesh_correcction = -0.5 * (2 * PI / this.ring.gear_size);
+      }
+    }
+    if (this.show_debug_messages) {
+      console.log("New planetary gear created. Size input mode: " + size_input_mode + ", Sun size: " + sun_size + ", Planet size: " + planet_size + ", Ring size: " + ring_size + " , Speed input mode: " + speed_input_mode + ", Sun speed: " + sun_speed + " , Carrier speed: " + carrier_speed + ", Planet speed: " + planet_speed + ", Ring speed: " + ring_speed + ".");
+    }
+  }
+
+  fixed_speed_update(elapsed_time) {
+     factor = 0;
+    // Update ring
+    factor = ((elapsed_time / 10000) / ((1 / this.ring.gear_speed) * 2 * PI)) % 1;
+    this.ring.position = 2 * PI * factor + this.ring.mesh_correcction;
+    // Update sun
+    factor = ((elapsed_time / 10000) / ((1 / this.sun.gear_speed) * 2 * PI)) % 1;
+    this.sun.position = 2 * PI * factor;
+    // Update planets
+    for ( n = 0; n < this.planets.length; n++) {
+       planet = this.planets[n];
+      factor = ((elapsed_time / 10000) / ((1 / planet.gear_speed) * 2 * PI)) % 1;
+      planet.position = 2 * PI * factor + planet.mesh_correcction;
+    }
+    // Update carrier
+    factor = ((elapsed_time / 10000) / ((1 / this.carrier_speed) * 2 * PI)) % 1;
+    this.carrier_position = 2 * PI * factor;
+  }
+
+}
+
+ planetary_gear = new PlanetaryGear(1, 21, 15, 2, 10, 0, 0.032, 3);
+ draw_size = Math.min(canvas.width, canvas.height);
+ world_size = planetary_gear.ring.outer_diameter * 1.05;
+ draw_scaling_factor = draw_size / world_size;
+ debounce;
+ start_time = 0;
+ time_stamp;
+
+function get_time() {
+  //return performance.now();
+  return Date.now();
+}
+
+function draw_basic_gear(cx, cy, gear) {
+   n = gear.gear_size;
+   theta = 2 * PI / n;
+   theta_step = theta / 6;
+   position = gear.position;
+   rad_n = gear.PCD / 2;
+   rad_i = rad_n - gear.tooth_pitch / 3;
+   rad_o = rad_n + gear.tooth_pitch / 3;
+   p1x, p1y, p2x, p2y, p3x, p3y, p4x, p4y, p5x, p5y, p6x, p6y = 0;
+  ctx.beginPath();
+  for ( n_step = 0; n_step < n; n_step++) {
+    p1x = cx + rad_o * Math.cos(position + n_step * theta);
+    p1y = cy + rad_o * Math.sin(position + n_step * theta);
+    ctx.lineTo(p1x * draw_scaling_factor, world_size * draw_scaling_factor - p1y * draw_scaling_factor);
+    p2x = cx + rad_o * Math.cos(position + n_step * theta + theta_step);
+    p2y = cy + rad_o * Math.sin(position + n_step * theta + theta_step);
+    ctx.lineTo(p2x * draw_scaling_factor, world_size * draw_scaling_factor - p2y * draw_scaling_factor);
+    p3x = cx + rad_i * Math.cos(position + n_step * theta + 2 * theta_step);
+    p3y = cy + rad_i * Math.sin(position + n_step * theta + 2 * theta_step);
+    ctx.lineTo(p3x * draw_scaling_factor, world_size * draw_scaling_factor - p3y * draw_scaling_factor);
+    p4x = cx + rad_i * Math.cos(position + n_step * theta + 4 * theta_step);
+    p4y = cy + rad_i * Math.sin(position + n_step * theta + 4 * theta_step);
+    ctx.lineTo(p4x * draw_scaling_factor, world_size * draw_scaling_factor - p4y * draw_scaling_factor);
+    p5x = cx + rad_o * Math.cos(position + n_step * theta + 5 * theta_step);
+    p5y = cy + rad_o * Math.sin(position + n_step * theta + 5 * theta_step);
+    ctx.lineTo(p5x * draw_scaling_factor, world_size * draw_scaling_factor - p5y * draw_scaling_factor);
+    p6x = cx + rad_o * Math.cos(position + n_step * theta + 6 * theta_step);
+    p6y = cy + rad_o * Math.sin(position + n_step * theta + 6 * theta_step);
+    ctx.lineTo(p6x * draw_scaling_factor, world_size * draw_scaling_factor - p6y * draw_scaling_factor);
+  }
+	ctx.stroke();
+}
+
+function draw_basic_planetary_gear_set() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.lineWidth = Math.max(1, Math.round(draw_size * 0.005));
+  
+  
+	legend();
+ 
+  ctx.strokeStyle = '#191919';
+  // Draw sun
+  cx = world_size / 2;
+  cy = world_size / 2;
+  ctx.beginPath();
+
+  draw_basic_gear(cx, cy, planetary_gear.sun);
+  ctx.arc(world_size / 2 * draw_scaling_factor, world_size / 2 * draw_scaling_factor, planetary_gear.sun.hub_diameter * draw_scaling_factor, -planetary_gear.sun.position, -planetary_gear.sun.position + 2 * PI, false);  
+  
+  ds = 2*(planetary_gear.sun.hub_diameter);
+  
+  x = world_size / 2 * draw_scaling_factor;
+  y = world_size / 2 * draw_scaling_factor;
+	
+	
+  ctx.fillStyle = "red";
+  ctx.fill();
+  ctx.stroke();
+  // Draw ring
+   ctx.beginPath();
+
+  
+  draw_basic_gear(cx, cy, planetary_gear.ring);
+  outer_diameter = planetary_gear.ring.outer_diameter;
+  ctx.arc(cx * draw_scaling_factor, world_size * draw_scaling_factor - cy * draw_scaling_factor, outer_diameter / 2 * draw_scaling_factor, -planetary_gear.ring.position, -planetary_gear.ring.position + 2 * PI, false);
+
+  dr = 2*(outer_diameter/2);
+  
+  ctx.fillStyle = "lime";
+  ctx.fill();
+  ctx.stroke();
+
+	
+
+
+  // Draw planets
+  for (i = 0; i < planetary_gear.planets.length; i++) {
+  
+	
+    cx = (cx + planetary_gear.carrier_pitch / 2 * Math.cos(planetary_gear.carrier_position + i * 2 * PI / planetary_gear.planets.length));
+    cy = (cy + planetary_gear.carrier_pitch / 2 * Math.sin(planetary_gear.carrier_position + i * 2 * PI / planetary_gear.planets.length));
+   
+	
+	ctx.beginPath();
+	
+	
+	draw_basic_gear(cx, cy, planetary_gear.planets[i]);
+    
+	
+	
+    ctx.arc(cx * draw_scaling_factor, world_size * draw_scaling_factor - cy * draw_scaling_factor, planetary_gear.planets[i].hub_diameter * draw_scaling_factor, -planetary_gear.planets[i].position, -planetary_gear.planets[i].position + 2 * PI,
+      false);
+	  
+      ctx.fillStyle = "powderblue";
+	 ctx.fill();
+	 
+	 ctx.stroke();
+	  xx = cx * draw_scaling_factor;
+	  yy = world_size * draw_scaling_factor - cy * draw_scaling_factor;
+	
+	
+	
+//draw arm
+	ctx.save();
+	ctx.beginPath();
+	ctx.moveTo(x, y);
+    ctx.lineTo(xx, yy);
+	ctx.lineWidth = 15;
+	ctx.lineCap = "round";
+	ctx.stroke();
+	ctx.restore();
+	  
+
+	cx = world_size / 2;
+    cy = world_size / 2;
+
+	
+  }
+  
+}
+
+  
+
+function app_loop() {
+   time_elapsed = get_time() - start_time;
+  planetary_gear.fixed_speed_update(time_elapsed);
+  draw_basic_planetary_gear_set();
+  window.requestAnimationFrame(app_loop);
+}
+
+function resize_canvas() {
+   viewport_width = $(window).width();
+  viewport_height = $(window).height();
+   canvas_size = Math.round(0.80 * Math.min(viewport_width, 0.85 * viewport_height));
+  ctx.canvas.height = canvas_size;
+  ctx.canvas.width = canvas_size;
+  draw_size = Math.min(canvas.width, canvas.height);
+  draw_scaling_factor = draw_size / world_size;
+}
+
+function randomise() {
+   gear_size_min = 15;
+   gear_size_max = 30;
+   planets_min = 1;
+   planets_max = 3;
+   gear_speed_max = 30;
+   gear_speed_min = 0;
+
+	
+   sun_size = Math.round(s);
+ 
+   planet_size = Math.round(p);
+  
+   number_of_planets = Math.round(np);
+  
+   ring_size = sun_size + 2 * planet_size;
+   r = ring_size;
+   
+   
+   
+   //is_num_integer((sun_size + ring_size) / number_of_planets));
+  // Maximum allowable number of planet gears to prevent overcrowding
+   //planets_max_allowable = (Math.PI) / (Math.asin((planet_size + 3) / (sun_size + planet_size)));
+  // Randomise the angular velocities of the gear train components
+  
+  speed_A = rotstatus * ss;
+  speed_B = rotstatus * rs;
+  carrier_speed = (sun_size * sun_speed + ring_size * ring_speed) / (sun_size + ring_size);
+  console.log(carrier_speed);
+  cs = carrier_speed;
+  planet_speed =  ((sun_size + planet_size) * carrier_speed - sun_size * sun_speed) / planet_size;
+  console.log(planet_speed);
+  ps =   planet_speed;
+  
+   if(sun_speed = ss)
+   {
+   
+   planetary_gear = new PlanetaryGear(1, sun_size, planet_size, 2, speed_A, speed_B, 0.032, number_of_planets);
+   ring_speed = rotstatus * rs;
+   carrier_speed = rotstatus * ((sun_size * sun_speed + ring_size * ring_speed) / (sun_size + ring_size));
+   planet_speed = rotstatus * (((sun_size + planet_size) * carrier_speed - sun_size * sun_speed) / planet_size);
+   
+   
+   
+   }
+   else if(ring_speed = rs)
+   {
+   
+   planetary_gear = new PlanetaryGear(1, sun_size, planet_size, 2, speed_A, speed_B, 0.032, number_of_planets);
+   sun_speed = rotstatus * ss;
+   carrier_speed = rotstatus * ((sun_size * sun_speed + ring_size * ring_speed) / (sun_size + ring_size));
+   planet_speed = rotstatus* (((sun_size + planet_size) * carrier_speed - sun_size * sun_speed) / planet_size);
+   }
+   else if(ss == 0)  
+   {
+   
+   planetary_gear = new PlanetaryGear(1, sun_size, planet_size, 2, speed_A, speed_B, 0.032, number_of_planets);
+   ring_speed = rotstatus * rs;
+   carrier_speed = rotstatus * ((sun_size * sun_speed + ring_size * ring_speed) / (sun_size + ring_size));
+   planet_speed = rotstatus* (((sun_size + planet_size) * carrier_speed - sun_size * sun_speed) / planet_size);
+   
+	}
+   else if(rs == 0)  
+   {
+   
+   planetary_gear = new PlanetaryGear(1, sun_size, planet_size, 2, speed_A, speed_B, 0.032, number_of_planets);
+   sun_speed = rotstatus * ss;
+   carrier_speed = rotstatus * ((sun_size * sun_speed + ring_size * ring_speed) / (sun_size + ring_size));
+   planet_speed = rotstatus* (((sun_size + planet_size) * carrier_speed - sun_size * sun_speed) / planet_size);
+   }
+   else if(ss == rs)
+   {
+   planetary_gear = new PlanetaryGear(1, sun_size, planet_size, 2, speed_A, speed_B, 0.032, number_of_planets);
+   ring_speed = rotstatus * rs;
+   carrier_speed = rotstatus * ((sun_size * sun_speed + ring_size * ring_speed) / (sun_size + ring_size));
+   planet_speed = rotstatus* (((sun_size + planet_size) * carrier_speed - sun_size * sun_speed) / planet_size);
+   }
+   else if(rs == ss)
+   {
+   planetary_gear = new PlanetaryGear(1, sun_size, planet_size, 2, speed_A, speed_B, 0.032, number_of_planets);
+   sun_speed = rotstatus * ss;
+   carrier_speed = rotstatus * ((sun_size * sun_speed + ring_size * ring_speed) / (sun_size + ring_size));
+   planet_speed = rotstatus* (((sun_size + planet_size) * carrier_speed - sun_size * sun_speed) / planet_size);
+   }
+  // Select one of the gear train components to be fixed on average half of the time
+  <!-- if (Math.random() > 0.5) { -->
+    <!-- if (Math.random() > 0.5) { -->
+      <!-- speed_A = 0; -->
+    <!-- } else { -->
+      <!-- speed_B = 0; -->
+    <!-- } -->
+  <!-- } -->
+  //if (is_num_integer((sun_size + (sun_size + 2 * planet_size)) / number_of_planets) && planets_max_allowable > number_of_planets) {
+     <!-- random_variable = Math.random(); -->
+    <!-- if (speed_input_mode == 2) {  -->
+	
+      <!-- planetary_gear = new PlanetaryGear(1, sun_size, planet_size, 2, speed_A, speed_B, 0.032, number_of_planets); -->
+      
+    <!-- } -->
+    world_size = planetary_gear.ring.outer_diameter * 1.05;
+    draw_scaling_factor = draw_size / world_size;
+    start_time = get_time();
+	
+	legend();
+	
+  } 
+  
+  <!-- else { -->
+    <!-- randomise(); -->
+  <!-- } -->
+<!-- } -->
+
+<!-- $('#randomise').on('click', function(e) { -->
+  <!-- randomise(); -->
+<!-- }); -->
+
+$(window).resize(function() {
+  clearTimeout(debounce);
+  debounce = setTimeout(function() {
+    resize_canvas();
+  }, 50);
+});
+
+$(document).ready(function() {
+  resize_canvas();
+  draw_basic_planetary_gear_set();
+  start_time = get_time();
+  window.requestAnimationFrame(app_loop);
+});
+
+function legend()
+{
+var canvas1 = document.getElementById("mycanvas");
+var context = canvas1.getContext("2d");
+context.beginPath();
+context.arc(30, 30, 10, 0, 2 * Math.PI);
+context.fillStyle = "red";
+context.fill();
+context.stroke();
+arrow({x:55,y:30},{x:75,y:30},10);
+context.font = "20px Arial";
+context.fillStyle="black";
+context.fillText("Sun Gear",85,37);
+
+context.beginPath();
+context.arc(30, 60, 10, 0, 2 * Math.PI);
+context.fillStyle = "powderblue";
+context.fill();
+context.stroke();
+arrow({x:55,y:60},{x:75,y:60},10);
+context.font = "20px Arial";
+context.fillStyle="black";
+context.fillText("Planet Gear",85,67);
+
+
+context.beginPath();
+context.arc(30, 90, 10, 0, 2 * Math.PI);
+context.fillStyle = "lime";
+context.fill();
+context.stroke();
+arrow({x:55,y:90},{x:75,y:90},10);
+context.font = "20px Arial";
+context.fillStyle="black";
+context.fillText("Ring Gear",85,97);
+
+context.beginPath();
+context.arc(30, 120, 10, 0, 2 * Math.PI);
+context.fillStyle = "black";
+context.fill();
+context.stroke();
+arrow({x:55,y:120},{x:75,y:120},10);
+context.font = "20px Arial";
+context.fillStyle="black";
+context.fillText("Arm",85,127);
+}
+function arrow(p1,p2,size)
+{
+
+var canvas1 = document.getElementById("mycanvas");
+var context = canvas1.getContext("2d");
+ angle = Math.atan2((p2.y - p1.y),(p2.x - p1.x));
+ hyp = Math.sqrt((p2.x-p1.x)*(p2.x-p1.x)+(p2.y-p1.y)*(p2.y-p1.y));
+
+context.save();
+context.translate(p1.x,p1.y);
+ context.rotate(angle); 
+
+	//line
+		context.beginPath();
+		context.moveTo(0,0);
+		context.lineTo(hyp - size,0);
+		context.stroke();
+		
+	//triangle	
+		context.fillStyle = "black";
+		context.beginPath();
+		context.lineTo(hyp - size,size);	
+		context.lineTo(hyp,0);
+		context.lineTo(hyp - size,-size);
+		context.fill();
+		
+		context.restore();
+
+}
+
+// prints comments passed as 'commenttext' in location specified by 'commentloc' in the comments box;
+// 0 : Single comment box, 1 : Left comment box, 2 : Right comment box
+function printcomment(commenttext,commentloc)
+{
+    if(commentloc==0)
+  {
+  document.getElementById('commentboxright').style.visibility='hidden';
+  document.getElementById('commentboxleft').style.width='570px';
+  document.getElementById('commentboxleft').innerHTML = commenttext;
+  }
+  else if(commentloc==1)
+  {
+  document.getElementById('commentboxright').style.visibility='visible';
+  document.getElementById('commentboxleft').style.width='285px';
+  document.getElementById('commentboxleft').innerHTML = commenttext;
+  }
+  else if(commentloc==2)
+  {
+  document.getElementById('commentboxright').style.visibility='visible';
+  document.getElementById('commentboxleft').style.width='285px';
+  document.getElementById('commentboxright').innerHTML = commenttext;
+  }
+  else
+  {
+  document.getElementById('commentboxright').style.visibility='hidden';
+  document.getElementById('commentboxleft').style.width='570px';
+  document.getElementById('commentboxleft').innerHTML = "<center>please report this issue to adityaraman@gmail.com</center>";
+  // ignore use of deprecated tag <center> . Code is executed only if printcomment function receives inappropriate commentloc value
+  }
+}
+//function to convert radians to degrees
+function deg(vrad)
+{
+return vrad*180/Math.PI;
+}
+
+//function to convert degrees to radians
+function rad(vdeg)
+{
+return vdeg*Math.PI/180;
+}
+function setButton()
+{
+    document.getElementById('playpausebutton').src="sins/blueplaydull.png";
+	ss = 0;
+	rs = 0;
+	randomise();
+}
+
+</script>
+</head>
+</body>
+</html>
