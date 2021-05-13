@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script>
+        var simsubscreennum=0;
+        var temp=0;
+        var myInt = 0;
+
+        var visibleImagesId = [
+            {
+                simsubscreennum: 0,
+                animImages: [],
+                initialImages: ['box','pat1','pat2','pat3'],
+                hideImages: ['mouldBox','bucket']
+            },
+            {
+                simsubscreennum: 1,
+                animImages: [
+                    {
+                        id: 'bucket',
+                        styleSet: 'position:absolute; left:50px;top:350px;width:150px;cursor:pointer;'
+                    },
+                ],
+                initialImages: ['mouldBox'],
+                hideImages: ['sandup', 'sandfill','sand','tray','bucket3']
+            },
+            {
+                simsubscreennum: 2,
+                animImages: [
+                    {
+                        id: 'sand',
+                        styleSet: 'position:absolute; left:100px;top:220px;width:200px;cursor:pointer;'
+                    }
+                ],
+                initialImages: ['sand','tray','bucket3'],
+                hideImages: ['tray1','tray2','tray3','tray4']
+            },
+            {
+                simsubscreennum: 3,
+                animImages: [
+                    {
+                        id: 'tray1',
+                        styleSet: 'position:absolute; left:330px;top:300px;width:350px;cursor:pointer;'
+                    },
+                    {
+                        id: 'tray3',
+                        styleSet: 'position:absolute; left:380px;top:150px;width:350px;visibility:hidden;cursor:pointer;'
+                    },
+                ],
+                initialImages: [],
+                hideImages: ['tray5','pat6','pat5']
+            },
+            {
+                simsubscreennum: 4,
+                animImages: [
+                    {
+                        id: 'pat5',
+                        styleSet: 'position:absolute; left:50px;top:350px;width:150px;cursor:pointer;'
+                    },
+                ],
+                initialImages: ['tray5'],
+                hideImages: ['sandup1','tray6','bucket5','sand5','sandfill1']
+            },
+            {
+                simsubscreennum: 5,
+                animImages: [
+                    {
+                        id: 'sand5',
+                        styleSet: 'position:absolute; left:100px;top:220px;width:200px;cursor:pointer;'
+                    },
+                ],
+                initialImages: ['tray6','bucket5'],
+                hideImages: ['tray7','tray8','tray9','tray10']
+            },
+            {
+                simsubscreennum: 6,
+                animImages: [
+                    {
+                        id: 'tray10',
+                        styleSet: 'position:absolute; left:350px;top:180px;width:350px;visibility:hidden;'
+                    },
+                ],
+                initialImages: ['tray7'],
+                hideImages: ['hole1','hole2','pat11','pat12','tray11','tray12']
+            },
+            {
+                simsubscreennum: 7,
+                animImages: [
+                    {
+                        id: 'pat12',
+                        styleSet: 'position:absolute; left:450px;top:260px;width:125px;visibility:hidden;'
+                    },
+                    {
+                        id: 'pat11',
+                        styleSet: 'position:absolute; left:100px;top:260px;width:125px;visibility:hidden;'
+                    },
+                ],
+                initialImages: ['tray11','tray12'],
+                hideImages: ['tray14','tray15','tray13']
+            },
+            {
+                simsubscreennum: 8,
+                animImages: [
+                    {
+                        id: 'tray13',
+                        styleSet: 'position:absolute; left:35px;top:330px;width:350px;cursor:pointer;'
+                    },
+                ],
+                initialImages: ['tray14'],
+                hideImages: ['tray2d','riser','sprue']
+            },
+            {
+                simsubscreennum: 9,
+                animImages: [
+                    {
+                        id: 'sprue',
+                        styleSet: 'position:absolute; left:70px;top:50px;width:350px;'
+                    },
+                    {
+                        id: 'riser',
+                        styleSet: 'position:absolute; left:200px;top:50px;width:350px;cursor:pointer;'
+                    }
+                ],
+                initialImages: ['tray2d'],
+                hideImages: ['metalbucket1','riser1','sprue1','2d','2dbg','funnel','metalbucket','mflow','metal']
+            },
+            {
+                simsubscreennum: 10,
+                animImages: [
+                    {
+                        id: 'metalbucket1',
+                        styleSet: 'position:absolute; left:195px;top:135px;width:80px;visibility:hidden;'
+                    },
+                    {
+                        id: 'metal',
+                        styleSet: 'position:absolute; left:150px;top:270px;width:450px;'
+                    }
+                ],
+                initialImages: ['metalbucket','funnel','2dbg','riser1','sprue1','2d'],
+                hideImages: ['final1','tray22','cast1','tray23','tray21','tray24']
+            },
+            {
+                simsubscreennum: 11,
+                animImages: [
+                    {
+                        id: 'tray24',
+                        styleSet: 'position:absolute; left:350px;top:180px;width:350px;visibility:hidden;'
+                    },
+                    {
+                        id: 'final1',
+                        styleSet: 'position:absolute; left:410px;top:180px;width:250px;visibility:hidden;'
+                    },
+                ],
+                initialImages: ['tray21'],
+                hideImages: ['f1','f2','f','grinder']
+            },
+            {
+                simsubscreennum: 12,
+                animImages: [
+                    {
+                        id: 'grinder',
+                        styleSet: 'position:absolute; left:520px;top:305px;width:200px;cursor:pointer;'
+                    },
+                ],
+                initialImages: ['f1'],
+                hideImages: []
+            }
+        ]
+    </script>
+</head>
+<!--Simulation Screen start		-->
+<div id="simscreen">
+
+    <!--Title of Simulation		-->
+    <div id="title"><h3>CASTING FOR A SOLID PATTERN</h3></div>
+
+    <!--SubScreen Home	-->
+    <div class="simsubscreen" id="canvas0">
+    <h4 id="objective" style="font-family:verdana; ">Objective:</h4>
+    <p class="incanvas" style="font-family:verdana; font-size:15px;">To prepare a casting for the solid pattern using sand moulding process.</p></br>
+    <h4 id="apparatus" style="font-family:verdana; ">Apparatus used:</h4>
+    <p class="incanvas" style="font-family:verdana; font-size:14px;">Moulding sand, Pattern, Moulding Boxes, Runner, Riser etc. </p>
+    <img id="box" style="position: absolute; left: 370px; top: 285px; width:250px; height:150px;" title="Moulding Box" src="Images/1.png"/>
+    <img id="pat1" style="position:absolute; left:180px; top:290px; width:100px" title="Pattern" src="Images/pat.png" />
+    <img id="pat2" style="position:absolute; left:180px; top:350px; width:100px" title="Pattern" src="Images/pat1.png" />
+    <img id="pat3" style="position:absolute; left:10px; top:250px; width:150px" title="Sand" src="Images/bucket.png" />
+
+
+    </div>
+
+    <!--Step1	-->
+    <div class="simsubscreen" id="canvas1" style="visibility:hidden">
+    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;"> <strong id="titlestep" class="incanvas">STEP </strong>
+    <span class="circlebg" id="stepnumber">&nbsp;1&nbsp;</span> Set the inverted drag box on a clean floor and place the pattern inside the box.</p>
+    <img id="mouldBox" style="position:absolute; left:330px;top:270px;width:350px;" title="Moulding Box" src="./images/1.png" />
+    <img id="bucket" style="position:absolute; left:50px;top:350px;width:150px;cursor:pointer;" title="Pattern" src="./images/pat.png" />
+
+    </div>
+    <!--Step2	-->
+
+
+    <div class="simsubscreen" id="canvas2" style="visibility:hidden">
+      <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
+      <strong id="titlestep" class="incanvas">STEP</strong>
+      <span class="circlebg" id="stepnumber">&nbsp;2&nbsp;</span> Pour the sand into the box and level it off.</p>
+
+    <img id="sand" style="position:absolute; left:100px;top:220px;width:200px;cursor:pointer;" title="Sand" src="./images/bucket.png" />
+    <img id="tray" style="position:absolute; left:330px;top:270px;width:350px;" title="Moulding Box" src="./images/1.png" />
+    <img id="sandup" style="position:absolute; left:330px;top:270px;width:350px;visibility:hidden;" title="Moulding Box" src="./images/tray.png" />
+     <img id="sandfill" style="position:absolute; left:190px;top:35px;width:600px;visibility:hidden;"title="Moulding Box" src="./images/sandfall.png" />
+    <img id="bucket3" style="position:absolute; left:430px;top:325px;width:150px;" title="Pattern" src="./images/pat.png" />
+</div>
+
+
+    </div>
+
+    <!--Step3	-->
+
+    <div class="simsubscreen" id="canvas3" style="visibility:hidden">
+    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
+        <strong id="titlestep" class="incanvas">STEP </strong>
+        <span class="circlebg" id="stepnumber">&nbsp;3&nbsp;</span>
+        Turn over the packed drag box and place the cope box over it.</p>
+
+        <img id="tray1" style="position:absolute; left:330px;top:300px;width:350px;cursor:pointer;" title="Moulding Box" src="./images/tray.png" />
+        <img id="tray2" style="position:absolute; left:30px;top:300px;width:350px;visibility:hidden;" title="Moulding Box" src="./images/tray2.png" />
+        <img id="tray3" style="position:absolute; left:380px;top:150px;width:350px;visibility:hidden;cursor:pointer;" title="Moulding Box" src="./images/1.png" />
+        <img id="tray4" style="position:absolute; left:30px;top:240px;width:350px;visibility:hidden;" title="Moulding Box" src="./images/tray3.png" />
+    </div>
+
+    <!--Step4	-->
+    <div class="simsubscreen" id="canvas4" style="visibility:hidden">
+    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
+        <strong id="titlestep" class="incanvas">STEP </strong>
+        <span class="circlebg" id="stepnumber">&nbsp;4&nbsp;</span>
+        Place the second half of the pattern exactly over the first half.</p>
+
+        <img id="tray5" style="position:absolute; left:330px;top:250px;width:350px;" title="Moulding Box" src="./images/tray3.png" />
+        <img id="pat5" style="position:absolute; left:50px;top:350px;width:150px;cursor:pointer;" title="Pattern" src="./images/pat.png" />
+        <img id="pat6" style="position:absolute; left:430px;top:302px;width:150px;visibility:hidden;" title="Pattern" src="./images/pat.png" />
+
+    </div>
+
+    <!--Step5	-->
+    <div class="simsubscreen" id="canvas5" style="visibility:hidden">
+    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
+        <strong id="titlestep" class="incanvas">STEP </strong>
+        <span class="circlebg" id="stepnumber">&nbsp;5&nbsp;</span>
+         Fill the sand and level it off.</p>
+
+         <img id="tray6" style="position:absolute; left:330px;top:250px;width:350px;" title="Moulding Box" src="./images/tray3.png" />
+         <img id="bucket5" style="position:absolute; left:430px;top:302px;width:150px;" title="Pattern" src="./images/pat.png" />
+         <img id="sand5" style="position:absolute; left:100px;top:220px;width:200px;cursor:pointer;" title="Sand" src="./images/bucket.png" />
+         <img id="sandup1" style="position:absolute; left:330px;top:250px;width:350px;visibility:hidden;" title="Moulding Box" src="./images/tray4.png" />
+          <img id="sandfill1" style="position:absolute; left:195px;top:45px;width:600px;visibility:hidden;"title="Moulding Box" src="./images/sandfall.png" />
+    </div>
+
+
+    <!--Step6	-->
+    <div class="simsubscreen" id="canvas6" style="visibility:hidden">
+    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
+        <strong id="titlestep" class="incanvas">STEP </strong>
+        <span class="circlebg" id="stepnumber">&nbsp;6&nbsp;</span>
+        Open the two boxes.</p>
+
+        <img id="tray7" style="position:absolute; left:350px;top:250px;width:350px;cursor:pointer;" title="Moulding Box" src="./images/tray4.png" />
+        <img id="tray8" style="position:absolute; left:5px;top:270px;width:350px;visibility:hidden;" title="Moulding Box" src="./images/tray2.png" />
+        <img id="tray9" style="position:absolute; left:350px;top:270px;width:350px;visibility:hidden;" title="Moulding Box" src="./images/tray2.png" />
+        <img id="tray10" style="position:absolute; left:350px;top:180px;width:350px;visibility:hidden;" title="Moulding Box" src="./images/tra.png" />
+
+    </div>
+
+    <!--Step7	-->
+    <div class="simsubscreen" id="canvas7" style="visibility:hidden">
+    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
+        <strong id="titlestep" class="incanvas">STEP </strong>
+        <span class="circlebg" id="stepnumber">&nbsp;7&nbsp;</span>
+        Remove the pattern from the box.</p>
+
+
+        <img id="hole1" style="position:absolute; left:5px;top:270px;width:350px;visibility:hidden;" title="Moulding Box" src="./images/tray5.png" />
+        <img id="hole2" style="position:absolute; left:350px;top:270px;width:350px;visibility:hidden;" title="Moulding Box" src="./images/tray5.png" />
+        <img id="tray11" style="position:absolute; left:5px;top:270px;width:350px;cursor:pointer;" title="Moulding Box" src="./images/tray2.png" />
+        <img id="tray12" style="position:absolute; left:350px;top:270px;width:350px;" title="Moulding Box" src="./images/tray2.png" />
+        <img id="pat11" style="position:absolute; left:100px;top:260px;width:125px;visibility:hidden;" title="Pattern" src="./images/pat1.png" />
+        <img id="pat12" style="position:absolute; left:450px;top:260px;width:125px;visibility:hidden;" title="Pattern" src="./images/pat1.png" />
+    </div>
+
+
+    <!--Step8	-->
+    <div class="simsubscreen" id="canvas8" style="visibility:hidden">
+    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
+        <strong id="titlestep" class="incanvas">STEP </strong>
+        <span class="circlebg" id="stepnumber">&nbsp;8&nbsp;</span>
+        Put the boxes back into position and clamp it.</p>
+
+
+        <img id="tray13" style="position:absolute; left:45px;top:330px;width:350px;cursor:pointer;" title="Moulding Box" src="./images/tray5.png" />
+        <img id="tray14" style="position:absolute; left:380px;top:330px;width:350px;" title="Moulding Box" src="./images/tray5.png" />
+        <img id="tray15" style="position:absolute; left:350px;top:270px;width:350px;visibility:hidden;" title="Moulding Box" src="./images/tray4.png" />
+
+
+    </div>
+
+    <!--Step9	-->
+    <div class="simsubscreen" id="canvas9" style="visibility:hidden">
+    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
+        <strong id="titlestep" class="incanvas">STEP </strong>
+        <span class="circlebg" id="stepnumber">&nbsp;9&nbsp;</span>
+        Setup gate and sprue.</p>
+
+     <img id="tray2d" style="position:absolute; left:150px;top:270px;width:450px;" title="Moulding Box cross section" src="./images/2d.png" />
+     <img id="riser" style="position:absolute; left:200px;top:50px;width:350px;cursor:pointer;" title="Riser" src="./images/sprue.png" />
+     <img id="sprue" style="position:absolute; left:70px;top:50px;width:350px;" title="Sprue" src="./images/sprue.png" />
+    </div>
+    <!--Step	-->
+
+
+    <!--Step10	-->
+    <div class="simsubscreen" id="canvas10" style="visibility:hidden">
+    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
+        <strong id="titlestep" class="incanvas">STEP </strong>
+        <span class="circlebg" id="stepnumber">&nbsp;10&nbsp;</span>
+        Pouring molten metal.</p>
+     <img id="metalbucket" style="position:absolute; left:2px;top:180px;width:80px;cursor:pointer;" title="Molten metal container" src="./images/metalbucket.png" />
+     <img id="metalbucket1" style="position:absolute; left:195px;top:135px;width:80px;visibility:hidden;" title="Molten metal container" src="./images/metalbucket.png" />
+     <img id="funnel" style="position:absolute; left:275px;top:160px;width:80px;" title="Funnel" src="./images/funnel.png" />
+     <img id="mflow" style="position:absolute; left:275px;top:130px;width:40px;visibility:hidden;"  src="./images/mflow.png" />
+     <img id="2dbg" style="position:absolute; left:150px;top:270px;width:420px;" title="Moulding Box cross section" src="./images/2dbg.png" />
+     <img id="riser1" style="position:absolute; left:200px;top:155px;width:350px;" title="Riser" src="./images/sprue.png" />
+     <img id="sprue1" style="position:absolute; left:70px;top:155px;width:350px;" title="Sprue" src="./images/sprue.png" />
+     <img id="metal" style="position:absolute; left:150px;top:270px;width:450px;" title="Moltenmetal" src="./images/m.png" />
+     <img id="2d" style="position:absolute; left:145px;top:270px;width:450px;" title="Moulding Box cross section" src="./images/2dw.png" />
+
+
+
+
+   </div>
+
+   <!--Step11	-->
+   <div class="simsubscreen" id="canvas11" style="visibility:hidden">
+   <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
+       <strong id="titlestep" class="incanvas">STEP </strong>
+       <span class="circlebg" id="stepnumber">&nbsp;11&nbsp;</span>
+     Take cast outside.</p>
+
+       <img id="tray21" style="position:absolute; left:350px;top:250px;width:350px;cursor:pointer;" title="Moulding Box" src="./images/tray4.png" />
+       <img id="tray22" style="position:absolute; left:5px;top:270px;width:350px;visibility:hidden;" title="Moulding Box" src="./images/tray5.png" />
+       <img id="tray23" style="position:absolute; left:350px;top:270px;width:350px;visibility:hidden;" title="Moulding Box" src="./images/tray5.png" />
+      <img id="cast1" style="position:absolute; left:460px;top:235px;width:125px;visibility:hidden;cursor:pointer;" title="cast" src="./images/parts.png" />
+       <img id="tray24" style="position:absolute; left:350px;top:180px;width:350px;visibility:hidden;" title="Moulding Box" src="./images/tra.png" />
+       <img id="final1" style="position:absolute; left:410px;top:180px;width:250px;visibility:hidden;" title="Final cast" src="./images/final1.png" />
+
+
+
+
+   </div>
+
+
+   <!--Step12	-->
+   <div class="simsubscreen" id="canvas12" style="visibility:hidden">
+   <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
+       <strong id="titlestep" class="incanvas">STEP </strong>
+       <span class="circlebg" id="stepnumber">&nbsp;12&nbsp;</span>
+        Use the grinder for final finishing.</p>
+        <img id="f1" style="position:absolute; left:220px;top:245px;width:300px;" title="Final cast" src="./images/final1.png" />
+        <img id="f2" style="position:absolute; left:220px;top:245px;width:300px;visibility:hidden;" title="Final cast" src="./images/final2.png" />
+       <img id="f" style="position:absolute; left:220px;top:245px;width:300px;visibility:hidden;" title="Finished cast" src="./images/final5.png" />
+      <img id="grinder" style="position:absolute; left:520px;top:305px;width:200px;cursor:pointer;" title="Grinder" src="./images/grinder.png" />
+    </div>
+
+</div>
+
+    <div id="canvas7" class="simsubscreen" style="visibility:hidden;">
+    <strong class="incanvas" id="ob"><h3>Observations: </h3></strong>
+
+    </div>
+
+
+    <div id="">
+    <p id="trial" style="text-transform: uppercase;visibility :hidden;font-weight: bold;font-family:verdana; "><strong>Trial = </strong></p>
+    </div>
+    <!--Trial text	-->
+    <div id="">
+    <p id="trial" style="text-transform: uppercase;visibility :hidden;font-weight: bold;font-family:verdana; "><strong>Trial = </strong></p>
+    </div>
+
+-
+    <!--next  Arrow	-->
+    <div id="nav">
+        <img id="nextButton" onclick="navNext(); " src="Images/Next.png" />
+        <img id="prevButton" onclick="navBack();" style="visibility:hidden" src="Images/prev.png" />
+    </div>
+
+    <div>
+        <img id="reButton" input type="button" value="Reload Page" onClick="document.location.reload(true);" src="Images/restart.png" / >
+    </div>
+
+    <!--Blinking Arrow	-->
+    <img class ="" id="arrow1" style="visibility:hidden" src="Images/arrow1.png"/>
+
+    <div id="copyright"> &copy; 2020 SOLVE - The Virtual Lab @ NITK Surathkal, Department of Water Resources & Ocean Engineering</div>
+    <script src="./js/sample.js"></script>
+    </body>
+    </html>

@@ -80,66 +80,64 @@
 
 const myQuestions = [
   {
-    question: "Which of the following processes is an irreversible process?",
+    question: "“The quality of saturated vapour is 100%”. Indicate whether this statement is",
     answers: {
-      a: "Isothermal",
-      b: "Adiabatic",
-      c: "Throttling",
-      d: "All of the above"
+      a: "True",
+      b: "False"
+    },
+    correctAnswer: "a"
+  },
+
+  {
+    question: "Given that h<sub>fg</sub> = 1716.2 kJ/kg, h<sub>f</sub> = 1085.36 kJ/kg, find the value of h<sub>g</sub>.",
+    answers: {
+      a: "630.84 kJ/kg",
+      b: "2800.43 kJ/kg",
+      c: "2801.56 kJ/kg",
+      d: "629.21 kJ/kg"
     },
     correctAnswer: "c"
   },
 
   {
-    question: "During the throttling process",
+    question: "For a substance in the single-phase region,",
     answers: {
-      a: "Heat exchange does not take place",
-      b: "No work is done by expanding steam",
-      c: "There is no change of internal energy of steam",
-      d: "All of the above"
-    },
-    correctAnswer: "d"
-  },
-
-  {
-    question: "A positive value of Joule Thomson coefficient of a liquid means",
-    answers: {
-      a: "Temperature drops during throttling",
-      b: "Temperature remains constant",
-      c: "Temperature rises during throttling",
-      d: " None of the above"
+      a: "both pressure and temperature are independent properties",
+      b: "if pressure is given, the temperature gets fixed",
+      c: "none of the above",
+      d: "both a and b"
     },
     correctAnswer: "a"
   },
   {
-    question: "Throttling process is a/an __ process.",
+    question: "Given that h2 = 2517.66 kJ/kg, h<sub>f</sub> = 1493.4 kJ/kg, h<sub>fg</sub> = 1191.0 kJ/kg, find the quality of steam.",
     answers: {
-      a: "Reversible and isothermal",
-      b: "Irreversible and constant enthalpy",
-      c: "Reversible and constant entropy",
-      d: "Reversible and constant enthalpy"
+      a: "2",
+      b: "0.86",
+      c: "0.99",
+      d: "0.43"
     },
     correctAnswer: "b"
-  },
-  {
-    question: "Which device is used for the expansion of refrigerant in the vapour compression refrigeration cycle?",
-    answers: {
-      a: "throttling valve",
-      b: "capillary tube",
-      c: "either throttling valve or capillary tube",
-      d: "none of the above"
-    },
-    correctAnswer: "c"
   },
   {
     question: "In the throttling process",
     answers: {
-      a: "h12 = h2",
+      a: "h2 = h1 + h<sub>fg</sub>",
       b: "h1 = h2",
-      c: "h1 = h<sup>2</sup>/h<sup>fg</sup>",
+      c: "h1 = h2/h<sub>fg</sub>",
       d: "none of the above"
     },
     correctAnswer: "b"
+  },
+  {
+    question: "Steam flows in a pipeline at 1.5 MPa. After expanding to 0.1 Mpa in a throttling calorimeter, the temperature is found to be 120 °C. Find the quality of steam in the pipeline.",
+    answers: {
+      a: "0.96",
+      b: "0.99",
+      c: "0",
+      d: "0.36"
+    },
+    correctAnswer: "a"
   }
 ];
 

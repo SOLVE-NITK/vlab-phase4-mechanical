@@ -1,0 +1,246 @@
+html
+{
+    -moz-user-select     : none;
+    -khtml-user-select   : none;
+    -webkit-user-select  : none;
+    -o-user-select       : none;
+    user-select          : none;
+}
+#simscreen
+{
+    position: relative;
+    left:0px;
+    top:0px;
+    height: 600px;
+    width:800px;
+    background-image: url("../images/background.png");
+}
+
+#copyright{
+position: absolute;
+left:50px;
+top: 585px;
+font-family: verdana;
+font-size:12px
+}
+
+#title{
+position:relative;
+left:50px;
+top:25px;
+height:40px;
+font-size: 24px;
+text-align:center;
+/* background-color: black; */
+font-family: 'Times New Roman', Times, serif;
+/* color: White; */
+text-transform: uppercase;
+}
+
+#title h3{
+padding-top:2px;
+margin:0px;
+}
+
+#objective{
+    /* t r b l */
+    padding: 5px 0 2px 0;
+    margin: 35px 0 0 0;
+}
+
+#apparatus{
+    /* t r b l */
+    padding: 5px 0 2px 0;
+    margin: 5px 0 0 0;
+}
+#question-div{
+	position: absolute;
+	left:300px;
+	top:350px;
+	width:300px;
+	height:120px;
+	border:solid 1px gray;
+	background-color: gray;
+	filter: alpha(opacity=55);
+	color:white;
+	visibility:hidden;
+}
+
+.simsubscreen
+{
+position:absolute;
+left: 50px;
+top: 50px;
+height:530px;
+width:745px;
+
+
+}
+
+.incanvas
+{
+margin:5px 0 0 5px;
+}
+#nextButton{
+    position: absolute;
+    left: 740px;
+    top: 520px;
+    cursor:pointer;
+}
+#nextButton1{
+    position: absolute;
+    left: 750px;
+    top: 530px;
+cursor:pointer;
+}
+
+
+#prevButton{
+    position: absolute;
+    left: 30px;
+    top: 520px;
+    cursor:pointer;
+
+}
+#reButton{
+    position: absolute;
+    left: 740px;
+    top: 520px;
+    visibility: hidden;
+    cursor:pointer;
+}
+
+.steptext{
+    display:inline;
+    position: absolute;
+    top: 40px;
+}
+
+.steptext-6{
+display:inline;}
+
+.steptext-2{display:inline;}
+
+.circlebg
+{
+border-radius:100%;
+font-size:25px;
+color:#fff;
+text-align:center;
+background:#000
+}
+
+/*-----------------------------------------blink----------------------- */
+
+
+
+@keyframes movepress{
+    0% {left:327px;top:60px;}
+	20% {left:327px;top:125px;}
+  40% {left:327px;top:141px;}
+  60% {left:327px;top:141px;}
+  80% {left:327px;top:125px;}
+100% {left:327px;top:60px;}
+}
+@-webkit-keyframes movepress{
+  0% {left:327px;top:60px;}
+20% {left:327px;top:125px;}
+40% {left:327px;top:141px;}
+60% {left:327px;top:141px;}
+80% {left:327px;top:125px;}
+100% {left:327px;top:60px;}
+}
+
+
+
+@keyframes movew{
+    0% {left:336px;top:277px;}
+	100% {left:336px;top:397px;}
+}
+@-webkit-keyframes movew{
+  0% {left:336px;top:277px;}
+100% {left:336px;top:397px;}
+}
+
+
+
+@keyframes movePattern {
+    0% {left:50px;top:350px;}
+    20%{left:50px;top:290px;}
+    70%{left:420px;top:290px;}
+	100% {left:455px;top:312px;}
+}
+@-webkit-keyframes movePattern{
+  0% {left:50px;top:350px;}
+  20%{left:50px;top:290px;}
+  70%{left:420px;top:290px;}
+100% {left:455px;top:312px;}
+}
+
+
+
+@keyframes movePattern2 {
+  0% {left:455px;top:312px;}
+  30%{left:420px;top:290px;}
+  80%{left:50px;top:290px;}
+100% {left:50px;top:350px;cursor:default;}
+}
+@-webkit-keyframes movePattern2{
+  0% {left:455px;top:312px;}
+  30%{left:420px;top:290px;}
+  80%{left:50px;top:290px;}
+100% {left:50px;top:350px;cursor:default;}
+}
+
+
+
+@keyframes movescrap {
+  0% {left:500px;top:334px;}
+  10% {left:500px;top:334px;}
+  35% {left:500px;top:315px;}
+  80%{left:210px;top:315px;}
+100% {left:210px;top:365px;}
+}
+@-webkit-keyframes movescrap{
+  0% {left:500px;top:334px;}
+  10% {left:500px;top:334px;}
+  35% {left:500px;top:315px;}
+  80%{left:210px;top:315px;}
+100% {left:210px;top:365px;}
+}
+
+
+@keyframes movegrinder{
+   0% {left:450px;top:300px;}
+	10% {left:450px;top:220px;}
+  25% {left:195px;top:220px;}
+  35% {left:195px;top:274px;}
+  40% {left:165px;top:294px;}
+  45% {left:190px;top:300px;}
+  50% {left:220px;top:294px;}
+  55% {left:195px;top:274px;}
+  60% {left:165px;top:294px;}
+  65% {left:190px;top:300px;}
+  70% {left:220px;top:294px;}
+  75% {left:195px;top:270px;}
+  80% {left:195px;top:220px;}
+  95% {left:450px;top:220px;}
+ 100% {left:450px;top:300px;}
+}
+@-webkit-keyframes movegrinder{
+  0% {left:450px;top:300px;}
+ 10% {left:450px;top:220px;}
+ 25% {left:195px;top:220px;}
+ 35% {left:195px;top:274px;}
+ 40% {left:165px;top:294px;}
+ 45% {left:190px;top:300px;}
+ 50% {left:220px;top:294px;}
+ 55% {left:195px;top:274px;}
+ 60% {left:165px;top:294px;}
+ 65% {left:190px;top:300px;}
+ 70% {left:220px;top:294px;}
+ 75% {left:195px;top:270px;}
+ 80% {left:195px;top:220px;}
+ 95% {left:450px;top:220px;}
+100% {left:450px;top:300px;}
+}

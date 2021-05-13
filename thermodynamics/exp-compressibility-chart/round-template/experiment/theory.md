@@ -1,5 +1,7 @@
 ## INTRODUCTION<br>
 
+The compressibility factor (Z) is a correction factor. The magnitude of Z for a certain gas at a particular pressure and temperature gives an indication of deviation of the gas from ideal gas behaviour.
+
 #### User Objectives and Goals:
 
 1. Understand and learn to read the Nelson-Obert generalized compressibility chart.
@@ -12,10 +14,15 @@
 
 #### Theory
 
+The compressibility factor (Z) is a correction factor. The magnitude of Z for a certain gas at a particular pressure and temperature gives an indication of deviation of the gas from ideal gas behaviour.
 
-#### Equations/formulas:
+For a particular gas, the compressibility factor Z is a function of p (pressure) and T (temperature). The compressibility chart is made up of lines of constant temperature on coordinates of p and Z. Using this plot, Z can be determined for any value of p and T. A compressibility factor chart exists for each substance.
 
-Variables and constants:
+In this experiment, we use the Nelson-Obert generalized compressibility chart, in order to demonstrate how to read a generalized compressibility chart as well as how to use it to find unknown quantities like volume.
+
+In order to use a compressibility chart, two of the three reduced properties (reduced pressure, reduced temperature, reduced volume) must be known. Then, the third unknown quantity can be obtained. In a compressibility chart, reduced pressure P<sub>r</sub> and compressibility factor Z are on the x-axis and y-axis respectively. When given the reduced pressure and temperature, Z can be determined using the chart.  If any two values out of pressure, temperature and volume of the substance are known, then the third quantity can be found out using the compressibility chart.
+
+#### Abbreviations:
 
   1. P = Actual pressure of the
   2. T = Actual temperature of the gas
@@ -25,16 +32,16 @@ Variables and constants:
   6. P<sub>r</sub> = Reduced pressure of the gas
   7. T<sub>r</sub> = Reduced temperature of the gas
   8. v<sub>r</sub> = Pseudo reduced specific volume of the gas
-  9. v<sub>ideal</sub> = Specific volume of the gas obtained from the ideal-gas equation
+  9. v<sub>ideal</sub> = Specific volume of the gas obtained from the Ideal gas equation
   10. Z = Compressibility factor
   11. R = Gas constant
-  12. Gas constant of Nitrogen, R = 0.2968 kPa.m3/kg.K
-  13. Gas constant of R-134a, R = 0.08149 kPa.m3/kg.K
-  14. Gas constant of Superheated water, R = 0.4615 kPa.m3/kg.K
-Mathematical Equations:
+  12. Gas constant of Nitrogen, R = 0.2968 kJ/kg.K
+  13. Gas constant of R-134a, R = 0.08149 kJ/kg.K
+  14. Gas constant of Superheated water, R = 0.4615 kJ/kg.K
+
+#### Equations/formulae:
 
 <center><img src="./images/equations/eq1.png" " /></center>
-
 <br>
 <center><img src="./images/equations/eq2.png" " /></center>
 <br>

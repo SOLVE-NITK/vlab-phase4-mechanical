@@ -79,7 +79,7 @@
 // Write your MCQs here --- Start --- --------------------
   const myQuestions = [
     {
-      question: "“Real gases exhibit ideal-gas behaviour at relatively low pressures and high temperatures.” Please indicate whether this statement is (cengel)?",
+      question: "“Real gases exhibit ideal-gas behaviour at relatively low pressures and high temperatures.” Please indicate whether this statement is?",
       answers: {
         a: "True",
         b: "False"
@@ -87,7 +87,7 @@
       correctAnswer: "a"
     },
     {
-      question: "Pseudo-reduced specific volume vr is defined as",
+      question: "Pseudo-reduced specific volume v<sub>r</sub> is defined as",
       answers: {
         a: "v<sub>r</sub>=v/v<sub>cr</sub>",
         b: "b. v<sub>r</sub> = v<sub>actual</sub>/(RT<sub>cr</sub>/P<sub>cr</sub>)",
@@ -97,7 +97,7 @@
       correctAnswer: "b"
     },
     {
-      question: "Given that the refrigerant R-134a is at 50 °C and its critical temperature value is 374.2 K, what is the value of reduced temperature? (cengel)",
+      question: "Given that the refrigerant R-134a is at 50 °C and its critical temperature value is 374.2 K, what is the value of reduced temperature?",
       answers: {
         a: "0.863",
         b: "0.133",
@@ -107,7 +107,7 @@
       correctAnswer: "a"
     },
     {
-      question: "What is the advantage of using Z instead of a direct plot of v? (pk nag)",
+      question: "What is the advantage of using Z instead of a direct plot of v?",
       answers: {
         a: "Smaller range of values in plotting",
         b: "Larger range of values in plotting",
@@ -124,7 +124,7 @@
       correctAnswer: "a"
     },
     {
-      question: "What is the advantage of using Z instead of a direct plot of v? (pk nag)",
+      question: "Determine the pressure of refrigerant-134a at 110 °C and 0.016828 m<sup>3</sup>/kg using the generalized compressibility chart",
       answers: {
         a: "8466.762 kPa",
         b: "1583 kPa",

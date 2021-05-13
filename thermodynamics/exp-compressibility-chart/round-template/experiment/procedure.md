@@ -17,8 +17,7 @@
 
 ![alt text](images/5.png)<br>
 
-5. The gas used, the values of four properties as well as which quantity is to be found, is displayed in the ‘VARIABLES’ panel..<br>
-The various symbols and the formulae involved in the experiment are displayed in the control panel when the cursor hovers over ‘Symbols’ and ‘Formulae’ respectively.
+5. The gas used, the values of four properties as well as which quantity is to be found, is displayed in the ‘VARIABLES’ panel.<br>
 
 ![alt text](images/6.png)<br>
 

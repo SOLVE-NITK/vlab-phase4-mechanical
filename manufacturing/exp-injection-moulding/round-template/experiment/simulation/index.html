@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script>
+          var simsubscreennum=0;
+          var temp=0;
+          var myInt = 0;
+
+          var visibleImagesId = [
+              {
+                  simsubscreennum: 0,
+                  animImages: [],
+                  initialImages: ['screw0','m0','off0','b0'],
+                  hideImages: ['screw1','m1','off1','b1','p1','mb1','fill1','bl1','d1']
+              },
+              {
+                  simsubscreennum: 1,
+                  animImages: [
+                      {
+                          id: 'b1',
+                          styleSet: 'position:absolute; left:80px; top:340px; width:70px;cursor:pointer;'
+                      },
+                      {
+                          id: 'fill1',
+                          styleSet: 'position:absolute; left: 270px; top: 280px; width:450px;'
+                      }
+                  ],
+                  initialImages: ['screw1','off1','m1','p1','mb1','bl1'],
+                  hideImages: ['fill2','m2','off2','p2','screw2','mb2','dial2']
+              },
+              {
+                  simsubscreennum: 2,
+                  animImages: [
+                    {
+                        id: 'p2',
+                        styleSet: 'position:absolute;left: 70px; top: 195px; width:550px;'
+                    },
+                    {
+                        id: 'dial2',
+                        styleSet: 'position:absolute;left:100px; top:117px; width:70px;visibility:hidden;'
+                    },
+                    {
+                        id: 'fill2',
+                        styleSet: 'position:absolute;left: 100px; top: 190px; width:550px;'
+                    },
+                    {
+                        id: 'screw2',
+                        styleSet: 'position:absolute;left: 100px; top: 190px; width:550px;'
+                    }
+
+                  ],
+                  initialImages: ['m2','off2','mb2'],
+                  hideImages: ['fill3','m3','screw3','off3','on3']
+              },
+              {
+                  simsubscreennum: 3,
+                  animImages: [
+
+                    {
+                        id: 'screw3',
+                        styleSet: 'position:absolute;left: 70px; top: 195px; width:550px;'
+                    },
+                    {
+                        id: 'fill3',
+                        styleSet: 'position:absolute;left:250px; top:170px; width:550px;'
+                    }
+
+
+                  ],
+                  initialImages: ['m3','off3'],
+                  hideImages: ['m4','screw4','f4','mb4','fill4','p4','dial4','off4']
+              },
+              {
+                  simsubscreennum: 4,
+                  animImages: [
+                      {
+                          id: 'p4',
+                          styleSet: 'position:absolute; left:100px;top:190px;width:550px;'
+                      },
+                      {
+                          id: 'dial4',
+                          styleSet: 'position:absolute;left:100px; top:117px; width:70px;visibility:hidden;'
+                      }
+                  ],
+                  initialImages: ['m4','screw4','mb4','off4','fill4','f4'],
+                  hideImages: ['m5','screw5','mb5','off5','fill5','f5','p5']
+              },
+              {
+                  simsubscreennum: 5,
+                  animImages: [
+                      {
+                          id: 'f5',
+                          styleSet: 'position:absolute;left:278px;top:283px;width:35px;cursor:pointer;'
+                      }
+                  ],
+                  initialImages: ['m5','screw5','mb5','off5','fill5','p5'],
+                  hideImages: []
+              }
+
+          ]
+      </script>
+</head>
+<!--Simulation Screen start		-->
+<div id="simscreen">
+
+    <!--Title of Simulation		-->
+    <div id="title"><h3>INJECTION MOULDING</h3></div>
+
+    <!--SubScreen Home	-->
+    <div class="simsubscreen" id="canvas0">
+    <h4 id="objective" style="font-family:verdana; ">Objective:</h4>
+    <p class="incanvas" style="font-family:verdana; font-size:15px;">To study and observe Injection moulding techniques through demonstration.</p></br>
+    <h4 id="apparatus" style="font-family:verdana; ">Apparatus used:</h4>
+    <p class="incanvas" style="font-family:verdana; font-size:14px;">Injection moulding Machine, Protective Equipments, Plastic granules etc.</p>
+    <img id="screw0" style="position: absolute; left: 270px; top: 240px; width:450px;" title="Injection moulding Machine" src="Images/screw.png"/>
+    <img id="m0" style="position: absolute; left: 270px; top: 240px; width:450px;" title="Injection moulding Machine" src="Images/machine0.png"/>
+    <img id="off0" style="position:absolute; left:334px; top:411px; width:70px;" title="Injection moulding Machine" src="Images/off.png" />
+    <img id="b0" style="position:absolute; left:50px; top:320px; width:100px;" title="Plastic granules" src="Images/bucket.png" />
+
+    </div>
+
+    <!--Step1	-->
+   <div class="simsubscreen" id="canvas1" style="visibility:hidden">
+   <p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;"> <strong id="titlestep" class="incanvas">STEP </strong>
+   <span class="circlebg" id="stepnumber">&nbsp;1&nbsp;</span>Put the plastic granules into the machine.</p>
+
+   <img id="fill1" style="position: absolute; left: 270px; top: 280px; width:450px;" title="" src="Images/fill.png"/>
+   <img id="bl1" style="position: absolute; left: 550px; top: 295px; width:65px;" title="" src="Images/blank.png"/>
+   <img id="screw1" style="position: absolute; left: 270px; top: 240px; width:450px;" title="Injection moulding Machine" src="Images/screw.png"/>
+   <img id="m1" style="position: absolute; left: 270px; top: 240px; width:450px;" title="Injection moulding Machine" src="Images/machine.png"/>
+   <img id="p1" style="position: absolute; left: 240px; top: 242px; width:450px;" title="Injection moulding Machine" src="Images/press.png"/>
+   <img id="mb1" style="position: absolute; left: 270px; top: 240px; width:450px;" title="Injection moulding Machine" src="Images/mback.png"/>
+   <img id="off1" style="position:absolute; left:334px; top:411px; width:70px;" title="Injection moulding Machine" src="Images/off.png" />
+   <img id="b1" style="position:absolute; left:80px; top:340px; width:70px;cursor:pointer;" title="Plastic granules" src="Images/bucket.png" />
+   <img id="d1" style="position:absolute; left:555px; top:216px; width:15px;visibility:hidden;" title="" src="Images/drop.png" />
+
+   </div>
+
+    <!--Step2	-->
+    <div class="simsubscreen" id="canvas2" style="visibility:hidden">
+    <p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;"><strong id="titlestep" class="incanvas">STEP</strong>
+    <span class="circlebg" id="stepnumber">&nbsp;2&nbsp;</span>&nbsp;Set up the machine and close the mould.</p>
+    <img id="fill2" style="position:absolute;left: 100px; top: 190px; width:550px;" title="" src="./images/fill.png" />
+    <img id="screw2" style="position: absolute; left: 100px; top: 190px; width:550px;" title="Injection moulding Machine" src="Images/screw.png"/>
+    <img id="m2" style="position: absolute; left: 100px; top: 190px; width:550px;" title="Injection moulding Machine" src="Images/machine.png"/>
+    <img id="p2" style="position:absolute;left: 70px; top: 195px; width:550px;" title="Injection moulding Machine" src="./images/press.png" />
+    <img id="mb2" style="position:absolute;left: 100px; top: 190px; width:550px;" title="Injection moulding Machine" src="./images/mback.png" />
+    <img id="off2" style="position:absolute; left:180px; top:397px; width:90px;cursor:pointer;" title="Injection moulding Machine" src="Images/off.png" />
+    <img id="dial2" style="position:absolute;left:100px; top:117px; width:70px;visibility:hidden;" title="" src="Images/dial.png" />
+    </div>
+
+
+    <!--Step3	-->
+    <div class="simsubscreen" id="canvas3" style="visibility:hidden">
+    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
+    <strong id="titlestep" class="incanvas">STEP </strong>
+    <span class="circlebg" id="stepnumber">&nbsp;3&nbsp;</span>Move the screw towards the mould.The heating coil will melt the plastic and it is injected into the mould.</p>
+    <img id="fill3" style="position:absolute;left: 250px; top: 170px; width:550px;" title="" src="./images/melt.png" />
+    <img id="screw3" style="position: absolute; left:70px; top: 195px; width:550px;" title="Injection moulding Machine" src="Images/screw.png"/>
+    <img id="m3" style="position: absolute; left: 100px; top: 190px; width:550px;" title="Injection moulding Machine" src="Images/machine0.png"/>
+    <img id="off3" style="position:absolute; left:180px; top:397px; width:90px;cursor:pointer;" title="Injection moulding Machine" src="Images/off.png" />
+    <img id="on3" style="position:absolute; left:180px; top:397px; width:90px;visibility:hidden;" title="Injection moulding Machine" src="Images/on.png" />
+
+    </div>
+
+    <!--Step4	-->
+    <div class="simsubscreen" id="canvas4" style="visibility:hidden">
+    <p id="pumptext-2" class="steptext" style="font-family:verdana; font-size:14px;"><strong id="titlestep" class="incanvas">STEP</strong>
+    <span class="circlebg" id="stepnumber">&nbsp;4&nbsp;</span>&nbsp;Open the mould once the molten plastic is cooled.</p>
+    <img id="fill4" style="position:absolute;left: 100px; top: 190px; width:550px;" title="" src="./images/melt.png" />
+    <img id="screw4" style="position: absolute;left:10px; top: 202px; width:550px;" title="" src="Images/screw.png"/>
+    <img id="m4" style="position:absolute; left:100px; top:190px; width:550px;" title="Injection moulding Machine" src="Images/machine.png" />
+    <img id="f4" style="position:absolute; left:278px; top:283px; width:35px;" title="Injection moulding Machine" src="Images/final.png" />
+    <img id="p4" style="position:absolute;left:100px;top:190px;width:550px;" title="Injection moulding Machine" src="./images/press1.png" />
+    <img id="mb4" style="position:absolute;left:100px;top:190px;width:550px;" title="Injection moulding Machine" src="./images/mback.png" />
+    <img id="off4" style="position:absolute; left:180px; top:397px; width:90px;cursor:pointer;" title="Injection moulding Machine" src="Images/off.png" />
+    <img id="dial4" style="position:absolute;left:100px; top:117px; width:70px;visibility:hidden;" title="" src="Images/dial.png" />
+    </div>
+
+
+    <!--Step5	-->
+    <div class="simsubscreen" id="canvas5" style="visibility:hidden">
+    <p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;"><strong id="titlestep" class="incanvas">STEP</strong>
+    <span class="circlebg" id="stepnumber">&nbsp;5&nbsp;</span>&nbsp;Take out the final product from the machine.</p>
+    <img id="fill5" style="position:absolute;left: 100px; top: 190px; width:550px;" title="" src="./images/melt.png" />
+    <img id="screw5" style="position: absolute;left:10px; top: 202px; width:550px;" title="" src="Images/screw.png"/>
+    <img id="m5" style="position:absolute; left:100px; top:190px; width:550px;" title="Injection moulding Machine" src="Images/machine.png" />
+    <img id="p5" style="position:absolute;left:70px;top:195px;width:550px;" title="Injection moulding Machine" src="./images/press1.png" />
+    <img id="mb5" style="position:absolute;left:100px;top:190px;width:550px;" title="Injection moulding Machine" src="./images/mback.png" />
+    <img id="off5" style="position:absolute; left:180px; top:397px; width:90px;" title="Injection moulding Machine" src="Images/off.png" />
+    <img id="f5" style="position:absolute; left:278px; top:283px; width:35px;cursor:pointer;" title="Final Product" src="Images/final.png" />
+    </div>
+    </div>
+
+
+
+
+
+
+    <!--Trial text	-->
+    <div id="">
+    <p id="trial" style="text-transform: uppercase;visibility :hidden;font-weight: bold;font-family:verdana; "><strong>Trial = </strong></p>
+    </div>
+
+
+    <!--next  Arrow	-->
+    <div id="nav">
+        <img id="nextButton" onclick="navNext(); " src="Images/Next.png" />
+        <img id="prevButton" onclick="navBack();" style="visibility:hidden" src="Images/prev.png" />
+    </div>
+
+    <div>
+        <img id="reButton" input type="button" value="Reload Page" onClick="document.location.reload(true);" src="Images/restart.png" / >
+    </div>
+
+    <!--Blinking Arrow	-->
+    <img class ="" id="arrow1" style="visibility:hidden" src="Images/arrow1.png"/>
+
+    <div id="copyright"> &copy; 2020 SOLVE - The Virtual Lab @ NITK Surathkal, Department of Mechanical Engineering</div>
+    <script src="./js/sample.js"></script>
+    </body>
+    </html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script>
+        var simsubscreennum=0;
+        var temp=0;
+        var myInt = 0;
+
+        var visibleImagesId = [
+            {
+                simsubscreennum: 0,
+                animImages: [],
+                initialImages: ['fr','bt','wh','gl','wp1','wp2','gr','br'],
+                hideImages: ['workpiece1','workpiece2']
+            },
+            {
+                simsubscreennum: 1,
+                animImages: [
+                    {
+                        id: 'grinder',
+                        styleSet: 'position:absolute; left:500px;top:195px;width:200px;cursor:pointer;'
+                    },
+                    {
+                        id: 'brush',
+                        styleSet: 'position:absolute;left:540px;top:350px;width:170px;'
+                    }
+                ],
+                initialImages: ['workpiece1','workpiece2'],
+                hideImages: ['lj']
+            },
+            {
+                simsubscreennum: 2,
+                animImages: [
+                    {
+                        id: 'w1',
+                        styleSet: 'position:absolute; left:430px;top:290px;width:300px;'
+                    },
+                    {
+                        id: 'w2',
+                        styleSet: 'position:absolute;left:30px;top:270px;width:300px;cursor:pointer;'
+                    }
+                ],
+                initialImages: [],
+                hideImages: ['p1','p2','fx']
+            },
+            {
+                simsubscreennum: 3,
+                animImages: [
+                    {
+                        id: 'bro',
+                        styleSet: 'position:absolute; left:550px;top:85px;width:60px;cursor:pointer;'
+                    }
+                ],
+                initialImages: ['p1','p2','fx'],
+                hideImages: ['wp4']
+            },
+            {
+                simsubscreennum: 4,
+                animImages: [
+                    {
+                        id: 'fill',
+                        styleSet: 'position:absolute; left:385px;top:320px;width:350px;cursor:pointer;'
+                    },
+                ],
+                initialImages: ['wp4'],
+                hideImages: ['filler','b1','wp5','dt']
+            },
+            {
+                simsubscreennum: 5,
+                animImages: [
+                    {
+                        id: 'spark',
+                        styleSet: 'position:absolute;left:66px;top:371px;width:30px;visibility:hidden;'
+                    },
+                    {
+                        id: 'weld',
+                        styleSet: 'position:absolute;  left:333px;top:144px;width:350px;'
+                    },
+                    {
+                        id: 'electrode',
+                        styleSet: 'position:absolute; left:430px;top:295px;width:300px;cursor:pointer;'
+                    },
+                    {
+                        id: 'part',
+                        styleSet: 'position:absolute;left:332px;top:150px;width:350px;'
+                    }
+                ],
+                initialImages: ['filler','b1','wp5','dt'],
+                hideImages: ['dust1','wp6','weld6']
+            },
+            {
+                simsubscreennum: 6,
+                animImages: [
+                    {
+                        id: 'brush1',
+                        styleSet: 'position:absolute; left:500px;top:295px;width:180px;cursor:pointer;'
+                    },
+                ],
+                initialImages: ['dust1','wp6','weld6'],
+                hideImages: []
+            }
+
+        ]
+    </script>
+</head>
+<!--Simulation Screen start		-->
+<div id="simscreen">
+
+    <!--Title of Simulation		-->
+    <div id="title"><h3>BRAZING</h3></div>
+
+    <!--SubScreen Home	-->
+    <div class="simsubscreen" id="canvas0">
+    <h4 id="objective" style="font-family:verdana; ">Objective:</h4>
+    <p class="incanvas" style="font-family:verdana; font-size:15px;">To join the given two work pieces as required by brazing.</p></br>
+    <h4 id="apparatus" style="font-family:verdana; ">Apparatus used:</h4>
+    <p class="incanvas" style="font-family:verdana; font-size:14px;">Mild steel rod, Filler rod, Flux, Protective equipments, Brazing torch, Grinder, Brush etc.</p>
+    <img id="fr" style="position:absolute;left:-10px;top:265px;width:250px;" title="Filler rod" src="./images/filler.png" />
+    <img id="bt" style="position: absolute; left: 510px; top: 260px; width:230px;" title="Brazing Torch" src="Images/machine.png"/>
+    <img id="wh" style="position:absolute; left:620px; top:360px; width:90px" title="Welding Helmet" src="Images/face.png" />
+    <img id="gl" style="position:absolute; left:500px; top:420px; width:100px" title="Gloves" src="Images/gloves.png" />
+    <img id="wp1" style="position:absolute; left:-20px; top:340px; width:250px" title="Workpiece" src="Images/rod1.png" />
+    <img id="wp2" style="position:absolute; left:20px; top:370px; width:250px" title="Workpiece" src="Images/rod1.png" />
+    <img id="gr" style="position:absolute; left:270px;top:395px;width:200px;" title="Grinder" src="./images/grinder.png" />
+    <img id="br" style="position:absolute; left:280px;top:335px;width:160px;" title="Brush" src="./images/brush.png" />
+
+    </div>
+
+    <!--Step1	-->
+    <div class="simsubscreen" id="canvas1" style="visibility:hidden">
+    <p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;"> <strong id="titlestep" class="incanvas">STEP </strong>
+    <span class="circlebg" id="stepnumber">&nbsp;1&nbsp;</span>Clean the given workpiece thoroughly,i.e. remove the rust, scales from the surface.</p>
+
+    <img id="workpiece1" style="position:absolute; left:10px;top:300px;width:320px;" title="Workpiece" src="./images/rod1.png" />
+    <img id="workpiece2" style="position:absolute; left:180px;top:330px;width:320px;" title="Workpiece" src="./images/rod1.png" /> -->
+    <img id="grinder" style="position:absolute; left:500px;top:195px;width:200px;cursor:pointer;" title="grinder" src="./images/grinder.png" />
+    <img id="brush" style="position:absolute;left:540px;top:350px;width:170px;" title=" brush" src="./images/brush.png" />
+    </div>
+
+    <!--Step2	-->
+    <div class="simsubscreen" id="canvas2" style="visibility:hidden">
+    <p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;"><strong id="titlestep" class="incanvas">STEP</strong>
+    <span class="circlebg" id="stepnumber">&nbsp;2&nbsp;</span>&nbsp;Align the  workpieces properly.</p>
+    <img id="w2" style="position:absolute; left:30px;top:270px;width:300px;cursor:pointer;" title="workpiece1" src="./images/rod1.png" />
+    <img id="w1" style="position:absolute; left:430px;top:290px;width:300px;" title="workpiece2" src="./images/rod1.png" />
+    <img id="lj" style="position:absolute; left:220px;top:270px;width:330px;visibility:hidden;" title="workpiece" src="./images/rod2.png" />
+    </div>
+
+
+    <!--Step3	-->
+    <div class="simsubscreen" id="canvas3" style="visibility:hidden">
+    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
+    <strong id="titlestep" class="incanvas">STEP </strong>
+    <span class="circlebg" id="stepnumber">&nbsp;3&nbsp;</span>
+    Use a brush to apply the flux on the workpiece.</p>
+    <img id="p1" style="position:absolute; left:40px;top:285px;width:350px;" title="workpiece1" src="./images/rod2.png" />
+   <img id="p2" style="position:absolute; left:550px;top:355px;width:100px;" title="flux" src="./images/tin1.png" />
+    <img id="bro" style="position:absolute; left:550px;top:85px;width:60px;cursor:pointer;" title="brush" src="./images/bro.png" />
+   <img id="fx" style="position:absolute; left:550px;top:355px;width:100px;" title="flux" src="./images/tin.png" />
+
+
+    </div>
+
+    <!--Step4	-->
+
+  <div class="simsubscreen" id="canvas4" style="visibility:hidden">
+  <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
+  <strong id="titlestep" class="incanvas">STEP </strong>
+  <span class="circlebg" id="stepnumber">&nbsp;4&nbsp;</span>Place the filler material at correct position.</p>
+  <img id="wp4" style="position:absolute; left:40px;top:285px;width:350px;" title="Workpiece" src="./images/rod2.png" />
+  <img id="fill" style="position:absolute;left:385px;top:320px;width:350px;cursor:pointer;" title="filler" src="./images/filler.png" />
+
+  </div>
+
+
+
+
+    <!--Step5	-->
+    <div class="simsubscreen" id="canvas5" style="visibility:hidden">
+    <p id="pumptext-2" class="steptext" style="font-family:verdana; font-size:14px;"><strong id="titlestep" class="incanvas">STEP</strong>
+    <span class="circlebg" id="stepnumber">&nbsp;5&nbsp;</span>&nbsp;Heat the joint to the proper brazing temperature by using brazing torch.</p>
+
+    <img id="wp5" style="position:absolute; left:40px;top:285px;width:350px;" title="Workpiece" src="./images/rod2.png" />
+    <img id="filler" style="position:absolute;left:35px;top:283px;width:350px;" title="Workpiece" src="./images/filler.png" />
+    <img id="part" style="position:absolute; left:332px;top:150px;width:350px;" title="Workpiece" src="./images/part.png" />
+    <img id="weld" style="position:absolute; left:333px;top:144px;width:350px;"  src="./images/weld.png" />
+    <img id="b1" style="position:absolute; left:334px;top:144px;width:350px;"  src="./images/blank.png" />
+    <img id="dt" style="position:absolute; left:40px;top:285px;width:350px;" title="Workpiece" src="./images/dust.png" />
+    <img id="spark" style="position:absolute; left:66px;top:371px;width:30px;visibility:hidden;"  src="./images/spark.png" />
+    <img id="electrode" style="position:absolute; left:430px;top:295px;width:300px;cursor:pointer;" title="Electrode" src="./images/machine.png" />
+
+    </div>
+
+
+    <!--Step6	-->
+    <div class="simsubscreen" id="canvas6" style="visibility:hidden">
+      <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
+      <strong id="titlestep" class="incanvas">STEP </strong>
+      <span class="circlebg" id="stepnumber">&nbsp;6&nbsp;</span>Clean the joint using a wire brush.</p>
+      <img id="wp6" style="position:absolute; left:40px;top:285px;width:350px;" title="Workpiece" src="./images/rod2.png" />
+      <img id="weld6" style="position:absolute; left:40px;top:285px;width:350px;"  src="./images/weld.png" />
+      <img id="dust1" style="position:absolute; left:40px;top:285px;width:350px;" title="Workpiece" src="./images/dust.png" />
+      <img id="brush1" style="position:absolute; left:500px;top:295px;width:180px;cursor:pointer;" title="brush" src="./images/brush.png" />
+      </div>
+
+
+
+
+    <!--Trial text	-->
+    <div id="">
+    <p id="trial" style="text-transform: uppercase;visibility :hidden;font-weight: bold;font-family:verdana; "><strong>Trial = </strong></p>
+    </div>
+
+
+    <!--next  Arrow	-->
+    <div id="nav">
+        <img id="nextButton" onclick="navNext(); " src="Images/Next.png" />
+          <img id="prevButton" onclick="navBack();" style="visibility:hidden" src="Images/prev.png" />
+    </div>
+
+    <div>
+        <img id="reButton" input type="button" value="Reload Page" onClick="document.location.reload(true);" src="Images/restart.png" / >
+    </div>
+
+    <!--Blinking Arrow	-->
+    <img class ="" id="arrow1" style="visibility:hidden" src="Images/arrow1.png"/>
+
+    <div id="copyright"> &copy; 2020 SOLVE - The Virtual Lab @ NITK Surathkal, Department of Water Resources & Ocean Engineering</div>
+    <script src="./js/sample.js"></script>
+    </body>
+    </html>

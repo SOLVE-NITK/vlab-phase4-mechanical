@@ -1,0 +1,54 @@
+{
+  "details": [
+    {
+      "Experiment": "Heat transfer by natural convection",
+      "Lab": "Heat transfer lab",
+      "Discipline": "Mechanical Engineering",
+      "Technology": "HTML, Javascript, CSS, JQuery"
+    }
+  ],
+  "developer": [
+    {
+      "Developer": "K V Gangadharan",
+      "Institute": "National Institute of Technology Karnataka, Surathkal",
+      "InstituteAcronym": "NITK"
+    }
+  ],
+  "contributer": [
+    {
+      "Contributer": "Prasad Mandave",
+      "Institute": "National Institute of Technology Karnataka, Surathkal",
+      "InstituteAcronym": "NITK"
+    },
+    {
+      "Contributer": "Ahemad Daniyal",
+      "Institute": "National Institute of Technology Karnataka, Surathkal",
+      "InstituteAcronym": "NITK"
+    },
+    {
+      "Contributer": "Rohit Kushwaha",
+      "Institute": "National Institute of Technology Karnataka, Surathkal",
+      "InstituteAcronym": "NITK"
+    },
+    {
+      "Contributer": "Vishwas",
+      "Institute": "National Institute of Technology Karnataka, Surathkal",
+      "InstituteAcronym": "NITK"
+    },
+    {
+      "Contributer": "Akshaya",
+      "Institute": "National Institute of Technology Karnataka, Surathkal",
+      "InstituteAcronym": "NITK"
+    },
+    {
+      "Contributer": "Anusha B Salian",
+      "Institute": "National Institute of Technology Karnataka, Surathkal",
+      "InstituteAcronym": "NITK"
+    },
+    {
+      "Contributer": "Ranjan Tunga S",
+      "Institute": "National Institute of Technology Karnataka, Surathkal",
+      "InstituteAcronym": "NITK"
+    }
+  ]
+}

@@ -112,7 +112,7 @@ const myQuestions = [
     correctAnswer: "c"
   },
   {
-    question: "Given that the actual specific volume of superheated water is 0.0269 m<sup>3</sup>/kg, calculate the pseudo-reduced specific volume. (R=0.4615 kPa.m<sup>3</sup>/kg.K, P<sub>cr</sub>=22.06 MPa, T<sub>cr</sub>=647.1 K)",
+    question: "Given that the actual specific volume of superheated water is 0.0269 m<sup>3</sup>/kg, calculate the pseudo-reduced specific volume. (R=0.4615 kJ/kg.K, P<sub>cr</sub>=22.06 MPa, T<sub>cr</sub>=647.1 K)",
     answers: {
       a: "1.964",
       b: "1.987",
@@ -122,7 +122,7 @@ const myQuestions = [
     correctAnswer: "b"
   },
   {
-    question: "Z is defined as (from cengel)",
+    question: "Z is defined as",
     answers: {
       a: "Z=Pv/RT",
       b: "Z=v<sub>actual</sub>/v<sub>ideal</sub>",
@@ -132,7 +132,7 @@ const myQuestions = [
     correctAnswer: "c"
   },
   {
-    question: "“The Z factor is approximately the same for all gases at the same reduced temperature and reduced pressure.” Please indicate whether this statement is true or false (from cengel)",
+    question: "“The Z factor is approximately the same for all gases at the same reduced temperature and reduced pressure.” Indicate whether this statement is true or false",
     answers: {
       a: "True",
       b: "False"

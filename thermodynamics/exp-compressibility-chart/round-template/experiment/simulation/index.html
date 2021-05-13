@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Compressibility Chart</title>
-    <link rel="stylesheet" href="sins/MOMstyle.css" />
+    <link rel="stylesheet" href="css/MOMstyle.css" />
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
     <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js'></script>
 
@@ -62,11 +62,11 @@
         EXAMPLE 2:<input type="radio" id="radio2"  name="chart" onclick="check2(this);">
         EXAMPLE 3:<input type="radio" id="radio3"  name="chart" onclick="check3(this);">
         EXAMPLE 4:<input type="radio" id="radio4"  name="chart" onclick="check4(this);"><br><br>
-        <img id="rotationbutton" onclick="location.reload();" src="sins/bluecwdull.png" />
+        <img id="rotationbutton" onclick="location.reload();" src="images/bluecwdull.png" />
         <!--        <button type="reset" id="Reset" onclick="location.reload();">Reset</button>-->
         <div style="position:relative; left: 15px;top:-60px;">
 
-            <span class="tooltip" style="border-bottom:0px dotted ; color:black;top: -155px;left: 8px; text-align:justify">Symbols
+            <button class="tooltip" style="border:1px solid darkred; color:black;top: -155px;left: 8px; text-align:justify">Symbols
 			<span class="tooltiptext" style="left: -10px;width: 400px">
 
 			P = Actual pressure of the gas<br>
@@ -84,9 +84,9 @@
                 Gas constant of R-134a, R = 0.08149 kPa.m<sup>3</sup>/kg.K<br>
                 Gas constant of Superheated water, R = 0.4615 kPa.m<sup>3</sup>/kg.K<br>
 			</span>
-			</span>
+    </button>
 
-            <span class="tooltip" style="border-bottom:0px dotted ; color:black;top: -155px; text-align:justify;left: 85px">Formulae
+            <button class="tooltip" style="border:1px solid darkred; color:black;top: -155px; text-align:justify;left: 85px">Formulae
 			<span class="tooltiptext" style="left: -60px; width: 100px">
             P<sub>r</sub> = P/P<sub>cr</sub><br>
             T<sub>r</sub> = T/T<sub>cr</sub><br>
@@ -95,7 +95,7 @@
                 T = T<sub>r</sub> * T<sub>cr</sub><br>
                 P = P<sub>r</sub> * P<sub>cr</sub><br>
 			</span>
-			</span>
+    </button>
         </div>
     </div>
     <!-- DND-Copyright display-->
@@ -113,7 +113,7 @@
     var imageObj = new Image();
     // <!-- imageObj.onload = function () { -->
     // <!-- }; -->
-    imageObj.src = 'graph2.png';
+    imageObj.src = 'images/graph2.png';
     imageObj.onload=function(){
         context.drawImage(imageObj, 91, 64, 1068, 720);}
 
@@ -858,13 +858,13 @@
         if(ele.id == "radio1"){
             context.clearRect(0,0,1500,1500)
             imageObj.src = " ";
-            imageObj.src = 'graph2.png';
+            imageObj.src = 'images/graph2.png';
             imageObj.onload=function(){
                 context.drawImage(imageObj, 93, 64, 1068, 720);}
         } else {
             context.clearRect(0,0,1500,1500)
             imageObj.src = " ";
-            imageObj.src = 'graph1.png';
+            imageObj.src = 'images/graph1.png';
             imageObj.onload=function(){
                 context.drawImage(imageObj, 93, 64, 1068, 720);}
         }
@@ -872,4 +872,3 @@
 </script>
 </body>
 </html>
-

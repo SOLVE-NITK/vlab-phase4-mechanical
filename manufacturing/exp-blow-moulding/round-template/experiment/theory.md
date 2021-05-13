@@ -2,11 +2,11 @@
 
 #### User Objectives and Goals:
 
-  1) State what is moulding processes
-  2)Differentiate injection moulding and blow moulding
-  3)Advantages of blow moulding compared to other methods
-  4)Materials that can be subjected to moulding processes
-  5)Attempt assessment questions.
+  1. State what is moulding processes
+  2. Differentiate injection moulding and blow moulding
+  3. Advantages of blow moulding compared to other methods
+  4. Materials that can be subjected to moulding processes
+  5. Attempt assessment questions.
 
 
 

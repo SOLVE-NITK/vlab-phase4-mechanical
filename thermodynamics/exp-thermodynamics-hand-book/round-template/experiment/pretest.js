@@ -80,7 +80,7 @@
 
 const myQuestions = [
   {
-    question: " When water is heated to its boiling point, it turns into saturated steam.",
+    question: "When water is heated to its boiling point, it turns into saturated steam.",
     answers: {
       a: "True",
       b: "False"
@@ -100,7 +100,7 @@ const myQuestions = [
   },
 
   {
-    question: "The term vf denotes:",
+    question: "The term v<sub>f</sub> denotes:",
     answers: {
       a: "Specific volume at superheated liquid state",
       b: "Specific volume at saturated liquid state",

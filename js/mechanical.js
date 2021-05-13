@@ -2,23 +2,45 @@ let labs = [
     { 
         labName: "Manufacturing Lab", 
         experiments: [
-            {id: "ARC WELDING(LAP AND BUTT JOINT)", path: "manufacturing/exp-arc-welding"},
-            {id: "DEEP DRAWING", path: "manufacturing/exp-deep-drawing"},
-            {id: "BLOW MOULDING", path: "manufacturing/exp-blow-moulding"}]
+            {id: "Arc Welding(Lap joint and V-butt joint)", path: "manufacturing/exp-arc-welding"},
+            {id: "Deep Drawing", path: "manufacturing/exp-deep-drawing"},
+            {id: "Blow Moulding", path: "manufacturing/exp-blow-moulding"},
+            {id: "Sand Casting", path: "manufacturing/exp-sand-casting"},
+            {id: "Spot Welding and Friction Welding", path: "manufacturing/exp-spot-friction-welding"},
+            {id: "Brazing", path: "manufacturing/exp-brazing"},
+            {id: "Rolling", path: "manufacturing/exp-rolling"},
+            {id: "Forging", path: "manufacturing/exp-forging"},
+            {id: "Injection Moulding", path: "manufacturing/exp-injection-moulding"},
+            {id: "Blanking and Piercing", path: "manufacturing/exp-blanking-piercing"},
+
+        ]
     },
     { 
         labName: "Heat Transfer Lab", 
         experiments: [
             {id: "Thermal Conductivity of a metal rod", path: "heat_transfer/exp-thermal-conductivity"},
             {id: "Heat Transfer Through Lagged Pipe", path: "heat_transfer/exp-lagged-pipe"},
-            {id: "Test on Heat Exchangers", path: "heat_transfer/exp-test-on-heat-exchangers"}]    
+            {id: "Test on Heat Exchangers", path: "heat_transfer/exp-test-on-heat-exchangers"},
+            {id: "Composite Slab Apparatus", path: "heat_transfer/exp-composite-slab-apparatus"},
+            {id: "Measurement of Emissivity", path: "heat_transfer/exp-measurement-of-emissivity"},
+            {id: "Heat Transfer by Natural Convection", path: "heat_transfer/exp-heat-transfer-by-natural-convection"},
+            {id: "Heat Transfer by Forced Convection", path: "heat_transfer/exp-heat-transfer-by-forced-convection"},
+            ]    
     },
     { 
         labName: "Engineering Graphics Lab", 
         experiments: [
-            {id: "Projections of Points", path: "engineering_graphics/exp-projection-of-points"},
-            {id: "Projections of Lines", path: "engineering_graphics/exp-projection-of-lines"},
-            {id: "Basics of Engineering Drawing", path: "engineering_graphics/exp-basics-of-engineering-drawing"}]   
+            {id: "Projection of point and Conventions", path: "engineering_graphics/exp-projection-of-points"},
+            {id: "Introduction of Engineering  Drawing", path: "engineering_graphics/exp-basics-of-engineering-drawing"},
+            {id: "Projections of Line(Part I)", path: "engineering_graphics/exp-projection-of-lines"},
+            {id: "Projections of Line(Part II)", path: "engineering_graphics/exp-projection-of-lines-two"},
+            {id: "Projection of Planes", path: "engineering_graphics/exp-projection-of-planes"},
+            {id: "Projection of solid", path: "engineering_graphics/exp-projection-of-solid"},
+            {id: "Auxiliary plane Method (Part I)", path: "engineering_graphics/exp-auxiliary-plane-method"},
+            {id: "Auxiliary Plane method(Part II)", path: "engineering_graphics/exp-auxiliary-plane-method-two"},
+            {id: "Isometric to Orthographic View", path: "engineering_graphics/exp-isometric-to-orthographic"},
+            {id: "Orthographic to Isometric View", path: "engineering_graphics/exp-orthographic-to-isometric"},
+        ]   
     },
     { 
         labName: "Machine Design Lab", 
@@ -30,9 +52,19 @@ let labs = [
     { 
         labName: "Thermodynamics Lab", 
         experiments: [
-            {id: "Throtolling cycle (measurement of steam )", path: "../thermodynamics/exp-measurement-of-steam-quality/index.html"},
-            {id: "Thermodynamics data hand book", path: "../thermodynamics/exp-thermodynamics-hand-book/index.html"},
-            {id: "Compressibility Chart ", path: "../thermodynamics/exp-compressibility-chart/index.html"}]    
+            {id: "Throtolling cycle (measurement of steam )", path: "thermodynamics/exp-measurement-of-steam-quality"},
+            {id: "Thermodynamics data hand book", path: "thermodynamics/exp-thermodynamics-hand-book"},
+            {id: "Compressibility Chart ", path: "thermodynamics/exp-compressibility-chart"},
+            {id: "Carnot Cycle", path: "thermodynamics/exp-carnot-cycle"},
+            {id: "Diesel Cycle", path: "thermodynamics/exp-diesel-cycle"},
+            {id: "Dual Cycle", path: "thermodynamics/exp-dual-cycle"},
+            {id: "Ericsson Cycle", path: "thermodynamics/exp-ericsson-cycle"},
+            {id: "Otto Cycle", path: "thermodynamics/exp-otto-cycle"},
+            {id: "Psychrometric Chart", path: "thermodynamics/exp-psychometric-chart"},
+            {id: "Second Law Of Thermodynamics", path: "thermodynamics/exp-second-law-of-thermodynamics"},
+            {id: "Stirling Cycle", path: "thermodynamics/exp-stirling-cycle"},
+            {id: "Third Law Of Thermodynamics", path: "thermodynamics/exp-third-law-of-thermodynamics"},
+        ]    
     },
     { 
         labName: "Vibrations II", 

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Third Law Of Thermodynamics</title>
+    <link rel="stylesheet" href="css/MOMstyle.css" />
+    <script src='js/jquery.min.js'></script>
+    <script src='js/jquery-ui.min.js'></script>
+
+</head>
+
+<body onload="varinit();start();simstate()">
+<!-- Defining Container for Simulation -->
+<noscript>
+    The simulation requires JavaScript to be enabled.
+</noscript>
+<div id="container">
+    <!-- Replace TITLE with simulation title to be displayed next to logo-->
+    <div id="simtitle">Third Law of Thermodynamics</div>
+    <!-- Region for simulation display -->
+    <canvas id="simscreen" height="400px" width="550px"></canvas>
+    <div id="titleincanvas"></div>
+    <!-- Region for comment / question prompts -->
+    <div id="commentboxleft">
+        <p id="p1" style="line-height:0.4"></p>
+        <p id="p2" style="line-height:0.4"></p>
+    </div>
+    <div id="commentboxright">
+        <p id="p6" style="line-height:0.4"></p>
+        <p id="p7" style="line-height:0.4"></p>
+    </div>
+
+    <!-- DND-Title of region for variables display -->
+    <div id="vartitle">VARIABLES</div>
+
+    <!-- Region for Input parameters of simulation -->
+    <div id="variables">
+        <div class="variable">
+            <div class="varname"><p title="Link Length" style="font-size:95%;">Temperature (K)</p>
+                <input id="l1spinner"></div>
+            <div id="l1slider"></div>
+            <br>
+        </div>
+    </div>
+    <!-- DND-Title of region for controls display -->
+    <div id="ctrltitle">CONTROLS</div>
+    <!-- Region for User controls of simulation -->
+    <div id="controls">
+        <img id="playpausebutton" onclick="simstate()" src="images/blueplaydull.png" />
+        <img id="rotationbutton" onclick="location.reload();" src="images/bluecwdull.png" />
+        <div style="position:relative; left: 15px;top:-85px;">
+
+            <span class="tooltip" style="border-bottom:0px dotted ; color:black;text-align:justify; top: 22px; left: 42px">Instructions
+			<span class="tooltiptext" style="left: -60px; width: 400px">
+            After the screen loads, click on the "Pause" button. The temperature slider will be enabled. Change the temperature to the desired value. Press "Play". The velocity of the spheres, which represent atoms, changes with the temperature. To understand the effects of the Third Law Of Thermodynamics, change the temperature to 0 K and press "Play".
+			</span>
+			</span>
+
+            <span class="tooltip" style="border-bottom:1px  ; color:black;text-align:justify;top: 40px; left: 5px">Statement
+			<span class="tooltiptext" style="left: 0px;width: 230px">
+			"The third law of thermodynamics states that the entropy of a perfect crystal at a temperature of zero Kelvin (absolute zero) is equal to zero."
+			</span>
+			</span>
+
+            <span class="tooltip" style="border-bottom:1px  ; color:black;text-align:justify;top: 40px; left: 95px">Formulae
+			<span class="tooltiptext" style="left: 0px;width: 480px">
+			The entropy of a system can be expressed by the following equation:<br>
+                S – S<sub>0</sub> = 𝑘<sub>B</sub> ln𝛀<br>
+                Where,<br>
+                S is the entropy of the system.<br>
+                S<sub>0</sub> is the initial entropy.<br>
+                𝑘<sub>B</sub> is the Boltzmann constant (𝑘<sub>B</sub> = 1.38×10<sup>−23</sup> JK<sup>−1</sup>).<br>
+                𝛀 is the number of microstates consistent with the macroscopic configuration.<br><br>
+                For a perfect crystal that has exactly one unique ground state, 𝛀 = 1.<br>
+                Therefore,<br>
+                S – S<sub>0</sub> = 𝑘<sub>B</sub> ln(1) = 0 <br>
+                If the initial entropy of the system is selected as zero, <br>
+                S – 0 = 0 ⇒ S = 0<br>
+                Thus, the entropy of a perfect crystal at absolute zero temperature is zero.
+
+			</span>
+			</span>
+
+        </div>
+    </div>
+    <!-- DND-Copyright display-->
+    <div id="copyright" title="Developer : SOLVEr"> Copyright &copy; SOLVE The Virtual Lab @ NITK Surathkal </div>
+
+</div><!-- Container div close -->
+<script type="text/javascript" >
+
+    // balls start here
+    var KE;
+    var Na;
+    var R;
+    var temp=0;
+    var temps=0;
+    var input=0;
+    var prev=temps;
+    var p=false;
+
+    R=8.314;
+    Na=6.022*10^23;
+
+    var k=1;
+    var ball=[];
+    var ballCount=70;
+    var dx=2+temps;
+    var dy=-2+temps;
+    for(var i=0;i<ballCount;i++){
+        ball[i]={x:0,y:0,dx:2+temps,dy:-2,color:"rgba("+Math.ceil(Math.random()*256)+","+Math.ceil(Math.random()*256)+","+Math.ceil(Math.random()*256)+","+Math.ceil(Math.random()*256)+")"}
+
+    }
+    var ballRadius=20;
+    var canvas;
+    var ctx;
+    var x;
+    var y;
+    var simstatus = 0;
+    function start() {
+        //var temp=0;
+        //var temps=0;
+        temp_val($('#l1spinner').spinner("value"));
+        canvas=document.getElementById("simscreen");
+        ctx=canvas.getContext("2d");
+        ctx.canvas.width=550;
+        ctx.canvas.height=400;
+        x=canvas.height-20;
+        y=canvas.width/2;
+        draw();
+    }
+
+    function draw(){
+        //console.log(canvas.width,canvas.height);
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        for(var i=0;i<ballCount;i++){
+
+            if(k===1){
+
+                ball[i].x=400;
+                ball[i].y=50;
+
+            }
+            ctx.beginPath();
+            ctx.arc(ball[i].x,ball[i].y,ballRadius,0,Math.PI*2);
+            ctx.fillStyle=ball[i].color;
+            ctx.fill();
+            ctx.closePath();
+
+        }
+        // console.log(ball[0].x,ball[0].y)
+        // console.log(temp);
+        speed(temp);
+        // console.log(ball[0].dx,ball[0].dy)
+        //rebound();
+        move();
+        // rebound();
+    }
+
+    function move(){
+
+        if(temp==0 || simstatus == 0)
+        {
+            for(var i=0;i<ballCount;i++){
+                ball[i].x=ball[i].x;
+                ball[i].y=ball[i].y;
+            }
+        }
+        else
+        {
+            for(var i=0;i<ballCount;i++){
+                if(ball[i].x+ball[i].dx>530||ball[i].x+ball[i].dx<20) {
+                    ball[i].dx=-ball[i].dx+Math.random();
+                } else {
+                    ball[i].x=ball[i].x+ball[i].dx+Math.random();
+                }
+                if(ball[i].y+ball[i].dy>380||ball[i].y+ball[i].dy<20) {
+                    ball[i].dy=-ball[i].dy+Math.random();
+                } else {
+                    ball[i].y=ball[i].y+ball[i].dy+Math.random();
+                }
+                k=0;
+            }
+        }
+
+        // for(var i=0;i<ballCount;i++){
+        //     ball[i].x=ball[i].x+ball[i].dx+Math.random();
+        //     ball[i].y=ball[i].y+ball[i].dy+Math.random();
+        //     k=0;
+        // }
+
+    }
+
+    function speed(input){
+        temps=-2-input/65;//*500;
+        // console.log("temps="+temps);
+        if(temps!=prev){
+            for(var i=0;i<ballCount;i++){
+                ball[i].dx=temps;//ball[i].x+ball[i].dx;
+                ball[i].dy=temps;//ball[i].y+ball[i].dy;
+                //k=0;
+            }
+        }
+        prev=temps;
+        //dx=2+temps;
+        //dy=-2+temps;
+        // return new_value;
+    }
+
+    function rebound(){
+        // console.log("hi??"+ball[0].dy);
+        for(var i=0;i<ballCount;i++){
+            if(ball[i].x+ball[i].dx>530||ball[i].x+ball[i].dx<20)
+            {
+                // console.log("hi");
+                ball[i].dx=-ball[i].dx+Math.random();
+                //ball[i].x=-ball[i].x;
+            }
+            if(ball[i].y+ball[i].dy>380||ball[i].y+ball[i].dy<20)
+            {
+                // console.log("hi");
+                ball[i].dy=-ball[i].dy+Math.random();
+                //ball[i].y=-ball[i].y;
+            }
+        }
+    }
+
+    drawInterval  = setInterval(draw,10);
+    draw();
+    //setTimeout(draw,10);
+
+    // balls end here
+
+    function simstate() {
+        // console.log(k)
+        //  if (k===1){
+        //     document.getElementById('playpausebutton').src="sins/blueplaydull.png";
+        //     k=0;
+        //     $('#l1spinner').spinner("disable");
+        //     $('#l1slider').slider("disable");
+        //     if (temp===0)
+        //     {
+        //         document.getElementById("p6").innerHTML="Entropy of the system, S=0";
+        //     }
+        // }
+        // else if(k === 0) {
+        //     document.getElementById('playpausebutton').src="sins/bluepausedull.png";
+        //     k = 1;
+        //     $('#l1spinner').spinner("enable");
+        //     $('#l1slider').slider("enable");
+        //     document.getElementById("p6").innerHTML="";
+        // }
+
+        if (simstatus == 0){
+            simstatus = 1;
+            document.getElementById('playpausebutton').src="images/bluepausedull.png";
+            // k=0;
+            $('#l1spinner').spinner("disable");
+            $('#l1slider').slider("disable");
+            if (temp===0 && p===true)
+            {
+                document.getElementById("p6").innerHTML="Entropy of the system, S=0";
+                document.getElementById("p7").innerHTML="(The substance is a perfect crystal.)";
+            }
+        }
+        else if(simstatus == 1) {
+            simstatus = 0;
+            document.getElementById('playpausebutton').src="images/blueplaydull.png";
+            $('#l1spinner').spinner("enable");
+            $('#l1slider').slider("enable");
+            document.getElementById("p6").innerHTML="";
+            document.getElementById("p7").innerHTML="";
+            p=true;
+        }
+    }
+
+    function temp_val(input){
+
+        temp=input;
+        //console.log(temp)
+        document.getElementById("p1").innerHTML="Temperature : "+temp+" K";
+        // if(temp===0){
+        //     document.getElementById("p6").innerHTML="Entropy of the system, S=0"
+        // }
+    }
+
+    function kinetic_val(input){
+
+        KE=(3*R*input)/(2*Na);
+        //document.getElementById("p2").innerHTML="Kinetic Energy : "+KE+" J";
+
+    }
+
+    function tf_val(){
+
+        document.getElementById("p6").innerHTML="";
+    }
+
+    function varinit() {
+
+        varchange();
+
+        //Variable r1 slider and number input types
+
+        $('#l1slider').slider("value", 0);
+        $('#l1spinner').spinner("value", 0);
+        $('#l2slider').slider("value", 0);
+        $('#l2spinner').spinner("value", 0);
+        //console.log(temps)
+        tf_val();
+
+
+    }
+
+    function varchange()
+    {
+
+        // Variable r1 slider and number input types
+
+        $('#l1slider').slider({ max : 273, min : 0, step : 1 });		    // slider initialisation : jQuery widget
+        $('#l1spinner').spinner({ max : 273, min : 0, step : 1 });		    // number initialisation : jQuery widget
+
+        // monitoring change in value and connecting slider and number
+        // monitoring change in value and connecting slider and number
+        // setting trace point coordinate arrays to empty on change of link length
+
+        // temperature
+
+        $( "#l1slider" ).on(  "slide",  function( e, ui ) {
+            $('#l1spinner').spinner("value",ui.value);
+            temp_val(ui.value);
+            kinetic_val(ui.value);
+            speed(ui.value);
+        });
+
+        $( "#l1spinner" ).on( "spin",   function( e, ui ) {
+            $('#l1slider').slider("value",ui.value);
+            temp_val(ui.value);
+            kinetic_val(ui.value);
+            speed(ui.value);
+        });
+
+
+        $( "#l1spinner" ).on( "change", function() {
+            varchange() } );
+
+        temp_val($('#l1spinner').spinner("value"));
+        kinetic_val($('#l1spinner').spinner("value"));
+        speed($('#l1spinner').spinner("value"));
+
+
+        varupdate();
+    }
+
+    function varupdate()
+    {
+
+        $('#l1slider').slider("value", $('#l1spinner').spinner('value'));//updating slider location with change in spinner(debug)
+    }
+
+</script>
+</body>
+</html>

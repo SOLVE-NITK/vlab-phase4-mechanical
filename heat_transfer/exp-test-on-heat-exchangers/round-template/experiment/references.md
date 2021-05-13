@@ -13,6 +13,7 @@
     <li>Prasad Mandave | 181ME147 | NITK</li>
     <li>Ahemad Daniyal | 181ME105 |  NITK</li>
     <li>Rohit Kushwaha | NITK</li>
+    <li>Ranjan Tunga S| NITK</li>
     <li>Vishwas | NITK</li>
     <li>Akshaya | NITK</li>
     <li>Anusha B Salian | NITK</li>

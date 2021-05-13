@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Throttling</title>
-    <link rel="stylesheet" href="sins/MOMstyle.css" />
-    <script src='sins/jquery.min.js'></script>
-    <script src='sins/jquery-ui.min.js'></script>
+    <link rel="stylesheet" href="css/MOMstyle.css" />
+    <script src='js/jquery.min.js'></script>
+    <script src='js/jquery-ui.min.js'></script>
     <script type="text/javascript" >
 
         var p2 =0;
@@ -38,7 +38,7 @@
                 right_wall_x=450,
                 right_wall_y_start=70,
                 right_wall_y_end=220
-      
+
                 cylinder = {
                     draw : function () {
 
@@ -82,7 +82,7 @@
                         ctx.moveTo((6.75*(right_wall_x + left_wall_x))/16,left_wall_y_start);
                         ctx.lineTo((9.25*(right_wall_x + left_wall_x))/16,left_wall_y_start);
                         ctx.stroke();
-                        
+
                         // connecting rod vertical-2
 
                         ctx.beginPath();
@@ -290,27 +290,27 @@
         function simstate() {
 
             if (flag===true){
-                document.getElementById('playpausebutton').src="sins/bluepausedull.png";
+                document.getElementById('playpausebutton').src="images/bluepausedull.png";
                 flag=false;
 
                 $('#l1spinner').spinner("disable");
                 $('#l2spinner').spinner("disable");
-                
+
                 $('#l1slider').slider("disable");
                 $('#l2slider').slider("disable");
 
             }
 
             else {
-                document.getElementById('playpausebutton').src="sins/blueplaydull.png";
+                document.getElementById('playpausebutton').src="images/blueplaydull.png";
                 flag=true;
 
                 $('#l1spinner').spinner("enable");
                 $('#l2spinner').spinner("enable");
-               
+
                 $('#l1slider').slider("enable");
                 $('#l2slider').slider("enable");
-               
+
             }
         }
 
@@ -359,7 +359,7 @@
             $('#l1spinner').spinner("value", 0);
             $('#l2slider').slider("value", 0);
             $('#l2spinner').spinner("value", 0);
-           
+
             p2_val(.01);
             t2_val(100);
             p1_val();
@@ -422,10 +422,10 @@
             $( "#l2spinner" ).on( "change", function() {
                 varchange() } );
 
-            p1_val(); 
+            p1_val();
             p2_val($('#l2spinner').spinner("value"));//$('#l2spinner').spinner("value")
             t2_val($('#l1spinner').spinner("value"));//$('#l1spinner').spinner("value")
-            enthalpy2_val(); 
+            enthalpy2_val();
             x_val();
             enthalpy1_val();
 
@@ -473,37 +473,37 @@
     <!-- Region for Input parameters of simulation -->
     <div id="variables">
         <div class="variable">
-            <div class="varname"><p title="Link Length" style="font-size:65%;">Outlet temperature (T2) (°C)</p>
+            <div class="varname"><p title="Link Length" style="font-size:105%;">T2 (°C)</p>
                 <br>
                 <input id="l1spinner"></div>
             <br>
             <div id="l1slider"></div>
             <br>
-            <div class="varname"><p title="Link Length" style="font-size:65%;">Outlet pressure (P2) (MPa)</p>
+            <div class="varname"><p title="Link Length" style="font-size:105%;">P2 (MPa)</p>
                 <br>
                 <input id="l2spinner"></div>
             <br>
             <div id="l2slider"></div>
         </div>
     </div>
-    <img class="graph"  src="graph0.4.png" width="150px" height="150px"  alt="graph" id="graph"/>
-    <img class="state2"  src="throttling_img1.png" width="80px" height="30px"  alt="state2" id="state2"/>
-    <img class="state1"  src="throttling_img2.png" width="80px" height="12px"  alt="state1" id="state1"/>
-    <img class="state11"  src="throttling_img11.png" width="40px" height="8px"  alt="state11" id="state11"/>
-    <img class="state22"  src="throttling_img22.png" width="40px" height="7px"  alt="state22" id="state22"/>
-    <img class="state3"  src="throttling_img3.png" width="80px" height="23px"  alt="state3" id="state3"/>
+    <img class="graph"  src="images/graph0.4.png" width="150px" height="150px"  alt="graph" id="graph"/>
+    <img class="state2"  src="images/throttling_img1.png" width="80px" height="30px"  alt="state2" id="state2"/>
+    <img class="state1"  src="images/throttling_img2.png" width="80px" height="12px"  alt="state1" id="state1"/>
+    <img class="state11"  src="images/throttling_img11.png" width="40px" height="8px"  alt="state11" id="state11"/>
+    <img class="state22"  src="images/throttling_img22.png" width="40px" height="7px"  alt="state22" id="state22"/>
+    <img class="state3"  src="images/throttling_img3.png" width="80px" height="23px"  alt="state3" id="state3"/>
     <!-- DND-Title of region for controls display -->
     <div id="ctrltitle">CONTROLS</div>
     <!-- Region for User controls of simulation -->
     <div id="controls">
-        <img id="playpausebutton" onclick="simstate();" src="sins/blueplaydull.png" />
-        <img id="rotationbutton" onclick="location.reload();" src="sins/bluecwdull.png" />
+        <img id="playpausebutton" onclick="simstate();" src="images/blueplaydull.png" />
+        <img id="rotationbutton" onclick="location.reload();" src="images/bluecwdull.png" />
 
         <div style="position:relative; left: 15px;top:-80px;">
 
-            <span class="tooltip" style="border-bottom:0px dotted ; color:black;top: 24px; text-align:justify;left: 10px">Variables
+            <button class="tooltip" style="border:1px solid darkred; color:black;top: 24px; text-align:justify;left: 10px">Symbols
 			<span class="tooltiptext" style="left: 0px;width: 400px">
-            Variables<br><br>
+            Symbols<br><br>
 			P1 = Inlet/initial pressure<br>
                 P2 = Outlet/final pressure<br>
                 T2 = Outlet/final temperature<br>
@@ -514,16 +514,16 @@
             h<sub>g</sub> = Specific enthalpy of saturated vapor state at pressure P1 (kJ/kg)<br>
             h<sub>fg</sub> = Change in specific enthalpy during phase transition (kJ/kg)<br>
 			</span>
-			</span>
+    </button>
 
-            <span class="tooltip" style="border-bottom:0px dotted ; color:black;top: 24px; text-align:justify;left: 90px">Formulae
+            <button class="tooltip" style="border:1px solid darkred; color:black;top: 24px; text-align:justify;left: 90px">Formulae
 			<span class="tooltiptext" style="left: -60px; width: 100px">
             Formulae<br><br>
                 h1 = h2<br>
             h<sub>fg</sub> = h<sub>g</sub>-h<sub>f</sub><br>
             x = (h2-h<sub>f</sub>)/h<sub>fg</sub><br>
 			</span>
-			</span>
+    </button>
         </div>
 
     </div>
@@ -533,4 +533,3 @@
 </div><!-- Container div close -->
 </body>
 </html>
-

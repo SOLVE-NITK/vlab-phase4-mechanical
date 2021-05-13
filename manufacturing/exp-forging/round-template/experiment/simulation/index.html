@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script>
+          var simsubscreennum=0;
+          var temp=0;
+          var myInt = 0;
+
+          var visibleImagesId = [
+              {
+                  simsubscreennum: 0,
+                  animImages: [],
+                  initialImages: ['wp0','m0','off0','p0','h0','g0'],
+                  hideImages: ['p1','hp1','h1','wp1']
+              },
+              {
+                  simsubscreennum: 1,
+                  animImages: [
+                      {
+                          id: 'wp1',
+                          styleSet: 'position:absolute;left:70px;top:300px;width:50px;cursor:pointer;'
+                      }
+                  ],
+                  initialImages: ['p1','h1'],
+                  hideImages: ['m2','off2','p2','wp2']
+              },
+              {
+                  simsubscreennum: 2,
+                  animImages: [
+                    {
+                        id: 'wp2',
+                        styleSet: 'position:absolute;left:50px;top:380px;width:30px;cursor:pointer;'
+                    }
+
+                  ],
+                  initialImages: ['m2','off2','p2'],
+                  hideImages: ['m3','wp3','fp3','mp3','on3','off3','left3','right3','p3']
+              },
+              {
+                  simsubscreennum: 3,
+                  animImages: [
+
+                    {
+                        id: 'left3',
+                        styleSet: 'position:absolute;left:479px;top:325px;width:30px;'
+                    },
+                    {
+                        id: 'right3',
+                        styleSet: 'position:absolute;left:459px;top:325px;width:30px;'
+                    },
+                    {
+                        id: 'p3',
+                        styleSet: 'position:absolute;left:350px;top:120px;width:300px;'
+                    }
+
+
+                  ],
+                  initialImages: ['m3','wp3','mp3','off3'],
+                  hideImages: ['p4','m4','off4','fp4','wp4']
+              },
+              {
+                  simsubscreennum: 4,
+                  animImages: [
+                      {
+                          id: 'wp4',
+                          styleSet: 'position:absolute; left:465px;top:325px;width:30px;cursor:pointer;'
+                      }
+                  ],
+                  initialImages: ['p4','m4','off4'],
+                  hideImages: ['gr5','wp5','fp5']
+              },
+              {
+                  simsubscreennum: 5,
+                  animImages: [
+                      {
+                          id: 'gr5',
+                          styleSet: 'position:absolute;left:510px;top:255px;width:160px;cursor:pointer;'
+                      }
+                  ],
+                  initialImages: ['wp5'],
+                  hideImages: []
+              }
+
+          ]
+      </script>
+</head>
+<!--Simulation Screen start		-->
+<div id="simscreen">
+
+  <div id="title"><h3>FORGING</h3></div>
+
+  <!--SubScreen Home	-->
+  <div class="simsubscreen" id="canvas0">
+  <h4 id="objective" style="font-family:verdana; ">Objective:</h4>
+  <p class="incanvas" style="font-family:verdana; font-size:15px;">To demonstrate the open die Forging operation.</p></br>
+  <h4 id="apparatus" style="font-family:verdana; ">Apparatus used:</h4>
+  <p class="incanvas" style="font-family:verdana; font-size:14px;">Hydraulic press, Heater, workpiece, grinder etc. </p>
+
+  <img id="wp0" style="position:absolute; left:10px;top:300px;width:60px;" title="Workpiece" src="./images/p.png" />
+  <img id="p0" style="position:absolute; left:470px;top:200px;width:220px;" title="" src="./images/press.png" />
+  <img id="m0" style="position:absolute; left:470px;top:200px;width:220px;" title="Hydraulic Press" src="./images/machine.png" />
+  <img id="h0" style="position:absolute; left:140px;top:350px;width:120px;" title="Heater" src="./images/heat1.png" />
+  <img id="g0" style="position:absolute; left:290px;top:325px;width:150px;" title="Grinder" src="./images/grinder.png" />
+  <img id="off0" style="position:absolute; left:653px;top:341px;width:30px;" title="Hydraulic press" src="./images/off.png" />
+
+  </div>
+
+  <!--Step1	-->
+  <div class="simsubscreen" id="canvas1" style="visibility:hidden">
+  <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;"> <strong id="titlestep" class="incanvas">STEP </strong>
+  <span class="circlebg" id="stepnumber">&nbsp;1&nbsp;</span> Heat the workpiece to required temperature.</p>
+
+  <img id="p1" style="position:absolute;left:484px;top:270px;width:200px;" title="Induction Heater" src="./images/heat2.png" />
+  <img id="wp1" style="position:absolute; left:70px;top:300px;width:50px;cursor:pointer;" title="Workpiece" src="./images/p.png" />
+  <img id="hp1" style="position:absolute; left:505px;top:270px;width:50px;visibility: hidden;" title="Workpiece" src="./images/p1.png" />
+  <img id="h1" style="position:absolute;left:484px;top:270px;width:200px;" title="Induction Heater" src="./images/heat.png" />
+
+  </div>
+
+  <!--Step2	-->
+  <div class="simsubscreen" id="canvas2" style="visibility:hidden">
+  <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
+  <strong id="titlestep" class="incanvas">STEP</strong>
+  <span class="circlebg" id="stepnumber">&nbsp;2&nbsp;</span> Set the hot workpiece in the forging machine.</p>
+
+  <img id="p2" style="position:absolute;left:350px;top:120px;width:300px;" title="Hydraulic Press" src="./images/press.png" />
+  <img id="m2" style="position:absolute;left:350px;top:120px;width:300px;" title="Hydraulic Press" src="./images/machine.png" />
+  <img id="wp2" style="position:absolute;left:50px;top:380px;width:30px;cursor:pointer;" title="Hot workpiece" src="./images/p1.png" />
+  <img id="off2" style="position:absolute; left:600px;top:315px;width:40px;" title="Hydraulic press" src="./images/off.png" />
+
+  </div>
+
+
+
+
+  <!--Step3	-->
+  <div class="simsubscreen" id="canvas3" style="visibility:hidden">
+  <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
+  <strong id="titlestep" class="incanvas">STEP</strong>
+  <span class="circlebg" id="stepnumber">&nbsp;3&nbsp;</span>Apply force on the workpiece to forge it.</p>
+
+  <img id="m3" style="position:absolute;left:350px;top:120px;width:300px;" title="Hydraulic Press" src="./images/machine.png" />
+  <img id="left3" style="position:absolute;left:479px;top:325px;width:30px;" title="" src="./images/left.png" />
+  <img id="right3" style="position:absolute;left:459px;top:325px;width:30px;" title="" src="./images/right.png" />
+  <img id="wp3" style="position:absolute;left:472px;top:308px;width:25px;" title="Hot workpiece" src="./images/p1.png" />
+  <img id="fp3" style="position:absolute;left:469px;top:324px;width:30px;visibility:hidden;" title="Hot workpiece" src="./images/f1.png" />
+  <img id="p3" style="position:absolute;left:350px;top:120px;width:300px;" title="Hydraulic Press" src="./images/press.png" />
+  <img id="mp3" style="position:absolute;left:350px;top:120px;width:300px;" title="Hydraulic Press" src="./images/machinepart.png" />
+  <img id="off3" style="position:absolute; left:600px;top:315px;width:40px;cursor:pointer;" title="Hydraulic press" src="./images/off.png" />
+  <img id="on3" style="position:absolute; left:600px;top:315px;width:40px;visibility:hidden;" title="Hydraulic press" src="./images/on.png" />
+
+  </div>
+
+
+  <!--Step4	-->
+  <div class="simsubscreen" id="canvas4" style="visibility:hidden">
+  <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
+  <strong id="titlestep" class="incanvas">STEP </strong>
+  <span class="circlebg" id="stepnumber">&nbsp;4&nbsp;</span>
+  Remove the forged workpiece and allow it to cool.</p>
+
+  <img id="p4" style="position:absolute;left:350px;top:120px;width:300px;" title="Hydraulic Press" src="./images/press.png" />
+  <img id="m4" style="position:absolute;left:350px;top:120px;width:300px;" title="Hydraulic Press" src="./images/machine.png" />
+  <img id="wp4" style="position:absolute;left:465px;top:325px;width:30px;cursor:pointer;" title="Forged workpiece" src="./images/f1.png" />
+  <img id="fp4" style="position:absolute;left:94px;top:291px;width:45px;visibility:hidden;" title="Forged workpiece" src="./images/f2.png" />
+  <img id="off4" style="position:absolute; left:600px;top:315px;width:40px;" title="Hydraulic press" src="./images/off.png" />
+
+  </div>
+
+
+  <!--Step5	-->
+  <div class="simsubscreen" id="canvas5" style="visibility:hidden">
+  <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
+  <strong id="titlestep" class="incanvas">STEP </strong>
+  <span class="circlebg" id="stepnumber">&nbsp;5&nbsp;</span>
+  Do the finishing works.</p>
+
+  <img id="wp5" style="position:absolute;left:94px;top:291px;width:80px;" title="Forged Workpiece" src="./images/f2.png" />
+  <img id="fp5" style="position:absolute;left:94px;top:291px;width:80px;visibility:hidden;" title="Finished Workpiece" src="./images/f3.png" />
+  <img id="gr5" style="position:absolute; left:510px;top:255px;width:160px;cursor:pointer;" title="Grinder" src="./images/grinder.png" />
+
+
+  </div>
+
+</div>
+
+
+   <div id="">
+   <p id="trial" style="text-transform: uppercase;visibility :hidden;font-weight: bold;font-family:verdana; "><strong>Trial = </strong></p>
+   </div>
+
+
+
+  <!--next  Arrow	-->
+  <div id="nav">
+      <img id="nextButton" onclick="navNext(); " src="Images/Next.png" />
+      <img id="prevButton" onclick="navBack();" style="visibility:hidden" src="Images/prev.png" />
+  </div>
+
+  <div>
+      <img id="reButton" input type="button" value="Reload Page" onClick="document.location.reload(true);" src="Images/restart.png" / >
+  </div>
+
+  <!--Blinking Arrow	-->
+  <img class ="" id="arrow1" style="visibility:hidden" src="Images/arrow1.png"/>
+
+  <div id="copyright"> &copy; 2020 SOLVE - The Virtual Lab @ NITK Surathkal, Department of Mechanical Engineering</div>
+  <script src="./js/sample.js"></script>
+  </body>
+  </html>

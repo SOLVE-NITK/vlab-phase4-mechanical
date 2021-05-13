@@ -12,7 +12,7 @@ b. 5%<br>
 c. 100%<br>
 d. None of the above<br><br>
 
-Q 3. The term vf denotes:<br>
+Q 3. The term v<sub>f</sub> denotes:<br>
 a. Specific volume at superheated liquid state<br>
 <b>b. Specific volume at saturated liquid state</b><br>
 c. Specific volume at saturated vapour state<br>

@@ -121,7 +121,7 @@ const myQuestions = [
       d: "IMulti-larger  moulding",
     },
     correctAnswer: "c"
-  }
+  },
   {
     question: "Which of the following is not an application of blow moulding process?",
     answers: {

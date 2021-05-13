@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script>
+          var simsubscreennum=0;
+          var temp=0;
+          var myInt = 0;
+
+          var visibleImagesId = [
+              {
+                  simsubscreennum: 0,
+                  animImages: [],
+                  initialImages: ['w0','w01','g0','grinder0','b0','m0','f0'],
+                  hideImages: ['1w1','1w2','grinder']
+              },
+              {
+                  simsubscreennum: 1,
+                  animImages: [
+                      {
+                          id: 'grinder',
+                          styleSet: 'position:absolute; left:450px;top:355px;width:250px;cursor:pointer;'
+                      }
+                  ],
+                  initialImages: ['1w1','1w2'],
+                  hideImages: ['w1','s2','w2','lj']
+              },
+              {
+                  simsubscreennum: 2,
+                  animImages: [
+                    {
+                        id: 'w2',
+                        styleSet: 'position:absolute; left:-30px;top:200px;width:500px;'
+                    }
+                  ],
+                  initialImages: ['w1','s2'],
+                  hideImages: ['3w','machine3','l3','3m','s3','sdd','on','sd']
+              },
+              {
+                  simsubscreennum: 3,
+                  animImages: [
+
+                    {
+                        id: 'sdd',
+                        styleSet: 'position:absolute; left:310px;top:40px;width:320px;visibility:hidden;'
+                    }
+
+
+                  ],
+                  initialImages: ['3w','machine3','l3','3m','s3'],
+                  hideImages: ['on4','machine4','wp4','spot1','spot2','spot3','electrode','lever','spark','s4']
+              },
+              {
+                  simsubscreennum: 4,
+                  animImages: [
+                      {
+                          id: 'wp4',
+                          styleSet: 'position:absolute; left:-30px;top:170px;width:500px;'
+                      },
+                      {
+                          id: 'spot1',
+                          styleSet: 'position:absolute; left:-30px;top:165px;width:500px;visibility:hidden;'
+                      },
+                      {
+                          id: 'spot2',
+                          styleSet: 'position:absolute; left:65px;top:197px;width:500px;visibility:hidden;'
+                      },
+                      {
+                          id: 'spot3',
+                          styleSet: 'position:absolute; left:157px;top:222px;width:500px;visibility:hidden;'
+                      },
+                      {
+                          id: 'electrode',
+                          styleSet: 'position:absolute; left:178px;top:70px;width:700px;'
+                      },
+                      {
+                          id: 'lever',
+                          styleSet: 'position:absolute; left:175px;top:70px;width:700px;'
+                      },
+                      {
+                          id: 'spark',
+                          styleSet: 'position:absolute; left:280px;top:298px;width:70px;visibility:hidden;'
+                      }
+                  ],
+                  initialImages: ['on4','machine4','s4'],
+                  hideImages: ['machine5','l5','h5','on1','s5','wp5']
+              },
+              {
+                  simsubscreennum: 5,
+                  animImages: [
+                      {
+                          id: 'wp5',
+                          styleSet: 'position:absolute; left:157px;top:222px;width:500px;'
+                      }
+                  ],
+                  initialImages: ['machine5','l5','h5','on1','s5'],
+                  hideImages: ['brush1','w6']
+              },
+              {
+                  simsubscreennum: 6,
+                  animImages: [  {
+                        id: 'brush1',
+                        styleSet: 'position:absolute; left:480px;top:225px;width:160px;cursor:pointer;'
+                    }
+                  ],
+                  initialImages: ['w6'],
+                  hideImages: []
+              }
+
+          ]
+      </script>
+</head>
+<!--Simulation Screen start		-->
+<div id="simscreen">
+
+    <!--Title of Simulation		-->
+    <div id="title"><h3>SPOT WELDING</h3></div>
+
+    <!--SubScreen Home	-->
+    <div class="simsubscreen" id="canvas0">
+    <h4 id="objective" style="font-family:verdana; ">Objective:</h4>
+    <p class="incanvas" style="font-family:verdana; font-size:17px;">To prepare a Single Strap Butt Joint on the given work pieces using spot welding.</p></br>
+    <h4 id="apparatus" style="font-family:verdana; ">Apparatus used:</h4>
+    <p class="incanvas" style="font-family:verdana; font-size:16px;">Wire Brush, Grinding Machine, Protective Equipments, Spot welding machine ,  Chipping Hammer, Mild steel workpiece etc.</p>
+    <img id="m0" style="position: absolute; left: 390px; top: 250px; width:470px;" title="Welding Machine" src="Images/machine.png"/>
+    <img id="f0" style="position:absolute; left:550px; top:260px; width:80px" title="Welding Helmet" src="Images/face.png" />
+    <img id="w0" style="position:absolute; left:-95px; top:320px; width:400px" title="Workpiece" src="Images/wp.png" />
+    <img id="w01" style="position:absolute; left:-95px; top:250px; width:400px" title="Workpiece" src="Images/wp.png" />
+    <img id="b0" style="position:absolute; left:210px;top:320px;width:170px;" title="Wire Brush" src="./images/brush.png" />
+    <img id="g0" style="position:absolute; left:390px; top:270px; width:100px" title="Gloves" src="Images/gloves.png" />
+    <img id="grinder0" style="position:absolute; left:260px;top:405px;width:150px;" title="grinder" src="./images/grinder.png" />
+
+    </div>
+
+    <!--Step1	-->
+    <div class="simsubscreen" id="canvas1" style="visibility:hidden">
+    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:17px;"> <strong id="titlestep" class="incanvas">STEP </strong>
+    <span class="circlebg" id="stepnumber">&nbsp;1&nbsp;</span>Clean the given workpiece thoroughly, i.e. remove the rust, scales.</p>
+
+    <img id="1w2" style="position:absolute; left:-95px; top:250px; width:400px" title="Workpiece" src="Images/wp.png" />
+    <img id="1w1" style="position:absolute; left:95px; top:250px; width:400px" title="Workpiece" src="Images/wp.png" />
+    <img id="grinder" style="position:absolute; left:450px;top:355px;width:250px;cursor:pointer;" title="grinder" src="./images/grinder.png" />
+    </div>
+
+    <!--Step2	-->
+    <div class="simsubscreen" id="canvas2" style="visibility:hidden">
+    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:17px;"><strong id="titlestep" class="incanvas">STEP</strong>
+    <span class="circlebg" id="stepnumber">&nbsp;2&nbsp;</span>&nbsp;Position the metal workpieces one above another.</p>
+    <img id="w1" style="position:absolute; left:300px;top:200px;width:500px;" title="workpiece2" src="./images/wp.png" />
+    <img id="w2" style="position:absolute; left:-30px;top:200px;width:500px;" title="" src="./images/wp.png" />
+    <img id="lj" style="position:absolute; left:300px;top:200px;width:500px;visibility:hidden;" title="workpiece" src="./images/wp2.png" />
+    <img id="s2" style="position:absolute; left:110px;top:300px;width:220px;cursor:pointer;" title="workpiece" src="./images/step2.png" />
+  </div>
+
+
+    <!--Step3	-->
+    <div class="simsubscreen" id="canvas3" style="visibility:hidden">
+    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:17px;">
+    <strong id="titlestep" class="incanvas">STEP </strong>
+    <span class="circlebg" id="stepnumber">&nbsp;3&nbsp;</span>
+     Turn ON the machine and adjust current. </p>
+
+     <img id="3w" style="position:absolute; left:-100px;top:145px;width:500px;" title="workpiece" src="./images/wp2.png" />
+     <img id="machine3" style="position: absolute; left:180px;top:70px;width:700px;" title="Welding Machine" src="Images/machine1.png"/>
+     <img id="l3" style="position:absolute; left:178px;top:70px;width:700px;" title="machine" src="./images/lever.png" />
+     <img id="3m" style="position:absolute; left:175px;top:70px;width:700px;" title="machine" src="./images/handle.png" />
+      <img id="on" style="position: absolute; left:180px;top:70px;width:700px;visibility:hidden;" title="Welding Machine" src="Images/on.png"/>
+     <img id="sdd" style="position:absolute; left:310px;top:40px;width:320px;visibility:hidden;" title="control" src="./images/SPEEDDIAL.png" />
+     <img id="sd" style="position:absolute; left:320px;top:40px;width:320px;visibility:hidden;" title="control" src="./images/SPEED.png" />
+     <img id="s3" style="position: absolute; left:576px;top:310px;width:18px;cursor:pointer;" title="Switch" src="Images/step3.png"/>
+
+    </div>
+
+    <!--Step4	-->
+    <div class="simsubscreen" id="canvas4" style="visibility:hidden">
+    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:17px;"> <strong id="titlestep" class="incanvas">STEP </strong>
+    <span class="circlebg" id="stepnumber">&nbsp;4&nbsp;</span> Press the lever, so that the movable electrode moves towards the fixed electrode.A low voltage and very high current is passed through the joint for a very short time. The duration of the current flow is for about 2 sec. Then the metal under electrodes pressure is squeezed and welded.</p>
+
+
+    <img id="machine4" style="position:absolute; left:180px;top:70px;width:700px;" title="machine" src="./images/machine1.png" />
+    <img id="on4" style="position: absolute; left:180px;top:70px;width:700px;" title="Welding Machine" src="Images/on.png"/>
+    <img id="wp4" style="position:absolute; left:-30px;top:170px;width:500px;" title="workpiece" src="./images/wp2.png" />
+    <img id="spot1" style="position:absolute; left:-30px;top:165px;width:500px;visibility:hidden;" title="workpiece" src="./images/spot1.png" />
+    <img id="spot2" style="position:absolute; left:65px;top:197px;width:500px;visibility:hidden;" title="workpiece" src="./images/spot2.png" />
+    <img id="spot3" style="position:absolute; left:157px;top:222px;width:500px;visibility:hidden;" title="workpiece" src="./images/spot3.png" />
+    <img id="electrode" style="position:absolute; left:178px;top:70px;width:700px;" title="machine" src="./images/lever.png" />
+    <img id="lever" style="position:absolute; left:175px;top:70px;width:700px;" title="" src="./images/handle.png" />
+    <img id="spark" style="position:absolute; left:280px;top:298px;width:70px;visibility:hidden;" title="" src="./images/spark.png" />
+    <img id="s4" style="position:absolute; left:500px;top:210px;width:150px;cursor:pointer;" title="machine" src="./images/step4.png" />
+
+
+
+    </div>
+
+    <!--Step5	-->
+    <div class="simsubscreen" id="canvas5" style="visibility:hidden">
+    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:17px;"><strong id="titlestep" class="incanvas">STEP</strong>
+    <span class="circlebg" id="stepnumber">&nbsp;5&nbsp;</span>&nbsp;Turn OFF the machine and take out joined workpieces from the machine.</p>
+
+    <img id="machine5" style="position:absolute; left:180px;top:70px;width:700px;" title="machine" src="./images/machine1.png" />
+    <img id="l5" style="position:absolute; left:178px;top:70px;width:700px;" title="machine" src="./images/lever.png" />
+    <img id="h5" style="position:absolute; left:175px;top:70px;width:700px;" title="machine" src="./images/handle.png" />
+    <img id="wp5" style="position:absolute; left:157px;top:222px;width:500px;" title="workpiece" src="./images/wp3.png" />
+    <img id="on1" style="position: absolute; left:180px;top:70px;width:700px;" title="" src="Images/on.png"/>
+    <img id="s5" style="position: absolute; left:576px;top:310px;width:18px;cursor:pointer;" title="Switch" src="Images/step3.png"/>
+
+    </div>
+
+
+    <!--Step6	-->
+    <div class="simsubscreen" id="canvas6" style="visibility:hidden">
+    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:17px;">
+    <strong id="titlestep" class="incanvas">STEP </strong>
+    <span class="circlebg" id="stepnumber">&nbsp;6&nbsp;</span>
+     Clean the workpiece using wire brush.</p>
+    <img id="w6" style="position:absolute; left:0px;top:200px;width:500px;" title="workpiece" src="./images/wp3.png" />
+    <img id="brush1" style="position:absolute; left:480px;top:225px;width:160px;cursor:pointer;"  src="./images/brush.png" />
+    </div>
+
+
+    <!--Trial text	-->
+    <div id="">
+    <p id="trial" style="text-transform: uppercase;visibility :hidden;font-weight: bold;font-family:verdana; "><strong>Trial = </strong></p>
+    </div>
+
+
+    <!--next  Arrow	-->
+    <!--next  Arrow	-->
+    <div id="nav">
+        <img id="nextButton" onclick="navNext(); " src="Images/Next.png" />
+        <img id="prevButton" onclick="navBack();" style="visibility:hidden" src="Images/prev.png" />
+    </div>
+
+    <div>
+        <img id="reButton" input type="button" value="Reload Page" onClick="document.location.reload(true);" src="Images/restart.png" / >
+    </div>
+
+    <!--Blinking Arrow	-->
+    <img class ="" id="arrow1" style="visibility:hidden" src="Images/arrow1.png"/>
+
+    <div id="copyright"> &copy; 2020 SOLVE - The Virtual Lab @ NITK Surathkal, Department of Water Resources & Ocean Engineering</div>
+    <script src="./js/sample.js"></script>
+    </body>
+    </html>

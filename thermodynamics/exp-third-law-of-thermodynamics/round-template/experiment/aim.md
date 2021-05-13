@@ -1,0 +1,1 @@
+To depict the third law of thermodynamics with the help of balls (that can be thought of as atoms) whose speed, which is a representation of its energy, changes with the temperature until it goes to absolute zero.

@@ -1,33 +1,38 @@
 ## Post test
 <br>
 
-
-1. “The quality of steam at saturated vapour point is 100%”. Please indicate whether this statement is<br>
-    <b>a) True </b><br>
-    b) False<br>
-
-2. For a substance in the two-phase region,<br>
+1. For a substance in the two-phase region,<br>
     a) both pressure and temperature are independent properties<br>
     <b>  b) if pressure is given, the saturation temperature gets fixed</b><br>
-    c) no other property is required to be known<br>
-    d) all of the mentioned<br>
-3. For the measurement of quality, the state of the substance is brought from the two-phase region to<br>
+    c) no property other than temperature and pressure is required to be known<br>
+    d) all of the above<br>
+
+2. For the measurement of quality, the state of the substance is brought from the two-phase region to<br>
     a) single-phase region<br>
     b) superheated region<br>
-    <b>c) both of the mentioned</b><br>
-    d) none of the mentioned<br>
+    c) none of the above<br>
+    <b>d) both a and b</b><br>
 
-4. To fix the state and determine the quality of the mixture, we can do this by<br>
-    a) adiabatic throttling<br>
-    b) electric heating<br>
-  <b>  c) both of the mentioned</b><br>
-    d) none of the mentioned<br>
-5. Throttling calorimeter can be used alone for<br>
-  <b>  a)  high dryness fraction upto 0.98</b><br>
-    b)  very low dryness fraction upto 0.7<br>
+3. Given that h2 = 2618.79 kJ/kg, h<sub>f</sub> = 908.79 kJ/kg, h<sub>fg</sub> = 1890.7 kJ/kg, find the quality of steam.<br>
+    a) 1.2 <br>
+    b) 0.443<br>
+  <b>  c) 0.904</b><br>
+    d) 0.5<br>
 
-6. To be sure that steam after throttling is in the single-phase or superheated region, a minimum of ____ superheat is desired.<br>
-    a) 10 degree Celsius<br>
-    b)  -5 degree Celsius<br>
-    c) 0 degree Celsius<br>
-  <b>  d)  5 degree Celsius</b><br>
+4. Given that h<sub>f</sub> = 874.87 kJ/kg, h<sub>g</sub> = 2794.8 kJ/kg, find the value of h<sub>fg</sub>.<br>
+    a) 3669.67 kJ/kg<br>
+    b) 2000 kJ/kg<br>
+  <b>c) 1919.93 kJ/kg</b><br>
+    d) 930.87 kJ/kg<br>
+
+5. Throttling process is a/an __________ process.<br>
+    a) Reversible and isothermal<br>
+    <b>b) Irreversible and constant enthalpy</b><br>
+    c) Reversible and constant entropy<br>
+    d) Reversible and constant enthalpy<br>
+
+6. Steam flows in a pipeline. At some point, it’s pressure is 0.1 Mpa and the temperature is found to be 120 °C. Find the specific enthalpy of steam at this point.
+<b>a) 2716.6 kJ/kg</b><br>
+b) 844.89 kJ/kg<br>
+c) 1871.3 kJ/kg<br>
+d) 1947.3 kJ/kg<br>

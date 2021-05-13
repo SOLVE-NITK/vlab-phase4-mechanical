@@ -79,20 +79,12 @@
 // Write your MCQs here --- Start --- --------------------
   const myQuestions = [
     {
-      question: "“The quality of steam at saturated vapour point is 100%”. Please indicate whether this statement is",
-      answers: {
-        a: "True ",
-        b: "False"
-      },
-      correctAnswer: "a"
-    },
-    {
-      question: "For a substance in the two-phase region",
+      question: "For a substance in the two-phase region,",
       answers: {
         a: "both pressure and temperature are independent properties",
-        b: " if pressure is given, the saturation temperature gets fixed",
-        c: "no other property is required to be known",
-        d: " all of the mentioned"
+        b: "if pressure is given, the saturation temperature gets fixed",
+        c: "no property other than temperature and pressure is required to be known",
+        d: "all of the above"
       },
       correctAnswer: "b"
     },
@@ -101,38 +93,50 @@
       answers: {
         a: "single-phase region",
         b: "superheated region",
-        c: "both of the mentioned",
-        d: "none of the mentioned"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "To fix the state and determine the quality of the mixture, we can do this by",
-      answers: {
-        a: "adiabatic throttling",
-        b: "electric heating",
-        c: "both of the mentioned",
-        d: "none of the mentioned"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "Throttling calorimeter can be used alone for",
-      answers: {
-        a: "high dryness fraction upto 0.98",
-        b: "very low dryness fraction upto 0.7"
-      },
-      correctAnswer: "a"
-    },
-    {
-      question: "To be sure that steam after throttling is in the single-phase or superheated region, a minimum of ____ superheat is desired.",
-      answers: {
-        a: "10 degree Celsius",
-        b: "-5 degree Celsius",
-        c: "0 degree Celsius",
-        d: "5 degree Celsius"
+        c: "none of the above",
+        d: "both a and b"
       },
       correctAnswer: "d"
+    },
+    {
+      question: "Given that h2 = 2618.79 kJ/kg, h<sub>f</sub> = 908.79 kJ/kg, h<sub>fg</sub> = 1890.7 kJ/kg, find the quality of steam.",
+      answers: {
+        a: "1.2",
+        b: "0.443",
+        c: "0.904",
+        d: "0.5"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "Given that h<sub>f</sub> = 874.87 kJ/kg, h<sub>g</sub> = 2794.8 kJ/kg, find the value of h<sub>fg</sub>.",
+      answers: {
+        a: "3669.67",
+        b: "2000",
+        c: "1919.93",
+        d: "930.87"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "Throttling process is a/an __________ process.",
+      answers: {
+        a: "Reversible and isothermal",
+        b: "Irreversible and constant enthalpy",
+        c: "Reversible and constant entropy",
+        d: "Reversible and constant enthalpy"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "Steam flows in a pipeline. At some point, it’s pressure is 0.1 Mpa and the temperature is found to be 120 °C. Find the specific enthalpy of steam at this point.",
+      answers: {
+        a: " 2716.6 kJ/kg",
+        b: "844.89 kJ/kg",
+        c: "1871.3 kJ/kg",
+        d: "1947.3 kJ/kg"
+      },
+      correctAnswer: "a"
     }
   ];
 

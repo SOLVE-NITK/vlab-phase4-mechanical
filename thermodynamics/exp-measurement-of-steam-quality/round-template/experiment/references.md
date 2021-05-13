@@ -6,22 +6,21 @@
   <tr style="background-color: white">
     <td>
     <ol>
-  <li>Basic and Applied Thermodynamics - P.K. Nag</li>
-  <li> Thermodynamics : An engineering approach - Cengel and Boles</li>
+    <li>Basic and Applied Thermodynamics - P.K. Nag</li>
+    <li><a href="https://www.vedantu.com/question-answer/throttling-process-is-aanprocess-a-reversible-class-11-chemistry-jee-main-5fc3d980287b0f7a381ddf63">https://www.vedantu.com/question-answer/throttling-process-is-aanprocess-a-reversible-class-11-chemistry-jee-main-5fc3d980287b0f7a381ddf63</a></li>
     </ol>
    </td>
     <td>Developer : Dr. K V Gangadharan | NITK</br></br>
     Contributors :
     <ul style="list-style-type: none;">
-    <li>Kriti Shukla | 181ME239 | NITK</li>
-    <li>Drishika Nadella | 181ME222 | NITK</li>
-    <li>Suraj Acharya| NITK</li>
-    <li>Rohit Kushawa | NITK</li>
-    <li>Ranjan S Tunga | NITK</li>
-    <li>Vishwas A S | NITK</li>
-    <li>Latesh Shetty | NITK</li>
+    <li>Kriti Shukla | NITK</li>
+    <li>Drishika Nadella | NITK</li>
+    <li>Sooraj Acharya | NITK</li>
+    <li>Rohit Kushwaha | NITK</li>
+    <li>Ranjan Tunga S | NITK</li>
     <li>Akshaya | NITK</li>
     <li>Anusha B Salian | NITK</li>
+    <li>Vishwas A S| NITK</li>
      </ul></td>
   </tr>
 </table>

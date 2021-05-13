@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script>
+          var simsubscreennum=0;
+          var temp=0;
+          var myInt = 0;
+
+          var visibleImagesId = [
+              {
+                  simsubscreennum: 0,
+                  animImages: [],
+                  initialImages: ['rm','rm1','wp0'],
+                  hideImages: ['1m','1off','wp']
+              },
+              {
+                  simsubscreennum: 1,
+                  animImages: [
+                      {
+                          id: 'wp',
+                          styleSet: 'position:absolute;  left:0px; top:370px;width:270px;cursor:pointer;'
+                      }
+                  ],
+                  initialImages: ['1m','1off'],
+                  hideImages: ['2wp','2m','2off','s','d']
+              },
+              {
+                  simsubscreennum: 2,
+                  animImages: [
+
+                          {
+                              id: 'd',
+                              styleSet: 'position:absolute;left:100px;top:260px; width:160px;visibility:hidden;'
+                          }
+
+                  ],
+                  initialImages: ['2wp','2m','2off'],
+                  hideImages: ['3wp','3m','3off','roll1','3on','sheet2','sheet1','blank','blank1','roll2','l1','l2']
+              },
+              {
+                  simsubscreennum: 3,
+                  animImages: [
+                    {
+                        id: 'blank',
+                        styleSet: 'position:absolute; left:-43px;top:157px;width:250px;visibility:hidden;'
+                    },
+                    {
+                        id: 'blank1',
+                        styleSet: 'position:absolute;left:55px;top:110px;width:160px;visibility:hidden;'
+                    },
+                    {
+                        id: 'sheet2',
+                        styleSet: 'position:absolute;left:100px;top:235px;width:250px;visibility:hidden;'
+                    }
+
+
+
+                  ],
+                  initialImages: ['3wp','3m','3off'],
+                  hideImages: ['4m','4off','4wp']
+              },
+              {
+                  simsubscreennum: 4,
+                  animImages: [
+                      {
+                          id: '4wp',
+                          styleSet: 'position:absolute; left:470px;top:230px;width:270px;cursor:pointer;'
+                      },
+                  ],
+                  initialImages: ['4m','4off'],
+                  hideImages: ['brush','5wp']
+              },
+              {
+                  simsubscreennum: 5,
+                  animImages: [
+                      {
+                          id: 'brush',
+                          styleSet: 'position:absolute;left:500px;top:140px;width:140px;cursor:pointer;'
+                      }
+                  ],
+                  initialImages: ['5wp'],
+                  hideImages: []
+              }
+
+          ]
+      </script>
+</head>
+<!--Simulation Screen start		-->
+<div id="simscreen">
+
+    <!--Title of Simulation		-->
+    <div id="title"><h3>ROLLING</h3></div>
+
+    <!--SubScreen Home	-->
+    <div class="simsubscreen" id="canvas0">
+    <h4 id="objective" style="font-family:verdana; ">Objective:</h4>
+    <p class="incanvas" style="font-family:verdana; font-size:15px;">To study and observe Rolling techniques through demonstration.</p></br>
+    <h4 id="apparatus" style="font-family:verdana; ">Apparatus used:</h4>
+    <p class="incanvas" style="font-family:verdana; font-size:14px;">Wire Brush, Rolling Machine, Protective Equipments, Mild steel plate etc.</p>
+    <img id="rm" style="position: absolute; left: 350px; top: 200px; width:350px;" title="Rolling Machine" src="Images/machine.png"/>
+    <img id="rm1" style="position:absolute; left:440px; top:280px; width:70px;" title="Rolling Machine" src="Images/off.png" />
+    <img id="wp0" style="position:absolute; left:0px; top:370px; width:270px;" title="Workpiece" src="Images/w1.png" />
+
+    </div>
+
+    <!--Step1	-->
+   <div class="simsubscreen" id="canvas1" style="visibility:hidden">
+   <p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;"> <strong id="titlestep" class="incanvas">STEP </strong>
+   <span class="circlebg" id="stepnumber">&nbsp;1&nbsp;</span>Place the workpiece at correct position.</p>
+   <img id="wp" style="position:absolute; left:0px; top:370px;width:270px;cursor:pointer;" title="Workpiece" src="./images/w1.png" /> -->
+   <img id="1m" style="position: absolute;left: 350px; top: 200px; width:350px;" title="Rolling Machine" src="Images/machine.png"/>
+   <img id="1off" style="position:absolute; left:440px; top:280px; width:70px;" title="Rolling Machine" src="Images/off.png" />
+
+   </div>
+
+    <!--Step2	-->
+    <div class="simsubscreen" id="canvas2" style="visibility:hidden">
+    <p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;"><strong id="titlestep" class="incanvas">STEP</strong>
+    <span class="circlebg" id="stepnumber">&nbsp;2&nbsp;</span>&nbsp;Adjust the rolling speed of the machine.</p>
+    <img id="2wp" style="position:absolute;left:300px;top:230px; width:270px;" title="Workpiece" src="./images/w1.png" />
+    <img id="2m" style="position: absolute; left: 350px; top: 200px; width:350px;" title="Rolling Machine" src="Images/machine.png"/>
+    <img id="2off" style="position:absolute; left:440px; top:280px; width:70px;cursor:pointer;" title="Rolling Machine" src="Images/off.png" />
+    <img id="s" style="position:absolute;left:100px;top:260px; width:160px;visibility:hidden;" title="dial" src="./images/s.png" />
+    <img id="d" style="position:absolute;left:100px;top:260px; width:160px;visibility:hidden;" title="dial" src="./images/dial.png" />
+
+    </div>
+
+
+    <!--Step3	-->
+    <div class="simsubscreen" id="canvas3" style="visibility:hidden">
+    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
+    <strong id="titlestep" class="incanvas">STEP </strong>
+    <span class="circlebg" id="stepnumber">&nbsp;3&nbsp;</span>Turn on the machine.</p>
+    <img id="3wp" style="position:absolute;left:300px;top:230px; width:270px;" title="Workpiece" src="./images/w1.png" />
+    <img id="3m" style="position: absolute; left: 350px; top: 200px; width:350px;" title="Rolling Machine" src="Images/machine.png"/>
+    <img id="3off" style="position:absolute; left:440px; top:280px; width:70px;cursor:pointer;" title="Rolling Machine" src="Images/off.png" />
+    <img id="3on" style="position:absolute; left:440px; top:280px; width:70px;visibility:hidden;" title="Rolling Machine" src="Images/on.png" />
+    <img id="roll1" style="position:absolute; left:200px;top:200px;width:250px;visibility:hidden;" title="Rolling Machine(Magnified view)" src="./images/roll1.png" />
+    <img id="sheet2" style="position:absolute; left:100px;top:235px;width:250px;visibility:hidden;" title="Workpiece" src="./images/sheet2.png" />
+    <img id="sheet1" style="position:absolute; left:72px;top:220px;width:250px;visibility:hidden;" title="Workpiece" src="./images/sheet1.png" />
+    <img id="blank" style="position:absolute; left:-43px;top:157px;width:250px;visibility:hidden;" title="" src="./images/blank.png" />
+    <img id="blank1" style="position:absolute; left:55px;top:110px;width:160px;visibility:hidden;" title="" src="./images/blank1.png" />
+    <img id="roll2" style="position:absolute; left:200px;top:200px;width:250px;visibility:hidden;" title="Rolling Machine(Magnified view)" src="./images/roll2.png" />
+    <img id="l1" style="position:absolute; left:200px;top:200px;width:250px;visibility:hidden;" title="Rolling Machine(Magnified view)" src="./images/layer1.png" />
+    <img id="l2" style="position:absolute; left:200px;top:200px;width:250px;visibility:hidden;" title="Rolling Machine(Magnified view)" src="./images/layer2.png" />
+
+    </div>
+
+    <!--Step4	-->
+    <div class="simsubscreen" id="canvas4" style="visibility:hidden">
+    <p id="pumptext-2" class="steptext" style="font-family:verdana; font-size:14px;"><strong id="titlestep" class="incanvas">STEP</strong>
+    <span class="circlebg" id="stepnumber">&nbsp;4&nbsp;</span>&nbsp;Remove the workpiece from the machine after the process is done.</p>
+    <img id="4m" style="position: absolute;left: 300px; top: 200px; width:350px;" title="Rolling Machine" src="Images/machine.png"/>
+     <img id="4off" style="position:absolute; left:390px; top:280px; width:70px;" title="Rolling Machine" src="Images/off.png" />
+     <img id="4wp" style="position:absolute;left:470px;top:230px;width:270px;cursor:pointer;" title="Workpiece" src="./images/w2.png" />
+
+    </div>
+
+
+    <!--Step5	-->
+    <div class="simsubscreen" id="canvas5" style="visibility:hidden">
+    <p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;"><strong id="titlestep" class="incanvas">STEP</strong>
+    <span class="circlebg" id="stepnumber">&nbsp;5&nbsp;</span>&nbsp;clean the workpiece using a wire brush</p>
+    <img id="5wp" style="position:absolute; left:180px;top:350px; width:350px;" title="Workpiece" src="./images/w2.png" />
+    <img id="brush" style="position:absolute; left:500px;top:140px;width:140px;cursor:pointer;" title=" brush" src="./images/brush.png" />
+    </div>
+    </div>
+
+
+
+
+
+
+    <!--Trial text	-->
+    <div id="">
+    <p id="trial" style="text-transform: uppercase;visibility :hidden;font-weight: bold;font-family:verdana; "><strong>Trial = </strong></p>
+    </div>
+
+
+    <!--next  Arrow	-->
+    <div id="nav">
+        <img id="nextButton" onclick="navNext(); " src="Images/Next.png" />
+        <img id="prevButton" onclick="navBack();" style="visibility:hidden" src="Images/prev.png" />
+    </div>
+
+    <div>
+        <img id="reButton" input type="button" value="Reload Page" onClick="document.location.reload(true);" src="Images/restart.png" / >
+    </div>
+
+    <!--Blinking Arrow	-->
+    <img class ="" id="arrow1" style="visibility:hidden" src="Images/arrow1.png"/>
+
+    <div id="copyright"> &copy; 2020 SOLVE - The Virtual Lab @ NITK Surathkal, Department of Mechanical Engineering</div>
+    <script src="./js/sample.js"></script>
+    </body>
+    </html>

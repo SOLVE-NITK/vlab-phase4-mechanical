@@ -19,20 +19,20 @@ b. 0.031339 m<sup>3</sup>/kg<br>
 <b>c. 0.022113 m<sup>3</sup>/kg<br></b>
 d. None of the above<br><br>
 
-Q 4. Given that the actual specific volume of superheated water is 0.0269 m<sup>3</sup>/kg, calculate the pseudo-reduced specific volume. (R=0.4615 kPa.m<sup>3</sup>/kg.K, P<sub>cr</sub>=22.06 MPa, T<sub>cr</sub>=647.1 K)
+Q 4. Given that the actual specific volume of superheated water is 0.0269 m<sup>3</sup>/kg, calculate the pseudo-reduced specific volume. (R=0.4615 kJ/kg.K, P<sub>cr</sub>=22.06 MPa, T<sub>cr</sub>=647.1 K)
 <br>
 a. 1.964<br>
 <b>b. 1.987<br></b>
 c. 1.920<br>
 d. 0.564<br><br>
 
-Q 5. Z is defined as (from cengel)<br>
+Q 5. Z is defined as<br>
 a. Z=Pv/RT<br>
 b. Z=v<sub>actual</sub>/v<sub>ideal</sub><br>
 <b>c. Both of the above<br></b>
 d. None of the above<br><br>
 
-Q 6. “The Z factor is approximately the same for all gases at the same reduced temperature and reduced pressure.” Please indicate whether this statement is true or false (from cengel)
+Q 6. “The Z factor is approximately the same for all gases at the same reduced temperature and reduced pressure.” Indicate whether this statement is true or false
 <br>
 <b>a. True<br></b>
 b. False<br><br>
