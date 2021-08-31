@@ -55,14 +55,4 @@ This experiment depicts the second law of thermodynamics with the help of two su
 <center><img src="./images/equations/eq4.png" /></center>
 <br>
 
-<center><img src="./images/equations/eq5.png" /></center>
-<br>
-
-<center><img src="./images/equations/eq6.png" /></center>
-<br>
-
-<center><img src="./images/equations/eq7.png" /></center>
-<br>
-
-<center><img src="./images/equations/eq8.png" /></center>
 <br>

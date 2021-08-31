@@ -24,6 +24,8 @@ This experiment depicts the third law with the help of balls (that can be though
 2. So= initial entropy of the system
 
 3. kB= Boltzmann constant (1.38 x 10⁻²³ J/K)
+   
+4. Ω = Number of microstates consistent with the macroscopic configuration
 
 #### Equations/formulae:<br>
 
