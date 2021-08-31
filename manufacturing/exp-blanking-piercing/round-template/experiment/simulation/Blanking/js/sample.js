@@ -216,13 +216,13 @@ function refresh() {
     }
     else {
 
-            // if(visibleImagesId[simsubscreennum-1].initialImages.length>0) {
+            if(visibleImagesId[simsubscreennum-1].initialImages.length>0) {
                 visibleImagesId[simsubscreennum].animImages.forEach(function(img,index){
                     document.getElementById(img.id).style.visibility = "visible";
                     document.getElementById(img.id).style.animation = " ";
                     document.getElementById(img.id).style=img.styleSet;
                 });
-            // }
+             }
             if(visibleImagesId[simsubscreennum].initialImages.length>0) {
                 visibleImagesId[simsubscreennum].initialImages.forEach(function(id,index){
                     document.getElementById(id).style.visibility = "visible";

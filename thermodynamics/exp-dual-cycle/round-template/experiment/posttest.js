@@ -79,7 +79,7 @@
 // Write your MCQs here --- Start --- --------------------
   const myQuestions = [
     {
-      question: "Given that rk = 2.14, rc = 1.29, rp = 2.06, what is the air standard efficiency of the Dual cycle?"",
+      question: "Given that rk = 2.14, rc = 1.29, rp = 2.06, what is the air standard efficiency of the Dual cycle?",
       answers: {
         a: "0.25",
         b: "0.3",

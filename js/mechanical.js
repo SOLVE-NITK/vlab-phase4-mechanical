@@ -52,7 +52,7 @@ let labs = [
     { 
         labName: "Thermodynamics Lab", 
         experiments: [
-            {id: "Throtolling cycle (measurement of steam )", path: "thermodynamics/exp-measurement-of-steam-quality"},
+            {id: "Measurement of steam Quality", path: "thermodynamics/exp-measurement-of-steam-quality"},
             {id: "Thermodynamics data hand book", path: "thermodynamics/exp-thermodynamics-hand-book"},
             {id: "Compressibility Chart ", path: "thermodynamics/exp-compressibility-chart"},
             {id: "Carnot Cycle", path: "thermodynamics/exp-carnot-cycle"},
