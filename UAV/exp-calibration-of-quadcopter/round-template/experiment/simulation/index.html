@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>SOLVE</title>
+    <link rel="stylesheet" href="css/sgca.css" />
+    <link rel="stylesheet" href="css/mathstyle.css" />
+    <script type="text/javascript" src="js/jquerymin.js"></script>
+    <script type="text/javascript" src="js/sgca.js"></script>
+
+    <script>
+        var simsubscreennum = 0;
+        var temp = 0;
+        var lnt = 0;
+        var n;
+    </script>
+    <style>
+        .popup {
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+            padding: 5px;
+        }
+        
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 500px;
+            background-color: black;
+            color: #fff;
+            border-radius: 6px;
+            padding: 10px 10px 10px 10px;
+            /* Position the tooltip */
+            position: absolute;
+            z-index: 100;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+    </style>
+
+</head>
+
+<body style="margin:0; font-family:verdana; font-size:14px;">
+    <!--Simulation Screen start		-->
+    <div id="simscreen">
+
+        <!--Title of Simulation		-->
+        <div id="title">
+            <h3>Calibration of quadcopter</h3>
+        </div>
+
+        <!--SubScreen Home	-->
+        <div class="simsubscreen" id="canvas0">
+            <h4 class="incanvas" style="font-family:verdana; ">Aim:</h4>
+            <p class="incanvas" style="font-family:verdana; font-size:15px;">To upgrade the Firmware and calibrate the Quadcopter.</p>
+            </br>
+            <h4 class="incanvas" style="font-family:verdana; ">Apparatus used:</h4>
+            <p class="incanvas" style="font-family:verdana; font-size:14px;">Quadcopter, Micro USB Cable and Computer</p>
+            &nbsp;
+            <span class="tooltip" id="desc_button" style="border-bottom:1px dotted ; color:red; position:absolute; top:130px;"><strong>Description</strong>
+  
+  
+            <span  class="tooltiptext" style="text-align:justify;"><strong style="color:red;">Librepilot</strong> LibrePilot is a Free software unmanned aerial vehicle project for model aircraft aimed at supporting both multi-rotor craft as well as fixed-wing aircraft.
+            The CC3D flight controller is a type of stabilisation hardware which runs the OpenPilot firmware. It can be configured to fly any airframe from fixed wing to an octocopter using the OpenPilot Ground Control Station (GCS) Software.<br><br>
+            <strong style="color:red;">Calibration</strong> Calibration is defined as setting up drone parameters in order to be operated by a radio controller.<br>
+            </span>
+            </span>
+            <img id="" style="position: absolute; left: 0px; top: 160px; width:120px; height:350px;" title="Human" src="Images/human.png" />
+
+            <!-- <img id="" style="position: absolute; left: 340px; top: 165px; width:190px; height:130px;" title="Weighing scale" src="Images/pc.png"/> -->
+            <img id="" style="position: absolute; left: 500px; top: 335px; width:190px; height:130px;" title="Computer" src="Images/pc.png" />
+            <!-- <img style="position:absolute; left:250px; top:320px; height: 180px; width: 380px;" title="Assembled quadcopter" src="./Images/all_together.png" /> -->
+            <img style="position:absolute; left:120px; top:320px; height: 180px; width: 380px;" title="Assembled quadcopter" src="./Images/all_together.png" />
+
+        </div>
+
+        <!--Step1	-->
+        <div class="simsubscreen" id="canvas1" style="visibility:hidden">
+            <strong id="titlestep" class="incanvas">STEP </strong>
+            <span class="circlebg" id="stepnumber">&nbsp;1&nbsp;</span>
+            <p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;">Download Librepilot</p>
+            <!-- 
+<img id="a2" class="" style="position: absolute; left: 200px; top: 90px;cursor:pointer; height: 190px; width: 320px; visibility: block;" src="./Images/uav/wing-new.jpeg"/>
+<p id="air-info" style="position: absolute; top: 58%; visibility: block; "> Let us learn more about the airfoil. </p>
+<img id="arr-air" style="visibility: hidden; top: 40%; right: 70%; height: 20%; width:5%; position: absolute;" src="./Images/uav/arrow-aerofoil.png">
+<img id="a3" style=" visibility:hidden;" src="Images/uav/airfoil-new2.png"/>
+<div id="nomenImages">
+<img id="air01" style="position: absolute; left: 170px; top: 145px; height: 180px; width: 380px; visibility:hidden;" src="Images/uav/airfoil/air01.png"/>
+<img id="air02" style="position: absolute; left: 170px; top: 140px; height: 200px; width: 400px; visibility:hidden;" src="Images/uav/airfoil/air02.png"/>
+<img id="air03" style="position: absolute; left: 170px; top: 145px; height: 170px; width: 380px; visibility:hidden;" src="Images/uav/airfoil/air03.png"/>
+<img id="air04" style="position: absolute; left: 170px; top: 145px; height: 200px; width: 400px; visibility:hidden;" src="Images/uav/airfoil/air04.png"/>
+<img id="air05" style="position: absolute; left: 170px; top: 145px; height: 200px; width: 400px; visibility:hidden;" src="Images/uav/airfoil/air05.png"/>
+<img id="air06" style="position: absolute; left: 170px; top: 145px; height: 200px; width: 400px; visibility:hidden;" src="Images/uav/airfoil/air06.png"/>
+<img id="air07" style="position: absolute; left: 170px; top: 145px; height: 200px; width: 400px; visibility:hidden;" src="Images/uav/airfoil/air07.png"/>
+</div>
+
+<button id="change-airfoilButton" onclick="changeNomen();" style="position: absolute; top: 85%; left: 85%;  visibility: hidden;"></button>
+
+
+<ul id="nomen-list" class="air-items" style="visibility: hidden; list-style-type: none; position: absolute; top: 120px;">
+  <li><button onclick="airfoilNomen(1);">One</button></li>
+  <li><button onclick="airfoilNomen(2);">One</button></li>
+  <li><button onclick="airfoilNomen(3);">One</button></li>
+  <li><button onclick="airfoilNomen(4);">One</button></li>
+  <li><button onclick="airfoilNomen(5);">One</button></li>
+  <li><button onclick="airfoilNomen(6);">One</button></li>
+  <li><button onclick="airfoilNomen(7);">One</button></li>
+</ul> -->
+            <p style="position: absolute; top: 58px;">Download Librepilot using the link provided below for your system.</p>
+            <ul style="position: absolute; top: 108px;">
+                <li>Windows <span style="margin-left: 34px;">:</span><a style="margin-left:4px;" href="http://bit.ly/2gufloK">Librepilot for Windows</a></li>
+                <li>OSX <span style="margin-left: 66px;">:</span> <a style="margin-left: -1px;" href="http://bit.ly/2hrC0Eb">Librepilot for OSX</a></li>
+                <li>Ubuntu 32bits: <a href="https://librepilot.atlassian.net/wiki/download/attachments/4128780/librepilot_16.09-0trusty1_i386.deb?version=1&modificationDate=1481753269689&cacheVersion=1&api=v2">Librepilot for Ubuntu</a></li>
+                <li>Ubuntu 64bits: <a href="https://librepilot.atlassian.net/wiki/download/attachments/4128780/librepilot_16.09-0trusty1_amd64.deb?version=1&modificationDate=1481748549269&cacheVersion=1&api=v2">Librepilot for Ubuntu</a></li>
+            </ul>
+            <p style="position: absolute; top: 208px;">Once you finish the download, install the software in your system and open it.</p>
+            <p style="position: absolute; top: 238px;">Move to the next step when you have opened the Librepilot software.</p>
+            <p id="v2" style="position:absolute;left: 530.5px; top:342px;font-family:verdana; font-size:14px;"></p>
+
+        </div>
+
+
+
+        <!--Step2	-->
+
+        <div class="simsubscreen" id="canvas2" style="visibility:hidden">
+
+            <strong id="titlestep" class="incanvas">STEP &nbsp;</strong>
+            <span class="circlebg" id="stepnumber">&nbsp;2&nbsp;</span>
+            <p id="pumptext-2" class="steptext" style="font-family:verdana; font-size:14px;">&nbsp;Let us remove the Propellers before calibrating the Flight Controller.</p>
+
+            <img id="hand" style="position: absolute; left: 275px; top: 125px; visibility:hidden;">
+            <img id="quad" style="position: absolute; left: 120px; top: 160px; visibility: hidden;  height: 250px; width: 470px;transform:rotate(2deg);" src="./Images/all_without nut_v02.png">
+
+            <!-- Propellers -->
+            <img id="prop1" style="position: absolute; left: 72px; top: 265px; visibility: hidden;  height: 68px; width: 150px;" src="./Images/Prop1.png">
+            <img id="prop2" style="position: absolute; left: 481.5px; top: 264px; visibility: hidden; height: 68px; width: 150px;transform:rotate(-2deg);" src="./Images/Prop2.png">
+            <img id="prop3" style="position: absolute; left: 401px; top: 139px; visibility: hidden;  height: 58px; width: 105px;" src="./Images/Prop3.png">
+            <img id="prop4" style="position: absolute; left: 133px; top: 146px; visibility: hidden;  height: 58px; width: 105px;transform:rotate(-2deg);" src="./Images/Prop4.png">
+
+            <!-- Knobs on propellers -->
+            <img id="knob1" style="position: absolute; left: 141px; top: 280px; visibility:hidden;height:21px;width:14px;" src="./Images/Nut_single.png">
+            <img id="knob2" style="position: absolute;cursor: pointer; left: 549.5px; top: 277px; visibility:hidden;height:22px;width:13.5px;transform:rotate(1deg);" src="./Images/Nut_single.png">
+            <img id="knob3" style="position: absolute; left: 449.5px; top: 155px; visibility:hidden;height:14px;width:9px;" src="./Images/Nut_single.png">
+            <img id="knob4" style="position: absolute; left: 181px; top: 163px; visibility:hidden;height:14px;width:9px;" src="./Images/Nut_single.png">
+
+            <!-- Skip button  -->
+            <button id="remove_skip" style="cursor: pointer;;position: absolute;visibility: hidden;top: 400px;left: 600px;color: #fff;background-color: black;border-radius: 5px;">Skip</button>
+
+            <!-- Hand holding knob -->
+            <img id="handKnob" style="position: absolute; left: 534px; top:207px; visibility: hidden; height: 90px; width: 45px; opacity: 0;" src="./Images/hand_nut.png">
+            <!-- Hand holding Propeller -->
+            <img id="handProp" style="position: absolute; left: 485px; top: 202px; visibility: hidden; height: 120px; width: 145px; opacity: 0;" src="./Images/propeller_hand.png">
+
+            <!-- Button removing all other knobs -->
+            <button id="removeKnob" onclick="" style="cursor: pointer;;visibility: hidden;position: absolute;top: 100px;left: 500px;color: #fff;background-color: black;border-radius: 5px;">Remove all other Knobs</button>
+
+            <!-- Button removing all other Props -->
+            <button id="removeProp" onclick="" style="cursor: pointer;;visibility: hidden;position: absolute;top: 100px;left: 500px;color: #fff;background-color: black;border-radius: 5px;">Remove all other Propellers</button>
+
+            <!-- Instruction note -->
+            <p id="inst_note" style="position: absolute;top: 70px; left: 110px;visibility: hidden;">Remove the knobs first.</p>
+
+            <p id="can2" style="visibility: hidden;position:absolute;top: 450px; left:28px;font-family:verdana; font-size:14px;">Here the lift is upwards.</p>
+            <p id="v2" style="visibility: hidden;position:absolute;left: 530.5px; top:342px;font-family:verdana; font-size:14px;"></p>
+
+
+        </div>
+
+        <!--Step3	-->
+        <div class="simsubscreen" id="canvas3" style="visibility:hidden">
+            <strong class="incanvas">STEP &nbsp;</strong><span class="circlebg">&nbsp;3&nbsp;</span>
+            <p class="steptext" style="font-family:verdana; font-size:14px;">&nbsp;Connect the Flight Controller to the Computer using Micro USB Cable </p>
+
+            <p id="zoomIn" style="position: absolute; visibility: hidden; top: 280px; left:100px; height: 230px; width: 500px; border: 1px solid black; border-radius: 5px;">
+                <img id="fc" src="./Images/FC_USB.png" style="position: absolute;height: 70px;width: 120px;top: 70px;left: 50px;" title="Flight Controller" alt="Flight Controller">
+                <img src="./Images/pc.png" style="position: absolute;height: 90px;width: 100px;top: 50px;left: 370px;" alt="Computer">
+                <img src="./Images/CPU.png" style="position: absolute;height: 95px;width: 60px;top: 50px;left:300px;" alt="CPU">
+                <img id="usb_cable" src="./Images/usb2.png" style="position: absolute;height: 80px;width: 100px;top: 130px;left:160px;" alt="Micro USB Cable">
+            </p>
+            <p id="usbNote" style="visibility: hidden;position: absolute;top: 300px;left: 150px;">Click on the Micro USB Cable</p>
+            <img id="fc_usb" src="./Images/FC_USB_Con.png" style="visibility: hidden; position: absolute; height: 30px; width: 25px; top: 468px; left: 236.5px;" alt="Micro USB Cable">
+            <img id="pc_usb" src="./Images/PC_USB_Con.png" style="visibility: hidden; position: absolute; height: 5px; width: 10px; top: 382px; left: 431px;" alt="Micro USB Cable">
+            <img id="usb_wire" src="./Images/wire (1).png" style="visibility: hidden; position: absolute; height: 130px; width: 200px; top: 384.5px; left: 247px;" alt="Micro USB Cable">
+
+            <!-- <p style="top:40%;"> -->
+            <!-- <img id="wg" style="position: absolute; left: 100px; top: 80px; width: 70%; height: 30%;" src="Images/uav/airfoil.jpeg" /> -->
+            <!-- UPPER LAYER AIRFLOW -->
+            <!-- <img id="new_arrow1" style="position: absolute; height: 7%; width: 5%; top:23%; left: 5%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <img id="new_arrow2" style="position: absolute; height: 7%; width: 5%; top:23%; left: 12%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <img id="new_arrow3" style="position: absolute; height: 7%; width: 5%; top:23%; left: 18%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <img id="new_arrow4" style="position: absolute; height: 7%; width: 5%; top:19%; left: 24%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <img id="new_arrow5" style="position: absolute; height: 7%; width: 5%; top:16%; left: 30%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <img id="new_arrow6" style="position: absolute; height: 7%; width: 5%; top:15%; left: 37%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <img id="new_arrow7" style="position: absolute; height: 7%; width: 5%; top:16%; left: 44%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <img id="new_arrow8" style="position: absolute; height: 7%; width: 5%; top:17%; left: 51%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <img id="new_arrow9" style="position: absolute; height: 7%; width: 5%; top:19%; left: 60%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <img id="new_arrow10" style="position: absolute; height: 7%; width: 5%; top:20%; left: 68%; visibility:hidden;" src="./Images/uav/arrow.png">
+                <img id="new_arrow11" style="position: absolute; height: 7%; width: 5%; top:21%; left: 75%; visibility:hidden;" src="./Images/uav/arrow.png">
+                <img id="new_arrow12" style="position: absolute; height: 7%; width: 5%; top:21%; left: 82%; visibility:hidden;" src="./Images/uav/arrow.png">
+                <p id="new_arrow13" style="position: absolute; height: 7%; width: 5%; top:21%; left: 83%; visibility:hidden;"> </p> -->
+            <!-- BOTTOM LAYER AIRFLOW -->
+            <!-- <img id="below_arrow1" style="position: absolute; height: 7%; width: 5%; top:32%; left: 5%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <img id="below_arrow2" style="position: absolute; height: 7%; width: 5%; top:32%; left: 12%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <img id="below_arrow3" style="position: absolute; height: 7%; width: 5%; top:32%; left: 18%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <img id="below_arrow4" style="position: absolute; height: 7%; width: 5%; top:34%; left: 24%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <img id="below_arrow5" style="position: absolute; height: 7%; width: 5%; top:36%; left: 30%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <img id="below_arrow6" style="position: absolute; height: 7%; width: 5%; top:37%; left: 37%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <img id="below_arrow7" style="position: absolute; height: 7%; width: 5%; top:36%; left: 44%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <img id="below_arrow8" style="position: absolute; height: 7%; width: 5%; top:35%; left: 51%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <img id="below_arrow9" style="position: absolute; height: 7%; width: 5%; top:34%; left: 60%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <img id="below_arrow10" style="position: absolute; height: 7%; width: 5%; top:32%; left: 68%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <img id="below_arrow11" style="position: absolute; height: 7%; width: 5%; top:32%; left: 75%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <img id="below_arrow12" style="position: absolute; height: 7%; width: 5%; top:32%; left: 82%; visibility: hidden;" src="./Images/uav/arrow.png">
+                <p id="below_arrow13" style="position: absolute; height: 7%; width: 5%; top:32%; left: 83%; visibility: hidden;"></p> -->
+
+            <!-- LIFT arrows -->
+            <!-- <div id="up-arrow-div" style="visibility: hidden;">
+                    <img class="up-arrow1" style="position: absolute; height: 7%; width: 3%; top:43%; left: 32%; visibility: hidden;" src="./Images/uav/arrow-up.png">
+                    <img class="up-arrow2" style="position: absolute; height: 7%; width: 3%; top:44%; left: 41%; visibility: hidden;" src="./Images/uav/arrow-up.png">
+                    <img class="up-arrow3" style="position: absolute; height: 7%; width: 3%; top:43%; left: 50%; visibility: hidden;" src="./Images/uav/arrow-up.png">
+                    <p id="lift" style="position: absolute; visibility: block; height: 7%; width: 4%; top:50%; left: 40%;"><b>LIFT</b></p>
+                </div> -->
+
+            <!-- VELOCIY - PRESSURE INFO -->
+            <!-- <div id="v-p-info" style="position: absolute; top:35%; left: 70%; visibility: hidden;">
+                    <p> Decrease in Velocity(V) <br/> Increase in Pressure(P).</p>
+                </div> -->
+
+            <!-- Lift calculation display -->
+            <!-- <div id="calc-lift-part1" style="visibility: block; position: absolute; top: 60%;">
+                    <p> Let us calculate the lift now: <button class="verificationButton" onclick="calculateLift(1);">Calculate</button></p>
+                </div> -->
+
+
+            <!-- explanation and comparison part. -->
+            <!-- <div id="solve-equation1" style="visibility: hidden;">
+                    <div id="" style="position: absolute; visibility: block; top:56%; left: 0%;">
+                        <h4>Let us find out the lift:</h4>
+                        <img src="/experiment/simulation/cement/Images/PhysicsEquation4-600x148.png" />
+                    </div> -->
+            <!-- <div id="show-eqn1" style="position: absolute; visibility: block; top:60%; left: 50%;">
+                        <p>Value 1</p>
+                        <p>Value 2</p>
+                        <p>Value 3</p>
+                        <p>Ready for verification? <button class="verificationButton" onclick="showCompare(1);">Verify</button></p>
+                    </div>
+                    <div id="calculate-lift1" style="position: absolute; visibility: hidden; top:60%; left: 50%;">
+                        <p>Enter your answer and comapre with the actual value.</p>
+                        <input class="lift-verify" type="text" id="lift-input1" />
+                        <button class="verificationButton" onclick="verifyLift(1);">Verify</button>
+                        <p id="outputLift1" class=""></p>
+                    </div> -->
+            <!-- </div> -->
+
+
+            <img id="hand3" style="position: absolute; left: 275px; top: 125px; visibility:hidden; cursor:pointer;" src="Images/hn.png" />
+
+            <p id="can3" style="position:absolute;top: 450px; left:28px;font-family:verdana; font-size:14px;"></p>
+            <p id="v3" style="position:absolute;left: 530.5px; top:342px;font-family:verdana; font-size:14px;"></p>
+        </div>
+
+
+
+
+        <!--Step4	-->
+        <div class="simsubscreen" id="canvas4" style="visibility:hidden">
+            <strong class="incanvas">STEP &nbsp;</strong><span class="circlebg">&nbsp;4&nbsp;</span>
+            <p class="steptext" id="top_text" style="font-family:verdana; font-size:14px;">&nbsp;&nbsp;Open the LibrePilot software and click on Vehicle Setup Wizard. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Zoom the screen to 125% to read the instructions clearly.</p>
+            <!-- Monitor screen -->
+            <img id="monitor" style="visibility: hidden; position: absolute; top: -210px; left: -60px; height: 1080px; width: 800px;" src="./Images/Computer.png" alt="Monitor">
+
+            <!-- ------------------------Set up wizard tab and the images on it------------------------- -->
+            <!-- The whole vehicle setup wizard tab -->
+            <img id="vehicle_setup" src="./Images/Base_v02.png" style="position: absolute; width: 530px; height: 300px; left: 74px; top: 80px; " />
+            <!-- Vehicle setup wizard image button -->
+            <img id="vehicleButton" src="./Images/vehicle_setup.png" style="cursor: pointer; visibility: hidden; position: absolute; width: 95px; height: 77px; left: 383px; top: 125px;" alt="Vehicle setup wizard button">
+            <!-- The big rectangle section -->
+            <img id="recentSection" style="visibility: hidden; position: absolute; width: 300px; height: 150px; left: 177px; top: 205px; border-radius: 5px;box-shadow:0 0 5px rgba(0,0,0,0.8);" src="./Images/rect.png" alt="the software update and recents section">
+            <!-- LibrePilot logo on the tab -->
+            <img id="logo" style="position: absolute;  width: 95px; height: 78px; left: 185px; top: 123px;" src="./Images/Liibre_pilot_Grey.png" alt="LibrePilot logo">
+            <!-- Setup wizard tab -->
+            <img id="setup_wizard" style="visibility: hidden; position: absolute; width: 330px; height: 250px; left: 150px; top: 110px;" src="./Images/setup_wizard.png" alt="Set up wizard">
+            <!-- Empty space to cover the back button -->
+            <img id="empty_space" style="visibility: hidden; position: absolute; top: 342px; left: 353px; height: 15px; width: 100px;" src="./Images/empty_space.png" alt="Empty space">
+            <!-- Next button -->
+            <img id="next_button" style="visibility: hidden; position: absolute; top: 342px; left: 375px; height: 15px; width: 49px;z-index:50;" src="./Images/Setup wizard Next.png" alt="Next button">
+            <!-- Cancel button -->
+            <img id="cancel_button" style="visibility: hidden; position: absolute; top: 342px; left: 428px; height: 15px; width: 49px;z-index:50;" src="./Images/Setup wizard Cancel.png" alt="Cancel button">
+            <!-- Back button -->
+            <img id="back_button" src="./Images/Setup wizard Back.png" style="visibility:hidden;position: absolute; top: 342px; left: 322px; height: 15px; width: 49px;z-index:50;" alt="Back button">
+            <!-- Title bar logo in setup wizard tab -->
+            <img id="title_logo" style="visibility: hidden; position: absolute; width: 8px; height: 8px; left: 152px; top: 112px;" src="./Images/Liibre_pilot_Grey.png" alt="LibrePilot logo">
+
+            <!-- --------------------------Wordings on the Setup wizard tab - Welcome------------------------------- -->
+            <div id="setupContent" style="visibility: hidden; position: absolute; top: 110px; left: 144px; height: 300px; width: 340px;">
+                <p id="welcome_note" style="font-size:11px;position:absolute;top:10px;left:70px;"><b>Welcome to the Setup Wizard</b></p>
+                <div style="position:absolute;top:40px;left:10px;height:70px;width:280px;font-size:6px;">
+                    <p>This wizard will guide you through the basic steps required to setup your flight controller for the first time. You will be asked questions about your platform (multirotor/heli/fixed-wing) which this wizard will use to configure your
+                        controller for its first flight.<br><br>This wizard does not configure all of the advanced settings available in the GCS Configuration. All basic and advanced configuration parameters can be modified later by using the GCS Configuration
+                        plugin.
+                    </p>
+                </div>
+
+                <!-- The owl image in the setup wizard -->
+                <img style="position: absolute;top: 35px;left: 280px;height: 60px;width: 45px;" src="./Images/owl-removebg-preview.png" alt="Owl icon">
+                <p style="position: absolute;top: 110px;left: 40px;color:grey;font-size:10px;"><b>WARNING: YOU MUST REMOVE ALL PROPELLERS FROM THE VEHICLE BEFORE PROCEEDING! </b></p>
+                <p style="position: absolute;top: 160px;left: 10px;font-size:6px;">Disregarding this warning puts you at risk of injury!<br><br>Now that your props are removed we can get started. Ready?</p>
+            </div>
+
+            <!-- ---------------------------Wordings on Setup wizard tab - Firmware update--------------------------- -->
+            <div id="firware_update" style="visibility: hidden; position: absolute; top: 110px; left: 144px; height: 300px; width: 340px;">
+                <p style="font-size:11px;position:absolute;top:10px;left:110px;"><b>Firmware Update</b></p>
+                <div style="position:absolute;top:40px;left:10px;height:70px;width:321px;font-size:6px;">
+                    <p>It is necessary that your firmware and ground control software are the same version.<br><br>When you are ready you can start the upgrade below by pushing the button. It is critical that nothing disturbs the board while the firmware
+                        is being written.<br><br>It is recommended that you erase all settings on the board when upgrading firmware. Using saved settings for a previous version of the firmware <b>may result in undefined behaviour</b>and in worst case
+                        danger. It is possible to suppress the erase by deselecting the check box below.
+                    </p>
+                </div>
+                <img id="check_box" src="./Images/checkbox.png" style="height:10px;width: 10px;position: absolute;top: 143px;left: 110px;" onclick="uncheck();" alt="Checkbox">
+                <p style="position: absolute;top: 140px;left: 120px;font-size:6px;">Erase all settings</p>
+                <img id="upgrade_button" src="./Images/upgrade.png" style="position: absolute;top: 155px;left: 100px;height: 30px;width: 90px;" alt="Upgrade button">
+                <p id="upgrade_inst" style="position: absolute;top: 180px;left: 10px;font-size:6px;">Ready...</p>
+                <img src="./Images/upgrade_status.png" style="height: 20px;width: 327px;position: absolute;top: 193px;left: 7px;" alt="Upgrade Status bar">
+            </div>
+
+            <!-- ----------------------------Upgrade status bar----------------------------------------------------   -->
+            <!-- <img id="first_status" style="visibility: hidden;position: absolute;top: 194px;left: 8px;height: 20px;" src="./Images/first-ConvertImage.png" alt="Upgrade Status">
+            <img id="second_status" style="visibility: hidden;position: absolute;top: 194px;left: 8px;height: 20px;" src="./Images/second-ConvertImage.png" alt="Upgrade Status">
+            <img id="third_status" style="visibility: hidden;position: absolute;top: 194px;left: 8px;height: 20px;" src="./Images/third-ConvertImage.png" alt="Upgrade Status"> -->
+            <img id="full_status" style="visibility: hidden; position: absolute; top: 308px; left: 155px; height: 11px; width: 50px;" src="./Images/full_status-ConvertImage.png" alt="Upgrade Status">
+            <img id="cal_status" style="visibility: hidden; position: absolute; top: 319px; left: 155px; height: 11px; width: 50px;z-index: 100;" src="./Images/full_status-ConvertImage.png" alt="Calculate Status">
+            <img id="saveStatus" style="visibility: hidden; position: absolute; top: 319px; left: 155px; height: 11px; width: 50px;z-index: 100;" src="./Images/full_status-ConvertImage.png" alt="Calculate Status">
+            <p id="upgrade_text" style="visibility: hidden; font-size: 10px; position: absolute; top: 225px; left: 170px; color: red;">Click on Upgrade first before proceeding to the next step!</p>
+
+
+            <!-- ---------------------------Wordings on Setup wizard tab - Board Identification--------------------------- -->
+            <div id="board_identification" style="visibility: hidden; position: absolute; top: 110px; left: 144px; height: 300px; width: 340px;">
+                <p style="font-size:11px;position:absolute;top:10px;left:110px;"><b>Board Identification</b></p>
+                <div style="position:absolute;top:35px;left:10px;height:70px;width:321px;font-size:6px;">
+                    <p>To continue, the wizard needs to determine the configuration required for the type of flight controller you have. When connected, the wizard will attempt to automatically detect the type of board.<br><br>If the board is already connected
+                        and successfully detected, the board type will already be displayed. You can <b>Disconnect</b> and select another device if you need to detect another board.<br><br>If your board is not connected, please connect the board to a
+                        USB port on your computer and select the device from the list below. Then press <b>Connect</b>.
+                    </p>
+                </div>
+                <img id="cc3d" src="./Images/cc3d.png" style="height:90px;width: 90px;position: absolute;top: 100px;left: 120px;transform:rotate(91deg);" alt="CC3D">
+
+                <div style="position:absolute;top:185px;left:10px;font-size:6px;">
+                    <p>Connection device:</p>
+                    <form style="position:absolute;top:4px;left:85px;"><select style="width:236px;height:11px;font-size:6px;color:gray;border:1px solid gray;border-radius:2px;background-color:#ececec;" disabled="true">
+                        <option value="USB: CopterControl">USB: CopterControl</option>
+                        </select>
+                    </form>
+                </div>
+                <br>
+
+                <div style="position:absolute;top:198px;left:10px;font-size:6px;">
+                    <p>Detected board type:</p>
+                    <form style="position:absolute;top:5px;left:85px;"><select style="width:236px;height:11px;font-size:6px;color:gray;border:1px solid gray;border-radius:2px;background-color:#ececec;" disabled="true"><option value="OpenPilot CopterControl 3D">OpenPilot CopterControl 3D</option></select></form>
+                </div>
+                <p style="position: absolute;top: 208.5px;left: 280px;border: 1px solid gray;border-radius: 2px;font-size:6.5px;padding:1px;width:50px;text-align:center;background-color:#ececec;">Disconnect</p>
+            </div>
+
+            <!-- ---------------------------Wordings on Setup wizard tab - Input Signal Configuration--------------------------- -->
+            <div id="ip_signal_config" style="visibility: hidden; position: absolute; top: 110px; left: 144px; height: 300px; width: 340px;">
+                <p style="font-size:11px;position:absolute;top:10px;left:110px;"><b>Input Signal Configuration</b></p>
+                <div style="position:absolute;top:40px;left:10px;height:70px;width:321px;font-size:6px;text-align: justify;">
+                    <p>The flight controller supports many different types of input signals. Please select the type of input that matches your receiver configuration. If you are unsure, just leave the default option selected and continue the wizard.<br><br>Some
+                        input options require the flight controller to be rebooted before the changes can take place. If an option that requires a reboot is selected, you will be instructed to do so on the next page of this wizard.<br><br>
+                    </p>
+                </div>
+                <img id="ip1" src="./Images/PWM_S.png" onclick="selectInput(1);" style="height:45px;width: 50px;position: absolute;top: 160px;left: 18px;border-radius:5px;box-shadow: 0 2px 2px rgba(0,0,0,0.6);cursor: pointer;" alt="PWM">
+                <img id="ip2" src="./Images/PPM_S.png" onclick="selectInput(2);" style="height:45px;width: 50px;position: absolute;top: 160px;left: 80px;border-radius:5px;box-shadow: 0 2px 2px rgba(0,0,0,0.6);cursor: pointer;" alt="PPM">
+                <img id="ip3" src="./Images/SBUS_S.png" onclick="selectInput(3);" style="height:45px;width: 50px;position: absolute;top: 160px;left: 145px;border-radius:5px;box-shadow: 0 2px 2px rgba(0,0,0,0.6);cursor: pointer;" alt="SBUS">
+                <img id="ip4" src="./Images/SAT_S.png" onclick="selectInput(4);" style="height:45px;width: 50px;position: absolute;top: 160px;left:210px;border-radius:5px;box-shadow: 0 2px 2px rgba(0,0,0,0.6);cursor: pointer;" alt="DSM SAT">
+                <img id="ip5" src="./Images/SRXL_S.png" onclick="selectInput(5);" style="height:45px;width: 50px;position: absolute;top: 160px;left: 275px;border-radius:5px;box-shadow: 0 2px 2px rgba(0,0,0,0.6);cursor: pointer;" alt="SRXL">
+                <p style="position: absolute;top: 205px;left: 32px;font-size:7px;">PWM</p>
+                <p style="position: absolute;top: 205px;left: 100px;font-size:7px;">PPM</p>
+                <p style="position: absolute;top: 205px;left: 160px;font-size:7px;">S.Bus</p>
+                <p style="position: absolute;top: 205px;left: 220px;font-size:7px;">DSM Sat</p>
+                <p style="position: absolute;top: 205px;left: 290px;font-size:7px;">SRXL</p>
+
+            </div>
+
+            <!-- ---------------------------Wordings on Setup wizard tab - Vehicle Type Selection--------------------------- -->
+            <div id="vehicle_type" style="visibility: hidden; position: absolute; top: 110px; left: 144px; height: 300px; width: 340px;">
+                <p style="font-size:11px;position:absolute;top:10px;left:110px;"><b>Vehicle Type Selection</b></p>
+                <div style="position:absolute;top:40px;left:10px;height:70px;width:321px;font-size:6px;text-align: justify;">
+                    <p>To continue, the wizard needs to know what type of vehicle the flight controller board is going to be used with. This step is crucial since much of the following configuration is unique per vehicle type.<br><br>Go ahead and select
+                        the type of vehicle for which you want to create a configuration.<br><br>The current version only provides functionality for Multirotors, Fixed-wing aircraft and Ground vehicle.
+                    </p>
+                </div>
+                <img id="vt1" src="./Images/MR.png" onclick="selectVehicle(1);" style="height:45px;width: 50px;position: absolute;top: 160px;left: 35px;box-shadow: 0 2px 2px rgba(0,0,0,0.6);cursor: pointer;border-radius:5px;" alt="Multirotor">
+                <img id="vt2" src="./Images/Wing.png" onclick="selectVehicle(2);" style="height:45px;width: 50px;position: absolute;top: 160px;left: 110px;box-shadow: 0 2px 2px rgba(0,0,0,0.6);cursor: pointer;border-radius:5px;" alt="Fixed Wing">
+                <img id="vt3" src="./Images/Heli.png" onclick="selectVehicle(3);" style="height:45px;width: 50px;position: absolute;top: 160px;left: 185px;box-shadow: 0 2px 2px rgba(0,0,0,0.6);cursor: pointer;border-radius:5px;" alt="Helicopter">
+                <img id="vt4" src="./Images/surface.png" onclick="selectVehicle(4);" style="height:45px;width: 50px;position: absolute;top: 160px;left:260px;box-shadow: 0 2px 2px rgba(0,0,0,0.6);cursor: pointer;border-radius:5px;" alt="Surface">
+
+                <p style="position: absolute;top: 205px;left: 42px;font-size:7px;">Multirotor</p>
+                <p style="position: absolute;top: 205px;left: 115px;font-size:7px;">Fixed Wing</p>
+                <p style="position: absolute;top: 205px;left: 190px;font-size:7px;">Helicopter</p>
+                <p style="position: absolute;top: 205px;left: 270px;font-size:7px;">Surface</p>
+
+
+            </div>
+
+            <!-- ---------------------------Wordings on Setup wizard tab - Mulirotor Configuration--------------------------- -->
+            <div id="multirotor_config" style="visibility: hidden; position: absolute; top: 110px; left: 144px; height: 300px; width: 340px;">
+                <p style="font-size:11px;position:absolute;top:10px;left:110px;"><b>Mulirotor Configuration</b></p>
+                <div style="position:absolute;top:32px;left:10px;height:70px;width:321px;font-size:6px;text-align: justify;">
+                    <p>This part of the wizard will set up the flight controller for use with a flying platform utilizing multiple rotors. The wizard supports the most commomn types of multirotors. Other variants of multirotors can be configured by using
+                        custom configuration options in the Configuration plugin in the GCS.<br><br>Please select the type of multirotor you want to create a configuration for below:<br><br>Select:
+                    </p>
+                </div>
+                <img src="./Images/multirotorSignal.png" style="position: absolute;height: 120px;width: 145px;top: 95px;left: 185px;" alt="Multirotor">
+                <form style="position:absolute;top:77px;left:35px;"><select style="width:150px;height:11px;font-size:6px;color:black;border:1px solid gray;border-radius:2px;background-color:#ececec;border:1px solid #d3d3d3;">
+                    <option value="Quadcopter X">Quadcopter X</option>
+                    <option value="Quadcopter +">Quadcopter +</option>
+                    <option value="Hexacopter">Hexacopter</option>
+                    <option value="Hexacopter X">Hexacopter X</option>
+                    <option value="Hexacopter H">Hexacopter H</option>
+                    <option value="Hexacopter Coax(Y6)">Hexacopter Coax(Y6)</option>
+                    
+                    </select>
+                </form>
+                <div style="border: 1px solid #d3d3d3;height:120px;width: 171px;position: absolute;top: 100px;left: 10px;padding: 1px;text-align:justify;font-size:6px;border-radius:1px;">
+                    <p>The X Quadcopter uses four motors and is the most common multi rotor configuration. Two of the motors rotate clockwise and two counter clockwise. The motors positioned diagonal to each other rotate in the same direction. This setup
+                        is perfect for sport flying and is also commonly used for FPV platforms.</p>
+                </div>
+
+            </div>
+
+            <!-- ---------------------------Wordings on Setup wizard tab - Output Signal Configuration--------------------------- -->
+            <div id="op_signal_config" style="visibility: hidden; position: absolute; top: 110px; left: 144px; height: 300px; width: 340px;">
+                <p style="font-size:11px;position:absolute;top:10px;left:110px;"><b>Output Signal Configuration</b></p>
+                <div style="position:absolute;top:40px;left:10px;height:70px;width:321px;font-size:6px;text-align: justify;">
+                    <p>To set an optimal configuration of the output signals powering your motors, the wizard needs to know what type of Electronc Speed Controllers(ESCs) you will use and what their capabilities are.<br><br>Please select one of the options
+                        below. If you are unsure about the capabilities of your ESCs, just leave the default option selected and continue the wizard. <br><br>
+                    </p>
+                </div>
+                <img id="op1" src="./Images/standard esc_unselected.PNG" onclick="selectOutput(1);" style="height:45px;width: 80px;position: absolute;top: 160px;left: 30px;border-radius:5px;box-shadow: 0 2px 2px rgba(0,0,0,0.6);cursor: pointer;" alt="Standard ESC">
+                <img id="op2" src="./Images/rapid escUnselected.PNG" onclick="selectOutput(2);" style="height:45px;width: 80px;position: absolute;top: 160px;left: 130px;border-radius:5px;box-shadow: 0 2px 2px rgba(0,0,0,0.6);cursor: pointer;" alt="Rapid ESC">
+                <img id="op3" src="./Images/one shot esc_selected.PNG" onclick="selectOutput(3);" style="height:45px;width: 80px;position: absolute;top: 160px;left: 230px;border-radius:5px;box-shadow: 0 2px 2px rgba(0,0,0,0.6);cursor: pointer;" alt="OneShot ESC">
+
+                <p style="position: absolute;top: 205px;left: 42px;font-size:7px;">Standard ESC</p>
+                <p style="position: absolute;top: 205px;left: 150px;font-size:7px;">Rapid ESC</p>
+                <p style="position: absolute;top: 205px;left: 250px;font-size:7px;color:#949494;">OneShot ESC</p>
+
+
+            </div>
+
+            <!-- ---------------------------Wordings on Setup wizard tab - Configuration Summary--------------------------- -->
+            <div id="config_summary" style="visibility: hidden; position: absolute; top: 110px; left: 144px; height: 300px; width: 340px;text-align: justify;">
+                <p style="font-size:11px;position:absolute;top:10px;left:110px;"><b>Configuration Summary</b></p>
+                <div style="position:absolute;top:32px;left:10px;height:70px;width:321px;font-size:6px;text-align:justify;">
+                    <p>The first part of this wizard is now complete. All information required to create a basic flight controller congiguration for a specific vehicle has been collected.<br><br>Below is a summary of the configuration and a button that links
+                        to a diagram illustrating how to connect required hardware and the flight controller with the current configuration.<br><br>The following steps require that your flight controller is connected according to the diagram, remains
+                        connected to the computer by USB, and that you have a battery ready but <b>do not</b>connect it right now, you will be told when in later steps of this wizard.
+                    </p>
+                </div>
+                <div id="scroll_content" style="border: 1px solid #d3d3d3;height:90px;width:230px;position: absolute;top: 130px;left: 10px;padding: 1px;text-align:justify;font-size:6px;border-radius:1px;overflow-y: scroll;scrollbar-width: thin;">
+                    <p><b>Controller type:</b> OpenPilot Copter Control 3D</p>
+                    <p><b>Vehicle type:</b> Multirotor</p>
+                    <p><b>Vehicle sub type:</b> Quadcopter X</p>
+                    <p><b>Input type:</b> S.Bus</p>
+                    <p><b>Speed Controller (ESC) type: </b> Standard ESC</p>
+                </div>
+                <img onclick="showDiagram();" style="cursor:pointer;position: absolute;top: 135px;left: 250px;height: 80px;width: 80px;" src="./Images/diagram.png" alt="Diagram button">
+                <img id="circuit_diagram" style="box-shadow:0 0 5px rgba(0,0,0,0.8);cursor: pointer; visibility: hidden; position: absolute; top: 80px; left: 8px; height: 180px; width: 340px;" src="./Images/circuit_diagram.png" alt="Circuit diagram">
+                <img id="close_button" style="cursor: pointer; visibility: hidden; position: absolute; top: 248px; left: 308px; height: 10px; width: 40px;z-index:100;" src="./Images/close_button.png" alt="Close button">
+                <a href="/Images/downloadDiagram.png" download><img id="save_button" style="cursor:pointer;visibility: hidden; position: absolute; top: 248px; left: 271px; height: 10px; width: 40px;" src="./Images/save_button.png" alt="Save button"></a>
+                <img id="tab_logo" style="visibility: hidden; position: absolute; width: 9px; height: 9px; left: 10px; top: 82px;" src="./Images/Liibre_pilot_Grey.png" alt="LibrePilot logo">
+                <p id="tabHeadDiag" style="visibility: hidden; position: absolute; font-size: 8px; left:22px; top: 72.5px;">Connection Diagram</p>
+            </div>
+
+
+            <!-- ---------------------------Wordings on Setup wizard tab - Sensor Calibration Procedure--------------------------- -->
+            <div id="sensor_calib" style="visibility: hidden; position: absolute; top: 110px; left: 144px; height: 300px; width: 340px;">
+                <p style="font-size:11px;position:absolute;top:10px;left:110px;"><b>Sensor Calibration Procedure</b></p>
+                <div style="position:absolute;top:40px;left:10px;height:70px;width:321px;font-size:6px;">
+                    <p>The wizard needs to get information from the controller to determine in which position the vehicle is normally considered to be level. To be able to successfully perform these measurements, you need to place the vehicle on a surface
+                        that is as flat and level as possible. Examples of such surfaces could be a table top or the floor. Be careful to ensure that the vehicle really is level, since this step will affect the accelerometer and gyro bias in the computer
+                        software.
+                        <br><br>To perform the calibration, please push the Calculate button and wait for the process to finish.
+                    </p>
+                </div>
+                <p id="calculate_inst" style="visibility: hidden;position: absolute;top: 190px;left: 10px;font-size:6px;"></p>
+                <img id="calculate_button" src="./Images/calculate.png" style="cursor: pointer;position: absolute;top: 165px;left: 130px;height: 30px;width: 90px;" alt="Calculate button">
+                <img src="./Images/upgrade_status.png" style="height: 20px;width: 327px;position: absolute;top: 204px;left: 7px;" alt="Calculate Status bar">
+            </div>
+
+            <!-- ---------------------------Wordings on Setup wizard tab - ESC Calibration Procedure--------------------------- -->
+            <div id="esc_calib" style="visibility: hidden; position: absolute; top: 110px; left: 144px; height: 300px; width: 340px;">
+                <p style="font-size:11px;position:absolute;top:10px;left:110px;"><b>ESC Calibration Procedure</b></p>
+                <div style="position:absolute;top:33px;left:10px;height:70px;width:321px;font-size:5.5px;">
+                    <p>As you have selected to use a MultiRotor and Fast/Flashed ESCs, we need to calibrate the endpoints of these ESCs so they can see the full throttle range sent from the flight controller.
+                        <br><br>This part of the wizard will tell you to connect the battery to your aircraft, before doing so you absolutely <b style="color:red;">must remove the propellers from all motors</b>.<br><br> The steps to perform this calibration
+                        are as follows:<br><br>
+                        <b>1.</b>&nbsp;Confirm all safety questions.<br>
+                        <b>2.</b>&nbsp;Press the Start button when it becomes enabled, <b>battery not connected</b>.<br>
+                        <b>3.</b>&nbsp;Connect the battery to your airframe.<br>
+                        <b>4.</b>&nbsp;Wait for the ESC calibration beep(s).<br>
+                        <b>5.</b>&nbsp;Press the Stop button.<br>
+                        <b>6.</b>&nbsp;Wait for the ESC confirmation beep(s).<br>
+                        <b>7.</b>&nbsp;Disconnect battery.<br>
+
+                    </p>
+                </div>
+                <img id="check_box" src="./Images/checkbox.png" style="height:10px;width: 10px;position: absolute;top: 135px;left: 110px;" onclick="uncheck();" alt="Checkbox">
+                <img id="check_box" src="./Images/checkbox.png" style="height:10px;width: 10px;position: absolute;top: 145px;left: 110px;" onclick="uncheck();" alt="Checkbox">
+                <img id="check_box" src="./Images/checkbox.png" style="height:10px;width: 10px;position: absolute;top: 155px;left: 110px;" onclick="uncheck();" alt="Checkbox">
+                <p style="position: absolute;top: 133px;left: 120px;font-size:5.5px;">I have removed ALL propellers from ALL motors of my vehicle</p>
+                <p style="position: absolute;top: 143px;left: 120px;font-size:5.5px;">The vehicle is NOT powered by any external power source but USB</p>
+                <p style="position: absolute;top: 153px;left: 120px;font-size:5.5px;">I confirm I have read and understood the above instruction in full</p>
+                <img style="position: absolute;top: 167px;left:80px;height:35px;width: 60px;" src="./Images/open_colour.png" alt="Battery connection open">
+                <img style="position: absolute;top: 167px;left:200px;height:35px;width: 60px;" src="./Images/close_bw.png" alt="Battery connection close">
+                <p id="low" style="border-radius:3px;height:8px;width:50px;background-color:#075fb6 ;position: absolute;top: 192px;left: 10px;text-align: center;font-size:6px;padding:2px;">Low/Off</p>
+                <p id="high" style="position: absolute;top: 193px;left: 300px;color: #949494;font-size:6px;">High</p>
+                <hr style="position: absolute;width: 100px;top: 196px;left: 66px;border-top:1px solid #d3d3d3;background-color:#ececec;border-radius:3px;">
+                <hr style="position: absolute;width: 98px;top: 196px;left:194px;border-top:1px solid #d3d3d3;background-color:#ececec;border-radius:3px;">
+                <p id="microSec" style="position: absolute;top: 194px;left: 169px;font-size:6px;">900 µs</p>
+                <p id="start_button" style="position: absolute;top: 205px;left: 130px;border: 1px solid black;border-radius: 2px;font-size:6.5px;padding:1px;width:40px;text-align:center;background-color:#ececec;">Start</p>
+                <p id="stop_button" style="position: absolute;top: 205px;left: 180px;border: 1px solid #d3d3d3;border-radius: 2px;font-size:6.5px;padding:1px;width:40px;text-align:center;background-color:#ececec;color: gray;">Stop</p>
+
+            </div>
+
+            <!-------------------------------- Disabled next, back and cancel buttons for the esc calibration procedure --------------------------->
+            <p id="dis_next" style="visibility: hidden; position: absolute; top: 338px; left: 379px; border: 1px solid rgb(211, 211, 211); border-radius: 2px; font-size: 6.5px; padding-top: 0.5px; width: 45px; text-align: center; background-color: rgb(236, 236, 236); color: gray;">Next ></p>
+            <p id="dis_back" style="visibility: hidden; position: absolute; top: 338px; left: 330px; border: 1px solid rgb(211, 211, 211); border-radius: 2px; font-size: 6.5px; padding-top: 0.5px; width: 45px; text-align: center; background-color: rgb(236, 236, 236); color: gray;">Back</p>
+            <p id="dis_cancel" style="visibility: hidden; position: absolute; top: 338px; left: 428px; border: 1px solid rgb(211, 211, 211); border-radius: 2px; font-size: 6.5px; padding-top: 0.5px; width: 45px; text-align: center; background-color: rgb(236, 236, 236); color: gray;">Cancel</p>
+
+            <!-- ------------------------------- Battery Connection --------------------------------------------------------------------------->
+            <div id="connect_battery" style="visibility: hidden; position: absolute; top: 395px; left: 455px; border: 2px solid black; border-radius: 5px; height: 132px; width: 290px;">
+                <img id="battery" style="position: absolute;top: 30px;left:110px;height: 70px;width: 170px;" src="./Images/Battery.png" alt="LiPO Battery">
+                <img id="battery_connector" style="position: absolute;top: 43px;left:40px;height: 90px;width:110px;" src="./Images/pdb_connectedsoldering (2).png" alt="Battery Connector">
+                <p id="close_icon" style="cursor: pointer;visibility: hidden; font-weight: bold; position: absolute; border: 1px solid black; height: 18px; width: 10px; top: 0px; left: 270px;">x</p>
+            </div>
+
+
+            <!-- ---------------------------Wordings on Setup wizard tab - Output Calibration--------------------------- -->
+            <div id="output_calib" style="visibility: hidden; position: absolute; top: 110px; left: 144px; height: 300px; width: 340px;">
+                <p id="tab_head" style="font-size:10px;position:absolute;top:10px;left:70px;"><b>Output Calibration</b></p>
+                <div id="opCalibContent" style="position:absolute;top:38px;left:12px;height:70px;width:200px;font-size:6px;">
+                    <p>It is now time to calibrate the output levels for the signals controlling your vehicle.
+                    </p>
+                    <p style="color:gray;font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; VERY IMPORTANT!&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>REMOVE
+                        ALL PROPELLERS FROM THE VEHICLE BEFORE<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PROCEEDING!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p>Connect all components according to the ilustration on the summary page, and provide power using an external power supply such as a battery before continuing.<br><br>Depending on what vehicle you have selected, both the motors controlled
+                        by ESCs and/or servos controlled directly by the flight controller may have to be calibrated. The following steps will guide you safely through this process.</p>
+
+                </div>
+                <img id="quad_diag" src="./Images/OutputCalib (2).png" style="position: absolute;top: 60px;left: 205px;height: 120px;width: 130px;" alt="Quadcopter Diagram">
+
+                <div id="outputCalib2" style="visibility:hidden;">
+                    <img id="OPCcheck_box" src="./Images/unchecked_checkbox.png" style="height: 10px; width: 10px; position: absolute; top: 134px; left: 10px;" onclick="check();" alt="Checkbox">
+                    <p id="calibrateAll" style=" font-size: 5.5px; position: absolute; top: 132px; left: 20px;">Calibrate all motor outputs at the same time.</p>
+                    <p style="font-size: 5.5px; position: absolute; top: 180px; left: 10px;">Output value:</p>
+                    <p style="font-size: 5.5px; position: absolute; top: 180px; left: 50px;"><b id="opValue">1000</b> µs</p>
+                    <input id="range_slider" class="range_slider" style="position:absolute;width:185px;top:195px;height:3px;left: 8px;" type="range" min="1000" max="2000" value="0">
+                    <p id="startButtonOpCalib" style="cursor: pointer;position: absolute;top: 200px;left: 10px;border: 1px solid #d3d3d3;border-radius: 2px;font-size:6.5px;padding:1px;width:185px;text-align:center;background-color:#ececec;">Start</p>
+                    <!-- <img id="DisabledButtons" style="visibility: hidden;; position: absolute; top: 380px; left: 300px;height: 30px;width: 150px;" src="./Images/diabledButtons.png" alt="Disabled buttons"> -->
+                </div>
+            </div>
+
+            <!-- ---------------------------Wordings on Setup wizard tab - Initial Tuning--------------------------- -->
+            <div id="initial_tune" style="visibility: hidden; position: absolute; top: 110px; left: 144px; height: 300px; width: 340px;">
+                <p style="font-size:11px;position:absolute;top:10px;left:110px;"><b>Initial Tuning</b></p>
+                <div style="position:absolute;top:34px;left:10px;height:50px;width:321px;font-size:6px;">
+                    <p>This section of the Wizard allows you to select a set of initial tuning parameters for your airframe. Presented below is a list of common airframe types, select the one that matches your airfarme the closest, if unsure select the generic
+                        variant.
+
+                    </p>
+                </div>
+                <select id="copter_types" size="5" style="width:200px;height:90px;font-size:6px;position:absolute;top:66px;left:10px;width:200px;height:100px;font-size:6px;color:black;border:1px solid #d3d3d3;overflow-y:scroll ;">
+                    <option>Current Tuning</option>
+                    <option>(RACE) FPV 260 HobbyKing</option>
+                    <option>(STOCK) HobbyKing FPV 260 UpSwept Arms RTF</option>
+                    <option>BlackOut B330</option>
+                    <option>BlackOut Mini H</option>
+                    <option>DJI F450</option>
+                    <option>Droneframes DRQ250CF</option>
+                    <option>Droneframes DRQ430G</option>
+                    <option>Eachine ER250</option>
+                    <option>Emax Nighthawk</option>
+                    <option>Flaying Cinema Cinetank MK2</option>
+                    <option>Flip Fpv Pro</option>
+                    <option>Flip FPV Pro</option>
+                    <option>Flip Sport</option>
+                    <option>Flying Cinema Tankito "MINI TANK"</option>
+                    <option id="gen_quad">Generic Quad X</option>
+                    <option>Guerrilla Drones Toad Quad 240/260</option>
+                    <option>H King DYS 250 Carbon Fiber</option>
+                    <option>H King DYS 320 Carbon Fiber</option>
+                    <option>HoverThings FLIP FPV</option>
+                    <option>Inventors Sparrow Race quad</option>
+                    <option>QAV250</option>
+                    <option>QAV400</option>
+                    <option>QAV500</option>
+                    <option>QUADI 250</option>
+                    <option>Xhover MXP230 Elite</option>
+                    <option>ZMR 250</option>
+                    <option>ZMR250</option>
+                    <option>ZMR250 - Chinese QAV250 clone</option>
+
+                </select>
+                <img id="copter_image" src="./Images/Libre_pilot.png" style="height: 100px;width: 100px;position: absolute;top: 65px;left: 220px;" alt="Librepilot image">
+                <div id="down_content" style="border: 1px solid #d3d3d3;height:54px;width:315px;position: absolute;top: 169px;left: 10px;padding: 0.5px;text-align:justify;padding: 0px 2px 0px 2px;font-size:6px;border-radius:1px;">
+                    <p>This option will use the current tuning settings saved on the controller, if your controller is currently unconfigured, then the pre-configured firmware defaults will be used.</p>
+                    <p>It is suggested that if this is a first time configuration of your controller, rather than use this option, instead select a tuning set that matches your own airframe as close as possible from the list above or if you are not able
+                        to find one, then select the generic item from the list.</p>
+                </div>
+            </div>
+
+            <!-- ---------------------------Wordings on Setup wizard tab - Configuration ready to save--------------------------- -->
+            <div id="configSave" style="visibility: hidden; position: absolute; top: 110px; left: 144px; height: 300px; width: 340px;">
+                <p style="font-size:11px;position:absolute;top:10px;left:93px;"><b>Configuration ready to save</b></p>
+                <div style="position:absolute;top:40px;left:10px;height:70px;width:321px;font-size:6px;">
+                    <p>The wizard is now ready to save the configuration directly to your flight controller.
+                        <br><br>If any of the selections made in this wizard require a reboot of the controller, then power cyling the flight controller board will have to be performed after you save in this step.<br><br> Press the Save button to save
+                        the configuration.
+                    </p>
+                </div>
+                <p id="save_inst" style="visibility: hidden;position: absolute;top: 190px;left: 10px;font-size:6px;">Ready...</p>
+                <img id="saveButton" src="./Images/saveButton.png" style="cursor: pointer;position: absolute;top: 165px;left: 130px;height: 33px;width: 90px;" alt="Save button">
+                <img src="./Images/upgrade_status.png" style="height: 20px;width: 327px;position: absolute;top: 204px;left: 7px;" alt="Save Status bar">
+            </div>
+
+            <!-- ------------------------------------------- Reboot Tab ----------------------------------- -->
+            <div id="rebootTab" style="visibility: hidden; position: absolute; top: 110px; left: 150px; height: 100px; width: 200px; z-index: 310; ">
+                <p style="font-size:8px;position:absolute;top:103px;left:93px;z-index:310;">Reboot</p>
+                <div style="position:absolute;top:125px;left:85px;height:70px;width:250px;font-size:7px;z-index:310;">
+                    <p>Please wait. Your controller is rebooting.
+                        <br>This can take up to a minute.
+                    </p>
+                </div>
+                <img id="rebootStatus" src="./Images/rebootStatus.png" style="height: 9px;width: 70px;position: absolute;top: 194px;left: 88px;z-index: 320;" alt="Reboot status">
+                <img src="./Images/rebootTab.png" style="height: 100px;width: 200px;position: absolute;top: 110px;left: 80px;z-index: 300;box-shadow: rgba(0, 0, 0, 0.8) 0px 0px 3px;" alt="Reboot tab">
+                <img src="./Images/upgrade_status.png" style="height: 15px;width: 190px;position: absolute;top: 190px;left: 85px;z-index:310;" alt="Reboot Status bar">
+            </div>
+            <!-- ------------------------------------------- Transmitter Setup Tab ----------------------------------- -->
+            <div id="transmitterSetup" style="visibility: hidden; position: absolute; top: 110px; left: 150px; z-index: 310;">
+                <p style="font-size:5.2px;position:absolute;top:22.2px;left:34px;z-index:320;color:gray;width:100px;">Setup Wizard</p>
+                <p style="font-size:8px;position:absolute;top:30px;left:130px;z-index:320;"><b>Congratulations!</b></p>
+                <p style="font-size:8.5px;position:absolute;top:42px;left:100px;z-index:320;width:200px;"><b>Setup wizard is completed.</b></p>
+                <div style="position:absolute;top:60px;left:25px;height:70px;width:300px;font-size:6px;z-index:320;">
+                    <p>This part of the setup procedure is now complete and you are one step away from completing the setup of your flight controller.</p>
+                    <p>To complete the setup please click the button below to close this wizard and go directly to the Transmtter Setup Wizard.
+                    </p>
+                </div>
+                <img src="./Images/transmitter_setup.png" style="height: 230px;width: 310px;position: absolute;top: 15px;left: 20px;z-index:310;" alt="Transmitter setup tab">
+                <img id="trasmitButton" src="./Images/transmiter_setup_button.png" style="height: 42px;width: 90px;position: absolute;top: 130px;left: 125px;z-index:310;" alt="Transmitter setup button">
+                <p id="backButton" style="position: absolute; top: 229px; left: 244px; border: 1px solid #bebebe; border-radius: 2px; font-size: 6px;cursor:pointer;height:7px; width: 37px; text-align: center; background:-webkit-linear-gradient(#ececec, #d3d3d3); color: black;z-index:320;"></p>
+                <p id="finishButton" style="position: absolute; top: 229px; left: 285px; border: 1px solid #bebebe; border-radius: 2px; font-size: 6px; height:7px; width: 37px;text-align: center; background:-webkit-linear-gradient(#ececec, #d3d3d3); color: black;z-index:320;cursor:pointer;">Finish</p>
+
+            </div>
+
+
+            <!-- ------------------------------------------- Arming Settings ----------------------------------- -->
+            <div id="ArmingSetup" style="visibility: hidden; position: absolute; top: 110px; left: 150px; z-index: 310;">
+                <!-- <p style="font-size:5.2px;position:absolute;top:22.2px;left:34px;z-index:320;color:gray;width:100px;">Setup Wizard</p>
+                <p style="font-size:8px;position:absolute;top:30px;left:130px;z-index:320;"><b>Congratulations!</b></p>
+                <p style="font-size:8.5px;position:absolute;top:42px;left:100px;z-index:320;width:200px;"><b>Setup wizard is completed.</b></p> -->
+                <!-- <div style="position:absolute;top:60px;left:25px;height:70px;width:300px;font-size:6px;z-index:320;">
+                    <p>This part of the setup procedure is now complete and you are one step away from completing the setup of your flight controller.</p>
+                    <p>To complete the setup please click the button below to close this wizard and go directly to the Transmtter Setup Wizard.
+                    </p>
+                </div> -->
+                <img id="tr" src="./Images/newTR.png" style="height: 290px;width: 512.2px;position: absolute;top: -25px;left: -69px;border-radius:5px;" alt="Transmitter tab">
+                <!-- <img src="./Images/questionMark.png" style="height: 220px;width: 310px;position: absolute;top: 25px;left: 20px;z-index:310;" alt="Question Mark"> -->
+                <p id="t_next" style="visibility: hidden; position: absolute; top: 215px; left: 135px;border: 1px solid #bebebe; border-radius: 2px; font-size: 6.5px; padding-top: 0.5px; width: 140px; text-align: center;background:-webkit-linear-gradient(#ececec, #d3d3d3); color: black;">Next</p>
+                <p id="t_back" style="visibility: hidden; position: absolute; top: 215px; left:-10px; border: 1px solid #bebebe; border-radius: 2px; font-size: 6.5px; padding-top: 0.5px; width: 140px; text-align: center; background:-webkit-linear-gradient(#ececec, #d3d3d3); color: gray;">Back</p>
+                <p id="t_cancel" style="visibility: hidden; position: absolute; top: 215px; left:280px; border: 1px solid #bebebe; border-radius: 2px; font-size: 6.5px; padding-top: 0.5px; width: 140px; text-align: center; background:-webkit-linear-gradient(#ececec, #d3d3d3); color: black;">Cancel</p>
+
+
+                <!-- <p id="backButton" style="position: absolute; top: 229px; left: 244px; border: 1px solid #bebebe; border-radius: 2px; font-size: 6px;cursor:pointer;height:7px; width: 37px; text-align: center; background:-webkit-linear-gradient(#ececec, #d3d3d3); color: black;z-index:320;"></p>
+                <p id="finishButton" style="position: absolute; top: 229px; left: 285px; border: 1px solid #bebebe; border-radius: 2px; font-size: 6px; height:7px; width: 37px;text-align: center; background:-webkit-linear-gradient(#ececec, #d3d3d3); color: black;z-index:320;cursor:pointer;">Finish</p> -->
+
+            </div>
+            <!-- ------------------------------------------- Transmitter Settings-Flight Mode Switch Settings ----------------------------------- -->
+            <div id="TRSetup" style="visibility: hidden; position: absolute; top: 110px; left: 150px; z-index: 310;">
+
+                <div style="position:absolute;top:50px;left:-10px;height:70px;width:300px;font-size:6px;z-index:320;">
+                    <p>Please choose your transmitter type:<br>
+                        <input id="acr" class="mode_select" type="radio" name="TransmitterType" checked>&nbsp;Acro: normal transmitter for fixed wing or quad<br>
+                        <input id="sur" class="mode_select" type="radio" name="TransmitterType">&nbsp;Surface: has reversible motor controlled by throttle stick, plus yaw control (2 channels)<br>
+                        <input id="hel" class="mode_select" type="radio" name="TransmitterType">&nbsp;Helicopter: has collective pitch and throttle input<br><br> If selecting the Helicopter option, please engage throttle hold now.<br><br> If selecting
+                        the Surface option, the <b>Flight Mode Count</b> will be set to 1.</p>
+                </div>
+                <img src="./Images/transmitterPic.png" style="height: 80px;width: 433px;position: absolute;top: 140px;left: -10px;border-radius:5px;" alt="Transmitter image">
+
+
+            </div>
+            <!-- ------------------------------------------- Transmitter Settings -Transmitter Mode settings----------------------------------- -->
+            <div id="TRMode" style="visibility: hidden; position: absolute; top: 110px; left: 150px; z-index: 310;">
+
+                <div style="position:absolute;top:50px;left:-10px;height:70px;width:300px;font-size:6px;z-index:320;">
+                    <p>Please choose your transmitter mode:<br>
+                        <input type="radio" class="mode_select" name="TransmitterMode" checked>&nbsp;Mode 1: Elevator and Rudder on the left, Throttle and Ailerons on the right <br>
+                        <input type="radio" class="mode_select" name="TransmitterMode">&nbsp;Mode 2: Throttle and Rudder on the left, Elevator and Ailerons on the right<br>
+                        <input type="radio" class="mode_select" name="TransmitterMode">&nbsp;Mode 3: Elevator and Ailerons on the left, Throttle and Rudder on the right<br>
+                        <input type="radio" class="mode_select" name="TransmitterMode">&nbsp;Mode 4: Throttle and Ailerons on the left, Elevator and Rudder on the right<br><br> For a Quad: Elevator is Pitch, Ailerons are Roll, and Rudder is Yaw.</p>
+                </div>
+                <img src="./Images/transmitterPic.png" style="height: 80px;width: 433px;position: absolute;top: 140px;left: -10px;border-radius:5px;" alt="Transmitter image">
+
+
+            </div>
+            <!-- ------------------------------------------- Transmitter Settings -Transmitter Mode settings----------------------------------- -->
+            <div id="TRTest" style="visibility: hidden; position: absolute; top: 110px; left: 150px; z-index: 310;">
+
+                <div id="tr_inst" style="position:absolute;top:60px;left:-10px;height:70px;width:300px;font-size:6px;z-index:320;">
+                    <p id="move_inst">Please move each control one at a time according to the instructions and picture below.<br><br> Move the Throttle stick.</p>
+                </div>
+                <img id="transm_pic" src="./Images/transmitterPic.png" style="height: 130px;width: 433px;position: absolute;top: 90px;left: -10px;border-radius:5px;" alt="Transmitter image">
+                <img id="newtransm_pic" src="./Images/newTransmitter (2).png" style="height: 125px;width: 170px;position: absolute;top: 95px;left: 110px;" alt="Transmitter image">
+                <div id="toggleButton1" style="height:5px;width:5px;border-radius:50%;border:2.5px solid green;background:#fff;position:absolute;top:155px;left:147px;"></div>
+                <div id="toggleButton2" style="height:5px;width:5px;border-radius:50%;border:2.5px solid green;background:#fff;position:absolute;top:155px;left:235px;"></div>
+                <div id="TransmitterSim" style="height: 130px;width:280px;position: absolute;top: 287px;left: 310px;border:2px solid black;border-radius:10px;">
+                    <p id="switch_inst" style="color:red;position:absolute;top:-7px;left:25px;font-size:10px;">Click on the Throttle switch as demonstrated</p>
+                    <img id="userTransm" src="./Images/transmitterWithoutStick.png" title="Transmitter" style="height: 110px;width:250px;position: absolute;top: 17px;left: 35px;z-index: 100;" alt="Transmitter">
+                    <img id="toggleSwitch1" src="./Images/stickDown.png" style="height: 20px; width: 20px; position: absolute; top: 68px; left: 66px;z-index: 150;" alt="Transmitter toggle switch">
+                    <img id="toggleSwitch2" src="./Images/stickDown.png" style="height: 20px; width: 20px; position: absolute; top: 68px; left: 199px;z-index: 150;" alt="Transmitter toggle switch">
+                    <img id="toggleSwitch3" src="./Images/stickUp.png" style="visibility: hidden; height: 20px; width: 20px; position: absolute; top: 55px; left:67px;z-index: 150;" alt="Transmitter toggle switch">
+                    <img id="toggleSwitch4" src="./Images/stickUp.png" style="visibility: hidden; height: 20px; width: 20px; position: absolute; top: 55px; left: 198px;z-index: 150;" alt="Transmitter toggle switch">
+                    <img id="toggleSwitch5" src="./Images/stickUp.png" style="visibility: hidden; height: 20px; width: 20px; position: absolute; top: 55px; left: 198px;z-index: 150;" alt="Transmitter toggle switch">
+                    <img id="toggleSwitch6" src="./Images/stickUp.png" style="visibility: hidden; height: 20px; width: 20px; position: absolute; top: 55px; left: 198px;z-index: 150;" alt="Transmitter toggle switch">
+                    <img id="toggleSwitch7" src="./Images/stickUp.png" style="visibility: hidden; height: 20px; width: 20px; position: absolute; top: 55px; left: 198px;z-index: 150;" alt="Transmitter toggle switch">
+                    <img id="toggleSwitch8" src="./Images/stickUp.png" style="visibility: hidden; height: 20px; width: 20px; position: absolute; top: 55px; left: 198px;z-index: 150;" alt="Transmitter toggle switch">
+
+                </div>
+                <p id="indicateBox" style="position: absolute;top:-37px;left: 493px;border-radius: 5px;border: 3px dashed black;height:35px;width: 75px;"></p>
+                <!-- Control buttons-Throttle,Roll,Pitch,Yaw -->
+                <p id="throttle_btn" style="position: absolute;top:-30px;left: 500px;border-radius: 5px;border: 3px solid black;height:20px;width: 60px;padding:1px;text-align:center;">Throttle</p>
+                <p id="roll_btn" style="position: absolute;top:10px;left: 500px;border-radius: 5px;border: 3px solid black;height:20px;width: 60px;padding:1px;text-align:center;">Roll</p>
+                <p id="pitch_btn" style="position: absolute;top:50px;left: 500px;border-radius: 5px;border: 3px solid black;height:20px;width: 60px;padding:1px;text-align:center;">Pitch</p>
+                <p id="yaw_btn" style="position: absolute;top:90px;left: 500px;border-radius: 5px;border: 3px solid black;height:20px;width: 60px;padding:1px;text-align:center;">Yaw</p>
+                <!-- Flight Mode Switch Simulation -->
+                <img id="flightModeSwitch" style="position: absolute;top:115.5px;left: 261px;height: 12px;width: 5px;transform:rotate(6deg);" src="./Images/flightMode.png" alt="Flight Mode switch">
+                <img id="flightModeSwitch2" style="position: absolute;top:311px;left: 532px;height: 20px;width: 20px;z-index:150;transform:rotateY(180deg);" src="./Images/fmode3.1.png" title="FlightMode switch" alt="Flight Mode switch">
+                <!-- Accessory knob Control -->
+                <div id="knobBar1" style="position: absolute;top: 132.7px;left: 133.3px;background-color: #d3d3d3;height: 2px;width: 5px;"></div>
+                <div id="knobBar2" style="position: absolute;top: 132.7px;left: 154.3px;background-color: #d3d3d3;height: 2px;width: 5px;"></div>
+                <div id="knobBar3" style="position: absolute;top: 132.7px;left: 231.5px;background-color: #d3d3d3;height: 2px;width: 5px;"></div>
+                <div id="knobBar4" style="position: absolute;top: 132.7px;left: 252.5px;background-color: #d3d3d3;height: 2px;width: 5px;"></div>
+                <img id="Accesory0" src="./Images/stickUp.png" style="position: absolute;top: 324px;left:365.5px;height: 18px;width: 15px;z-index: 150;" alt="Accesory Stick0" title="Accessory0">
+                <img id="Accesory1" src="./Images/stickUp.png" style="position: absolute;top: 323px;left: 392px;height: 18px;width: 15px;z-index: 150;" alt="Accesory Stick1" title="Accessory1">
+                <img id="Accesory2" src="./Images/stickUp.png" style="position: absolute;top: 323px;left: 503px;height: 18px;width: 15px;z-index: 150;" alt="Accesory Stick2" title="Accessory2">
+                <img id="Accesory3" src="./Images/stickUp.png" style="position: absolute;top: 324px;left: 531px;height: 18px;width: 15px;z-index: 150;" alt="Accesory Stick3" title="Accessory3">
+                <!-- Centre Everything Indication arrows -->
+                <img id="orangeArrow1" src="./Images/orangeArrow.png" style="visibility: hidden; position: absolute; top: 154px; left: 133px; height: 10px; width: 13px;" alt="Arrow">
+                <img id="orangeArrow2" src="./Images/orangeArrow.png" style="visibility: hidden; position: absolute; top: 154px; left: 159px; height: 10px; width: 13px;transform:rotate(180deg);" alt="Arrow">
+                <img id="orangeArrow3" src="./Images/orangeArrow.png" style="visibility: hidden; position: absolute; top: 167px; left: 147px; height: 10px; width: 11px;transform:rotate(270deg);" alt="Arrow">
+                <img id="orangeArrow4" src="./Images/orangeArrow.png" style="visibility: hidden; position: absolute; top: 144px; left: 147px; height: 10px; width: 11px;transform:rotate(90deg);" alt="Arrow">
+                <img id="orangeArrow5" src="./Images/orangeArrow.png" style="visibility: hidden; position: absolute; top: 154px; left: 221px; height: 10px; width: 13px;" alt="Arrow">
+                <img id="orangeArrow6" src="./Images/orangeArrow.png" style="visibility: hidden; position: absolute; top: 154px; left: 247px; height: 10px; width: 13px;transform:rotate(180deg);" alt="Arrow">
+                <img id="orangeArrow7" src="./Images/orangeArrow.png" style="visibility: hidden; position: absolute; top: 166px; left: 234.5px; height: 10px; width: 11px;transform:rotate(270deg);" alt="Arrow">
+                <img id="orangeArrow8" src="./Images/orangeArrow.png" style="visibility: hidden; position: absolute; top: 144px; left: 234.5px; height: 10px; width: 11px;transform:rotate(90deg);" alt="Arrow">
+                <img id="orangeArrow9" src="./Images/orangeArrow.png" style="visibility: hidden; position: absolute; top: 132px; left: 128px; height: 3px; width: 5px;" alt="Arrow">
+                <img id="orangeArrow10" src="./Images/orangeArrow.png" style="visibility: hidden; position: absolute; top: 132px; left: 139px; height: 3px; width: 5px;transform:rotate(180deg);" alt="Arrow">
+                <img id="orangeArrow11" src="./Images/orangeArrow.png" style="visibility: hidden; position: absolute; top: 132px; left: 149px; height: 3px; width: 5px;" alt="Arrow">
+                <img id="orangeArrow12" src="./Images/orangeArrow.png" style="visibility: hidden; position: absolute; top: 132px; left: 159.5px; height: 3px; width: 5px;transform:rotate(180deg);" alt="Arrow">
+                <img id="orangeArrow13" src="./Images/orangeArrow.png" style="visibility: hidden; position: absolute; top: 132px; left: 226px; height: 3px; width: 5px;" alt="Arrow">
+                <img id="orangeArrow14" src="./Images/orangeArrow.png" style="visibility: hidden; position: absolute; top: 132px; left: 237px; height: 3px; width: 5px;transform:rotate(180deg);" alt="Arrow">
+                <img id="orangeArrow15" src="./Images/orangeArrow.png" style="visibility: hidden; position: absolute; top: 132px; left: 247px; height: 3px; width: 5px;" alt="Arrow">
+                <img id="orangeArrow16" src="./Images/orangeArrow.png" style="visibility: hidden; position: absolute; top: 132px; left: 258px; height: 3px; width: 5px;transform:rotate(180deg);" alt="Arrow">
+                <img id="orangeArrow17" src="./Images/orangeArrow.png" style="visibility: hidden; position: absolute; top: 122px; left: 256px; height: 3px; width: 5px;transform:rotate(-5deg);" alt="Arrow">
+                <img id="orangeArrow18" src="./Images/orangeArrow.png" style="visibility: hidden; position: absolute; top: 122px; left: 266.5px; height: 3px; width: 5px;transform:rotate(180deg);" alt="Arrow">
+                <!-- Centered Control sticks -->
+                <div id="centered1" style="visibility: hidden; position: absolute; top: 357.5px; left: 382px; height: 6.5px; width: 11px; border-radius:60%; background-color: rgb(211, 211, 211);z-index:150;border:1px solid black;"></div>
+                <div id="centered2" style="visibility: hidden; position: absolute; top: 357px; left: 514px; height: 6.5px; width: 11px; border-radius:60%; background-color: rgb(211, 211, 211);z-index:150;border:1px solid black;"></div>
+                <!-- Instructions to show whether controls are reversed/not -->
+                <p id="rev_inst" style="position: absolute; top: 257px; left: 0px; font-size: 8px; visibility: hidden; color: red; height: 20px; width: 500px;"></p>
+
+                <!-- Arming settings -->
+                <div id="arming_set" style="position: absolute; top: 27px; left: -20px; font-size: 8px; visibility: hidden; border: 1px solid #d3d3d3; height:60px; width: 455px;z-index:150;background:-webkit-linear-gradient(top, #ececec, #dedede);border-radius:1px;"></div>
+                <img id="title_arm" src="./Images/titleArm.png" style="visibility: hidden; position: absolute; top: -1px; left: -28.7px; height: 12px; width: 185px; z-index: 150;" alt="Arming settings tab">
+                <img id="newtrans2" src="./Images/tr4.png" style="visibility: hidden; position: absolute; top: 0.07px; left: -28.7px; height: 11px; width: 185px; z-index: 150;" alt="Transmitter tab">
+                <p id="arm_inst" style="position: absolute; top: 257px; left: 0px; font-size: 8px; visibility: hidden; height: 20px; width: 500px;">Arming Settings</p>
+            </div>
+
+            <!-- ------------------------------------------- Arming Settings Popup tab ----------------------------------- -->
+            <div id="ArmingPopup" style="visibility: hidden; position: absolute; top: 110px; left: 150px; z-index: 310;">
+                <p style="font-size:6px;position:absolute;top:115px;left:105px;z-index:320;width:200px;">Arming Settings are now set to 'Always Disarmed' for your safety.</p>
+                <p style="font-size:6px;position:absolute;top:97px;left:120px;z-index:320;width:100px;">LibrePilot GCS</p>
+                <img src="./Images/applyChangesTab.png" style="height: 55px;width: 210px;position: absolute;top: 100px;left: 100px;box-shadow: rgba(0, 0, 0, 0.8) 0px 0px 5px;" alt="Arming settings popup tab">
+                <img src="./Images/Libre_pilot.png" style="height: 13px;width: 15px;position: absolute;top: 102px;left:102px;z-index:310;" alt="Question Mark">
+                <p id="okButton" style="position: absolute; top: 135px; left: 210px; border: 1px solid #bebebe; border-radius: 2px; font-size: 6px;cursor:pointer;height:7px; width: 37px; text-align: center; background:-webkit-linear-gradient(#ececec, #d3d3d3); color: black;z-index:320;">OK</p>
+                <p id="showDetailsButton" style="position: absolute; top: 135px; left: 252px; border: 1px solid #bebebe; border-radius: 2px; font-size: 6px; height:7px; width:50px;text-align: center; background:-webkit-linear-gradient(#ececec, #d3d3d3); color: black;z-index:320;cursor:pointer;">Show Details...</p>
+
+            </div>
+            <!-- Line  -->
+            <!-- <img id="line" src="./Images/uav/line2.png" style="position: absolute; top: 33%; left: 10%; width: 60%; height: auto; visibility: hidden;" /> -->
+            <!-- Curve : angle of attack image -->
+            <!-- <img id="angle-curve" src="./Images/uav/curve.png" style="position: absolute; width: 4%; height: 5%; top: 28%; left: 28%; visibility: hidden;" /> -->
+
+            <!-- Angle of attck info -->
+            <!-- <div id="angle-of-attck-info" style="visibility: hidden;">
+                <img src="./Images/uav/arrow-up.png" style="position: absolute; width: 2%; height: 6%; left: 29%; top:35%;">
+                <p style="position: absolute; width: 20%; height: 10%; left: 33%; top:35%;">Angle of attack.</p>
+            </div> -->
+
+            <!-- Arrows -->
+            <!-- UPPER LAYER AIRFLOW -->
+            <!-- <img id="new_Arrow1" style="position: absolute; height: 4%; width: 5%; top:19%; left: 5%; visibility:  hidden;" src="./Images/uav/arrow.png">
+            <img id="new_Arrow2" style="position: absolute; height: 4%; width: 5%; top:19%; left: 12%; visibility: hidden;" src="./Images/uav/arrow.png">
+            <img id="new_Arrow3" style="position: absolute; height: 4%; width: 5%; top:18%; left: 18%; visibility: hidden;" src="./Images/uav/arrow.png">
+            <img id="new_Arrow4" style="position: absolute; height: 4%; width: 5%; top:14%; left: 24%; visibility: hidden;" src="./Images/uav/arrow.png">
+            <img id="new_Arrow5" style="position: absolute; height: 4%; width: 5%; top:13%; left: 30%; visibility: hidden;" src="./Images/uav/arrow.png">
+            <img id="new_Arrow6" style="position: absolute; height: 4%; width: 5%; top:15%; left: 37%; visibility: hidden;" src="./Images/uav/arrow.png">
+            <img id="new_Arrow7" style="position: absolute; height: 4%; width: 5%; top:18%; left: 44%; visibility: hidden;" src="./Images/uav/arrow.png">
+            <img id="new_Arrow8" style="position: absolute; height: 4%; width: 5%; top:21%; left: 51%; visibility: hidden;" src="./Images/uav/arrow.png">
+            <img id="new_Arrow9" style="position: absolute; height: 4%; width: 5%; top:22%; left: 60%; visibility: hidden;" src="./Images/uav/arrow.png">
+            <img id="new_Arrow10" style="position: absolute; height:4%; width: 5%; top:23%; left: 68%; visibility:hidden;" src="./Images/uav/arrow.png">
+            <img id="new_Arrow11" style="position: absolute; height:4%; width: 5%; top:23%; left: 75%; visibility:hidden;" src="./Images/uav/arrow.png">
+            <img id="new_Arrow12" style="position: absolute; height:4%; width: 5%; top:23%; left: 82%; visibility:hidden;" src="./Images/uav/arrow.png">
+            <p id="new_Arrow13" style="position: absolute; height: 4%; width: 5%; top:23%; left: 83%; visibility:hidden;"> </p> -->
+            <!-- BOTTOM LAYER AIRFLOW -->
+            <!-- <img id="below_Arrow1" style="position: absolute; height: 4%; width: 5%; top:24%; left: 5%; visibility:  hidden;" src="./Images/uav/arrow.png">
+            <img id="below_Arrow2" style="position: absolute; height: 4%; width: 5%; top:24%; left: 12%; visibility: hidden;" src="./Images/uav/arrow.png">
+            <img id="below_Arrow3" style="position: absolute; height: 4%; width: 5%; top:26%; left: 18%; visibility: hidden;" src="./Images/uav/arrow.png">
+            <img id="below_Arrow4" style="position: absolute; height: 4%; width: 5%; top:30%; left: 24%; visibility: hidden;" src="./Images/uav/arrow.png">
+            <img id="below_Arrow5" style="position: absolute; height: 4%; width: 5%; top:32%; left: 30%; visibility: hidden;" src="./Images/uav/arrow.png">
+            <img id="below_Arrow6" style="position: absolute; height: 4%; width: 5%; top:33%; left: 37%; visibility: hidden;" src="./Images/uav/arrow.png">
+            <img id="below_Arrow7" style="position: absolute; height: 4%; width: 5%; top:34%; left: 44%; visibility: hidden;" src="./Images/uav/arrow.png">
+            <img id="below_Arrow8" style="position: absolute; height: 4%; width: 5%; top:34%; left: 51%; visibility: hidden;" src="./Images/uav/arrow.png">
+            <img id="below_Arrow9" style="position: absolute; height: 4%; width: 5%; top:33%; left: 60%; visibility: hidden;" src="./Images/uav/arrow.png">
+            <img id="below_Arrow10" style="position: absolute; height: 4%; width: 5%; top:32%; left: 68%; visibility:hidden;" src="./Images/uav/arrow.png">
+            <img id="below_Arrow11" style="position: absolute; height: 4%; width: 5%; top:32%; left: 75%; visibility:hidden;" src="./Images/uav/arrow.png">
+            <img id="below_Arrow12" style="position: absolute; height: 4%; width: 5%; top:32%; left: 82%; visibility:hidden;" src="./Images/uav/arrow.png">
+            <p id="below_Arrow13" style="position: absolute; height: 4%; width: 5%; top:32%; left: 83%; visibility: hidden;"></p> -->
+
+            <!-- LIFT arrows -->
+            <!-- <div id="up-Arrow-div" style="visibility: hidden;">
+                <img class="up-Arrow1" style="position: absolute; height: 6%; width: 2%; top:38%; left: 24%; visibility: hidden;" src="./Images/uav/arrow-up.png">
+                <img class="up-Arrow2" style="position: absolute; height: 6%; width: 2%; top:39%; left: 29%; visibility: hidden;" src="./Images/uav/arrow-up.png">
+                <img class="up-Arrow3" style="position: absolute; height: 6%; width: 2%; top:38%; left: 34%; visibility: hidden;" src="./Images/uav/arrow-up.png">
+                <p id="lift" style="position: absolute; visibility: block; height: 7%; width: 4%; top:43%; left: 27%;"><b>LIFT</b></p>
+            </div> -->
+            <!-- Velo - Pressure -->
+            <!-- <div id="V-P-info" style="position: absolute; top:35%; left: 70%; visibility: hidden;">
+                <p> Decrease in Velocity(V) <br/> Increase in Pressure(P).</p>
+            </div> -->
+
+
+            <!-- Lift calculation display -->
+            <!-- <div id="calc-lift-part2" style="visibility: block; position: absolute; top: 60%;">
+                <p> Let us calculate the lift now: <button class="verificationButton" onclick="calculateLift(2);">Calculate</button></p>
+            </div> -->
+
+
+            <!-- explanation and comparison part. -->
+            <!-- <div id="solve-equation2" style="visibility: hidden;">
+                <div id="" style="position: absolute; visibility: block; top:50%; left: 0%;">
+                    <h4>Let us find out the lift:</h4>
+                    <img src="/experiment/simulation/cement/Images/PhysicsEquation4-600x148.png" />
+                </div>
+                <div id="show-eqn2" style="position: absolute; visibility: block; top:60%; left: 50%;">
+                    <p>Value 1</p>
+                    <p>Value 2</p>
+                    <p>Value 3</p>
+                    <p>Ready for verification? <button class="verificationButton" onclick="showCompare(2);">Verify</button></p>
+                </div>
+                <div id="calculate-lift2" style="position: absolute; visibility: hidden; top:60%; left: 50%;">
+                    <p>Enter your answer and comapre with the actual value.</p>
+                    <input class="lift-verify" type="text" id="lift-input2" />
+                    <button class="verificationButton" onclick="verifyLift(2);">Verify</button>
+                    <p id="outputLift2" class=""></p>
+                </div>
+            </div> -->
+
+
+            <img id="hand4" style="position: absolute; left: 275px; top: 125px; visibility:hidden;cursor:pointer;" src="" />
+
+
+            <p id="can4" style="position:absolute;top: 450px; left:28px;font-family:verdana; font-size:14px;"></p>
+            <p id="v4" style="position:absolute;left: 530.5px; top:342px;font-family:verdana; font-size:14px;"> </p>
+
+        </div>
+
+        <!--Step5	-->
+        <div class="simsubscreen" id="canvas5" style="visibility:hidden">
+            <strong class="incanvas">STEP &nbsp;</strong><span class="circlebg">&nbsp;5&nbsp;</span>
+            <p class="steptext" style="font-family:verdana; font-size:14px;">&nbsp;Add water to Le-Chatelier’s flask upto graduated mark and weigh it. </p>
+            <img id="" style="position: absolute; left: 430px; top: 255px;" src="Images/ewm.png" />
+
+            <img id="k5" style="position: absolute; left: 522px; top: 100px; visibility:hidden; " src="Images/wtr.png" />
+            <img id="wtr2" style="position: absolute; left: 215px; top: 162px; visibility:hidden; " src="Images/wtr2.png" />
+            <img id="wtr3" style="position: absolute; left: 236px; top: 228px; visibility:hidden; " src="Images/wtr3.png" />
+            <img id="nob5-1" style="position: absolute; left: 232px; top: 145px;cursor:move;" src="Images/1.2.png" />
+            <img id="nob5-2" style="position: absolute; left: 155px; top: 145px;visibility:hidden; cursor:move;" src="Images/1.2.png" />
+            <img id="nob5-3" style="position: absolute; left: 232px; top: 145px;visibility:hidden;" src="Images/1.2.png" />
+            <img id="wtr" style="position: absolute; left: 202px; top: 265px; visibility:hidden; " src="Images/wtr.png" />
+            <img id="a9" style="position: absolute; left: 520px; top: 50px;visibility:hidden;" src="Images/1.27.png" />
+            <img id="a10" style="position: absolute; left: 551px; top: 27px;visibility:hidden;" src="Images/1.2.png" />
+
+            <img id="flask5" style="position: absolute; left: 200px; top: 180px;" src="Images/1.13.png" />
+            <img id="cflask5" style="position: absolute; left: 200px; top: 180px;cursor:move;visibility:hidden;" src="Images/1.13.png" />
+
+            <img id="hand5" style="position: absolute; left: 275px; top: 125px; visibility:hidden;cursor:pointer;" src="Images/hn.png" />
+
+            <p id="can5" style="position:absolute;top: 450px; left:28px;font-family:verdana; font-size:14px;">Weight of flask+water (W<sub>5</sub>) = _____ g</p>
+            <p id="v5" style="position:absolute;left: 530.5px; top:342px;font-family:verdana; font-size:14px;"></p>
+
+        </div>
+
+        <!--Step6	-->
+        <div class="simsubscreen" id="canvas6" style="visibility:hidden">
+            <!-- <p class="steptext" style="font-family:verdana; font-size:14px;">&nbsp;Repeat the same procedure for further trials.</p> -->
+            <strong class="incanvas" style="position:absolute;top: 40px; left:50px; font-family:verdana;"><h3>Observation</h3></strong>
+            <p id="can6-1" style="position:absolute;top:100px; left:60px; font-family:verdana; font-size:14px;"> Empty weight of flask with stopper (W<sub>1<sub>)= _____ gm</p>
+<p id="can6-2" style="position:absolute;top: 140px; left:60px; font-family:verdana; font-size:14px;">Weight of flask + cement (W<sub>2</sub>) = _____gm </p>
+            <p id="can6-3" style="position:absolute;top: 180px; left:60px; font-family:verdana; font-size:14px;">Weight of flask + cement + kerosene (W<sub>3</sub>) = _____ gm </p>
+            <p id="can6-4" style="position:absolute;top: 220px; left:60px; font-family:verdana; font-size:14px;">Weight of flask + kerosene (W<sub>4</sub>) = _____ gm</p>
+            <p id="can6-5" style="position:absolute;top: 260px; left:60px; font-family:verdana; font-size:14px;">Weight of flask+water (W<sub>5</sub>) = _____ gm</p>
+            <p id="can6-6" style="position:absolute;top: 300px; left:60px; font-family:verdana; font-size:14px;">Specific gravity of kerosene = _____ </p>
+            <!--last trial -->
+
+            <div id="6-1" style="position:absolute; left:60px; top:350px; font-size:16px; font-family:verdana; font-size:14px;">
+                <label id="l6-1">Specific gravity of cement =</label> <input id="output" type="text" style=" border:none; border-bottom: 1px solid; width:55px;" required>&nbsp;&nbsp;&nbsp;&nbsp;<input id="form" type="button" name="Formula" value="Formula"
+                />&nbsp;&nbsp;
+                <input id="check" type="button" name="check" value="Check" style="position:absolute; left:350px;" />
+                <input id="result" type="button" name="Formula" value="Result" style="position:absolute; left:412.5px; visibility:hidden;" /></br>
+                </br>
+                </br>
+
+                <p id="r1" style="position:absolute; left:260px; top:-25px; color:#32CD32; font-size:22px; visibility:hidden;">&#10004;</p>
+                <p id="w1" style="position:absolute; left:260px; top:-25px; color:red;  font-size:22px; visibility:hidden;">&#10008;</p>
+
+                <span id="formula" style="font-family:verdana; font-style:normal; border:1px solid black; padding:15px; visibility:hidden;">Specific gravity of cement= <span class="frac"><sup>( W<sub>2</sub>-W<sub>1</sub> ) x Specific gravity of kerosene</sup><span>&frasl;</span><sub>( W<sub>4</sub>-W<sub>1</sub>                )-( W<sub>3</sub>-W<sub>2</sub> )</sub>
+                </span>
+            </div>
+            <p id="p6-1" style="position:absolute; left:60px; top:350px; font-size:16px; font-family:verdana; font-size:14px; visibility:hidden;">Specific gravity of cement =</p>
+
+            <div id="6-2" style="position:absolute; left:60px; top:350px; font-size:16px; font-family:verdana; font-size:14px; visibility:hidden;">
+                <label id="l6-2">Specific gravity of cement =</label> <input id="output2" type="text" style=" border:none; border-bottom: 1px solid; width:55px;" required>&nbsp;&nbsp;&nbsp;&nbsp;<input id="form2" type="button" name="Formula" value="Formula"
+                />&nbsp;&nbsp;
+                <input id="check2" type="button" name="check" value="Check" style="position:absolute; left:350px;" />
+                <input id="result2" type="button" name="Formula" value="Result" style="position:absolute; left:412.5px; visibility:hidden;" /></br>
+                </br>
+                </br>
+
+                <span id="formula2" style="font-family:verdana; font-style:normal; border:1px solid black; padding:15px; visibility:hidden;">Specific gravity of cement= <span class="frac"><sup>( W<sub>2</sub>-W<sub>1</sub> ) x Specific gravity of kerosene</sup><span>&frasl;</span><sub>( W<sub>4</sub>-W<sub>1</sub>                )-( W<sub>3</sub>-W<sub>2</sub> )</sub>
+                </span>
+            </div>
+
+            <p id="r2" style="position:absolute; left:320px; top:325px; color:#32CD32; font-size:22px;  visibility:hidden;">&#10004;</p>
+            <p id="w2" style="position:absolute; left:320px; top:325px; color:red;  font-size:22px;  visibility:hidden;">&#10008;</p>
+
+            <p id="p6-2" style="position:absolute; left:60px; top:350px; font-size:16px; font-family:verdana; font-size:14px; visibility:hidden;">Specific gravity of cement =</p>
+        </div>
+
+        <div id="canvas7" class="simsubscreen" style="visibility:hidden;">
+            <strong class="incanvas" id="ob"><h3>Observations: </h3></strong>
+            <table id="table" style="text-align:center; width:600px;">
+                <tr>
+                    <td style="padding:10px;">Trial</td>
+                    <td style="padding:10px;">Specifc gravity of cement</td>
+                    <td style="padding:10px;">Average specific gravity</td>
+                </tr>
+                <tr>
+                    <td style="padding:10px;">1</td>
+                    <td id="7-1" style="padding:10px;"></td>
+                    <td id="7-2" style="padding:10px;" rowspan="2"><input id="avg" type="text" style="border:none; border-bottom: 1px solid; width:65px;" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding:10px;">2</td>
+                    <td id="7-3" style="padding:10px;"></td>
+                </tr>
+            </table>
+            <input id="check3" type="button" name="check" value="Check" style="position:absolute; left:630px; top:185px;" />
+            <p id="rw" style="color:#32CD32; font-size:22px; position:absolute; left:510px; top:118px; visibility:hidden;">&#10004;</p>
+
+            <div id="inferenceDiv" style="visibility:hidden; position:absolute; left:10px; top:225px;">
+                <strong class="incanvas" id="ob"><h3>Inference: </h3></strong>
+                <div id="inference" style="background-color:grey; color:white; padding:7.5px; border-radius:5px;">
+                    <p>What is the suggested range of specific gravity of cement?</p>
+                    <input type="radio" name="inf" value="1">&nbsp;less than 2.8</br>
+                    <input type="radio" name="inf" value="2">&nbsp;2.8 - 3.15</br>
+                    <input type="radio" name="inf" value="3">&nbsp;greater than 3.15</br>
+                    </br>
+                    <input type="button" value="Submit" onclick="checkInference();" />
+                    <p id="ans" style="visibility:hidden;"></p>
+                </div>
+            </div>
+            <p id="infAns" style="display:none; font-weight:bold; position:absolute; left:10px; top:280px; text-align:justify; width:700px;"></p>
+        </div>
+
+        <div id="questDiv" style="position:absolute; background-color:grey; color:white; padding:7.5px; border-radius:5px; visibility:hidden; text-align:justify;">
+            <p id="q"></p><select id="answer">	
+</select>
+            <p id="a"></p>
+        </div>
+
+
+        <!--Trial text	-->
+        <div id="">
+            <p id="trial" style="text-transform: uppercase;visibility :hidden;font-weight: bold;font-family:verdana; "><strong>Trial = </strong></p>
+        </div>
+
+
+        <!--next  Arrow	-->
+        <div id="nav">
+            <img id="nextButton" onclick="navNext(); " src="Images/Next.png" />
+        </div>
+
+        <!--Blinking Arrow	-->
+        <img class="" id="arrow1" style="visibility:hidden" src="Images/arrow1.png" />
+
+        <div id="copyright"> &copy; 2016 SOLVE - The Virtual Lab @ NITK Surathkal, Department of Water Resources & Ocean Engineering</div>
+</body>
+
+</html>
