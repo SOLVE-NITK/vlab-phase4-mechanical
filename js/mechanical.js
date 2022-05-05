@@ -173,11 +173,11 @@ let labs = [
       },
       {
         id: "Assembly of Quadcopter",
-        path: "../UAV/exp-assembly-of-quadcopter/index.html",
+        path: "UAV/exp-assembly-of-quadcopter/index.html",
       },
       {
         id: "Caliberation of Quadcopter",
-        path: "../UAV/exp-calibration-of-quadcopter/index.html",
+        path: "UAV/exp-calibration-of-quadcopter/index.html",
       },
     ],
   },
