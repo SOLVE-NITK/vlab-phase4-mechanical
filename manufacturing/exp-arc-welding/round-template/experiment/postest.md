@@ -1,7 +1,8 @@
 ## Post test
+
 <br>
 
-Q 1. The arc welding transformer is a ___ transformer.<br>
+Q 1. The arc welding transformer is a \_\_\_ transformer.<br>
 a. Step Up.<br>
 <b>b. Step down.</b><br>
 c. One to one<br>
@@ -25,15 +26,14 @@ b.Graphite<br>
 <b>c. Either carbon or graphite</b><br>
 d. Same material as the metal pieces to be welded<br><br>
 
-
 Q 5.The-arc-utilized-in-electric-arc-welding is a<br>
 a. High voltage, high current discharge<br>
 b. Low voltage, low current discharge<br>
 <b>c. Low voltage, high current discharge</b><br>
 d. High voltage, low current discharge<br><br>
 
-Q 6. Name the material of the core wire of the electrode.<br>
-a. Carbon<br>
-b. Graphite<br>
-c. Either carbon or graphite<br>
-<b>d. Same material as the metal pieces to be welded</b><br><br>
+Q 6. Name the material of the core wire of the electrode.  
+a. Carbon  
+b. Graphite  
+c. Either carbon or graphite  
+<b>d. Same material as the metal pieces to be welded</b>

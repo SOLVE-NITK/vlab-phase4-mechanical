@@ -1,7 +1,6 @@
-
 // Don't touch the below code
 
-(function() {
+(function () {
   function buildQuiz() {
     // we'll need a place to store the HTML output
     const output = [];
@@ -70,13 +69,9 @@
   const resultsContainer = document.getElementById("results");
   const submitButton = document.getElementById("submit");
 
+  // Don't touch the above code
 
-// Don't touch the above code
-
-
-
-
-// Write your MCQs here --- Start --- --------------------
+  // Write your MCQs here --- Start --- --------------------
   const myQuestions = [
     {
       question: "The arc welding transformer is a ___ transformer.",
@@ -84,9 +79,9 @@
         a: "Step Up",
         b: "Step down.",
         c: "One to one",
-        d: "None of the above"
+        d: "None of the above",
       },
-      correctAnswer: "b"
+      correctAnswer: "b",
     },
     {
       question: "In metal arc welding, the filler material required is",
@@ -94,9 +89,9 @@
         a: "Iron",
         b: "Copper",
         c: "Aluminium",
-        d: "No filler required"
+        d: "No filler required",
       },
-      correctAnswer: "d"
+      correctAnswer: "d",
     },
     {
       question: "In arc welding operations the current value is decided by",
@@ -104,9 +99,9 @@
         a: "Size of the electrode",
         b: "The thickness of the plate",
         c: "Length of the welded portion",
-        d: "Voltage across the arc"
+        d: "Voltage across the arc",
       },
-      correctAnswer: "a"
+      correctAnswer: "a",
     },
     {
       question: "Non-consumable electrodes are made of",
@@ -114,9 +109,9 @@
         a: "Carbon",
         b: "Graphite",
         c: " Either carbon or graphite",
-        d: "Same material as the metal pieces to be welded"
+        d: "Same material as the metal pieces to be welded",
       },
-      correctAnswer: "c"
+      correctAnswer: "c",
     },
     {
       question: "The-arc-utilized-in-electric-arc-welding is a",
@@ -124,9 +119,9 @@
         a: "High voltage, high current discharge",
         b: " Low voltage, low current discharge",
         c: " Low voltage, high current discharge",
-        d: " Low voltage, high current discharge"
+        d: " Low voltage, high current discharge",
       },
-      correctAnswer: "c"
+      correctAnswer: "c",
     },
     {
       question: "Name the material of the core wire of the electrode.",
@@ -134,23 +129,13 @@
         a: "Carbon",
         b: "Graphite",
         c: " Either carbon or graphite",
-        d: "Same material as the metal pieces to be welded"
+        d: "Same material as the metal pieces to be welded",
       },
-      correctAnswer: "d"
-    }
+      correctAnswer: "d",
+    },
   ];
 
-
-
-
-// ---------------------------- End -------------------------------
-
-
-
-
-
-
-
+  // ---------------------------- End -------------------------------
 
   // display quiz right away
   buildQuiz();

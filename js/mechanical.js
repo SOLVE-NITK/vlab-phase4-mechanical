@@ -230,6 +230,14 @@ let labs = [
         id: "Beam Bending",
         path: "engineering_mechanics_two/exp-beam-bending",
       },
+      // {
+      //   id: "Coupled Pendulum,
+      //   path: "engineering_mechanics_two/exp-coupled-pendulum",
+      // },
+      // {
+      //   id: "Oscillation in U Tube",
+      //   path: "engineering_mechanics_two/exp-oscillation-in-utube",
+      // },
     ],
   },
 ];
