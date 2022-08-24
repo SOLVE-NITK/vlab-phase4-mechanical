@@ -275,8 +275,13 @@ types of lines widely used in drawings are shown in Table 1.
 
 <center> Table 1. Types of lines and their application </center> 
 
+
+<center>
+
 ![](images/fig1.png)
 
+
+</center>
 
 **Geometric Construction**
 
@@ -284,10 +289,16 @@ Drawing consists of construction of primitive geometric forms viz. points, lines
 and planes that serve a the building blocks for more complicated geometric
 shapes as shown in Fig 18, and defining the position of object in space.
 
+<center>
 
 ![](images/fig2.png)
 
-<center>Fig 18. Different types of Geometric Figures </center> 
+Fig 18. Different types of Geometric Figures
+
+</center>
+
+
+
 
 The important elements of dimensioning consists of extension lines, leader line,
 arrows and dimensions.
@@ -304,27 +315,48 @@ touching the part or detail as shown in Figure 2. On the end opposite the arrow,
 have a short, horizontal shoulder. Text is extended from this shoulder such that
 the text height is centered with the shoulder line
 
+<center>
+
 ![](images/fig3.png)
 
-<center>Fig 19. Extension lines </center>
+Fig 19. Extension lines
+
+</center>
+
+
+
 
 -   Arrows should be 1/3rd as wide as they are long - symbols
     placed at the end of dimension lines to show the limits of the dimension.
     Arrows are uniform in size and style, regardless of the size of the drawing.
     Various types of arrows used for dimensioning is shown in Fig 20.
 
+<center>
+
 ![](images/fig4.png)
 
-<center> Fig 20. Types of arrows used for dimensioning </center>
+Fig 20. Types of arrows used for dimensioning 
+
+</center>
+
+
 
 **Dimensioning of angles:** 
 The normal convention for dimensioning of angles are
 illustrated in Fig 21.
 
+<center>
+
 ![](images/fig5.png)
 
-<center> Figure 21. Representation of Angles 
+Figure 21. Representation of Angles   
 
 source: https://nptel.ac.in/courses/112/103/112103019/
+
+
+</center>
+
+
+
 
 </div>
