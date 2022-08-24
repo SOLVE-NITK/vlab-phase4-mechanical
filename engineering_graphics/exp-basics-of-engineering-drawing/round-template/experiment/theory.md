@@ -7,36 +7,47 @@ Engineering Graphics is a technical way of communicating between engineers and d
 The drawing instuments required for a perfect technical drawings are listed below:
 1. Drawing Board
 <br>A drawing board is a wooden board where the paper is fixed upon, which is a convinient way to draw. A drawing board is shown in Fig 1. It comes in different sizes such as B0, B1, B2 and B3
+
 <center>
 
 ![](images/1.png)
+
 Fig 1. Drawing Board
+
 </center>
+
 <br>2. T- square
 A T-square as shown in Fig 2, is made up of two pieces of hard quality wood, which is fastened at rigt angles to each other. Horizontal lines are drawn by using the working edge of the drawing board.
 
 <center>
 
 ![](images/2.png)
+
 Fig 2. T-square
+
 </center>
 
 <br>3. Set squares - 45<sup>o</sup> and 30<sup>o</sup> - 60<sup>o</sup>
 A set square as shown in Fig 3, is used to darw vertical lines by taking the horizontal lines drawn by T-square as the reference.
+
 <center>
 
 ![](images/3.png)
+
 Fig 3. Set-Square
+
 </center>
 
 4. Drawing Instrument box containing:
      <br>i. Large-size compass ith interchangable pencils and pens
      <br>Compasses as shown in Fig 4, are used in drawing circles and arcs of circles.
+
      <center>
 
      ![](images/4i.png)
      
      Fig 4. Large-size compass
+
      </center>
      
      <br>ii. Lengthening bar
@@ -45,7 +56,9 @@ Fig 3. Set-Square
      <center>
 
     ![](images/4ii.png)
+
      Fig 5. Lengthening Bar
+
      </center>
 
      <br>iii. Small bow compass
@@ -69,6 +82,7 @@ Fig 3. Set-Square
      Fig 7. Large Size divider
 
      </center>
+
      <br>v. Small bow divider
      <br>A small bow divider is used to make minue divisions
 
@@ -83,6 +97,7 @@ Fig 3. Set-Square
      ![](images/5.png)
 
      Fig 8. Inkng Pen
+
      </center>
 
 <br>5. Scales
@@ -93,6 +108,7 @@ Fig 3. Set-Square
 ![](images/6.png)
 
 Fig 9. Scale
+
 </center>
 
 <br>6. Protractor
@@ -103,6 +119,7 @@ A protractor as shown in Fig 10, helps n measuring angles accurately.
 ![](images/7.png)
 
 Fig 10. A Protactor
+
 </center>
 
 <br>7. French Curves
@@ -113,6 +130,7 @@ Fig 10. A Protactor
 ![](images/8.png)
 
 Fig 11. Frech Curves
+
 </center>
 
 <br>8. Drawing Papers
@@ -123,6 +141,7 @@ Fig 11. Frech Curves
 ![](images/9.png)
 
 Fig 12. Paper and it's diffrent size
+
 </center>
 
 <br>9. Drawing Pencils
@@ -133,6 +152,7 @@ Fig 12. Paper and it's diffrent size
 ![](images/10.png)
 
 Fig 13. Pencil and it's edges
+
 </center>
 
 <br>10. Sand-Paper block
@@ -143,6 +163,7 @@ Fig 13. Pencil and it's edges
 ![](images/13.png)
 
 Fig 14. Sand-paper Block
+
 </center>
 
 <br>11. Eraser
@@ -162,6 +183,7 @@ Fig 14. Sand-paper Block
 ![](images/11.png)
 
 Fig 15. Drafting Machine
+
 </center>
 
 <br>15. Roll-n-draw
@@ -172,6 +194,7 @@ A Roll-n-draw as shown in Fig 16, consists of a graduated roller which is used t
 ![](images/12.png)
 
 Fig 16. Roll-n-Draw
+
 </center>
 
 Instructions to draw border lines:
@@ -263,6 +286,7 @@ shapes as shown in Fig 18, and defining the position of object in space.
 
 
 ![](images/fig2.png)
+
 <center>Fig 18. Different types of Geometric Figures </center> 
 
 The important elements of dimensioning consists of extension lines, leader line,
@@ -298,7 +322,9 @@ The normal convention for dimensioning of angles are
 illustrated in Fig 21.
 
 ![](images/fig5.png)
+
 <center> Figure 21. Representation of Angles 
 
 source: https://nptel.ac.in/courses/112/103/112103019/
+
 </div>
