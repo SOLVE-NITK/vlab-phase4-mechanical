@@ -1,1 +1,0 @@
-The purpose of the experiment is to find the angle by which the pendulums are displaced when the masses, length and stiffness of the spring is changed. Also observe the variation in graphs for each phase (In-phase mode, Out-off phase mode and Resonance).

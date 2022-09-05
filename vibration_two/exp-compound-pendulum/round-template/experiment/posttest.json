@@ -1,0 +1,90 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "If the length of both strings gets reduced evenly for same point masses of different initial angles. Then the natural frequencies will:",
+      "answers": {
+        "a": "Increased",
+        "b": "Decreased",
+        "c": "Will not be affected",
+        "d": "can't calculate"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "If the double pendulum is in moon, then for the same point masses and same length the natural frequencies will:",
+      "answers": {
+        "a": "Increased",
+        "b": "Decreased",
+        "c": "Will not be affected",
+        "d": "can't calculate"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "If l<sub>1</sub> = 100m; l<sub>2</sub> = 80m; m<sub>1</sub> = m<sub>2</sub> = 35kg; θ<sub>1</sub> =30<sup>o</sup> and θ<sub>2</sub> = 40<sup>o</sup> , Then the natural frequencies of system are:",
+      "answers": {
+        "a": "0.040139 Hz and 0.097769 Hz",
+        "b": "0.089932 Hz and 0.097769 Hz",
+        "c": "0.040139 Hz and 0.050432 Hz",
+        "d": "0.057683 Hz and 0.067893 Hz"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "If l<sub>1</sub> = 100m; l<sub>2</sub> = 80m; m<sub>1</sub> = m<sub>2</sub> = 35kg; θ<sub>1</sub> =30<sup>o</sup> and θ<sub>2</sub> = 40<sup>o</sup>, Then the first mode shape and second mode shape ratio respectively are:",
+      "answers": {
+        "a": "0.4860 and -2.4430",
+        "b": "0.6733 and -2.0806",
+        "c": "0.4806 and -2.0806",
+        "d": "none of the above"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "If l<sub>1</sub> = l<sub>2</sub> =80m; m<sub>1</sub> = m<sub>2</sub> = 40kg; θ<sub>1</sub> = θ<sub>2</sub> = 40<sup>o</sup>, Then the first mode shape and second mode shape ratio respectively are:",
+      "answers": {
+        "a": "0.4142 and -2.4142",
+        "b": "0.4142 and -2.7793",
+        "c": "0.4142 and -2.4242",
+        "d": "0.4234 and -1.5324"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    }
+  ]
+}

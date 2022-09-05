@@ -1,0 +1,90 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "Double pendulum consists of:",
+      "answers": {
+        "a": "two-point masses suspended by two strings",
+        "b": "three-point masses suspended by two strings",
+        "c": "two-point masses suspended by three strings",
+        "d": "three-point masses suspended by three strings"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "In order to double the period of a simple pendulum, the length of the string should be",
+      "answers": {
+        "a": "halved",
+        "b": "doubled",
+        "c": "quadrupled",
+        "d": "none of the mentioned"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "The guess solution regarding the solutions for x1 and x2 in double pendulum are:",
+      "answers": {
+        "a": "x<sub>1</sub> = X<sub>1</sub> sin &omega;t ; x<sub>1</sub> = X<sub>1</sub> sin &omega;t",
+        "b": "&theta;<sub>1</sub> = &beta;<sub>1</sub> sin &omega;t ; &theta;<sub>2</sub> = &beta;<sub>2</sub> sin &omega;t",
+        "c": "x = A<sub>1</sub> e<sup>st</sup> ; x = A<sub>2</sub> e<sup>st</sup>",
+        "d": "x = X sin &omega;t ; &theta; = &beta; sin &omega;t "
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "The Legrangian equation is L=T-V where T is",
+      "answers": {
+        "a": "kinetic energy of system",
+        "b": "potential energy of system",
+        "c": "vibrational energy of system",
+        "d": "none of the above"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "The Legrangian equation is L=T-V where V is",
+      "answers": {
+        "a": "kinetic energy of system",
+        "b": "potential energy of system",
+        "c": "vibrational energy of system",
+        "d": "none of the above"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    }
+  ]
+}

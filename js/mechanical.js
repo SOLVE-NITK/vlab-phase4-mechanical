@@ -156,12 +156,11 @@ let labs = [
   {
     labName: "Vibrations II",
     experiments: [
-      { id: "Coupled Pendulum", path: "vibration_two/exp-coupled-pendulum" },
+      { id: "Free Vibration Analysis of Two Degree of Freedom System", path: "vibration_two/exp-free-vibration" },
       {
-        id: "Oscillation in UTube",
-        path: "vibration_two/exp-oscillation-in-utube",
-      },
-      { id: "Two Pulley System", path: "vibration_two/exp-two-pully-system" },
+        id: "Compound Pendulum ",
+        path: "vibration_two/exp-compound-pendulum",
+      }
     ],
   },
   {
