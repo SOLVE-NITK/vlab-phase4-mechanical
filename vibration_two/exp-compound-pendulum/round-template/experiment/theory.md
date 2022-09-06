@@ -69,8 +69,10 @@ If E = (m<sub>2</sub> x g)/l<sub>2</sub> and F = (m<sub>1</sub>+m<sub>2</sub>)g/
 
 The above equation is quadratic in &omega;<sup>2</sup> and gives two values of &omega;<sup>2</sup>, and therefore two positive values of &omega; corresponding to two natural frequencies &omega;<sub>n1</sub> and &omega;<sub>n2</sub> of the system. The above equation is called the frequency equation since the roots of this equation gives the natural frequencies of the system.
 Considering,
-<center> m<sub>1</sub> = m<sub>2</sub> = m
-<br>l<sub>1</sub> = l<sub>2</sub> = l
+<center>
+
+![](images/23.png)
+
 </center>
 <br>
 The above equations become,
@@ -154,7 +156,7 @@ On solving,
 
 </center>
 
-Where &mu; = 1 + (m<sub>1</sub> + m<sub>2</sub>), $ \ddot θ1 $ and $ \ddot θ2 $ are angular accelerations of point masses m<sub>1</sub> and m<sub>2</sub> and $ \dot θ1 $ and $ \dot θ2 $ are angular velocities of point masses m<sub>1</sub> and m<sub>2</sub>.
+Where &mu; = 1 + (m<sub>1</sub> + m<sub>2</sub>), $\ddot θ1$ and $\ddot θ2$ are angular accelerations of point masses m<sub>1</sub> and m<sub>2</sub> and $\dot θ1$ and $\dot θ2$ are angular velocities of point masses m<sub>1</sub> and m<sub>2</sub>.
 
 To solve the equation of motion for the angles, we can use the Euler method. For using Euler method, we should define a time interval and iterate over time. As time changes, angular acceleration, angular velocity and angle is changed. So, from the values of angular acceleration, velocity and angle at that instant of time, we can calculate the position of the system precisely. 
 Such that,
