@@ -26,98 +26,85 @@ let labs = [
       },
     ],
   },
-  {
-    labName: "Heat Transfer Lab",
-    experiments: [
-      {
-        id: "Thermal Conductivity of a metal rod",
-        path: "heat_transfer/exp-thermal-conductivity",
-      },
-      {
-        id: "Heat Transfer Through Lagged Pipe",
-        path: "heat_transfer/exp-lagged-pipe",
-      },
-      {
-        id: "Test on Heat Exchangers",
-        path: "heat_transfer/exp-test-on-heat-exchangers",
-      },
-      {
-        id: "Composite Slab Apparatus",
-        path: "heat_transfer/exp-composite-slab-apparatus",
-      },
-      {
-        id: "Measurement of Emissivity",
-        path: "heat_transfer/exp-measurement-of-emissivity",
-      },
-      {
-        id: "Heat Transfer by Natural Convection",
-        path: "heat_transfer/exp-heat-transfer-by-natural-convection",
-      },
-      {
-        id: "Heat Transfer by Forced Convection",
-        path: "heat_transfer/exp-heat-transfer-by-forced-convection",
-      },
-    ],
-  },
-  {
-    labName: "Engineering Graphics Lab",
-    experiments: [
-      {
-        id: "Projection of point and Conventions",
-        path: "engineering_graphics/exp-projection-of-points",
-      },
-      {
-        id: "Introduction of Engineering  Drawing",
-        path: "engineering_graphics/exp-basics-of-engineering-drawing",
-      },
-      {
-        id: "Projections of Line(Part I)",
-        path: "engineering_graphics/exp-projection-of-lines",
-      },
-      {
-        id: "Projections of Line(Part II)",
-        path: "engineering_graphics/exp-projection-of-lines-two",
-      },
-      {
-        id: "Projection of Planes",
-        path: "engineering_graphics/exp-projection-of-planes",
-      },
-      {
-        id: "Projection of solid",
-        path: "engineering_graphics/exp-projection-of-solid",
-      },
-      {
-        id: "Auxiliary plane Method (Part I)",
-        path: "engineering_graphics/exp-auxiliary-plane-method",
-      },
-      {
-        id: "Auxiliary Plane method(Part II)",
-        path: "engineering_graphics/exp-auxiliary-plane-method-two",
-      },
-      {
-        id: "Isometric to Orthographic View",
-        path: "engineering_graphics/exp-isometric-to-orthographic",
-      },
-      {
-        id: "Orthographic to Isometric View",
-        path: "engineering_graphics/exp-orthographic-to-isometric",
-      },
-    ],
-  },
-  {
-    labName: "Machine Design Lab",
-    experiments: [
-      { id: "Axial Load", path: "machine_design/exp-axial-load" },
-      {
-        id: "Design of Shaft(Belt Driven)",
-        path: "machine_designs/exp-design-shaft-belt",
-      },
-      {
-        id: "Design of Shaft(Gear Driven)",
-        path: "machine_design/exp-design-shaft-gear",
-      },
-    ],
-  },
+  // {
+  //   labName: "Heat Transfer Lab",
+  //   experiments: [
+  //     {
+  //       id: "Thermal Conductivity of a metal rod",
+  //       path: "heat_transfer/exp-thermal-conductivity",
+  //     },
+  //     {
+  //       id: "Heat Transfer Through Lagged Pipe",
+  //       path: "heat_transfer/exp-lagged-pipe",
+  //     },
+  //     {
+  //       id: "Test on Heat Exchangers",
+  //       path: "heat_transfer/exp-test-on-heat-exchangers",
+  //     },
+  //     {
+  //       id: "Composite Slab Apparatus",
+  //       path: "heat_transfer/exp-composite-slab-apparatus",
+  //     },
+  //     {
+  //       id: "Measurement of Emissivity",
+  //       path: "heat_transfer/exp-measurement-of-emissivity",
+  //     },
+  //     {
+  //       id: "Heat Transfer by Natural Convection",
+  //       path: "heat_transfer/exp-heat-transfer-by-natural-convection",
+  //     },
+  //     {
+  //       id: "Heat Transfer by Forced Convection",
+  //       path: "heat_transfer/exp-heat-transfer-by-forced-convection",
+  //     },
+  //   ],
+  // },
+  // {
+  //   labName: "Engineering Graphics Lab",
+  //   experiments: [
+  //     {
+  //       id: "Projection of point and Conventions",
+  //       path: "engineering_graphics/exp-projection-of-points",
+  //     },
+  //     {
+  //       id: "Introduction of Engineering  Drawing",
+  //       path: "engineering_graphics/exp-basics-of-engineering-drawing",
+  //     },
+  //     {
+  //       id: "Projections of Line(Part I)",
+  //       path: "engineering_graphics/exp-projection-of-lines",
+  //     },
+  //     {
+  //       id: "Projections of Line(Part II)",
+  //       path: "engineering_graphics/exp-projection-of-lines-two",
+  //     },
+  //     {
+  //       id: "Projection of Planes",
+  //       path: "engineering_graphics/exp-projection-of-planes",
+  //     },
+  //     {
+  //       id: "Projection of solid",
+  //       path: "engineering_graphics/exp-projection-of-solid",
+  //     },
+  //     {
+  //       id: "Auxiliary plane Method (Part I)",
+  //       path: "engineering_graphics/exp-auxiliary-plane-method",
+  //     },
+  //     {
+  //       id: "Auxiliary Plane method(Part II)",
+  //       path: "engineering_graphics/exp-auxiliary-plane-method-two",
+  //     },
+  //     {
+  //       id: "Isometric to Orthographic View",
+  //       path: "engineering_graphics/exp-isometric-to-orthographic",
+  //     },
+  //     {
+  //       id: "Orthographic to Isometric View",
+  //       path: "engineering_graphics/exp-orthographic-to-isometric",
+  //     },
+  //   ],
+  // },
+
   {
     labName: "Thermodynamics Lab",
     experiments: [
@@ -153,16 +140,16 @@ let labs = [
       },
     ],
   },
-  {
-    labName: "Vibrations II",
-    experiments: [
-      { id: "Free Vibration Analysis of Two Degree of Freedom System", path: "vibration_two/exp-free-vibration" },
-      {
-        id: "Compound Pendulum ",
-        path: "vibration_two/exp-compound-pendulum",
-      }
-    ],
-  },
+  // {
+  //   labName: "Vibrations II",
+  //   experiments: [
+  //     { id: "Free Vibration Analysis of Two Degree of Freedom System", path: "vibration_two/exp-free-vibration" },
+  //     {
+  //       id: "Compound Pendulum ",
+  //       path: "vibration_two/exp-compound-pendulum",
+  //     }
+  //   ],
+  // },
   {
     labName: "UAV Lab",
     experiments: [
@@ -197,24 +184,38 @@ let labs = [
       },
     ],
   },
+  // {
+  //   labName: "Dynamics of Machine II",
+  //   experiments: [
+  //     {
+  //       id: "Compound Gear Train",
+  //       path: "dynamics_of_machine_two/exp-compound-gear-train",
+  //     },
+  //     {
+  //       id: "Reverted Gear Train",
+  //       path: "dynamics_of_machine_two/exp-reverted-gear-train",
+  //     },
+  //     {
+  //       id: "Epicyclic Gear Train",
+  //       path: "dynamics_of_machine_two/exp-epicyclic-gear-train",
+  //     },
+  //     {
+  //       id: "Continuously Vriable Transmission",
+  //       path: "dynamics_of_machine_two/exp-continuous-variable-transmission",
+  //     },
+  //   ],
+  // },
   {
-    labName: "Dynamics of Machine II",
+    labName: "Machine Design Lab",
     experiments: [
+      { id: "Axial Load", path: "machine_design/exp-axial-load" },
       {
-        id: "Compound Gear Train",
-        path: "dynamics_of_machine_two/exp-compound-gear-train",
+        id: "Design of Shaft(Belt Driven)",
+        path: "machine_designs/exp-design-shaft-belt",
       },
       {
-        id: "Reverted Gear Train",
-        path: "dynamics_of_machine_two/exp-reverted-gear-train",
-      },
-      {
-        id: "Epicyclic Gear Train",
-        path: "dynamics_of_machine_two/exp-epicyclic-gear-train",
-      },
-      {
-        id: "Continuously Vriable Transmission",
-        path: "dynamics_of_machine_two/exp-continuous-variable-transmission",
+        id: "Design of Shaft(Gear Driven)",
+        path: "machine_design/exp-design-shaft-gear",
       },
     ],
   },
