@@ -1,26 +1,64 @@
 ## <b> Pre-test</b>
 #### Please attempt the following questions
 
+<br>
 1. Which of the following statement is correct?
+<br>
+a) A grey body is one which absorbs all radiations incident on it.
+<br>
+b) At thermal equilibrium, the emissivity and absorptivity are same.
+<br>
+c) The energy absorbed by a body to the total energy falling on it, is called emissivity.
+<br>
+d) A perfect body is one which is black in colour.
 
-(A) A grey body is one which absorbs all radiations incident on it.
+<br>
+Answer: b
 
-(B) At thermal equilibrium, the emissivity and absorptivity are same.
-
-(C) The energy absorbed by a body to the total energy falling on it, is called emissivity.
-
-(D) A perfect body is one which is black in colour.
-
-Answer: Option B
-
+<br>
 2. The body which absorbs all radiations incident upon it, is called as
+<br>
+a) Black body
+<br>
+b) White body
+<br>
+c) Opaque body
+<br>
+d) Transparent body
 
-(A) Black body
+<br>
+Answer: a
 
-(B) White body
+<br>
+3. Emissivity is the measure of an object's ability to absorb, transmit and emit infrared energy.
+<br>
+a) True
+<br>
+b) False 
 
-(C) Opaque body
+<br>
+Answer: a
 
-(D) Transparent body
+<br>
+4. What is the equivalent emissivity for radiant heat exchange between a small body (emissivity = 0.4) in a very large enclosure (emissivity = 0.5)?
+<br>
+a)0.52
+<br>
+b)0.4
+<br>
+c)0.23
+<br>
+d)0.1
 
-(Ans: A)
+<br>
+Answer: b
+
+<br>
+5. When heat is supplied at a constant rate to a body, heat loss takes place by conduction, convection and radiation.
+<br>
+a)True 
+<br>
+b)False 
+
+<br>
+Answer: a

@@ -1,1 +1,1 @@
-## Composite Slab Apparatus
+## Heat Transfer Coefficient of a Composite Wall

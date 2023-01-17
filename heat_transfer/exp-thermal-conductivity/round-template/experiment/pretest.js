@@ -80,23 +80,25 @@
 
 const myQuestions = [
   {
-    question: "Is heat transfer a scalar or vector quantity?",
+    question: "Heat transfer takes place according to",
     answers: {
-      a: "Vector",
-      b: "Scalar"
+      a: "First Law of Thermodynamics",
+      b: "Second Law of Thermodynamics",
+      c: "Third Law of Thermodynamics",
+      d: "Zeroth Law of Thermodynamics"
     },
-    correctAnswer: "a"
+    correctAnswer: "b"
   },
 
   {
-    question: "What are the units of thermal conductivity?",
+    question: "Fourier law of heat conduction is based on the assumption that",
     answers: {
-      a: "J/m² sec",
-      b: "J/m °K sec",
-      c: "W/m °K",
-      d: "Option (B) and (C) above"
+      a: "Heat flow through a solid is one dimensional",
+      b: "Heat flow is in steady state",
+      c: "Both (A) and (B)",
+      d: "None of the options"
     },
-    correctAnswer: "d"
+    correctAnswer: "c"
   }
 ];
 

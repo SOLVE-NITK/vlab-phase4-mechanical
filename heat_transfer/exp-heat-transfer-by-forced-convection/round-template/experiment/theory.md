@@ -1,25 +1,33 @@
 ## INTRODUCTION<br>
 
 #### User Objectives and Goals:
-
-To determine Mass Density of air
-
-To determine Heat transfer rate
-
-To determine heat transfer coefficient
-
-To determine Vair in the tube
-
-To determine Vair at orifice
-
+<br>
+1. To determine Mass Density of air
+<br>
+2. To determine Heat transfer rate
+<br>
+3. To determine heat transfer coefficient
+<br>
+4. To determine Vair in the tube
+<br>
+5. To determine Vair at orifice
 
 
 #### Theory
-It is well know that a hot plate of metal will cool faster in from a fan than when exposed to
-still air. We say that the heat is convected away and we call the process as convective heat
+A hot plate of metal will cool faster from a fan than when exposed to
+atmosphere. The heat is convected away and the process is called as convective heat
 transfer. The velocity at which air blows over the hot plate obviously influences the heat
-transfer rate.
+transfer rate. Fig 1 shows the experimental setup that demonstrates Heat transfered by Forced Convection
+<center>
 
+<br>![alt text](images/55.png)<br>
+Fig 1. Experimental Setup of Heat transfered by Forced Convection 
+<br>![alt text](images/66.png)<br>
+Fig 2. Schematic representation of forced convective heat transfer 
+
+</center>
+
+Fig 2 shows the schematic representation of forced convective heat transfer. <br>
 The Newton‟s law of cooling in convective heat transfer is given by
 
 Q=h A ∆T<br>

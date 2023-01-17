@@ -25,5 +25,41 @@ c. (R1 + R2 + R3)
 
 d. none of the above
 
-Answer:  b
+Answer:  b<br>
   Explanation: Walls of houses where bricks are given a layer of plaster on either side.
+
+3.  A hot fluid flow inside the tube covered with a layer of thermal insulation is an example of composite system.
+
+a: True
+
+b: False
+
+Answer: a<br>
+
+
+4.  Select the only wrong statement.
+
+a: Heat can be converted into work
+
+b: Heat can be reflected by a mirror
+
+c: Heat waves cannot pass through vacuum
+
+d: Heat is a form of energy
+
+Answer: c<br>
+  Explaination: Heat waves can travel in vacuum by radiation
+
+5.  Heat transfer by conduction is directly proportional to
+
+a: (Thermal potential difference)/(Thermal resistance)
+
+b: (Thermal resistance)/(Thermal potential difference)
+
+c: (Thermal potential difference)/(Thermal resistance)
+
+d: Thermal resistance
+
+Answer: a<br>
+
+

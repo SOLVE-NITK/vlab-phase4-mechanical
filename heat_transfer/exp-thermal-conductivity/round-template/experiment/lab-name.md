@@ -1,1 +1,1 @@
-Heat Transfer lab
+Heat Transfer Lab

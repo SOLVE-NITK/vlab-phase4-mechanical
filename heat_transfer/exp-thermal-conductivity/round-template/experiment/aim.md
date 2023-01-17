@@ -1,1 +1,1 @@
-To determine the thermal conductivity of metal rod.
+The aim is to determine the thermal conductivity of the insulating material and plot the radial temperature distribution in the cylinder.

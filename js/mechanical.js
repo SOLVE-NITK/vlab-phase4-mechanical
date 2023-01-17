@@ -26,39 +26,39 @@ let labs = [
       },
     ],
   },
-  // {
-  //   labName: "Heat Transfer Lab",
-  //   experiments: [
-  //     {
-  //       id: "Thermal Conductivity of a metal rod",
-  //       path: "heat_transfer/exp-thermal-conductivity",
-  //     },
-  //     {
-  //       id: "Heat Transfer Through Lagged Pipe",
-  //       path: "heat_transfer/exp-lagged-pipe",
-  //     },
-  //     {
-  //       id: "Test on Heat Exchangers",
-  //       path: "heat_transfer/exp-test-on-heat-exchangers",
-  //     },
-  //     {
-  //       id: "Composite Slab Apparatus",
-  //       path: "heat_transfer/exp-composite-slab-apparatus",
-  //     },
-  //     {
-  //       id: "Measurement of Emissivity",
-  //       path: "heat_transfer/exp-measurement-of-emissivity",
-  //     },
-  //     {
-  //       id: "Heat Transfer by Natural Convection",
-  //       path: "heat_transfer/exp-heat-transfer-by-natural-convection",
-  //     },
-  //     {
-  //       id: "Heat Transfer by Forced Convection",
-  //       path: "heat_transfer/exp-heat-transfer-by-forced-convection",
-  //     },
-  //   ],
-  // },
+  {
+    labName: "Heat Transfer Lab",
+    experiments: [
+      {
+        id: "Thermal Conductivity of a metal rod",
+        path: "heat_transfer/exp-thermal-conductivity",
+      },
+      {
+        id: "Heat Transfer Through Lagged Pipe",
+        path: "heat_transfer/exp-lagged-pipe",
+      },
+      {
+        id: "Test on Heat Exchangers",
+        path: "heat_transfer/exp-test-on-heat-exchangers",
+      },
+      {
+        id: "Composite Slab Apparatus",
+        path: "heat_transfer/exp-composite-slab-apparatus",
+      },
+      {
+        id: "Measurement of Emissivity",
+        path: "heat_transfer/exp-measurement-of-emissivity",
+      },
+      {
+        id: "Heat Transfer by Natural Convection",
+        path: "heat_transfer/exp-heat-transfer-by-natural-convection",
+      },
+      {
+        id: "Heat Transfer by Forced Convection",
+        path: "heat_transfer/exp-heat-transfer-by-forced-convection",
+      },
+    ],
+  },
   // {
   //   labName: "Engineering Graphics Lab",
   //   experiments: [

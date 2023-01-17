@@ -79,34 +79,34 @@
 // Write your MCQs here --- Start --- --------------------
   const myQuestions = [
     {
-      question: "What is the nature of the graph of Temperature vs Length for this experiment.",
+      question: "The radial heat transfer rate through hollow cylinder increases as the ratio of outer radius to inner radius",
       answers: {
-        a: "Parabolic",
-        b: "Linear",
-        c: "Hyperbplic",
-        d: "Sinusoidal"
-      },
-      correctAnswer: "b"
-    },
-    {
-      question: "What are the factors affecting the thermal conductivity?",
-      answers: {
-        a: "Density",
-        b: "Temperature",
-        c: "Mass",
-        d: "Both a and b"
-      },
-      correctAnswer: "d"
-    },
-    {
-      question: "The transfer of heat by molecular collision is smallest in",
-      answers: {
-        a: "Solids",
-        b: "Liquids",
-        c: "Gases",
+        a: "Constant",
+        b: "Increases",
+        c: "Decreases",
         d: "None of these"
       },
       correctAnswer: "c"
+    },
+    {
+      question: "When the thickness of insulation on a pipe exceeds the critical value the heat flow rate",
+      answers: {
+        a: "Increases",
+        b: "None of these",
+        c: "Remains constant",
+        d: "Decreases"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "The amount of heat flow through a body by conduction is",
+      answers: {
+        a: "Directly proportional to the temperature",
+        b: "All of these",
+        c: "Inversely proportional to the thickness of the body",
+        d: "Dependent upon the material of the body"
+      },
+      correctAnswer: "b"
     }
   ];
 

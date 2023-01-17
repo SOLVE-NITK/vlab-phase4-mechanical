@@ -4,16 +4,22 @@
 
 To determine the total thermal resistance of the composite slab
 
-to determine the total thermal conductivity of the composite slab.
+To determine the total thermal conductivity of the composite slab.
 
-To understand the temperature vs distance graph
+To plot the temperature vs distance graph
 
 
 
 #### Theory
-Many engineering applications of practical utility involve heat transfer through a medium composed of two or more materials of different thermal conductivities arranged in series or parallel. Consider for example the walls of a refrigerator, hot cases, cold storage plants, hot water tanks etc., which always have insulating materials between the inner and the outer wall. A hot fluid flow inside the tube covered with a layer of thermal insulation is an example of composite system because in this case the thermal conductivities of tube metal insulation are different.
+Many engineering applications of practical utility involve heat transfer through a medium composed of two or more materials of different thermal conductivities arranged in series or parallel. Consider for example the walls of a refrigerator, hot cases, cold storage plants, hot water tanks etc., which always have insulating materials between the inner and the outer wall. A hot fluid flow inside the tube covered with a layer of thermal insulation is an example of composite system because in this case the thermal conductivities of tube metal insulation are different. The experimental setup of a composite slab apparatus is shown in Fig 1.<center>
 
-A simple method for determining an overall heat transfer coefficient that is useful to find the heat transfer between simple elements such as walls in buildings or across heat exchangers is shown below. Note that this method only accounts for conduction within materials, it does not consider heat transfer through methods such as radiation. The method is as follows:
+<br>![alt text](images/44.png)<br>
+Fig 1. Composite Slab Apparatus
+
+<br>![alt text](images/55.png)<br>
+Fig 2. Direction of heat flow in a composite slab</center>
+
+A simple method for determining an overall heat transfer coefficient that is useful to find the heat transfer between simple elements such as walls in buildings or across heat exchangers is shown below. Note that this method only accounts for conduction within materials as shown in Fig 2, it does not consider heat transfer through methods such as radiation. The method is as follows:
 
 1/U=  L1/K1 +   L2/K2 + L3/K3 + …….
 

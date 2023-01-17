@@ -4,9 +4,9 @@
 
 To determine the total thermal resistance of the composite slab
 
-to determine the total thermal conductivity of the composite slab.
+To determine the total thermal conductivity of the composite slab.
 
-To understand the temperature vs distance graph
+To plot the temperature vs distance graph
 
 
 
@@ -14,11 +14,19 @@ To understand the temperature vs distance graph
 Natural convection heat transfer takes place by movement of fluid particles
 on solid surface caused by density difference between the fluid particles on
 account of difference in temperature. Hence there is no external agency facing
-fluid over the surface. It has been observed that the fluid adjacent to the surface
+fluid over the surface as shown in Fig 1. It has been observed that the fluid adjacent to the surface
 gets heated, resulting in thermal expansion of the fluid and reduction in its density.
 Subsequently a buoyancy force acts on the fluid causing it to flow up the surface.
 Here the flow velocity is developed due to difference in temperature between fluid
-particles.
+particles. Fig 2 shows experimental setup which demonstrates heat transfer by natural convection
+<center>
+
+<br>![alt text](images/5.png)<br>
+Fig 1. Schematic representation of heat transfer by natural convection
+
+<br>![alt text](images/6.png)<br>
+Fig 2. Experimental setup demonstrating heat transfer by natural convection
+</center>
 The following empirical correlations may be used to find out the heat
 transfer coefficient for vertical cylinder in natural convection.
 

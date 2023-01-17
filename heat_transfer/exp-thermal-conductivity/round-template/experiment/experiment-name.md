@@ -1,1 +1,1 @@
-## THERMAL CONDUCTIVITY OF A METAL ROD
+## Thermal Conductivity of Insulating Material

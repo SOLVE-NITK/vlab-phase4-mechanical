@@ -1,68 +1,88 @@
 ## INTRODUCTION<br>
 
 #### User Objectives and Goals:
-
+<br>
 1. To determine the Log mean temperature difference.
+<br>
 2. To determine the  overall heat transfer coefficient for the inside area.
+<br>
 3. To determine the effectiveness of the heat exchanger.
 
-
+<br>
 #### Theory
 
+A heat exchanger is a system used to transfer heat between two fluids, one hot and one cold as shown in Fig. 1.
+<center>
+
+![alt text](images/1.png)<br>
+Fig 1. Schematic representation of a heat exchanger
+</center>
 Heat transfer from one fluid to another fluid is given by the expression,<br>
-Q=A×U×(∆T)_m<br>
+<center>
+
+![](images/2.png)
+</center>
+
 Where,<br>
-	 (∆T)_m is the mean temperature difference
+	(∆T)<sub>m</sub> is the mean temperature difference
 	U is the overall heat transfer coefficient for the inside area<br>
 	A is the inside area of the heat exchanger<br>
 
 
 Temperature Profiles for Parallel and Counter Flow Heat Exchangers
 
-For which (∆T)_m = (θ_i-θ_o)/log⁡(θ_i⁄θ_o )
+For which,
+<center>
 
-	Parallel Flow	Counter Flow
+![](images/3.png)
+</center>
 
-θi	Thi - Tci	Thi - Tco<br>
-θo	Tho - Tco	Tho - Tci
+<center>
+
+![](images/7.png)
+</center>
 
 This expression for the mean temperature difference is known as the Log Mean Temperature Difference (LMTD).
+<center>
 
-U=  Q_absorbed/((∆T)_m×A)
+![](images/4.png)
+</center>
+
 
 In order to make comparisons between various types of heat exchangers, the term Heat Exchanger Effectiveness is used, which is defined as:
+<center>
 
-ϵ=  (Actual heat transfer)/(Maximum possible heat transfer)
+![](images/5.png)
+</center>
 
-Actual heat transfer may be computed by calculating the energy lost by the hot fluid or the energy gained by the cold fluid as<br>
- Q= C_h (T_hi-T_ho ) or Q= C_c (T_co-T_ci ).
+
+Actual heat transfer may be computed by calculating the energy lost by the hot fluid or the energy gained by the cold fluid as Q = C<sub>h</sub> (T<sub>hi</sub>-T<sub>ho</sub> ) or Q= C<sub>c</sub> (T<sub>co</sub>-T<sub>ci</sub> ).
 
 Both for parallel and counter flow heat exchanger where<br>
- C_h= W_h C_(p_h ) and C_c= W_c C_(p_c )
+ C<sub>h</sub>= W<sub>h</sub> C<sub>ph</sub> and C<sub>c</sub>= W<sub>c</sub> C<sub>pc</sub>
 
-Wh = weight of hot fluid flowing per unit time<br>
-Wc = weight of cold fluid flowing per unit time<br>
-Cph and Cpc are the specific heats of the hot and cold fluid respectively<br>
+W<sub>h</sub> = mass of hot fluid flowing per unit time<br>
+W<sub>c</sub> = mass of cold fluid flowing per unit time<br>
+C<sub>ph</sub> and C<sub>pc</sub> are the specific heats of the hot and cold fluid respectively<br>
 Maximum possible heat transfer is given by <br>
-Q_max= C_min (T_hi-T_ci )
+Q<sub>max</sub>= C<sub>min</sub> (T<sub>hi</sub>-T<sub>ci</sub> )
 
-Where Cmin is either Cph or Cpc, whichever is lesser.
+Where C<sub>min</sub> is either C<sub>ph</sub> or C<sub>pc</sub>, whichever is lesser.
 Hence, effectiveness
+<center>
 
-ϵ=  (C_h (T_hi-T_ho ))⁄(C_min (T_hi-T_ci ) )<br>
-ϵ=  (C_c (T_co-T_ci ))⁄(C_min (T_hi-T_ci ) )
+![](images/6.png)
 
-
+</center>
 
 
 #### Equations/formulas:
 
 Log Mean Temperature Difference (LMTD).
 
-(∆T)_m = (θ_i-θ_o)/log⁡(θ_i⁄θ_o ) <br>
-U=  Q_absorbed/((∆T)_m×A)<br>
+![](images/3.png)<br>
+![](images/4.png)<br>
 
-ffectiveness (ϵ)
+Effectiveness (ϵ)
 
-ϵ=  (C_h (T_hi-T_ho ))⁄(C_min (T_hi-T_ci ) )<br>
-ϵ=  (C_c (T_co-T_ci ))⁄(C_min (T_hi-T_ci ) )
+![](images/6.png)

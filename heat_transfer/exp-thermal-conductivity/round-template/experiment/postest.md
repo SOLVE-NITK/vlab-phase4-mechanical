@@ -1,26 +1,86 @@
 ## Post test
+
 <br>
+1. The radial heat transfer rate through hollow cylinder increases as the ratio of outer radius to inner radius
 
-1)	What is the nature of the graph of Temperature vs Length for this experiment.<br>
-a.	Parabolic
-b.	Linear
-c.	Hyperbplic
-d.	Sinusoidal
+<br>
+a) Constant.
+<br>
+b) Increases.
+<br>
+c) Decreases.
+<br>
+d) None of these.
 
-Ans) b
+<br>
+ans. c
 
-2)	What are the factors affecting the thermal conductivity?<br>
-a.	Density
-b.	Temperature
-c.	Mass
-d.	Both a and b
+<br>
+2. When the thickness of insulation on a pipe exceeds the critical value the heat flow rate
+<br>
+a) Increases
+<br>
+b) None of these
+<br>
+c) Remains constant
+<br>
+d) Decreases
 
-Ans) d
+<br>
+ans. a
 
-3)	The transfer of heat by molecular collision is smallest in<br>
-(A) Solids
-(B) Liquids
-(C) Gases
-(D) None of these
+<br>
+3. The amount of heat flow through a body by conduction is
+<br>
+a)Directly proportional to the temperature
+<br>
+b) All of these
+<br>
+c)Inversely proportional to the thickness of the body
+<br>
+d)Dependent upon the material of the body
 
-Ans. C
+<br>
+ans. b
+
+<br>
+4. Which of the following is true?
+<br>
+a)Latent heat of fusion is not much affected by pressure 
+<br>
+b)Latent heat of vapourization is highly sensitive to pressure 
+<br>
+c)Both of the mentioned 
+<br>
+d)None of the mentioned  
+
+<br>
+Answer - c
+
+<br>
+5. The literature of heat transfer generally recognizes distinct modes of heat transfer. How many modes are there?
+<br>
+a)One 
+<br>
+b)Two 
+<br>
+c)Three
+<br>
+d)Four 
+
+<br>
+Answer - c
+
+<br>
+6. Heat transfer by conduction is described by
+<br>
+a)Fourier’s law
+<br>
+b)Newton’s law of cooling
+<br>
+c)Stefan-Boltzmann law
+<br>
+d)Fick’s law.
+
+<br>
+Answer - a
