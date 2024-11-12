@@ -1,189 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <script>
-          var simsubscreennum=0;
-          var temp=0;
-          var myInt = 0;
-
-          var visibleImagesId = [
-              {
-                  simsubscreennum: 0,
-                  animImages: [],
-                  initialImages: ['metal0','machine0','off0','g0'],
-                  hideImages: ['machine1','off1']
-              },
-              {
-                  simsubscreennum: 1,
-                  animImages: [
-                      {
-                          id: 'bl',
-                          styleSet: 'position:absolute; left:50px;top:348px;width:120px;cursor:pointer;'
-                      }
-                  ],
-                  initialImages: ['machine1','off1'],
-                  hideImages: ['hyd','blank','m','die','off2','on2','metal','metal1','press','diebg']
-              },
-
-              {
-                  simsubscreennum: 2,
-                  animImages: [
-                    {
-                        id: 'press',
-                        styleSet: 'position:absolute;left:353px;top:90px;width:45px;visibility:hidden;'
-                    },
-                    {
-                        id: 'm',
-                        styleSet: 'position:absolute; left:355px;top:282px;width:42px;visibility:hidden;'
-                    }
-                  ],
-                  initialImages: ['hyd','blank','off2'],
-                  hideImages: ['machine3','off3','bl3','mbg3','m3','eq','eq1']
-              },
-              {
-                  simsubscreennum: 3,
-                  animImages: [
-                      {
-                          id: 'bl3',
-                          styleSet: 'position:absolute;left:455px;top:312px;width:120px;cursor:pointer;'
-                      },
-                      {
-                          id: 'm3',
-                          styleSet: 'position:absolute;left:500px;top:337px;width:22px;'
-                      }
-                  ],
-                  initialImages: ['machine3','off3','mbg3'],
-                  hideImages: ['m4','g4']
-              },
-              {
-                  simsubscreennum: 4,
-                  animImages: [
-                    {
-                        id: 'g4',
-                        styleSet: 'position:absolute;left:520px;top:300px;width:150px;cursor:pointer;'
-                    }
-                  ],
-                  initialImages: ['m4'],
-                  hideImages: []
-              }
-
-          ]
-      </script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SOLVE - Manufacturing Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/query.css" />
+    <script defer src="js/script1.js"></script>
   </head>
-<!--Simulation Screen start		-->
-<div id="simscreen">
+  <body>
+    <div class="main-container">
+      <div class="title-div-container">
+        <div class="title-div">
+          <div class="logo-div">
+            <a href="#"
+              ><img src="images/logo_nitk.png" alt="Logo" class="logo"
+            /></a>
+          </div>
+          <h1>Piercing</h1>
+        </div>
+      </div>
+      <div class="container">
+        <div class="main">
+          <div class="simsubscreen canvas0 display-flex" id="canvas0">
+            <h3>Objective:</h3>
+            <p>To study and observe piercing process through demonstration.</p>
+            <h3>Apparatus Used:</h3>
+            <p>Metal sheet of required size, Hydraulic press, Grinder etc.</p>
+            <div class="apparatus-images">
+              <div class="apparatus-wrapper">
+                <img
+                  id="g0"
+                  class="g0"
+                  title="Grinder"
+                  src="./images/grinder.png"
+                />
+                <img
+                  id="metal0"
+                  class="metal0"
+                  title="Workpiece"
+                  src="./images/metal.png"
+                />
+                <img
+                  id="machine0"
+                  class="machine0"
+                  title="Hydraulic Press"
+                  src="./images/machine.png"
+                />
+                <img
+                  id="off0"
+                  class="off0"
+                  title="Hydraulic press"
+                  src="./images/OFF.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="simsubscreen canvas1 hide" id="canvas1">
+            <div class="step-div">
+              <p id="pumptext" class="step-text">
+                <span id="titlestep" class="incanvas">STEP </span>
+                <span class="circlebg" id="stepnumber">1</span>Set the Workpiece
+                at correct position.
+              </p>
+              <img
+                id="machine1"
+                title="Hydraulic Press"
+                src="./images/machine.png"
+                class="machine1"
+              />
+              <img
+                id="off1"
+                title="Hydraulic Press"
+                src="./images/OFF.png"
+                class="off1"
+              />
+              <img
+                id="b1"
+                title="Workpiece"
+                src="./images/metal.png"
+                class="b1"
+              />
+            </div>
+          </div>
+          <div class="simsubscreen canvas2 hide" id="canvas2">
+            <div class="step-div">
+              <p id="pumptext" class="step-text">
+                <span id="titlestep" class="incanvas">STEP </span>
+                <span class="circlebg" id="stepnumber">2</span>Turn on the
+                machine.
+              </p>
+            </div>
+            <img
+              id="hyd"
+              title="Hydraulic Press"
+              src="./images/machine.png"
+              class="hyd"
+            />
+            <img
+              id="off2"
+              title="Hydraulic Press"
+              src="./images/OFF.png"
+              class="off2"
+            />
+            <img
+              id="blank"
+              title="Workpiece"
+              src="./images/metal.png"
+              class="blank"
+            />
+            <img
+              id="on2"
+              title="Hydraulic Press"
+              src="./images/on.png"
+              class="on2"
+            />
+            <img
+              id="die"
+              title="Hydraulic Press(Magnified view)"
+              src="./images/die.png"
+              class="die"
+            />
+            <img id="m" title="Blank" src="./images/mbg.png" class="m" />
+            <img
+              id="diebg"
+              title="Hydraulic Press(Magnified view)"
+              src="./images/diebg.png"
+              class="diebg"
+            />
+            <img
+              id="metal"
+              title="Hydraulic Press(Magnified view)"
+              src="./images/metal1.png"
+              class="metal"
+            />
+            <img
+              id="metal1"
+              title="Hydraulic Press(Magnified view)"
+              src="./images/metal2.png"
+              class="metal1"
+            />
+            <img
+              id="press"
+              title="Hydraulic Press(Magnified view)"
+              src="./images/press.png"
+              class="press"
+            />
+          </div>
 
-    <!--Title of Simulation		-->
-    <div id="title"><h3>PIERCING</h3></div>
+          <div class="simsubscreen canvas3 hide" id="canvas3">
+            <div class="step-div">
+              <p id="pumptext" class="step-text">
+                <span id="titlestep" class="incanvas">STEP </span>
+                <span class="circlebg" id="stepnumber">3</span>Take out blank
+                and scrap from the machine.
+              </p>
+            </div>
+            <img
+              id="machine3"
+              title="Hydraulic Press"
+              src="./images/machine.png"
+              class="machine3"
+            />
+            <img
+              id="off3"
+              title="Hydraulic Press"
+              src="./images/OFF.png"
+              class="off3"
+            />
+            <img id="m3" title="Blank" src="./images/mbg.png" class="m3" />
+            <img
+              id="mbg3"
+              title="Hydraulic Press"
+              src="./images/machinebg.png"
+              class="mbg3"
+            />
+            <img id="bl3" title="Scrap" src="./images/metal3.png" class="bl3" />
+            <img id="eq" title="" src="./images/EQ.png" class="eq" />
+            <img id="eq1" title="" src="./images/EQ1.png" class="eq1" />
+          </div>
+          <div class="simsubscreen canvas4 hide" id="canvas4">
+            <div class="step-div">
+              <p id="pumptext" class="step-text">
+                <span id="titlestep" class="incanvas">STEP </span>
+                <span class="circlebg" id="stepnumber">4</span> Clean the final
+                product.
+              </p>
+            </div>
+            <img id="m4" title="Blank" src="./images/metal3.png" class="m4" />
+            <img
+              id="g4"
+              title="Grinder"
+              src="./images/grinder.png"
+              class="g4"
+            />
+          </div>
 
-    <!--SubScreen Home	-->
-    <div class="simsubscreen" id="canvas0">
-    <h4 id="objective" style="font-family:verdana; ">Objective:</h4>
-    <p class="incanvas" style="font-family:verdana; font-size:15px;">To study and observe blanking process through demonstration.</p></br>
-    <h4 id="apparatus" style="font-family:verdana; ">Apparatus used:</h4>
-    <p class="incanvas" style="font-family:verdana; font-size:14px;">Metal sheet of required size, Hydraulic press, Grinder etc. </p>
-    <img id="g0" style="position:absolute; left:270px;top:320px;width:120px;" title="Grinder" src="./images/grinder.png" />
-    <img id="metal0" style="position:absolute; left:20px;top:350px;width:180px;" title="Workpiece" src="./images/metal.png" />
-   <img id="machine0" style="position:absolute; left:470px;top:200px;width:220px;" title="Hydraulic Press" src="./images/machine.png" />
-   <img id="off0" style="position:absolute; left:653px;top:341px;width:30px;" title="Hydraulic press" src="./images/OFF.png" />
-
+          <div class="nav">
+            <img id="prevButton" class="hide" src="images/bluebkdulls.svg" />
+            <img id="nextButton" src="images/bluebkwdulls.svg" />
+            <img id="reButton" class="hide" type="button" value="Reload Page"
+            onClick="document.location.reload(true);"
+            src="images/bluecwdull.svg" / >
+          </div>
+          <img
+            class=""
+            id="arrow1"
+            style="visibility: hidden"
+            src="images/arrow1.png"
+          />
+        </div>
+        <div class="footer">
+          <p>Copyright © SOLVE The Virtual Lab @ NITK Surathkal</p>
+        </div>
+      </div>
     </div>
-
-    <!--Step1	-->
-    <div class="simsubscreen" id="canvas1" style="visibility:hidden">
-    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;"> <strong id="titlestep" class="incanvas">STEP </strong>
-    <span class="circlebg" id="stepnumber">&nbsp;1&nbsp;</span> Set the Workpiece at correct position.</p>
-
-    <img id="machine1" style="position:absolute; left:380px;top:100px;width:300px;" title="Hydraulic Press" src="./images/machine.png" />
-    <img id="off1" style="position:absolute; left:630px;top:293px;width:40px;" title="Hydraulic Press" src="./images/OFF.png" />
-    <img id="bl" style="position:absolute; left:50px;top:348px;width:120px;cursor:pointer;" title="Workpiece" src="./images/metal.png" />
-
-    </div>
-
-
-
-
-    <!--Step2	-->
-    <div class="simsubscreen" id="canvas2" style="visibility:hidden">
-    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
-    <strong id="titlestep" class="incanvas">STEP</strong>
-    <span class="circlebg" id="stepnumber">&nbsp;2&nbsp;</span>Turn on the machine.</p>
-
-    <img id="hyd" style="position:absolute; left:380px;top:100px;width:300px;" title="Hydraulic Press" src="./images/machine.png" />
-    <img id="off2" style="position:absolute;left:630px;top:293px;width:40px;" title="Hydraulic Press" src="./images/OFF.png" />
-    <img id="blank" style="position:absolute;left:455px;top:312px;width:120px;" title="Workpiece" src="./images/metal.png" />
-
-    <img id="on2" style="position:absolute; left:630px;top:293px;width:40px;visibility:hidden;" title="Hydraulic Press" src="./images/on.png" />
-    <img id="die" style="position:absolute; left:150px;top:220px;width:450px;visibility:hidden;" title="Hydraulic Press(Magnified view)" src="./images/die.png" />
-    <img id="m" style="position:absolute; left:355px;top:282px;width:42px;visibility:hidden;" title="Blank" src="./images/mbg.png" />
-    <img id="diebg" style="position:absolute; left:150px;top:220px;width:450px;visibility:hidden;" title="Hydraulic Press(Magnified view)" src="./images/diebg.png" />
-    <img id="metal" style="position:absolute;left:150px;top:220px;width:450px;visibility:hidden;" title="Hydraulic Press(Magnified view)" src="./images/metal1.png" />
-    <img id="metal1" style="position:absolute;left:150px;top:220px;width:450px;visibility:hidden;" title="Hydraulic Press(Magnified view)" src="./images/metal2.png" />
-    <img id="press" style="position:absolute;left:353px;top:90px;width:45px;visibility:hidden;" title="Hydraulic Press(Magnified view)" src="./images/press.png" />
-
-    </div>
-
-    <!--Step3	-->
-    <div class="simsubscreen" id="canvas3" style="visibility:hidden">
-    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
-    <strong id="titlestep" class="incanvas">STEP </strong>
-    <span class="circlebg" id="stepnumber">&nbsp;3&nbsp;</span>
-    Take out blank and scrap from the machine.</p>
-
-    <img id="machine3" style="position:absolute; left:380px;top:100px;width:300px;" title="Hydraulic Press" src="./images/machine.png" />
-    <img id="off3" style="position:absolute; left:630px;top:293px;width:40px;" title="Hydraulic Press" src="./images/OFF.png" />
-    <img id="m3" style="position:absolute; left:500px;top:327px;width:35px;" title="Blank" src="./images/mbg.png" />
-    <img id="mbg3" style="position:absolute; left:380px;top:100px;width:300px;" title="Hydraulic Press" src="./images/machinebg.png" />
-    <img id="bl3" style="position:absolute; left:455px;top:312px;width:120px;cursor:pointer;" title="Scrap" src="./images/metal3.png" />
-    <img id="eq" style="position:absolute; left:-5px;top:323px;width:120px;visibility:hidden;" title="" src="./images/EQ.png" />
-    <img id="eq1" style="position:absolute; left:220px;top:330px;width:100px;visibility:hidden;" title="" src="./images/EQ1.png" />
-
-    </div>
-
-    <!--Step4 -->
-    <div class="simsubscreen" id="canvas4" style="visibility:hidden">
-    <p id="pumptext" class="steptext incanvas" style="font-family:verdana; font-size:14px;">
-    <strong id="titlestep" class="incanvas">STEP </strong>
-    <span class="circlebg" id="stepnumber">&nbsp;4&nbsp;</span>
-     Clean the final product.</p>
-
-     <img id="m4" style="position:absolute; left:70px;top:300px;width:300px;" title="Blank" src="./images/metal3.png" />
-     <img id="g4" style="position:absolute;left:520px;top:300px;width:150px;cursor:pointer;" title="Grinder" src="./images/grinder.png" />
-
-
-     </div>
-
-
-
-
-</div>
-
-    <div id="canvas5" class="simsubscreen" style="visibility:hidden;">
-    <strong class="incanvas" id="ob"><h3>Observations: </h3></strong>
-
-    </div>
-
-
-
-
-    <!--next  Arrow	-->
-    <div id="nav">
-        <img id="nextButton" onclick="navNext(); " src="images/Next.png" />
-          <img id="prevButton" onclick="navBack();" style="visibility:hidden" src="images/prev.png" />
-    </div>
-
-    <div>
-        <img id="reButton" input type="button" value="Reload Page" onClick="document.location.reload(true);" src="images/restart.png" / >
-    </div>
-
-    <!--Blinking Arrow	-->
-    <img class ="" id="arrow1" style="visibility:hidden" src="images/arrow1.png"/>
-
-    <div id="copyright"> &copy; 2020 SOLVE - The Virtual Lab @ NITK Surathkal, Department of Mechanical Engineering</div>
-    <script src="./js/sample.js"></script>
-    </body>
-    </html>
+  </body>
+</html>
